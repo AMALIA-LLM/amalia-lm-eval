@@ -8,12 +8,10 @@
 
 [![Website](https://img.shields.io/badge/Website-amaliallm.pt-blue)](https://amaliallm.pt/)
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-amalia--llm-yellow)](https://huggingface.co/amalia-llm)
-[![Paper](https://img.shields.io/badge/📄%20Paper-Techical%20Report-red)](https://arxiv.org/abs/2603.26511)
-[![GitHub](https://img.shields.io/badge/GitHub-AMALIA--LLM-green)](https://github.com/AMALIA-LLM)
-
-[🌐 Website](https://amaliallm.pt/) | [🤗 HuggingFace](https://huggingface.co/amalia-llm) | [📄 Paper](https://aclanthology.org/2026.propor-1.38/) | [📚 Documentation](https://amalia-llm.github.io/) | [💻 GitHub](https://github.com/AMALIA-LLM)
-
+[![Paper](https://img.shields.io/badge/Paper-Technical%20Report-red?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2603.26511)
+ 
 </div>
+
 
 ---
 
