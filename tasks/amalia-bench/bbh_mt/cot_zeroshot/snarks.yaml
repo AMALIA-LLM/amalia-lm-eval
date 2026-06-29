@@ -1,0 +1,24 @@
+"dataset_name": "snarks"
+"description": "Determina qual das duas frases é sarcástica.\n\nDe acordo com o Cambridge
+  University Dictionary, o sarcasmo é \"o uso de observações que significam claramente
+  o oposto do que dizem, feitas com o objetivo de ferir os sentimentos de alguém ou
+  de criticar algo de uma forma humorística\". As frases sarcásticas contêm frequentemente
+  afirmações satíricas ou irónicas, hipérboles, observações ambivalentes ou espirituosas.\n\
+  \n"
+"doc_to_text": "P: {{input}}\nR: Vamos pensar passo a passo."
+"include": "_cot_zeroshot_template_yaml"
+"task": "bbh_cot_zeroshot_snarks_mt_pt"
+filter_list:
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MultiChoiceRegexFilter
+    group_select: -1
+    ignore_case: true
+    ignore_punctuation: true
+    regex_pattern: "(\\([A-Z]\\))"
+  - function: "take_first"
+- name: "strict-match"
+  filter:
+  - function: "regex"
+    regex_pattern: "((?<=A resposta é )(.*)(?=.)|(?<=a resposta é )(.*)(?=.)|(?<=A resposta: )(.*)(?=.)|(?<=A resposta final: )(.*)(?=.))"
+  - function: "take_first"

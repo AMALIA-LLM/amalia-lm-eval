@@ -1,0 +1,54 @@
+dataset_name: medical_genetics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre genética
+  médica.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A fase da meiose em que os cromossomas se emparelham e se cruzam é:
+
+      (A) prófase I (B) metáfase I (C) prófase II (D) metáfase II'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre genética médica. A prófase I é a fase da meiose em que os cromossomas
+      homólogos se emparelham entre si e trocam material genético. A resposta é (A).
+  - question: 'A DNA ligase é
+
+      (A) uma enzima que une fragmentos na replicação normal do ADN (B) uma enzima
+      de origem bacteriana que corta o ADN em sequências de bases definidas (C) uma
+      enzima que facilita a transcrição de genes específicos (D) uma enzima que limita
+      o nível a que um determinado nutriente chega'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre genética médica. A ADN ligase é um tipo de enzima (EC 6.5.1.1) responsável
+      pela união das cadeias de ADN através da catalisação de uma ligação fosfodiéster.
+      A resposta é (A).
+  - question: 'Qual das seguintes doenças não apresenta uma herança multifatorial?
+
+      (A) Estenose pilórica (B) Esquizofrenia (C) Espinha bífida (defeitos do tubo
+      neural) (D) Síndrome de Marfan'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipedia
+      sobre genética médica. A herança multifatorial ocorre quando mais do que um
+      único fator é responsável pela causa de uma determinada caraterística ou problema
+      de saúde. Os genes não podem ser o único fator. A síndrome de Marfan, por outro
+      lado, requer apenas uma cópia anormal do gene Marfan, de um dos pais, para herdar
+      a caraterística. A resposta é (D).
+  - question: 'Um gene que apresenta codominância
+
+      (A) tem ambos os alelos expressos independentemente no heterozigoto (B) tem
+      um alelo dominante em relação ao outro (C) tem os alelos fortemente ligados
+      no mesmo cromossoma (D) tem os alelos expressos ao mesmo tempo no desenvolvimento'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipedia
+      sobre genética médica. A codominância, no que diz respeito à genética, refere-se
+      a um tipo de herança genética em que o fenótipo de ambos os progenitores é facilmente
+      observado na descendência. Um heterozigoto é um indivíduo com dois alelos diferentes
+      de um gene. A resposta é (A).
+  - question: 'As grandes expansões de repetições triplas podem ser detectadas por:
+
+      (A) reação em cadeia da polimerase. (B) análise de polimorfismo conformacional
+      de cadeia simples. (C) Southern blotting. (D) Western blotting.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipedia sobre genética médica. Um Southern blot é um método de biologia molecular
+      para detetar sequências específicas de ADN numa amostra. As grandes expansões
+      de repetições triplas são normalmente detectadas com este método. A resposta
+      é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_medical_genetics_mt_pt

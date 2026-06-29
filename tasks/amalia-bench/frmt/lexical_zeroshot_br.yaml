@@ -1,0 +1,10 @@
+include: _default_template_yaml
+description: "Traduz o seguinte texto de Inglês para Português do Brasil.\n\n"
+process_docs: !function utils.process_lexical_br
+doc_to_target: !function utils.doc_to_target_br
+tag:
+  - amalia_frmt_zeroshot_br_tasks
+  - amalia_frmt_zeroshot_lexical_tasks
+  - amalia_frmt_zeroshot_tasks
+task: amalia_frmt_lexical_zeroshot_br
+task_alias: lexical_zeroshot_br

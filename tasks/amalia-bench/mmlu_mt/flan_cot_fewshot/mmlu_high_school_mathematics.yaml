@@ -1,0 +1,51 @@
+dataset_name: high_school_mathematics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre matemática
+  do ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Simplifica e escreve o resultado com um denominador racional: $$\sqrt{\sqrt[3]{\sqrt{\frac{1}{729}}}}$$$
+
+      (A) \frac{3\sqrt{3}}{3} (B) \frac{1}{3} (C) \sqrt{3} (D) \frac{\sqrt{3}}{3}'
+    target: Vamos pensar passo a passo. Factorando $729=3^6$ e combinando as raízes
+      $\frac{1}{2}\frac{1}{3}\frac{1}{2}=\frac{1}{12}$, obtemos que 
+      $\sqrt{\sqrt[3]{\sqrt{\frac{1}{729}}}}=\left(\frac{1}{3^6}\right)^{\frac{1}{12}}=\frac{1}{3^{\frac{1}{2}}}=\frac{3}{\sqrt{3}}$
+      A resposta é (D).
+  - question: 'Cinco mil dólares compostos anualmente a uma taxa de juro de $x\%$
+      demoram seis anos a duplicar. À mesma taxa de juro, quantos anos demorará $\$300$
+      a crescer para $\$9600$?
+
+      (A) 12 (B) 1 (C) 30 (D) 5'
+    target: Vamos pensar passo a passo. Para passar de $\$300$ para $\$9600$, o valor
+      tem de aumentar por um fator de $9600/300=32=2^5$. Uma vez que, a esta taxa
+      de juro, são necessários seis anos para duplicar, serão necessários $5*6=30$
+      anos para crescer até $\$9600$. A resposta é (C).
+  - question: "Dez alunos fazem um teste de biologia e obtêm as seguintes classificações:
+      45, 55, 50, 70, 65, 80, 40, 90, 70, 85. Qual é a média das classificações dos
+      alunos?\n(A) 55 B) 60 C) 62 D) 65"
+    target: Vamos pensar passo a passo. Há 10 alunos e a soma das suas notas é $45
+      + 55 + 50 + 70 + 65 + 80 + 40 + 90 + 70 + 85 = 650$, a média é $650/10=65$.
+      A resposta é (D).
+  - question: 'A variável $x$ varia diretamente como o quadrado de $y$, e $y$ varia
+      diretamente como o cubo de $z$. Se $x$ é igual a $-16$ quando $z$ é igual a
+      2, qual é o valor de $x$ quando $z$ é igual a $\frac{1}{2}$?
+
+      (A) -1 (B) 16 (C) -\frac{1}{256} (D) \frac{1}{16}'
+    target: Vamos pensar passo a passo. Sabemos que $x \propto y^2$ e $y \propto z^3$,
+      logo $x = k z^6$ para alguma constante $k$. Substituindo para $x=-16$ e $z=2$,
+      o valor da constante é $k=\frac{x}{z^6}=\frac{-16}{64}=-\frac{1}{4}$. Então,
+      quando $z=\frac{1}{2}$, o valor de $x$ é $x=kz^6=-\frac{1}{4}\frac{1}{2^6}=-\frac{1}{256}$.
+      A resposta é (C).
+  - question: 'O Joe ficou encarregue das luzes de um baile. A luz vermelha pisca
+      a cada dois segundos, a luz amarela a cada três segundos e a luz azul a cada
+      cinco segundos. Se incluirmos o início e o fim do baile, quantas vezes durante
+      uma dança de sete minutos todas as luzes se acenderão ao mesmo tempo? (Suponha
+      que as três luzes piscam simultaneamente no início da dança).
+
+      (A) 3 (B) 15 (C) 6 (D) 5'
+    target: 'Vamos pensar passo a passo. O mínimo múltiplo comum de 2, 3 e 5 é 30,
+      portanto, durante uma dança de 7 minutos, as três luzes acender-se-ão ao mesmo
+      tempo $2*7+1=15$ vezes. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_mathematics_mt_pt

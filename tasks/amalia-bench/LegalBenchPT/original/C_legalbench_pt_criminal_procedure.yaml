@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_criminal_procedure
+group_alias: criminal_procedure
+task: 
+  - amalia_legalbench_pt_criminal_procedure_matching_questions
+  - amalia_legalbench_pt_criminal_procedure_case_analysis_questions
+  - amalia_legalbench_pt_criminal_procedure_multiple_choice
+  - amalia_legalbench_pt_criminal_procedure_true_false
+  - amalia_legalbench_pt_criminal_procedure_multiple_selection_questions
+  - amalia_legalbench_pt_criminal_procedure_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

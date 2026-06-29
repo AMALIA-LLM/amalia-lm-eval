@@ -1,0 +1,43 @@
+dataset_name: temporal_sequences
+description: 'Descrição da tarefa: Responder a perguntas sobre a altura em que determinados
+  acontecimentos podem ter ocorrido.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Hoje, a Emily foi ao museu. A que horas é que elas podem ter ido?\nSabemos
+      que sim:\nA Emily acordou às 13 horas.\nA Isabel viu a Maria a ler na biblioteca
+      das 14h às 16h.\nA Jéssica viu a Emily a ver um filme no cinema das 16h às 17h.\n
+      Leslie viu a Emily à espera no aeroporto das 5pm às 6pm.\nWilliam viu a Emily
+      a comprar roupa no centro comercial das 18h às 19h.\nO museu estava fechado
+      depois das 19 horas.\nEntre que horas é que a Emily poderia ter ido ao museu?\n
+      Opções:\n(A) 1pm a 2pm\n(B) das 18h00 às 19h00\n(C) 5pm a 6pm\n(D) 2pm a 4pm"
+    target: (A)
+  - input: "Hoje, a Isabel foi ao parque de diversões. A que horas é que eles podem
+      ter ido?\nSabemos que sim:\nA Isabel acordou às 7h.\nO David viu a Isabel a
+      arranjar o computador deles na loja de eletrónica, das 13h00 às 14h00.\nA Sarah
+      viu a Elizabeth a jogar ténis no campo de ténis, das 14 às 15 horas.\nSusan
+      viu Elizabeth caminhando em direção à Estátua da Liberdade das 15h às 18h.\n
+      Andrew viu Elizabeth tirando fotos perto da Torre Eiffel das 18h às 21h.\nA
+      Emily viu a Elizabeth a tomar um café no café das 21 às 22 horas.\nO parque
+      de diversões estava fechado depois das 22 horas.\nEntre que horas é que a Isabel
+      poderia ter ido ao parque de diversões?\nOpções:\n(A) 7h às 13h\n(B) das 21h00
+      às 22h00\n(C) Das 13h00 às 14h00\n(D) das 15h00 às 18h00"
+    target: (A)
+  - input: "Hoje, a Tiffany foi à praia. A que horas é que podem ter ido?\nSabemos
+      que sim:\nA Tiffany acordou às 5h.\nA Betty viu a Tiffany a tomar um café no
+      café das 5h às 6h.\nA Jessica viu a Tiffany a trabalhar no escritório das 6h
+      às 9h.\nO John viu a Tiffany a fazer alongamentos num estúdio de ioga das 9h
+      às 12h.\nO Sean viu a Tiffany sentada num telhado das 12 às 14 horas.\nSarah
+      viu Tiffany a jogar ténis no campo de ténis das 14h00 às 15h00.\nA praia estava
+      fechada depois das 16 horas.\nEntre que horas é que a Tiffany poderia ter ido
+      à praia?\nOpções:\n(A) das 9h00 às 12h00\n(B) das 12h00 às 14h00\n(C) das 5h
+      às 6h\n (D) 3h às 4h"
+    target: (D)
+include: _fewshot_template_yaml
+task: bbh_fewshot_temporal_sequences_mt_pt

@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_commercial_cot
+group_alias: commercial_cot
+task: 
+  - amalia_legalbench_pt_commercial_multiple_selection_questions_cot
+  - amalia_legalbench_pt_commercial_case_analysis_questions_cot
+  - amalia_legalbench_pt_commercial_multiple_choice_cot
+  - amalia_legalbench_pt_commercial_true_false_cot
+  - amalia_legalbench_pt_commercial_cloze_tasks_cot
+  - amalia_legalbench_pt_commercial_matching_questions_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

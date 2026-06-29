@@ -1,0 +1,6 @@
+"dataset_name": "clinical_knowledge_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre conhecimentos clínicos.\n\
+  \n"
+"tag": "amalia_mmlu_continuation_other_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_clinical_knowledge_mt_pt"

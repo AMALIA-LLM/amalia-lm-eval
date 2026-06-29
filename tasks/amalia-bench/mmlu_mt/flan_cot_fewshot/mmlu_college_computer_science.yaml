@@ -1,0 +1,186 @@
+dataset_name: college_computer_science_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre informática
+  universitária.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes expressões regulares é equivalente a (descreve o
+      mesmo conjunto de cadeias de caracteres que) (a* + b)*(c + d)?
+
+      (A) a*(c + d)+ b(c + d)
+
+      (B) a*(c + d)* + b(c + d)*
+
+      (C) a*(c + d)+ b*(c + d)
+
+      (D) (a + b)*c +(a + b)*d'
+    target: 'Vamos pensar passo a passo. Sabemos que:
+
+      1. (X* + Y)* = (X + Y)*
+
+      2. X(Y + Z)? = XY + XZ
+
+      Usando a equação 1, podemos reescrever (a* + b)*(c + d)? como:
+
+      3. (a + b)*(c + d)?
+
+      Usando a equação 2, podemos reescrever a equação 3 como:
+
+      (a + b)*c + (a + b)*d A resposta é (D).'
+  - question: 'O padrão de desenho Singleton é utilizado para garantir que apenas
+      uma única instância de uma classe pode ser instanciada. Qual das seguintes afirmações
+      é (são) verdadeira(s) em relação a esse padrão de projeto?
+
+      I. A classe Singleton possui um método fábrica estático para fornecer sua instância.
+
+      II. A classe Singleton pode ser uma subclasse de outra classe.
+
+      III. A classe Singleton possui um construtor privado.
+
+      (A) I apenas
+
+      (B) II apenas
+
+      (C) III apenas
+
+      (D) I, II e III'
+    target: 'Vamos pensar passo a passo. A afirmação I é uma afirmação correta sobre
+      um Singleton, porque um Singleton restringe a instanciação a um único método
+      estático. A afirmação II também está correta, porque não existe qualquer restrição
+      inerente à herança de um Singleton. A afirmação III também está correta, porque
+      um Singleton tem de ser instanciado apenas uma vez, pelo que o seu construtor
+      é privado para impedir qualquer construção, exceto através do seu método estático
+      de fábrica.
+
+      Tendo em conta estes factos, as afirmações I, II e III estão todas corretas.
+      A resposta é (D).'
+  - question: 'Uma determinada máquina RISC em pipeline tem 8 registos de uso geral
+      R0, R1, . . . , R7 e suporta as seguintes operações:
+
+      ADD Rs1, Rs2, Rd (Adiciona Rs1 a Rs2 e coloca a soma em Rd)
+
+      MUL Rs1, Rs2, Rd (Multiplica Rs1 por Rs2 e coloca o produto em Rd)
+
+      Uma operação demora normalmente um ciclo; no entanto, uma operação demora dois
+      ciclos se produzir um resultado necessário para a operação imediatamente a seguir
+      numa sequência de operações.
+
+      Considere a expressão AB + ABC + BC, onde as variáveis A, B, C estão localizadas
+      nos registos R0, R1, R2. Se o conteúdo destes três registos não deve ser modificado,
+      qual é o número mínimo de ciclos de relógio necessário para uma sequência de
+      operações que calcule o valor de AB + ABC + BC?
+
+      (A) 5 (B) 6 (C) 7 (D) 8'
+    target: 'Vamos pensar passo a passo. Primeiro, é-nos dado que A está em R0, B
+      está em R1 e C está em R2.
+
+      De seguida, podemos ver que temos de calcular três multiplicações (AB, BC e
+      ABC) e duas adições (AB + ABC, (AB + ABC) + BC) para calcular a nossa resposta
+      final, o que resulta num mínimo de cinco ciclos de relógio.
+
+      Em seguida, podemos ver que não há como evitar pelo menos um stall do pipeline
+      ao computar nossa resposta final, pois para computar nossa soma final devemos
+      esperar pelo menos um ciclo para que os resultados do estágio anterior estejam
+      prontos. Assim, o nosso número mínimo de ciclos deve ser 6.
+
+      Podemos verificar que podemos criar uma solução que requer apenas seis ciclos
+      da seguinte forma:
+
+      calcular AB: MUL R0, R1, R3
+
+      calcular BC: MUL R1, R2, R4
+
+      calcular ABC: MUL R3, R4, R5
+
+      calcular AB + BC: ADICIONAR R3, R4, R6
+
+      PARAR
+
+      calcular AB + ABC + BC: ADICIONAR R5, R6, R7
+
+      Portanto, há 6 ciclos. A resposta é (B).'
+  - question: 'Um compilador gera código para a seguinte instrução de atribuição.
+
+      G := (A + B) * C - (D + E) * F
+
+      A máquina de destino tem um acumulador único e um conjunto de instruções de
+      endereço único que consiste em instruções de carregamento, armazenamento, adição,
+      subtração e multiplicação. Para as operações aritméticas, o operando da esquerda
+      é retirado do acumulador e o resultado aparece no acumulador. O menor número
+      possível de instruções no código resultante é
+
+      (A) 5 B) 6 C) 7 D) 9'
+    target: 'Vamos pensar passo a passo. Podemos calcular a resposta final com a seguinte
+      sequência de operações:
+
+      1. CARREGAR D (acumulador = D)
+
+      2. ADICIONAR E (acumulador = D+E)
+
+      3. MUL F (acumulador = (D+E)*F)
+
+      4. STORE X (X = (D+E)*F)
+
+      5. LOAD A (acumulador = A)
+
+      6. ADICIONAR B (acumulador = A+B)
+
+      7. MUL C (acumulador = (A+B)*C)
+
+      8. SUB X (acumulador = (A+B)*C - (D+E)*F)
+
+      9. STORE G (G = (A+B)*C - (D+E)*F)
+
+      Esta sequência requer 9 instruções. A resposta é (D).'
+  - question: 'Considere um projeto de computador em que vários processadores, cada
+      um com uma memória cache privada, partilham a memória global utilizando um único
+      barramento. Este barramento é o recurso crítico do sistema. Cada processador
+      pode executar uma instrução a cada 500 nanossegundos, desde que as referências
+      de memória sejam satisfeitas pela sua cache local. Quando ocorre uma falha de
+      cache, o processador sofre um atraso adicional de 2.000 nanossegundos. Durante
+      metade deste atraso adicional, o barramento é dedicado a servir a falha de cache.
+      Durante a outra metade, o processador não pode continuar, mas o barramento está
+      livre para atender solicitações de outros processadores. Em média, cada instrução
+      requer 2 referências de memória. Em média, as falhas de cache ocorrem em 1%
+      das referências. Que proporção da capacidade do barramento seria consumida por
+      um único processador, ignorando os atrasos devidos à concorrência de outros
+      processadores?
+
+      (A) 1/50 (B) 1/27 (C) 1/25 (D) 2/27'
+    target: 'Vamos pensar passo a passo. Sabemos que cada instrução requer duas referências
+      de memória por instrução, e que existe uma taxa média de falha de cache de um
+      por cento.
+
+      Assim, um determinado processador tem:
+
+      (1 falha de cache / 100 referências) * (2 referências / instrução) =
+
+      (2 cache misses / 100 instruções), portanto:
+
+      misses_per_instruction = 1 cache miss / 50 instruções.
+
+      Em seguida, sabemos que cada instrução requer 500 nanossegundos quando não há
+      falha de cache, e 500 + 2000 = 2500 nanossegundos quando há uma falha de cache.
+      Portanto:
+
+      50 instruções / (49 * 500) + (1 * 2500) nanossegundos, portanto:
+
+      instructions_per_ns = 50 instruções / 27000 nanossegundos.
+
+      Agora, sabemos que cada falha de cache bloqueia o barramento durante metade
+      do atraso de 2000 nanossegundos da falha de cache, ou seja, 1000 nanossegundos,
+      portanto:
+
+      lock_ns_per_miss = 1000 nanossegundos / cache miss.
+
+      Assim, podemos ver que, em média, um único processador bloqueará o barramento
+      por:
+
+      lock_ns_per_miss * misses_per_instruction * instructions_per_ns =
+
+      (1000 nanossegundos / falha de cache) * (1 falha de cache / 50 instruções) *
+      (50 instruções / 27000 nanossegundos) = 1000 * (1/50) * (50/27000) = 1000/27000
+      = 1/27. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_college_computer_science_mt_pt

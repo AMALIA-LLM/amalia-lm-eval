@@ -1,0 +1,13 @@
+group: pt_exams
+task:
+- pt_exams_bio_geo
+- pt_exams_geography
+- pt_exams_history_a
+- pt_exams_mathematics_a
+- pt_exams_philosophy
+- pt_exams_portuguese
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 1

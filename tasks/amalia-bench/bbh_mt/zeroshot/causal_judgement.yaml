@@ -1,0 +1,16 @@
+"dataset_name": "causal_judgement"
+"description": "Responder a perguntas sobre a atribuição de causas.\n\n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_causal_judgement_mt_pt"
+
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: "regex"
+    group_select: 0
+    regex_pattern: "\\b(Sim|Não|sim|não)\\b"
+  - function: "take_first"

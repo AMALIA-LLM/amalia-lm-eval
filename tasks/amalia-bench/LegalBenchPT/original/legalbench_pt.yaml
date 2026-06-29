@@ -1,0 +1,12 @@
+group: amalia_legalbench_pt
+task: 
+  - amalia_legalbench_pt_public
+  - amalia_legalbench_pt_private
+  - amalia_legalbench_pt_public_private
+  - amalia_legalbench_pt_public_international_g
+  - amalia_legalbench_pt_eu_and_community_g
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

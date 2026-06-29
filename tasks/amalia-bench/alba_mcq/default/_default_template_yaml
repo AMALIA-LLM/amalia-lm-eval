@@ -1,0 +1,17 @@
+dataset_path: amalia-llm/alba_mcq
+dataset_name: null
+test_split: test
+output_type: multiple_choice
+doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\n"
+gen_prefix: "A resposta é"
+doc_to_choice: ["A", "B", "C"]
+doc_to_target: correct_choice
+metric_list:
+- metric: acc
+  aggregation: mean
+  higher_is_better: true
+- metric: acc_norm
+  aggregation: mean
+  higher_is_better: true
+metadata:
+  version: 1.0

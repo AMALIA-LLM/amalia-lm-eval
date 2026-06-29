@@ -1,0 +1,69 @@
+dataset_name: nutrition_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre nutrição.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual é o medicamento de primeira linha para pacientes com diabetes
+      tipo 2 e obesidade, a partir de 2020?
+
+      (A) Acarbose (B) Metformina (C) Sulfonilureias (D) Insulina'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre nutrição. A metformina (Fortamet, Glumetza, ou outros) é normalmente o
+      primeiro medicamento prescrito para a diabetes tipo 2, bem como para a obesidade.
+      Actua diminuindo a produção de glicose no fígado e melhorando a sensibilidade
+      do corpo à insulina. A resposta é (B).
+  - question: 'Qual das seguintes afirmações está correta (de acordo com os conhecimentos
+      em 2020)?
+
+      (A) Os consumidores com fenilcetonúria devem evitar o consumo do edulcorante
+      aspartame (B) Os consumidores com fenilcetonúria devem evitar o consumo do edulcorante
+      sacarina (C) Os consumidores com fenilcetonúria devem evitar o consumo do edulcorante
+      sucralose (D) Os consumidores com fenilcetonúria devem evitar o consumo do edulcorante
+      acessulfame K'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipedia
+      sobre nutrição. As pessoas com fenilcetonúria (PKU) não conseguem decompor o
+      aminoácido fenilalanina. À medida que se vai acumulando no sangue e no cérebro,
+      pode provocar lesões cerebrais. As pessoas com PKU devem evitar alimentos que
+      são convertidos em fenilalanina no organismo, como o aspartame. A resposta é
+      (A).
+  - question: 'Qual das seguintes afirmações sobre o iodo está correta, a partir de
+      2020?
+
+      (A) 50% dos adultos consomem iodo a níveis inferiores ao RNI (B) Os produtos
+      lácteos são uma fonte pobre de iodo (C) O teor de iodo do leite biológico é
+      geralmente inferior ao do leite não biológico (D) Os valores dietéticos de referência
+      do Reino Unido recomendam um aumento da ingestão de iodo na gravidez'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre nutrição. O leite biológico tem normalmente menos iodo do que o leite
+      não biológico. A resposta é (C).
+  - question: 'Qual das seguintes é a explicação mais plausível para o efeito protetor
+      da fibra alimentar contra o cancro do cólon, a partir de 2020?
+
+      (A) O ácido propiónico, formado durante a fermentação das fibras do cólon, inibe
+      a síntese hepática de ácidos gordos (B) O ácido butírico, formado durante a
+      fermentação das fibras do cólon, estimula o "silenciamento" do gene supressor
+      de tumores SLC5A8 (C) Nenhuma destas opções está correta (D) O ácido butírico,
+      formado durante a fermentação das fibras do cólon, estimula as defesas anti-oxidantes
+      no cólon'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre nutrição. A fibra alimentar é inversamente proporcional ao risco de cancro
+      colorrectal. Presume-se que isto se deve ao facto de o ácido butírico (BA) estimular
+      os antioxidantes que ajudam a proteger o cólon dos tumores cancerígenos. A resposta
+      é (D).
+  - question: 'Num estudo de coorte, o rácio de risco de desenvolver diabetes foi
+      de 0,86 quando se compararam os consumidores de chá (os expostos) com os que
+      não bebiam chá (os não expostos). Qual das afirmações está correta (de acordo
+      com os conhecimentos de 2020)?
+
+      (A) Os consumidores de chá têm um menor risco de desenvolver diabetes. (B) As
+      pessoas que bebem chá têm maior risco de desenvolver diabetes. (C) Com base
+      nas informações fornecidas, não podemos dizer se a diferença observada no risco
+      de doença é o resultado do acaso. (D) O rácio de risco está próximo do valor
+      um, pelo que não há diferença no risco de doença entre os dois grupos.'
+    target: 'Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos
+      da Wikipédia sobre nutrição. O rácio de risco não é suficientemente reduzido
+      para não poder ser explicado pelo acaso, dada a dimensão da amostra do estudo.
+      A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_nutrition_mt_pt

@@ -1,0 +1,58 @@
+dataset_name: high_school_macroeconomics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre macroeconomia
+  no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes políticas melhor descreve a política fiscal do lado
+      da oferta?
+
+      (A) Aumento da oferta de moeda (B) Aumento da despesa pública (C) Redução dos
+      impostos sobre a investigação e o desenvolvimento de novas tecnologias (D) Aumento
+      dos impostos sobre o rendimento das famílias'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre macroeconomia. A política fiscal do lado da oferta estimula a economia,
+      incentivando uma maior produção de bens e serviços através da redução dos impostos
+      e da desregulamentação. A resposta é (C).
+  - question: 'A curva de Phillips de curto prazo indica uma
+
+      (A) relação direta entre o desemprego e a inflação (B) relação direta entre
+      o preço e a quantidade procurada (C) relação inversa entre o preço e a quantidade
+      procurada (D) relação inversa entre o desemprego e a inflação'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre macroeconomia. A curva de Phillips de curto prazo mostra que, sempre que
+      o desemprego desce abaixo de um nível natural, a inflação começa a aumentar
+      e vice-versa. A resposta é (D).
+  - question: 'Mantendo tudo o resto igual, qual das seguintes políticas monetárias
+      seria utilizada para aumentar as exportações dos Estados Unidos?
+
+      (A) Aumento da taxa de desconto (B) Aumento do rácio de reserva (C) Compra de
+      títulos do Estado (D) Redução dos direitos aduaneiros'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipedia
+      sobre macroeconomia. A compra de títulos do Estado leva a uma redução da procura
+      de dólares americanos por parte dos compradores estrangeiros, tornando-os mais
+      baratos e, consequentemente, tornando as exportações dos EUA mais atractivas.
+      A resposta é (C).
+  - question: 'Um défice federal ocorre quando
+
+      (A) as exportações excedem as importações. (B) as importações excedem as exportações.
+      (C) as cobranças de impostos federais excedem as despesas. (D) as despesas federais
+      excedem as receitas fiscais federais.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipedia
+      sobre macroeconomia. Um défice federal ocorre quando as despesas federais excedem
+      as receitas federais, que provêm principalmente das receitas fiscais. A resposta
+      é (D).
+  - question: 'Qual das seguintes situações não está incluída no PIB dos EUA?
+
+      (A) O exército dos EUA abre uma nova base num país estrangeiro com 1000 funcionários
+      americanos. (B) Os consumidores japoneses compram milhares de CDs produzidos
+      nos Estados Unidos. (C) Um cantor pop americano dá um concerto com lotação esgotada
+      em Paris. (D) Uma produção teatral francesa faz uma digressão por dezenas de
+      cidades americanas.'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipedia
+      sobre macroeconomia. As transacções económicas relacionadas com a atuação da
+      cantora pop americana em Paris ocorrem inteiramente fora dos EUA e, por isso,
+      não estão incluídas nos números do PIB. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_macroeconomics_mt_pt

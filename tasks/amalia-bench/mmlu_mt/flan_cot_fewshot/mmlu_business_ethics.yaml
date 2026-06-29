@@ -1,0 +1,75 @@
+dataset_name: business_ethics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre ética empresarial.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Em contraste com _______, _______ tem como objetivo recompensar o comportamento
+      favorável das empresas. O sucesso destas campanhas tem sido potenciado pela
+      utilização da ___________, que permite que as campanhas facilitem à empresa
+      a concretização da _________ .
+
+      (A) Buycotts, Boycotts, Blockchain technology, Charitable donations (B) Buycotts,
+      Boycotts, Digital technology, Increased Sales (C) Boycotts, Buyalls, Blockchain
+      technology, Charitable donations (D) Boycotts, Buycotts, Digital technology,
+      Increased Sales'
+    target: "Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre ética empresarial. A frase que melhor utiliza as opções possíveis
+      acima é \"Ao contrário dos *boicotes*, os *buicotes* têm como objetivo recompensar
+      o comportamento favorável das empresas. O sucesso destas campanhas tem sido
+      potenciado pela utilização de *tecnologias digitais*, que permitem que as campanhas
+      facilitem à empresa a obtenção de *aumento de vendas*.\" A resposta é (D)."
+  - question: '_______ é a tentativa direta de gerir formal ou informalmente questões
+      ou problemas éticos, através de políticas, práticas e programas específicos.
+
+      (A) Responsabilidade social das empresas (B) Gestão da ética empresarial (C)
+      Sustentabilidade (D) Gestão ambiental'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre ética empresarial. A tentativa direta de gerir questões éticas
+      através de políticas, práticas e programas específicos é a gestão da ética empresarial.
+      A resposta é (B).
+  - question: 'As três tácticas contrastantes que as OSC podem utilizar para atingir
+      os seus objectivos são: ________, que normalmente envolve investigação e comunicação,
+      ________, que pode envolver ataques físicos às operações de uma empresa, ou
+      ________, que frequentemente envolve alguma forma de _______.
+
+      (A) Ação direta não violenta, ação direta violenta, ação indireta, boicote (B)
+      Ação indireta, ação instrumental, ação direta não violenta, campanha de informação
+      (C) Ação indireta, ação direta violenta, ação direta não violenta, boicote (D)
+      Ação direta não violenta, ação instrumental, ação indireta, campanha de informação'
+    target: "Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre ética empresarial. A frase que melhor utiliza as opções possíveis
+      acima é: \"Três tácticas contrastantes que as OSC podem utilizar para atingir
+      os seus objectivos são a *ação indireta*, que normalmente envolve investigação
+      e comunicação, a *ação direta violenta*, que pode envolver o ataque físico às
+      operações de uma empresa ou a *ação direta não violenta*, que frequentemente
+      envolve alguma forma de *boicote*.\" A resposta é (C)."
+  - question: 'Para assegurar a independência dos membros não-executivos do conselho
+      de administração, podem ser tomadas várias medidas, que incluem o facto de os
+      não-executivos serem provenientes da _______ empresa, serem nomeados por um
+      período de _________ tempo, bem como serem nomeados _________.
+
+      (A) Externo, Limitado, Independente (B) Interno, Limitado, Intermitente (C)
+      Externo, Ilimitado, Intermitente (D) Interno, Ilimitado, Independente'
+    target: "Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre ética empresarial. A frase que melhor utiliza as opções possíveis
+      acima é: \"Para garantir a independência dos membros não executivos do conselho
+      de administração, há uma série de medidas que podem ser tomadas, que incluem
+      o facto de os não executivos serem escolhidos *fora* da empresa, serem nomeados
+      por um período de tempo *limitado* e serem importados *independentemente*. A
+      resposta é (A)."
+  - question: 'Para além dos argumentos comerciais a favor da RSE, há uma série de
+      argumentos morais relacionados com: _______ negativo, o _______that que as empresas
+      possuem e o ________ das empresas e da sociedade.
+
+      (A) Externalidades, Poder, Independência (B) Publicidade, Recursos insubstanciais,
+      Dependência mútua (C) Publicidade, Poder, Independência (D) Externalidades,
+      Poder, Dependência mútua'
+    target: "Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre ética empresarial. A frase que melhor utiliza as opções possíveis acima
+      é \"Para além dos argumentos comerciais a favor da RSE, há uma série de argumentos
+      morais relacionados com: *externalidades negativas*, o *poder* que as empresas
+      possuem e a *independência mútua* das empresas e da sociedade. A resposta é
+      (D).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_business_ethics_mt_pt

@@ -1,0 +1,9 @@
+group: amalia_mmlu_social_sciences_mt_pt
+group_alias: social sciences
+task:
+- amalia_mmlu_social_sciences_tasks_mt_pt
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 2

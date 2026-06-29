@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_energy
+group_alias: energy
+task: 
+  - amalia_legalbench_pt_energy_case_analysis_questions
+  - amalia_legalbench_pt_energy_multiple_choice
+  - amalia_legalbench_pt_energy_true_false
+  - amalia_legalbench_pt_energy_multiple_selection_questions
+  - amalia_legalbench_pt_energy_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

@@ -1,0 +1,23 @@
+dataset_name: object_counting
+description: 'Perguntas que envolvem a enumeração de objectos e que pedem ao modelo
+  para os contar.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: Tenho uma amora, um clarinete, uma nectarina, uma ameixa, um morango, uma
+      banana, uma flauta, uma laranja e um violino. Quantas frutas é que eu tenho?
+    target: '6'
+  - input: Tenho uma laranja, uma framboesa, dois pêssegos, uma amora, uma maçã, uma
+      uva, uma nectarina e três ameixas. Quantos frutos tenho?
+    target: '11'
+  - input: Tenho uma cabeça de alface, uma cabeça de brócolos, uma cebola, um talo
+      de aipo, duas cenouras, um alho e um inhame. Quantos legumes tenho?
+    target: '8'
+include: _fewshot_template_yaml
+task: bbh_fewshot_object_counting_mt_pt

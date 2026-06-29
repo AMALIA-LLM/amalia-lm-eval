@@ -1,0 +1,9 @@
+group: amalia_legalbench_pt_eu_and_community_g
+group_alias: eu_and_community_g
+task: 
+  - amalia_legalbench_pt_eu_and_community
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

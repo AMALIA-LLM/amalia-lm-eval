@@ -1,0 +1,68 @@
+dataset_name: high_school_chemistry_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre química
+  no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes substâncias é considerada um anidrido ácido?
+
+      (A) HCl (B) H2SO3 (C) SO2 (D) Al(NO3)3'
+    target: Vamos pensar passo a passo. Um anidrido ácido é um composto que deriva
+      da remoção de água de um ácido. A fórmula química da água é H2O, o que significa
+      que precisamos de determinar qual destas opções, quando combinada com H2O, forma
+      um ácido. SO2, ou dióxido de enxofre, quando combinado com H2O, forma H2SO4,
+      ou ácido sulfúrico. A resposta é (C).
+  - question: 'Qual das seguintes é uma molécula polar?
+
+      (A) PCl4F (B) BF3 (C) CO2 (D) Si(CH3)4'
+    target: Vamos pensar passo a passo. Uma molécula polar é aquela que tem uma carga
+      ligeiramente positiva numa extremidade da molécula e uma carga ligeiramente
+      negativa na outra extremidade. O trifluoreto de boro (BF3) tem o boro como átomo
+      central e três átomos de flúor ligados a ele; é trigonal planar e simétrico,
+      pelo que não é polar. O dióxido de carbono (CO2) tem o carbono como átomo central
+      com ligações duplas a dois átomos de oxigénio - também é simétrico e, portanto,
+      não polar. O mesmo acontece com o tetrametil silano (SI(CH3)4), que é um átomo
+      de silício rodeado por quatro grupos metilo. A estrutura do PCL4F é que o fósforo
+      é o átomo central, ligado a quatro cloros e um átomo de flúor. Esta molécula
+      é assimétrica e, por isso, tem um dipolo líquido e espera-se que seja uma molécula
+      polar. A resposta é (A).
+  - question: 'Com base nas regras de solubilidade, qual das seguintes afirmações
+      é verdadeira?
+
+      (A) Todos os cloretos, brometos e iodetos são solúveis (B) Todos os sulfatos
+      são solúveis (C) Todos os hidróxidos são solúveis (D) Todos os compostos que
+      contêm amónio são solúveis'
+    target: Vamos pensar passo a passo. Os cloretos, brometos e iodetos de chumbo,
+      prata e mercúrio não são solúveis em água. Isto exclui a hipótese (A). Os sulfatos
+      de chumbo, bário e cálcio não são solúveis em água, o que exclui a hipótese
+      (B). Os hidróxidos de qualquer metal para além do sódio, potássio, amónio, cálcio
+      e bário são insolúveis. Este facto exclui a hipótese C. Normalmente, os iões
+      de amónio indicam uma substância iónica solúvel. A resposta é (D).
+  - question: 'Um novo composto é sintetizado e revela-se um ácido monoprótico com
+      uma massa molar de 248 g/mol. Quando 0,0050 mol deste ácido são dissolvidos
+      em 0,500 L de água, o pH é medido como 3,89. Qual é o pKa deste ácido?
+
+      (A) 3,89 B) 7,78 C) 5,78 D) 2,33'
+    target: "Vamos pensar passo a passo. Registe-se que $[A] = [H^{+}]$. Aqui, isto
+      é igual a $$10^{-3.89}$. Então temos $K_{a} = $\nrac{[H^{+}][A^{-}]}{[HA]} =\n
+      rac{10^{-3.89} \\cdot 10^{-3.89}}{10^{-2}}. O expoente resultante é $-3,89 +
+      (-3,89) - (-2) = 5,78$, portanto $K_a = 10^{-5,78}$. O $pK_a$ é o logaritmo
+      negativo de $K_a$, que é igual a $5,78$. A resposta é (C)."
+  - question: 'Uma solução contém 2,00 mole de ácido acético, CH3COOH, e 1,00 mole
+      de acetato de cálcio, Ca(CH3COO)2. A solução é capaz de resistir à adição de
+      uma pequena quantidade de um ácido forte ou de uma base forte com apenas pequenas
+      alterações no pH da solução. Quantidades maiores de ácido forte ou de base forte
+      podem causar uma alteração significativa do pH. Quantos moles de ácido nítrico,
+      HNO3, podem ser adicionados antes de o pH começar a alterar-se significativamente?
+
+      (A) 0,500 mol (B) 1,00 mol (C) 2,00 mol (D) 3,00 mol'
+    target: "Vamos pensar passo a passo. Gostaríamos de calcular a capacidade tampão
+      desta solução. Primeiro escrevemos a equação para a ionização do ácido fraco,
+      neste caso do ácido acético. $CH_{3}COOH (aq) + H_{2}O\nH_{3}O^{+} + CH3COO^{-}$.
+      A base conjugada é, portanto, o ião acetato. O ácido forte adicionado, o ácido
+      nítrico, irá reagir com a base conjugada. Assim, a quantidade máxima de ácido
+      que pode ser adicionada será igual à quantidade de ião acetato, ou seja, 2 moles.
+      A resposta é (C).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_chemistry_mt_pt

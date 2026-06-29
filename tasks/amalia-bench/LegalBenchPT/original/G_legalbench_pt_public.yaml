@@ -1,0 +1,21 @@
+group: amalia_legalbench_pt_public
+group_alias: public
+task: 
+  - amalia_legalbench_pt_administrative
+  - amalia_legalbench_pt_constitutional
+  - amalia_legalbench_pt_financial
+  - amalia_legalbench_pt_tax
+  - amalia_legalbench_pt_criminal
+  - amalia_legalbench_pt_administrative_procedure
+  - amalia_legalbench_pt_civil_procedure
+  - amalia_legalbench_pt_criminal_procedure
+  - amalia_legalbench_pt_labor_procedure
+  - amalia_legalbench_pt_energy
+  - amalia_legalbench_pt_public_finance
+  - amalia_legalbench_pt_environmental
+  - amalia_legalbench_pt_urban_planning
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

@@ -1,0 +1,28 @@
+dataset_name: sports_understanding
+description: 'Determinar se uma frase construída artificialmente e relacionada com
+  o desporto é plausível ou não.
+
+
+  '
+doc_to_text: 'Responde com sim ou nao. P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: A seguinte frase é plausível? "Bam Adebayo marcou um layup invertido nas
+      finais da Conferência Oeste."
+    target: Vamos pensar passo a passo. Bam Adebayo é um jogador de basquetebol americano.
+      Marcar um layup invertido nas Finais da Conferência Oeste faz parte das Finais
+      da NBA. Portanto, a resposta é sim.
+  - input: A seguinte frase é plausível? "Santi Cazorla marcou um touchdown."
+    target: Vamos pensar passo a passo. Santi Cazorla é um jogador de futebol. O touchdown
+      faz parte do futebol americano e do râguebi. Portanto, a resposta é não.
+  - input: A seguinte frase é plausível? "DeMar DeRozan foi chamado para o tendão
+      de golo."
+    target: Vamos pensar passo a passo. DeMar DeRozan é um jogador de basquetebol
+      americano. O domínio da baliza faz parte do basquetebol. Por isso, a resposta é sim.
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_sports_understanding_mt_pt

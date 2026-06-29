@@ -1,0 +1,75 @@
+dataset_name: astronomy_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre astronomia.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'De onde vem a maioria dos cometas de período curto e como é que sabemos?
+
+      (A) A cintura de Kuiper; os cometas de período curto tendem a situar-se no plano
+      do sistema solar, tal como a cintura de Kuiper. (B) A cintura de Kuiper; os
+      cometas de período curto tendem a vir de direcções aleatórias, indicando uma
+      distribuição esférica de cometas chamada cintura de Kuiper. (C) A cintura de
+      asteróides; os cometas de período curto têm períodos orbitais semelhantes aos
+      de asteróides como Vesta e encontram-se no plano do sistema solar, tal como
+      a cintura de asteróides. (D) A nuvem de Oort; os cometas de período curto tendem
+      a estar no plano do sistema solar, tal como a nuvem de Oort.'
+    target: Vamos pensar passo a passo. A maioria dos cometas de período curto provém
+      da cintura de Kuiper, e sabemos isso porque os cometas de período curto tendem
+      a situar-se no plano do sistema solar, tal como a cintura de Kuiper. A resposta
+      é (A).
+  - question: 'Está a empurrar um camião ao longo de uma estrada. Seria mais fácil
+      acelerar este camião em Marte? Porquê? (Assumindo que não há atrito)
+
+      (A) Seria mais difícil porque o camião é mais pesado em Marte. (B) Seria mais
+      fácil porque o camião é mais leve em Marte. (C) Seria mais difícil porque o
+      camião é mais leve em Marte. (D) Seria a mesma coisa, independentemente do sítio
+      onde estivesses.'
+    target: "Vamos pensar passo a passo. Se assumirmos que não há atrito, a força
+      necessária para acelerar o camião depende, segundo a segunda lei de Newton,
+      apenas da massa do camião. Assim, (A), (B) e (C) estão incorrectas, uma vez
+      que é indiferente que o camião esteja em Marte, e (D) é a resposta correta.
+      A resposta é (D)."
+  - question: 'Digamos que a pupila do teu olho tem um diâmetro de 5 mm e que tens
+      um telescópio com uma abertura de 50 cm. Quanta mais luz pode o telescópio captar
+      do que o teu olho?
+
+      (A) 10000 vezes mais (B) 100 vezes mais (C) 1000 vezes mais (D) 10 vezes mais'
+    target: Vamos pensar passo a passo. A quantidade de luz é proporcional à área
+      de abertura $A = \pi D^2/4$ para uma lente de diâmetro $D$, pelo que a quantidade
+      relativa de luz entre o olho de diâmetro 5mm e o telescópio de diâmetro 50mm
+      é $(50 cm)^2/(5mm)^2 = 10000$. A resposta é (A).
+  - question: 'Porque é que não existe um planeta no local onde se situa a cintura
+      de asteróides?
+
+      (A) Um planeta formou-se aqui, mas foi desfeito por uma colisão catastrófica.
+      (B) Não havia material suficiente nesta parte da nebulosa solar para formar
+      um planeta. (C) Havia demasiado material rochoso para formar um planeta terrestre
+      mas não havia material gasoso suficiente para formar um planeta joviano. (D)
+      A ressonância com Júpiter impediu a acumulação de material para formar um planeta.'
+    target: "Vamos pensar passo a passo. A cintura de asteróides é um disco estelar
+      constituído por um grande número de asteróides entre as órbitas de Marte e Júpiter.
+      Os asteróides desta cintura são afectados pela força gravitacional de outros
+      asteróides e de planetas próximos. Devido à forte força gravitacional de Júpiter,
+      existem ressonâncias que dão origem a regiões de baixa densidade de asteróides
+      conhecidas como o fosso de Kirkwood. Assim, (B) e (C) não estão corretas, uma
+      vez que não é a falta de material que impede a formação de um planeta, e (A)
+      está incorrecta porque a lacuna de Kirkwood teria impedido a formação de um
+      planeta, e (D) é a opção correta. A resposta é (D)."
+  - question: 'Porque é que Marte é vermelho?
+
+      (A) Porque a superfície está coberta de minerais fortemente oxidados ("ferrugem").
+      (B) Porque a atmosfera dispersa mais luz em comprimentos de onda mais azuis,
+      transmitindo maioritariamente luz vermelha. (C) Porque Marte está coberto de
+      fluxos de lava antigos que são de cor vermelha. (D) Porque a água corrente na
+      superfície de Marte alterou os minerais da superfície há vários milhares de
+      milhões de anos.'
+    target: 'Vamos pensar passo a passo. A opção (B) não está correta porque, se a
+      cor vermelha fosse causada pela dispersão da atmosfera, então a Terra com uma
+      atmosfera muito mais espessa também teria um aspeto vermelho. As opções (C)
+      e (D) não são suficientemente específicas sobre a razão pela qual a cor da superfície
+      seria vermelha, enquanto a (A) está correta porque explica que a superfície
+      é vermelha devido aos materiais enferrujados na superfície e que a cor vermelha
+      provém da ferrugem. Assim, a opção correta é a (A). A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_astronomy_mt_pt

@@ -1,0 +1,6 @@
+"dataset_name": "sociology_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre sociologia.\n\
+  \n"
+"tag": "amalia_mmlu_flan_n_shot_generative_social_sciences_mt_pt"
+"include": "_mmlu_flan_generative_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_generative_sociology_mt_pt"

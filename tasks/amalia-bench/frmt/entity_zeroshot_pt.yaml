@@ -1,0 +1,10 @@
+include: _default_template_yaml
+description: "Traduz o seguinte texto de Inglês para Português Europeu.\n\n"
+process_docs: !function utils.process_entity_pt
+doc_to_target: !function utils.doc_to_target_pt
+tag:
+  - amalia_frmt_zeroshot_pt_tasks
+  - amalia_frmt_zeroshot_entity_tasks
+  - amalia_frmt_zeroshot_tasks
+task: amalia_frmt_entity_zeroshot_pt
+task_alias: entity_zeroshot_pt

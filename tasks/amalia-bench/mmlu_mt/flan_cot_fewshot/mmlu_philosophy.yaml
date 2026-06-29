@@ -1,0 +1,47 @@
+dataset_name: philosophy_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre filosofia.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'O estudo da realidade no sentido mais amplo, uma investigação sobre
+      a natureza elementar do universo e das coisas que nele existem, é conhecido
+      como _____.
+
+      (A) metafísica (B) epistemologia (C) física quântica (D) axiologia'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre filosofia. Entre as opções, apenas a metafísica estuda a natureza da realidade
+      e da existência. A resposta é (A).
+  - question: "De acordo com o \"utilitarismo ideal\" de Moore, a ação correta é aquela
+      que provoca a maior quantidade de:\n(A) prazer. (B) felicidade. (C) bem. (D)
+      virtude."
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre filosofia. O "utilitarismo ideal" de Moore afirma que as acções de uma
+      pessoa devem maximizar os bens intrínsecos. A resposta é (C).
+  - question: 'Antes da conversão cristã de Tolstoi, qual era a sua perspetiva sobre
+      o sentido da vida?
+
+      (A) otimista (B) satisfeito (C) nominalmente religioso (D) pessimista'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre filosofia. Antes da sua conversão, Tolstoi sente que a vida era incerta,
+      o que é um ponto de vista pessimista. A resposta é (D).
+  - question: 'Segundo d''Holbach, as pessoas actuam sempre de acordo com _____.
+
+      (A) escolhas livres (B) ditames da alma (C) leis naturais necessárias (D) vontade
+      indeterminada'
+    target: Vamos pensar passo a passo. Para nos ajudar, consultamos os artigos da
+      Wikipédia sobre filosofia. d'Holbach acredita que as pessoas agem de acordo
+      com as leis necessárias e isso não prova nada sobre o livre arbítrio das pessoas.
+      A resposta é (C).
+  - question: 'O egoísmo psicológico é:
+
+      (A) uma teoria ética sobre como nos devemos comportar. (B) uma generalização
+      sobre a forma como as pessoas tendem a comportar-se. (C) uma afirmação sobre
+      a natureza humana e as formas como as pessoas são capazes de se comportar. (D)
+      nenhuma das anteriores.'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre filosofia. O egoísmo psicológico sugere que nos comportamos com base naquilo
+      que nos faz sentir bem, pelo que é uma afirmação sobre a natureza humana e a
+      forma como os seres humanos são capazes de se comportar. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_philosophy_mt_pt

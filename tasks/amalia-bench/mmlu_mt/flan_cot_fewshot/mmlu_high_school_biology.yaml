@@ -1,0 +1,72 @@
+dataset_name: high_school_biology_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre biologia
+  do ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Nas células animais, qual das seguintes opções representa a via mais
+      provável que uma proteína secretora segue quando é sintetizada numa célula?\n
+      (A) Membrana plasmática - aparelho de Golgi - ribossoma - vesícula secretora
+      - ER rugoso (B) Ribossoma - aparelho de Golgi - ER rugoso - vesícula secretora
+      - membrana plasmática (C) Membrana plasmática - aparelho de Golgi - ribossoma
+      - vesícula secretora - ER rugoso (D) Ribossoma - ER rugoso - aparelho de Golgi
+      - vesícula secretora - membrana plasmática"
+    target: Vamos pensar passo a passo. A síntese de proteínas começa no ribossoma,
+      pelo que podemos eliminar (A) e (C). O ribossoma encontra-se frequentemente
+      no retículo endoplasmático e desloca-se de lá para o aparelho de Golgi, onde
+      é modificado e embalado numa vesícula. A vesícula flutua então até à membrana
+      plasmática e é segregada. A resposta é (D).
+  - question: "Uma mutação numa enzima bacteriana alterou um aminoácido anteriormente
+      polar para um aminoácido não polar. Este aminoácido estava localizado num sítio
+      distante do sítio ativo da enzima. Como é que esta mutação pode alterar a especificidade
+      do substrato da enzima?\n(A) Alterando o pH ótimo da enzima (B) Alterando a
+      localização da enzima na célula (C) Alterando a forma da proteína (D) Uma alteração
+      de um aminoácido afastado do local ativo não pode alterar a especificidade do
+      substrato da enzima."
+    target: Vamos pensar passo a passo. A alteração de um aminoácido leva a uma alteração
+      da estrutura primária da proteína. Uma alteração na estrutura primária pode
+      levar a uma alteração na estrutura secundária e terciária da proteína. Uma alteração
+      na estrutura terciária implica uma alteração na forma da proteína, pelo que
+      a alínea C) tem de estar correta. Uma vez que a alteração não afecta o sítio
+      ativo da enzima, não se espera que a atividade da enzima seja afetada. A resposta
+      é (C).
+  - question: 'Qual das seguintes não é uma forma de formar ADN recombinante?
+
+      (A) Tradução (B) Conjugação (C) Transdução especializada (D) Transformação'
+    target: 'Vamos pensar passo a passo. A introdução de ADN ou ARN estranho em bactérias
+      ou células eucarióticas é uma técnica comum na biologia molecular e na investigação
+      científica. Existem várias formas de introduzir ADN estranho nas células, incluindo
+      a transformação, a transdução, a conjugação e a transfecção. Em contrapartida,
+      (A) não é uma forma de formar ADN: durante a tradução, os ribossomas sintetizam
+      proteínas a partir do ARN. A resposta é (A).'
+  - question: 'As estruturas homólogas são frequentemente citadas como evidência do
+      processo de seleção natural. Todos os exemplos a seguir são exemplos de estruturas
+      homólogas, exceto
+
+      (A) as asas de uma ave e as asas de um morcego (B) as barbatanas de uma baleia
+      e os braços de um homem (C) as barbatanas peitorais de uma toninha e as barbatanas
+      de uma foca (D) as patas anteriores de um inseto e os membros anteriores de
+      um cão'
+    target: "Vamos pensar passo a passo. Estruturas homólogas são caraterísticas físicas
+      semelhantes em organismos que partilham um antepassado comum, mas com funções
+      diferentes. As comparações (B) e (C) são claramente homólogas porque partilham
+      um antepassado comum e as estruturas têm finalidades diferentes. As asas de
+      morcego e as asas de pássaro também são homólogas, embora sejam ambas asas,
+      os membros anteriores têm finalidades diferentes. Os insectos e os cães são
+      antepassados muito distantes, uma vez que um é vertebrado e o outro é invertebrado
+      e os membros anteriores têm a mesma finalidade, pelo que não são homólogos.
+      A resposta é (D)."
+  - question: 'Qual dos seguintes elementos não é conhecido por estar envolvido no
+      controlo da divisão celular?
+
+      (A) Ciclinas (B) Proteínas cinases (C) Pontos de controlo (D) Células fibroblásticas'
+    target: 'Vamos pensar passo a passo. As células normais movem-se através do ciclo
+      celular de uma forma regulada. Na fase de ponto de controlo, utilizam informações
+      sobre o seu próprio estado interno e pistas do ambiente que as rodeia para decidir
+      se devem prosseguir com a divisão celular. Estas pistas actuam alterando a atividade
+      dos principais reguladores do ciclo celular no interior da célula. Os reguladores
+      mais comuns são as ciclinas e as cinases dependentes de ciclinas. Os fibroblastos
+      não desempenham qualquer papel na divisão celular. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_biology_mt_pt

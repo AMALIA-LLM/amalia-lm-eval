@@ -1,0 +1,18 @@
+"dataset_name": "boolean_expressions"
+"description": "Avalia o resultado de uma expressão booleana aleatória.\n\n"
+"doc_to_text": "P: {{input}}\nR: Vamos pensar passo a passo."
+"include": "_cot_zeroshot_template_yaml"
+"task": "bbh_cot_zeroshot_boolean_expressions_mt_pt"
+
+filter_list:
+- name: "flexible-extract"
+  filter:
+  - function: "regex"
+    group_select: -1
+    regex_pattern: "\\b(Verdadeiro|Falso|Verdadeira|Falsa)\\b"
+  - function: "take_first"
+- name: "strict-match"
+  filter:
+  - function: "regex"
+    regex_pattern: "((?<=A resposta é )(.*)(?=.)|(?<=a resposta é )(.*)(?=.)|(?<=A resposta: )(.*)(?=.)|(?<=A resposta final: )(.*)(?=.))"
+  - function: "take_first"

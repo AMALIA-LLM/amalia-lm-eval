@@ -1,0 +1,26 @@
+task: saudade_chat_cot_pt
+dataset_path: amalia-llm/saudade-pt
+test_split: test
+output_type: generate_until
+doc_to_text: 'Pergunta: {{prompt}}:\nOpções:\n(A) {{facts_pair[0]}}\n(B) {{facts_pair[1]}}?\n\nEscolha a opção correta para a pergunta acima. Apresente o seu raciocínio antes de responder. No final, apresente a sua resposta no formato \\boxed{X}, onde X é a letra da opção correta (A ou B).'
+doc_to_target: '{{"AB"[answer_index]}}'
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 2048
+  until:
+  - "</s>"
+  - "<|im_end|>"
+  - "<|endoftext|>"
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_punctuation: true
+    ignore_case: true
+filter_list:
+- name: "answer-extractor"
+  filter:
+  - function: !function utils.ExtractAnswerR
+  - function: "take_first"
+metadata:
+  version: 1.0

@@ -1,0 +1,5 @@
+"dataset_name": "prehistory_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre a pré-história.\n\n"
+"tag": "amalia_mmlu_continuation_humanities_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_prehistory_mt_pt"

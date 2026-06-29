@@ -1,0 +1,78 @@
+dataset_name: machine_learning_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre aprendizagem
+  automática.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Que aumento de dados de imagem é mais comum em imagens naturais?
+
+      (A) Recorte aleatório e inversão horizontal (B) Recorte aleatório e inversão
+      vertical (C) Posterização (D) Pontilhamento'
+    target: Vamos pensar passo a passo. O aumento de dados é utilizado para aumentar
+      a diversidade de imagens no conjunto de dados de treino. É importante que as
+      imagens naturais sejam mantidas naturais depois de serem aumentadas. As inversões
+      verticais de imagens não são naturais, pelo que (B) é falsa. A posterização
+      faz com que a imagem se pareça com um poster e o dithering aumenta a profundidade
+      da cor. Nenhuma destas duas técnicas preserva a propriedade natural. A única
+      técnica natural de aumento de dados é a (A). A resposta é (A).
+  - question: "Tradicionalmente, quando temos um atributo de pergunta com valor real
+      durante a aprendizagem da árvore de decisão, consideramos uma divisão binária
+      de acordo com o facto de o atributo estar acima ou abaixo de um determinado
+      limiar. O Pat sugere que, em vez disso, deveríamos ter uma divisão multidirecional
+      com um ramo para cada um dos valores distintos do atributo. Da lista que se
+      segue, selecione o maior problema com a sugestão do Pat:\n (A) É demasiado dispendiosa
+      do ponto de vista computacional. (B) Provavelmente resultaria em uma árvore
+      de decisão com resultados ruins no conjunto de treinamento e em um conjunto
+      de teste. (C) Provavelmente resultaria numa árvore de decisão com bons resultados
+      no conjunto de treino, mas com maus resultados num conjunto de teste. (D) Provavelmente
+      resultaria numa árvore de decisão com bons resultados num conjunto de teste,
+      mas com maus resultados num conjunto de treino."
+    target: "Vamos pensar passo a passo. Como a pergunta tem um valor real, é improvável
+      que os mesmos valores apareçam tanto no momento do treinamento quanto no momento
+      do teste. Isto significa que, embora essa árvore de decisão possa ter um bom
+      desempenho nos dados de treino, quando avaliada nos dados de teste terá um mau
+      desempenho porque a árvore de decisão não saberá o que fazer com números que
+      não apareceram nos dados de treino. A resposta é (C)."
+  - question: "Está a rever os artigos para a Conferência de Aprendizagem Automática
+      mais sofisticada do mundo e vê submissões com as seguintes afirmações. Quais
+      delas consideraria aceitar?\n(A) O meu método atinge um erro de treino inferior
+      a todos os métodos anteriores! (B) O meu método atinge um erro de teste inferior
+      a todos os métodos anteriores! (Nota de rodapé: Quando o parâmetro de regularização
+      λ é escolhido de forma a minimizar o erro de ensaio). (C) O meu método permite
+      obter um erro de ensaio inferior a todos os métodos anteriores! (Nota de rodapé:
+      Quando o parâmetro de regularização λ é escolhido de forma a minimizar o erro
+      de validação cruzada). (D) O meu método obtém um erro de validação cruzada inferior
+      a todos os métodos anteriores! (Nota de rodapé: Quando o parâmetro de regularização
+      λ é escolhido de forma a minimizar o erro de validação cruzada)."
+    target: "Vamos pensar passo a passo. Na aprendizagem automática, treinamos com
+      alguns dados e hiperparâmetros fixos e o erro de treino pode ser arbitrariamente
+      baixo, pelo que (A) não pode estar correto. Depois, comparam-se diferentes hiperparâmetros
+      selecionando o modelo com o menor erro de validação cruzada, o que significa
+      que (B) e (D) não são o procedimento correto. O único número relevante depois
+      destes é o erro de teste, pelo que (C) é a resposta correta. A resposta é (C)."
+  - question: 'Um dado de 6 lados é lançado 15 vezes e os resultados são: lado 1 aparece
+      0 vezes; lado 2: 1 vez; lado 3: 2 vezes; lado 4: 3 vezes; lado 5: 4 vezes; lado
+      6: 5 vezes. Com base nesses resultados, qual é a probabilidade de o lado 3 aparecer
+      quando se usa a suavização Add-1?
+
+      (A) 2,0/15 (B) 1,0/7 (C) 3,0/16 (D) 1,0/5'
+    target: 'Vamos pensar passo a passo. A suavização Add-1 adiciona o valor de um
+      às diferentes contagens e, em seguida, normaliza as probabilidades em conformidade.
+      As contagens após a adição de um serão: lado 1 aparece 1 vez; lado 2: 2 vezes;
+      lado 3: 3 vezes; lado 4: 4 vezes; lado 5: 5 vezes; lado 6: 6 vezes. O número
+      de vezes que um dado é lançado é 21, pelo que a probabilidade de tirar um três
+      é 3/21 = 1/7. A resposta é (B).'
+  - question: 'Para obter uma estimativa de perda 0/1 que seja inferior a 1% da perda
+      0/1 verdadeira (com probabilidade de 95%), de acordo com a desigualdade de Hoeffding,
+      o conjunto de teste IID deve ter quantos exemplos?
+
+      (A) cerca de 10 exemplos (B) cerca de 100 exemplos (C) entre 100 e 500 exemplos
+      (D) mais de 1000 exemplos'
+    target: "Vamos pensar passo a passo. Pela desigualdade de Hoeffding, esperamos
+      que, com 95% de probabilidade, os erros na amostra e fora da amostra diferem
+      por epsilon quando temos N amostras se 2 exp(-2 epsilon^2 N)<0.05, isto implica
+      que N > -1/(2*epsilon**2) log ( 0.05/2 )= log (40)*5000. Como log(40)>1, temos
+      que são necessários mais de 1000 exemplos. A resposta é (D).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_machine_learning_mt_pt

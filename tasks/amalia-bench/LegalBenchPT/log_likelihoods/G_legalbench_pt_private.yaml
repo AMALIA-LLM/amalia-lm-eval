@@ -1,0 +1,23 @@
+group: amalia_legalbench_pt_private_log
+group_alias: private_log
+task: 
+  - amalia_legalbench_pt_aviation_log
+  - amalia_legalbench_pt_banking_log
+  - amalia_legalbench_pt_commercial_log
+  - amalia_legalbench_pt_private_international_log
+  - amalia_legalbench_pt_maritime_log
+  - amalia_legalbench_pt_family_log
+  - amalia_legalbench_pt_insolvency_log
+  - amalia_legalbench_pt_obligations_log
+  - amalia_legalbench_pt_corporate_log
+  - amalia_legalbench_pt_succession_log
+  - amalia_legalbench_pt_labor_log
+  - amalia_legalbench_pt_contract_log
+  - amalia_legalbench_pt_transportation_log
+  - amalia_legalbench_pt_securities_log
+  - amalia_legalbench_pt_property_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

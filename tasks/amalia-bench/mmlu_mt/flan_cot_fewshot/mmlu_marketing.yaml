@@ -1,0 +1,63 @@
+dataset_name: marketing_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre marketing.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Embora o conteúdo e a qualidade possam ser tão controlados como a publicidade
+      endereçada, as taxas de resposta deste meio são mais baixas devido à falta de
+      um mecanismo de endereçamento pessoal. Este formato de meio de comunicação é
+      conhecido como:
+
+      (A) Linhas de atendimento. (B) Correio direto. (C) Inserções. (D) Porta a porta.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre marketing. O marketing porta a porta entrega artigos não endereçados em
+      todos os edifícios de uma área geográfica. Embora possa controlar o conteúdo
+      e a qualidade tão bem como o marketing por correio direto, a sua taxa de resposta
+      é inferior devido à falta de um mecanismo de endereço pessoal. A resposta é
+      (D).
+  - question: 'Numa organização, o grupo de pessoas encarregadas de tomar decisões
+      de compra é designado por _______________.
+
+      (A) Unidade de externalização. (B) Centro de compras. (C) Unidade executiva
+      principal. (D) Unidade de tomada de decisões.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre marketing. Numa organização, o grupo de pessoas encarregadas da decisão
+      de compra é designado por unidade de decisão. A resposta é (D).
+  - question: 'O único grupo da sociedade que é mais vulnerável à influência do grupo
+      de referência é:
+
+      (A) O consumidor mais velho que se sente um pouco à margem das coisas. (B) As
+      mulheres casadas, muitas das quais sentem necessidade de estabilidade nas suas
+      vidas. (C) Os novos imigrantes que querem realmente assimilar-se à sua nova
+      cultura. (D) As crianças, que baseiam a maior parte das suas decisões de compra
+      em influências externas.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre marketing. As crianças, que na sua maioria baseiam as suas decisões de
+      compra em influências externas, são o único grupo da sociedade que é mais vulnerável
+      à influência do grupo de referência. A resposta é (D).
+  - question: 'Qual das seguintes afirmações é um pressuposto da hierarquia das necessidades
+      de Maslow?
+
+      (A) As necessidades dependem da cultura e também da classe social. (B) As necessidades
+      de nível inferior devem ser satisfeitas, pelo menos parcialmente, antes de as
+      necessidades superiores poderem afetar o comportamento. (C) As necessidades
+      não são prioritárias nem estão organizadas por uma ordem específica. (D) As
+      necessidades satisfeitas são motivadoras e surgem novas necessidades quando
+      as actuais não são satisfeitas.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre marketing. A hierarquia das necessidades de Maslow, de baixo para cima,
+      é constituída pelas necessidades fisiológicas (alimentação e vestuário), de
+      segurança, de amor e de pertença, de estima e de auto-realização. As necessidades
+      de nível inferior devem ser satisfeitas, pelo menos parcialmente, antes que
+      as necessidades superiores possam afetar o comportamento. A resposta é (B).
+  - question: '_____________ é um resultado natural da combinação de variáveis demográficas
+      e geográficas.
+
+      (A) Geodemografia. (B) Diferenciação de produtos. (C) Matriz ANSOFF. (D) Gestão
+      de marcas.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre marketing. A geodemografia é um resultado natural da combinação
+      de variáveis demográficas e geográficas. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_marketing_mt_pt

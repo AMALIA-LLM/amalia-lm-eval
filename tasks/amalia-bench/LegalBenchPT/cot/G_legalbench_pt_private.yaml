@@ -1,0 +1,23 @@
+group: amalia_legalbench_pt_private_cot
+group_alias: private_cot
+task: 
+  - amalia_legalbench_pt_aviation_cot
+  - amalia_legalbench_pt_banking_cot
+  - amalia_legalbench_pt_commercial_cot
+  - amalia_legalbench_pt_private_international_cot
+  - amalia_legalbench_pt_maritime_cot
+  - amalia_legalbench_pt_family_cot
+  - amalia_legalbench_pt_insolvency_cot
+  - amalia_legalbench_pt_obligations_cot
+  - amalia_legalbench_pt_corporate_cot
+  - amalia_legalbench_pt_succession_cot
+  - amalia_legalbench_pt_labor_cot
+  - amalia_legalbench_pt_contract_cot
+  - amalia_legalbench_pt_transportation_cot
+  - amalia_legalbench_pt_securities_cot
+  - amalia_legalbench_pt_property_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

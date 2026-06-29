@@ -1,0 +1,59 @@
+dataset_name: snarks
+description: 'Determina qual das duas frases é sarcástica.
+
+
+  De acordo com o Cambridge University Dictionary, o sarcasmo é "o uso de observações
+  que significam claramente o oposto do que dizem, feitas com o objetivo de ferir
+  os sentimentos de alguém ou de criticar algo de uma forma humorística". As frases
+  sarcásticas contêm frequentemente afirmações satíricas ou irónicas, hipérboles,
+  observações ambivalentes ou espirituosas.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Sim, porque ter interesses e
+      pesquisá-los ativamente é um enorme desperdício\n(B) Sim, porque ter interesses
+      e pesquisá-los ativamente é um grande negócio"
+    target: "Vamos pensar passo a passo.\nSe olharmos para (A), diz-se que ter interesses
+      e investigá-los ativamente é um enorme desperdício, o que implica que é um esforço
+      inútil. No entanto, sabemos que ter interesses e investigá-los ativamente não
+      é tipicamente um desperdício, sendo antes benéfico para o indivíduo. A presença
+      de uma tal justaposição em (A) sugere que esta contém um toque de ironia e sarcasmo.\n
+      Se olharmos para (B), diz-se que ter interesses e investigá-los ativamente é
+      um grande negócio, o que implica que é um esforço importante e consequente.
+      Esta é, sem dúvida, uma afirmação neutra e correta.\nAcima do exposto, a opção
+      sarcástica é a (A). Portanto, a resposta é (A)."
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Ninguém vai discordar de ti
+      nesta questão. Evitar ataques ad hominem ajuda muito o seu caso\n(B) Ninguém
+      vai discordar de si nesta questão. Os ataques ad hominem ajudam muito o seu
+      caso"
+    target: "Vamos pensar passo a passo.\nSe olharmos para (A), diz que evitar ataques
+      ad hominem ajuda muito o seu caso, o que implica que os ataques ad hominem são
+      adversos e prejudiciais. Como os ataques ad hominem são dirigidos a uma pessoa
+      e não a uma ideia, é de facto verdade que evitá-los é muitas vezes útil e proveitoso;
+      assim, (A) é uma afirmação neutra (válida e aceitável).\nSe olharmos para (B),
+      diz que os ataques ad hominem ajudam muito o teu caso, o que implica que os
+      ataques ad hominem são uma coisa positiva. No entanto, afirmámos anteriormente
+      que os ataques ad hominem não são muitas vezes úteis ou construtivos. Assim,
+      o orador nesta frase parece querer dizer o oposto do que está a dizer; por isso,
+      parece haver um sabor de ironia e sarcasmo em (B).\nDe acordo com o exposto,
+      a opção sarcástica é (B). Portanto, a resposta é (B)."
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Consistência nos castigos da
+      liga? O que é que acha que isto é suposto ser, política?\n(B) Coerência nos
+      castigos da liga? O que é que acha que isto é suposto ser, moral?"
+    target: "Vamos pensar passo a passo.\nSe olharmos para (A), comparamos a consistência
+      dos castigos da liga com a da política. Como a política ou os assuntos políticos
+      não são frequentemente considerados consistentes ou fiáveis, esta frase parece
+      ser satírica.\nSe olharmos para (B), ela compara a consistência dos castigos
+      da liga com a da moral. Discutir a consistência dos castigos da liga no contexto
+      da moralidade, da ética ou da lei faz sentido e não parece ter um carácter satírico.\n
+      Acima do exposto, a opção sarcástica é (A). Portanto, a resposta é (A)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_snarks_mt_pt

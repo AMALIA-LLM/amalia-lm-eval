@@ -1,0 +1,3 @@
+"dataset_name": "culture_bound_semantics"
+"include": "_default_template_yaml"
+"task": "alba_semantics_two_options_mcq"

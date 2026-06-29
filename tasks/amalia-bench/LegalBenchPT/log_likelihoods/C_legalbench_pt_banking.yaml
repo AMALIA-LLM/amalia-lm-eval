@@ -1,0 +1,11 @@
+group: amalia_legalbench_pt_banking_log
+group_alias: banking_log
+task: 
+  - amalia_legalbench_pt_banking_cloze_tasks_log
+  - amalia_legalbench_pt_banking_multiple_choice_log
+  - amalia_legalbench_pt_banking_true_false_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

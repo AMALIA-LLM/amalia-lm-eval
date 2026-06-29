@@ -1,0 +1,12 @@
+group: amalia_legalbench_pt_obligations_log
+group_alias: obligations_log
+task: 
+  - amalia_legalbench_pt_obligations_cloze_tasks_log
+  - amalia_legalbench_pt_obligations_multiple_choice_log
+  - amalia_legalbench_pt_obligations_true_false_log
+  - amalia_legalbench_pt_obligations_case_analysis_questions_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

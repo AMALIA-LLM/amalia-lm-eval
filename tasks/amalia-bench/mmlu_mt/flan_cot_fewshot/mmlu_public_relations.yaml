@@ -1,0 +1,58 @@
+dataset_name: public_relations_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre relações
+  públicas.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A Hora do Planeta foi uma campanha lançada por que organização?
+
+      (A) Greenpeace (B) ONU (C) Oxfam (D) World Wildlife Fund'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre relações públicas. A Hora do Planeta é um movimento mundial lançado pelo
+      World Wildlife Fund. A resposta é (D).
+  - question: 'Na gestão de problemas, qual é a abordagem mais proactiva para lidar
+      com informações negativas ou enganosas publicadas online sobre a sua organização?
+
+      (A) Comprar nomes de domínio que possam ser utilizados por grupos da oposição.
+      (B) Publicar comentários anónimos em blogues para combater esta informação.
+      (C) Preparar um comunicado de imprensa que desacredite a informação incorrecta.
+      (D) Efetuar alterações à política para responder às queixas apresentadas nesses
+      sítios.'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre relações públicas. Na gestão de problemas, a abordagem mais
+      proactiva para lidar com informações negativas ou enganosas publicadas online
+      é fazer alterações à política para responder às queixas apresentadas nesses
+      sites. A resposta é (D).
+  - question: 'Em que fase do processo de planeamento deve ser realizada uma análise
+      da situação?
+
+      (A) Definir o programa (B) Planear o programa (C) Tomar medidas e implementar
+      ideias (D) Avaliar o programa'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre relações públicas. As análises de situação são normalmente realizadas
+      durante a fase de planeamento do processo de definição do programa. A resposta
+      é (A).
+  - question: 'Qual das seguintes afirmações é verdadeira em relação ao Vaticano em
+      2010, aquando das acusações de encobrimento de abusos de menores?
+
+      (A) Houve uma resposta coordenada dos media. (B) Foram transmitidas mensagens
+      coerentes. (C) As críticas foram tomadas como ataques à Igreja Católica. (D)
+      A credibilidade do Vaticano foi mantida.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre relações públicas. Em 2010, quando houve acusações de encobrimento de
+      abusos de menores, o Vaticano considerou essas críticas como ataques à Igreja
+      Católica. A resposta é (C).
+  - question: 'O que é que um profissional de relações públicas deve fazer se não
+      souber a resposta a uma pergunta de um repórter?
+
+      (A) Dar ao repórter outra informação que tenha a certeza de estar correta. (B)
+      Dizer que a informação é "off the record" e que será divulgada mais tarde. (C)
+      Dizer "não sei" e prometer que fornecerá a informação mais tarde. (D) Dizer
+      "sem comentários", em vez de parecer desinformado.'
+    target: 'Vamos pensar passo a passo. Consultamos os artigos da Wikipédia sobre
+      relações públicas para obter ajuda. Se um profissional de relações públicas
+      não souber a resposta a uma pergunta de um repórter, deve dizer "não sei" e
+      oferecer-se para fornecer a informação mais tarde. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_public_relations_mt_pt

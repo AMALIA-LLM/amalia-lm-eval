@@ -1,0 +1,73 @@
+dataset_name: formal_fallacies
+description: 'Distinguir argumentos dedutivamente válidos de falácias formais.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "\"Nem sempre é fácil perceber quem está relacionado com quem - e de que
+      forma. O argumento que se segue diz respeito a esta questão: Para começar, Lesley
+      é uma amiga íntima de Fernando. Além disso, ser amigo íntimo de Fernando ou
+      colega de escola de Lowell é suficiente para ser bisavô de Leroy. Segue-se que
+      Lesley é bisavô de Leroy\".\nO argumento, dadas as premissas explicitadas, é
+      dedutivamente válido ou inválido?\nOpções:\n- válido\n- inválido"
+    target: "Vamos pensar passo a passo.\n(1) A Lesley é uma amiga íntima do Fernando:
+      Lesley = amigo(Fernando).\n(2) Ser amigo íntimo de Fernando ou colega de escola
+      de Lowell é suficiente para ser bisavô de Leroy: Se X = amigo(Fernando) OU COLEGA
+      DE ESCOLA(Lowell), então X = bisavô(Leroy).\nHipótese: Segue-se que Lesley é
+      bisavô de Leroy: Lesley = bisavô(Leroy)?\nVejamos se a Hipótese pode ser deduzida
+      dos argumentos (1) e (2) por raciocínio lógico?\nPor (1), temos que Lesley =
+      amigo(Fernando). Por (2), temos que se Lesley = amigo(Fernando), então Lesley
+      = bisavô(Leroy).\nPortanto, é verdade que Lesley é bisavô de Leroy. Portanto,
+      o argumento é válido."
+  - input: "\"Nem sempre é fácil perceber quem é parente de quem - e de que forma.
+      O argumento seguinte diz respeito a esta questão: Quem não for bisavô de Clyde
+      é meio-irmão de Brian. Ser um antepassado de Dana é suficiente para não ser
+      bisavô de Clyde. Podemos concluir: Toda a gente que é antepassado de Dana é
+      também meio-irmão de Brian\".\nO argumento, dadas as premissas explicitamente
+      declaradas, é dedutivamente válido ou inválido?\nOpções:\n- válido\n- inválido"
+    target: "Vamos pensar passo a passo.\n(1) Quem não é bisavô de Clyde é meio-irmão
+      de Brian: Se X = NOT (bisavô(Clyde)), então X = meio-irmão(Brian).\n(2): Ser
+      um antepassado de Dana é suficiente para não ser um bisavô de Clyde: Se X =
+      antepassado(Dana), X = NÃO (bisavô(Clyde)).\nHipótese: Segue-se que toda a gente
+      que é antepassado de Dana é também meio-irmão de Brian: Se X = antepassado(Dana),
+      então X = meio-irmão(Brian)?\nVamos ver se a Hipótese pode ser deduzida dos
+      argumentos (1) e (2) por raciocínio lógico?\nPor (2), temos que se X = antepassado(Dana),
+      X = NÃO (bisavô(Clyde)).\nAlém disso, por (1), temos que se X = NÃO (bisavô(Clyde)),
+      então X = meio-irmão(Brian).\nPela regra da relação transitiva na lógica de
+      primeira ordem, temos então: se X = antepassado(Dana), então X = meio-irmão(Brian).\n
+      Portanto, é verdade que toda a gente que é antepassado da Dana é meio-irmão
+      do Brian. Portanto, o argumento é válido."
+  - input: "\"Nem sempre é fácil perceber quem está a consumir que produtos. O argumento
+      seguinte diz respeito a esta questão: Cada utilizador pouco frequente do champô
+      Paul Mitchell é um consumidor raro de champô Nioxin ou um comprador fiel do
+      sabonete Caress, ou ambos. Nenhum consumidor regular do sabonete Lush é um consumidor
+      raro do champô Nioxin e, ao mesmo tempo, um comprador fiel do sabonete Caress.
+      Segue-se que quem quer que seja um utilizador pouco frequente do champô Paul
+      Mitchell não é um consumidor regular do sabonete Lush.\"\nO argumento, dadas
+      as premissas explicitadas, é dedutivamente válido ou inválido?\nOpções:\n- válido\n
+      - inválido"
+    target: "Vamos pensar passo a passo.\n(1) Cada utilizador pouco frequente do champô
+      Paul Mitchell é um consumidor raro do champô Nioxin ou um comprador fiel do
+      sabonete Caress, ou ambos: Se X = utilizador pouco frequente (Paul Mitchell),
+      então X = consumidor raro (Nioxin) OU X = comprador fiel (Caress).\n(2): Nenhum
+      consumidor regular do sabonete Lush é um consumidor raro do champô Nioxin e
+      um comprador fiel do sabonete Caress ao mesmo tempo. Se X = consumidor regular(Lush),
+      então X = NÃO [consumidor raro(Nioxin) E comprador fiel(Caress)].\nHipótese:
+      Segue-se que quem é um utilizador infrequente do champô Paul Mitchell não é
+      um consumidor regular do sabonete Lush: Se X = utilizador infrequente(Paul Mitchell),
+      então X = NÃO (consumidor regular(Lush))?\nVejamos se a Hipótese pode ser deduzida
+      dos argumentos (1) e (2) por raciocínio lógico?\nPor (1), temos que se X = utilizador
+      pouco frequente (Paul Mitchell), então X = consumidor raro (Nioxin) OU X = comprador
+      fiel (Caress). Temos de considerar os dois casos separadamente:\nO caso X =
+      consumidor raro (Nioxin) não aparece em (2).\nO caso X = fiel-comprador(Caress)
+      também não aparece em (2).\nAssim, a partir de (1) e (2), não podemos necessariamente
+      deduzir a Hipótese. Portanto, o argumento é inválido."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_formal_fallacies_mt_pt

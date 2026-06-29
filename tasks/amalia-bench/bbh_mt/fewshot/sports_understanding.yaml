@@ -1,0 +1,22 @@
+dataset_name: sports_understanding
+description: 'Determinar se uma frase construída artificialmente e relacionada com
+  o desporto é plausível ou não.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: A seguinte frase é plausível? "Bam Adebayo marcou um layup invertido nas
+      finais da Conferência Oeste."
+    target: sim
+  - input: A seguinte frase é plausível? "Santi Cazorla marcou um touchdown."
+    target: não
+  - input: A seguinte frase é plausível? "DeMar DeRozan foi chamado para o tendão
+      de golo."
+    target: sim
+include: _fewshot_template_yaml
+task: bbh_fewshot_sports_understanding_mt_pt

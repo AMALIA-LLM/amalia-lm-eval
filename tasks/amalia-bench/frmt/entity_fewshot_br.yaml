@@ -1,0 +1,13 @@
+include: _default_template_yaml
+num_fewshot: 5
+description: "Traduz os seguintes textos de Inglês para Português do Brasil.\n\n"
+process_docs: !function utils.process_entity_br
+doc_to_target: !function utils.doc_to_target_br
+tag:
+  - amalia_frmt_fewshot_br_tasks
+  - amalia_frmt_fewshot_entity_tasks
+  - amalia_frmt_fewshot_tasks
+task: amalia_frmt_entity_fewshot_br
+task_alias: entity_fewshot_br
+fewshot_config:
+  samples: !function utils.process_for_fewshot_br

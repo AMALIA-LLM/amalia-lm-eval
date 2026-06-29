@@ -1,0 +1,47 @@
+dataset_name: penguins_in_a_table
+description: 'Responder a perguntas sobre uma tabela de pinguins e os seus atributos.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Acrescentamos
+      agora um pinguim à tabela:\nTiago, 12, 90, 12\nQuantos pinguins têm menos de
+      8 anos de idade?\nOpções:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5"
+    target: "Vamos pensar passo a passo.\nEsta pergunta centra-se na idade. Sabemos
+      o seguinte: O Luís tem 7 anos, o Bernardo tem 5 anos, o Vicente tem 9 anos e
+      a Gwen tem 8 anos.\nAgora, acrescentamos o Tiago a esta tabela: O Tiago tem
+      12 anos de idade.\nOs pinguins que têm menos de 8 anos são o Luís e o Bernardo.\n
+      Há 2 pinguins com menos de 8 anos. Portanto, a resposta é (B)."
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Qual é o
+      pinguim mais novo?\nOpções:\n(A) Luís\n(B) Bernardo\n(C) Vicente\n(D) Gwen\n
+      (E) Tiago"
+    target: "Vamos pensar passo a passo.\nEsta pergunta centra-se na idade. Sabemos
+      o seguinte: O Luís tem 7 anos, o Bernardo tem 5 anos, o Vicente tem 9 anos e
+      a Gwen tem 8 anos.\nDe acordo com a tabela, o Bernardo (5) é o mais novo de
+      todos.\nO pinguim mais novo é o Bernardo. Portanto, a resposta é (B)."
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Qual é o
+      nome do segundo pinguim ordenado por ordem alfabética?\nOpções:\n(A) Luís\n
+      (B) Bernardo\n(C) Vicente\n(D) Gwen\n(E) Tiago"
+    target: "Vamos pensar passo a passo.\nEsta pergunta centra-se no nome. Sabemos
+      o seguinte: Os nomes dos pinguins na tabela são Luís, Bernardo, Vicente e Gwen.\n
+      Quando ordenamos os seus nomes por ordem alfabética, obtemos Bernard, Gwen,
+      Louis, Vincent.\nO nome do segundo pinguim ordenado por ordem alfabética é Gwen.\n
+      O nome do segundo pinguim por ordem alfabética é Gwen. Portanto, a resposta é (D)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_penguins_in_a_table_mt_pt

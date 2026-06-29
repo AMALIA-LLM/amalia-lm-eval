@@ -1,0 +1,19 @@
+group: cultura_viva_pt
+task:
+  - cultura_viva_pt_audiovisual
+  - cultura_viva_pt_festivals
+  - cultura_viva_pt_gastronomy
+  - cultura_viva_pt_geography
+  - cultura_viva_pt_heritage
+  - cultura_viva_pt_holidays
+  - cultura_viva_pt_literature
+  - cultura_viva_pt_personalities
+  - cultura_viva_pt_proverbs
+  - cultura_viva_pt_sports
+aggregate_metric_list:
+  - metric: acc_norm
+    weight_by_size: true
+  - metric: acc
+    weight_by_size: true
+metadata:
+  version: 1.0

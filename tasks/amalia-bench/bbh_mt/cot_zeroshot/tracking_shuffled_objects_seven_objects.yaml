@@ -1,0 +1,21 @@
+"dataset_name": "tracking_shuffled_objects_seven_objects"
+"description": "Uma tarefa que requer a determinação das posições finais de um conjunto
+  de objectos dadas as suas posições iniciais e uma descrição de uma sequência de
+  trocas.\n\n"
+"doc_to_text": "P: {{input}}\nR: Vamos pensar passo a passo."
+"include": "_cot_zeroshot_template_yaml"
+"task": "bbh_cot_zeroshot_tracking_shuffled_objects_seven_objects_mt_pt"
+filter_list:
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MultiChoiceRegexFilter
+    group_select: -1
+    ignore_case: true
+    ignore_punctuation: true
+    regex_pattern: "(\\([A-Z]\\))"
+  - function: "take_first"
+- name: "strict-match"
+  filter:
+  - function: "regex"
+    regex_pattern: "((?<=A resposta é )(.*)(?=.)|(?<=a resposta é )(.*)(?=.)|(?<=A resposta: )(.*)(?=.)|(?<=A resposta final: )(.*)(?=.))"
+  - function: "take_first"

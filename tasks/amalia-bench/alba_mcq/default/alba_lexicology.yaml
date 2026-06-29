@@ -1,0 +1,3 @@
+"dataset_name": "lexicology"
+"include": "_default_template_yaml"
+"task": "alba_lexicology_mcq"

@@ -1,0 +1,46 @@
+dataset_name: virology_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre virologia.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A mediana do tempo de sobrevivência à SIDA e à morte foi estabelecida
+      da seguinte forma
+
+      (A) Indivíduos seroprevalentes infectados pelo VIH (B) Seronegativos (C) Seroconversores
+      (D) Seronegativos de alto risco'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre virologia. O tempo médio de sobrevivência à SIDA e à morte foi estabelecido
+      como resultado do desenvolvimento de seroconversores. A resposta é (C).
+  - question: 'Qual das seguintes é uma caraterística morfológica dos paramixovírus?
+
+      (A) Vírus frágeis, frequentemente visualizados com ARN a sair do interior (B)
+      Vírus alongados (C) Vírus icosaédricos com envelope (D) Vírus muito grandes'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipedia
+      sobre virologia. Os paramixovírus são vírus frágeis, muitas vezes visualizados
+      com o ARN a sair do interior. A resposta é (A).
+  - question: 'O objetivo mais importante de uma intervenção comportamental é:
+
+      (A) Mudança de comportamento (B) Cobertura abrangente (C) Uso efetivo da teoria
+      comportamental (D) Mudança de comportamento sustentada'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre virologia. O principal objetivo de uma intervenção comportamental é provocar
+      uma mudança de comportamento sustentada. A resposta é (D).
+  - question: 'Um fator-chave que facilitou a aplicação de estudos de caso-controlo
+      aninhados do MACS foi:
+
+      (A) Recolha de dados (B) Estabelecimento de um repositório de espécimes biológicos
+      (C) Interesse dos participantes (D) Administração do questionário pelo pessoal'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipedia sobre virologia. A utilização pelo Multicenter AIDS Cohort Study de
+      estudos de caso-controlo aninhados foi facilitada pela criação de um repositório
+      de amostras biológicas. A resposta é (B).
+  - question: 'Porque é que os parvovírus são um parasita de grande impacto?
+
+      (A) Porque não têm ácido nucleico (B) Requerem um vírus auxiliar (C) Só se replicam
+      em células em divisão (D) Podem integrar-se nos cromossomas do hospedeiro'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre virologia. Os parovírus têm um grande impacto porque não possuem
+      ácido nucleico. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_virology_mt_pt

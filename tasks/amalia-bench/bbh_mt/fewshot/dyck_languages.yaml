@@ -1,0 +1,23 @@
+dataset_name: dyck_languages
+description: 'Fechar corretamente uma palavra Dyck-n.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: [ { ['
+    target: '] } ]'
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: < > ( ( [ [ ( { } ) [ < > ] ]'
+    target: '] ) )'
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: < [ < [ { < [ ] < { } > > } ] > { { ( ) } {
+      < [ < > ] > }'
+    target: '} ] >'
+include: _fewshot_template_yaml
+task: bbh_fewshot_dyck_languages_mt_pt

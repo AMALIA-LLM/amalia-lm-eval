@@ -1,0 +1,3 @@
+"dataset_name": "politics"
+"include": "_default_template.yaml"
+"task": "amalia_ptbrvid_politics_mcq_shuffle"

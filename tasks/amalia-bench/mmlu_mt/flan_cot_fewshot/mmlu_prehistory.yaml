@@ -1,0 +1,62 @@
+dataset_name: prehistory_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre a pré-história.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual é a capacidade craniana média aproximada do Homo erectus?
+
+      (A) menos de 650 cc (B) cerca de 800 cc (C) pouco menos de 1000 cc (D) 1200
+      cc'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a pré-história. A capacidade média do crânio do Homo erectus é inferior
+      a 1000 cm cúbicos. A resposta é (C).
+  - question: 'De acordo com Timothy Pauketat, as evidências de estratificação social
+      e poder político em Cahokia sugerem:
+
+      (A) um centro da civilização Mississippiana com condições semelhantes ao surgimento
+      dos primeiros estados. (B) as limitações da autoridade numa sociedade nativa
+      americana de forrageadores igualitários. (C) uma chefia simples ou talvez uma
+      chefia complexa havia evoluído por volta de 1500 d.C. (D) um centro da civilização
+      do Mississipi com condições semelhantes às sociedades da costa noroeste da América
+      do Norte.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre a pré-história. Timothy Pauketat é conhecido pela sua investigação sobre
+      Cahokia, o centro da cultura Mississippiana, onde encontrou condições semelhantes
+      às do surgimento dos primeiros estados. A resposta é (A).
+  - question: 'Pesquisas recentes sobre espécies de hominídeos datadas do Plioceno
+      Médio indicam que havia (a partir de 2020):
+
+      (A) uma grande quantidade de diversidade de espécies, ou uma única espécie que
+      exibia muita diversidade. (B) muito pouca diversidade de espécies durante este
+      período e muito poucos hominídeos. (C) diminuição da diversidade de espécies
+      devido a uma idade do gelo prolongada seguida de uma seca severa. (D) diminuição
+      da diversidade de espécies, mas aumento do número de martelos e lascas, indicando
+      o fabrico de ferramentas de pedra.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre pré-história. Investigações recentes reconheceram múltiplas espécies de
+      hominídeos do Plioceno Médio, o que significa que existe uma grande diversidade
+      de espécies ou diversidade numa única espécie. A resposta é (A).
+  - question: 'Os investigadores acreditam agora que o declínio dos Maias foi causado
+      principalmente por:
+
+      (A) um cataclismo de algum tipo, como um terramoto, um vulcão ou um tsunami.
+      (B) a degradação ecológica resultante das técnicas agrícolas de corte e queima.
+      (C) guerras intermináveis entre cidades-estado maias vizinhas. (D) práticas
+      de cruzamento que levaram a um aumento acentuado de doenças congénitas.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a pré-história. Os investigadores acreditam que o colapso dos Maias foi
+      causado principalmente pela exploração excessiva dos recursos naturais, como
+      as técnicas agrícolas de queimada. A resposta é (B).
+  - question: 'O grande rei maia Pacal construiu templos na cidade de Palenque com
+      o objetivo de:
+
+      (A) satisfazer os poderosos sacerdotes astrónomos maias. (B) mostrar a sua generosidade
+      para com a população, que podia habitar nos templos. (C) afugentar os inimigos,
+      nomeadamente os espanhóis. (D) legitimar a sua realeza, uma vez que o seu pai
+      não era realeza.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre a pré-história. Pacal construiu os templos como monumento funerário
+      para legitimar a sua realeza. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_prehistory_mt_pt

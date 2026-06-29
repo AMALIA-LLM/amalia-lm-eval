@@ -1,0 +1,31 @@
+task: amalia_arc_challenge_chat_mt_pt
+dataset_path: LumiOpen/arc_challenge_mt
+dataset_name: pt
+output_type: generate_until
+training_split: train
+validation_split: validation
+test_split: test
+fewshot_split: train
+doc_to_text: 'Dada a seguinte pergunta e quatro respostas candidatas (A, B, C e D), escolha a melhor resposta.\nPergunta: {{question.strip()}}\nA. {{choices.text[0]}}\nB. {{choices.text[1]}}\nC. {{choices.text[2]}}{% if choices.text|length > 3 %}\nD. {{choices.text[3]}}{% endif %}\nA sua resposta deve terminar com "A melhor resposta é [letra_da_resposta]" onde [letra_da_resposta] é A, B, C ou D.'
+gen_prefix: 'A melhor resposta é'
+fewshot_delimiter: "\n\n"
+doc_to_target: "{{ 'ABCD'[answerKey|int - 1] if answerKey|string in '1234' else answerKey }}"
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 100
+  until:
+    - "\n\n"
+    - "."
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+filter_list:
+  - name: remove_whitespace
+    filter:
+      - function: remove_whitespace
+      - function: take_first
+metadata:
+  version: 1.0

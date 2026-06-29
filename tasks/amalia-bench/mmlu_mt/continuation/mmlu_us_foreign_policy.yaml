@@ -1,0 +1,6 @@
+"dataset_name": "us_foreign_policy_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre a política externa dos EUA.\n\
+  \n"
+"tag": "amalia_mmlu_continuation_social_sciences_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_us_foreign_policy_mt_pt"

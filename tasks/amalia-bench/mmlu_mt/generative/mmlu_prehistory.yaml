@@ -1,0 +1,7 @@
+"dataset_name": "prehistory_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre a pré-história.\n\
+  \n"
+"tag": "amalia_mmlu_humanities_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_prehistory_generative_mt_pt"
+"task_alias": "prehistory"

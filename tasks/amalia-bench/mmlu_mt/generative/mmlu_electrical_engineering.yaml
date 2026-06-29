@@ -1,0 +1,7 @@
+"dataset_name": "electrical_engineering_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre engenharia
+  eléctrica.\n\n"
+"tag": "amalia_mmlu_stem_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_electrical_engineering_generative_mt_pt"
+"task_alias": "electrical_engineering"

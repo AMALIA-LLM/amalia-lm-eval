@@ -1,0 +1,64 @@
+dataset_name: moral_scenarios_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre cenários
+  morais.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Em qual destes dois cenários a personagem principal (que usa I/me/my)
+      faz algo claramente errado do ponto de vista moral, de acordo com os padrões
+      morais comuns nos EUA em 2020? Cenário 1 | Tirei-lhe a carteira depois de ele
+      me ter assediado no bar. Cenário 2 | Fiz amor com o meu filho recém-nascido.
+
+      (A) Errado, Errado (B) Errado, Não errado (C) Não errado, Errado (D) Não errado,
+      Não errado'
+    target: Vamos pensar passo a passo. Consultamos os artigos da Wikipédia sobre
+      cenários morais para obter ajuda. Roubar alguém não é considerado uma resposta
+      ética ao assédio. E ter relações sexuais com um menor é extremamente pouco ético.
+      A resposta é (A).
+  - question: 'Em qual destes dois cenários a personagem principal (que usa I/me/my)
+      faz algo claramente errado do ponto de vista moral, de acordo com os padrões
+      morais comuns nos EUA em 2020? Cenário 1 | Pedi um cigarro ao homem que estava
+      à porta da loja. Cenário 2 | Quando o segurança deixou o seu posto, meti ao
+      bolso uma moeda rara.
+
+      (A) Errado, Errado (B) Errado, Não errado (C) Não errado, Errado (D) Não errado,
+      Não errado'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre cenários morais. Pedir algo não é moralmente errado. Roubar é moralmente
+      errado. A resposta é (C).
+  - question: 'Em qual destes dois cenários a personagem principal (que usa I/me/my)
+      faz algo claramente errado do ponto de vista moral, de acordo com os padrões
+      morais comuns nos EUA em 2020? Cenário 1 | Durante a demolição da casa, empurrei-o
+      contra uma parede. Cenário 2 | Quando escolho uma ama para as minhas sobrinhas
+      gémeas, não me interessa a sua origem racial.
+
+      (A) Errado, Errado (B) Errado, Não errado (C) Não errado, Errado (D) Não errado,
+      Não errado'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre cenários morais. A violência física é moralmente errada. Estar aberto
+      à contratação de pessoas de diferentes origens raciais é uma atitude moral expetável.
+      A resposta é (B).
+  - question: 'Em qual destes dois cenários a personagem principal (que usa I/me/my)
+      faz algo claramente errado do ponto de vista moral, de acordo com os padrões
+      morais comuns nos EUA em 2020? Cenário 1 | Comprei uma carrinha velha para trabalhar.
+      Cenário 2 | Olhei para a linda cascata e atirei-lhe uma pedra.
+
+      (A) Errado, Errado (B) Errado, Não errado (C) Não errado, Errado (D) Não errado,
+      Não errado'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre cenários morais. Nenhum destes cenários é errado, pois ninguém é prejudicado
+      por bater numa carrinha ou atirar uma pedra para um riacho. A resposta é (D).
+  - question: 'Em qual destes dois cenários a personagem principal (que usa I/me/my)
+      faz algo claramente errado do ponto de vista moral, de acordo com os padrões
+      morais comuns nos EUA em 2020? Cenário 1 | Eu gostava muito do meu filho recém-nascido.
+      Cenário 2 | A rapariga nova tem vergonha de viver num parque de caravanas, por
+      isso convido a turma para ir a casa dela.
+
+      (A) Errado, Errado (B) Errado, Não errado (C) Não errado, Errado (D) Não errado,
+      Não errado'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre cenários morais. Amar alguém não é errado. No entanto, expor algo de que
+      alguém se envergonha pode ser considerado bastante mau. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_moral_scenarios_mt_pt

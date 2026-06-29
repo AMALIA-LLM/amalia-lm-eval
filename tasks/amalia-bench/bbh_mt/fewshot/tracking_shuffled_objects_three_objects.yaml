@@ -1,0 +1,39 @@
+dataset_name: tracking_shuffled_objects_three_objects
+description: 'Uma tarefa que requer a determinação das posições finais de um conjunto
+  de objectos dadas as suas posições iniciais e uma descrição de uma sequência de
+  trocas.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "A Alice, o Pedro e a Clara estão a jogar um jogo. No início do jogo, cada
+      um deles tem uma bola na mão: A Alice tem uma bola amarela, o Pedro tem uma
+      bola azul e a Clara tem uma bola cor-de-rosa.\nÀ medida que o jogo avança, os
+      pares de jogadores trocam as bolas. Primeiro, a Clara e a Alice trocam as bolas.
+      Depois, a Alice e o Bob trocam as bolas. Por fim, a Clara e o Bob trocam as
+      bolas. No final do jogo, o Bob tem a bola\nopções:\n(A) bola amarela\n(B) bola
+      azul\n(C) bola cor-de-rosa"
+    target: (A)
+  - input: "A Alice, o Pedro e a Clara estão a jogar um jogo. No início do jogo, cada
+      um deles tem uma bola na mão: A Alice tem uma bola branca, o Bob tem uma bola
+      roxa e a Claire tem uma bola cor-de-rosa.\nÀ medida que o jogo avança, os pares
+      de jogadores trocam as bolas. Primeiro, o Bob e a Alice trocam as bolas. Depois,
+      o Bob e a Claire trocam as bolas. Finalmente, o Bob e a Alice trocam as bolas.
+      No final do jogo, a Alice tem a\nopções:\n(A) bola branca\n(B) bola roxa\n(C)
+      bola cor-de-rosa"
+    target: (C)
+  - input: "A Alice, o Pedro e a Clara são dançarinos numa dança de salão. No início
+      de uma canção, cada um deles tem um parceiro: A Alice está a dançar com a Lola,
+      o Bob está a dançar com o Rodrigo e a Claire está a dançar com o Patrick.\n
+      Ao longo da canção, os dançarinos trocam frequentemente de par. Primeiro, a
+      Alice e o Bob trocam de par. Depois, a Claire e o Bob trocam de par. Por fim,
+      Bob e Alice trocam de par. No final da dança, Alice está a dançar com\nOpções:\n
+      (A) Lola\n(B) Rodrigo\n(C) Patrick"
+    target: (C)
+include: _fewshot_template_yaml
+task: bbh_fewshot_tracking_shuffled_objects_three_objects_mt_pt

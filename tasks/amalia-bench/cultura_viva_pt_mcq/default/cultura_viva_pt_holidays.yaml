@@ -1,0 +1,4 @@
+include: _default_template_yaml
+task: cultura_viva_pt_holidays
+tag: cultura_viva_pt_tasks
+process_docs: !function utils.process_docs_holidays

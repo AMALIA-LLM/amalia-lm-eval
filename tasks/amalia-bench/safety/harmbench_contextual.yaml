@@ -1,0 +1,8 @@
+task: harmbench_contextual
+dataset_path: walledai/HarmBench
+dataset_name: contextual
+dataset_kwargs: null
+test_split: train
+doc_to_text: prompt
+process_docs: !function utils.process_harmbench_contextual_samples
+include: safety_common_yaml

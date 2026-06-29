@@ -1,0 +1,353 @@
+{
+  "p0": [
+    "Que eletrodomésticos é que devo aproveitar para comprar na black friday?",
+    "Qual é o eletrodoméstico mais caro numa cozinha?",
+    "Quais são os melhores eletrodomésticos para conservar comida a uma temperatura baixa?"
+  ],
+  "p1": [
+    "O meu carro está na oficina. Que transportes posso usar como alternativa?",
+    "Há uma diferença de tempo muito grande entre ir num transporte público e ir de carro?",
+    "É mais fácil ir para o centro de uma cidade de carro ou de transportes?"
+  ],
+  "p2": [
+    "Que tipos de produtos são vendidos numa loja de estética feminina?",
+    "Onde é que posso encontrar lojas desse tipo?",
+    "Qual é o produto de estética mais popular?"
+  ],
+  "p3": [
+    "Tenho um problema na parte de trás do carro. A peça que dá acesso à parte de trás do carro não abre. Será do encaixe ou um problema elétrico?",
+    "Se não tiver dinheiro para levar o carro ao mecânico, que soluções posso tentar?"
+  ],
+  "p4": [
+    "O que é que posso oferecer aos meus sogros pelo Natal?",
+    "Caso tenha um orçamento mais baixo, o que é que posso oferecer aos meus sogros pelo Natal?",
+    "É adequado oferecer prendas a meias com outra pessoa no Natal?"
+  ],
+  "p5": [
+    "Que pratos vegetarianos se podem fazer para a noite de Natal?",
+    "Como é que se adapta um prato de bacalhau no forno para a versão vegetariana?"
+  ],
+  "p6": [
+    "Perdi a minha chave de casa. Como devo proceder?",
+    "Em que estabelecimento posso mandar fazer a cópia de uma chave?"
+  ],
+  "p7": [
+    "Quais tradições de Ano Novo em Portugal?",
+    "Vou estar em casa na noite de Ano Novo. Que atividades posso fazer?"
+  ],
+  "p8": [
+    "Eu quero saber mais sobre carros. Quais são as partes exteriores mais relevantes de um carro?",
+    "Se eu estiver à procura de comprar um carro, devo ter atenção sobre o quê?",
+    "Que características devo evitar ao máximo ao comprar um carro que já foi usado?"
+  ],
+  "p9": [
+    "Eu nunca apanhei um voo na minha vida e estou muito nervosa. Explica-me todos os momentos mais marcantes de um voo para que eu possa estar preparada quando eles acontecerem.",
+    "Eu posso estar sem o cinto de segurança em todos os momentos do voo?",
+    "Quem é que eu tenho de chamar caso precise de ajuda o queira comer durante um voo?"
+  ],
+  "p10": [
+    "Quero fazer uma lasanha vegetariana mas não sei a receita. De que ingredientes preciso?",
+    "Que queijo devo usar para a receita ser vegetariana visto que maior parte dos queijos não são vegetarianos?",
+    "E se eu quiser fazer uma lasanha vegan, que tipo de queijo devo usar?",
+    "E como é que posso fazer o molho béchamel?"
+  ],
+  "p11": [
+    "Estou à procura de casa para comprar. O meu objetivo é comprar uma casa mais antiga e renová-la. Que divisões da casa é mais caro renovar?",
+    "Que eletrodomésticos devem estar incluídos numa cozinha assim que se acaba uma obra?",
+    "Que materiais é que vou ter de comprar em maior quantidade? E para quê?"
+  ],
+  "p12": [
+    "Tenho muito bolor em casa. Qual poderá ser a causa?",
+    "Que medidas é que posso tomar para prevenir a propagação do bolor?",
+    "Como é que posso remover ou limpar as manchas de bolor?"
+  ],
+  "p13": [
+    "Quais são os fenómenos atmosféricos mais comuns?",
+    "Como posso melhorar a minha segurança durante uma trovoada?",
+    "Como é que posso descobrir se uma zona tem risco de inundação?"
+  ],
+  "p14": [
+    "Que percurso académico é o mais recomendado se o objetivo for trabalhar no parlamento europeu?",
+    "E se o objetivo for trabalhar nas nações unidas?",
+    "E se eu quiser trabalhar nas nações unidas ou no parlamento europeu, mas não quiser uma carreira política?"
+  ],
+  "p15": [
+    "Qual é a melhor prenda para um bebé recem-nascido?",
+    "E qual é a melhor prenda para o primeiro aniversário de um bebé?",
+    "Qual é a melhor prenda para novos pais?"
+  ],
+  "p16": [
+    "Se eu for despedido de um trabalho, posso ter direto a uma compensação?",
+    "Como é que posso saber os meus direitos como trabalhador?",
+    "E se eu sofrer um acidente no trabalho que me deixe sem poder trabalhar por muito tempo, tenho direito a alguma coisa?"
+  ],
+  "p17": [
+    "Quais os meios de transporte público mais comuns?",
+    "Como posso chamar um transporte público?",
+    "Qual deles é o mais utilizado na cidade?"
+  ],
+  "p18": [
+    "Onde posso guardar comida que precisa de frio?",
+    "Como devo armazenar alimentos secos?"
+  ],
+  "p19": [
+    "Que roupa devo usar para nadar?",
+    "E que roupa devo usar para ir à praia?",
+    "Explica o significado das diferentes bandeiras de segurança na praia."
+  ],
+  "p20": [
+    "Como é que se chama a primeira refeição do dia?",
+    "O que é que as pessoas costumam comer a essa refeição?"
+  ],
+  "p21": [
+    "Que bebidas se consomem com mais frequência no verão?",
+    "E que comida e pratos é mais comum consumir-se no verão?"
+  ],
+  "p22": [
+    "Quais são os melhores sítios para comprar carne?",
+    "De que formas posso pedir carne no restaurante?",
+    "Onde são criados os animais?"
+  ],
+  "p23": [
+    "O que é o Real Madrid?",
+    "Quais foram os seus melhores jogadores?"
+  ],
+  "p24": [
+    "Que meio de transporte posso usar para fazer viagens longas por terra?",
+    "Qual a velocidade média desse meio de transporte?"
+  ],
+  "p25": [
+    "O que é sistema operativo Android?",
+    "O que se pode instalar com esse sistema operativo?"
+  ],
+  "p26": [
+    "Onde posso encontrar frutas e legumes frescos?",
+    "E onde é que o preço é mais em conta?"
+  ],
+  "p27": [
+    "Qual é o nome da atividade que se faz no gelo em cima de patins que inclui acrobacias?",
+    "Que tipo de atividade é essa?",
+    "Que outras atividades de inverno incluídas nos jogos olímpicos é que existem?"
+  ],
+  "p28": [
+    "Qual é o nome de um jogo de futebol que é jogado numa mesa e com bonecos que por norma são de metal ou madeira?",
+    "Em que lugares é possível encontrar este jogo?",
+    "Quais são as regras deste jogo?"
+  ],
+  "p29": [
+    "Quais são os elementos e figuras principais do Natal?",
+    "Que atividades posso fazer com uma criança de 6 anos no Natal?",
+    "Que comida devo fazer para o Natal?",
+    "Que refeições e celebrações são comuns no Natal?"
+  ],
+  "p30": [
+    "Existe alguém que eu possa pagar para tomar conta dos meus filhos na minha casa?",
+    "Se precisar de ir trabalhar, onde é que posso deixar os meus filhos?",
+    "Como posso garantir a melhor educação possível para os meus filhos?"
+  ],
+  "p31": [
+    "Na padaria, que tipos de pães estão disponíveis?",
+    "Qual é a melhor maneira de fazer um pão simples, fofo e saboroso?",
+    "Qual é a melhor maneira de fazer um pão sem glúten?"
+  ],
+  "p32": [
+    "Na estrada, quais são os elementos e sinais mais importantes?",
+    "Quais são as partes interiores e exteriores do carro que são mais importantes?",
+    "Que elementos na estrada são mais difíceis de aprender e enfrentar?"
+  ],
+  "p33": [
+    "Separo o lixo em casa. O que devo fazer depois disso?",
+    "Qual o significado das cores dos contentores da reciclagem?",
+    "Qual o nome do local onde é tratado o lixo reciclável?"
+  ],
+  "p34": [
+    "Que atividades existem em feiras de diversões?",
+    "Qual é o nome do brinquedo de diversão em que as pessoas estão em carros que chocam uns contra os outros?",
+    "Qual é o melhor doce para se comer em festas populares?"
+  ],
+  "p35": [
+    "Quais são os materiais mais comuns para embalar objetos frágeis para que não se estraguem durante o transporte?",
+    "Quais são os melhores materiais de construção para o isolamento térmico?",
+    "Qual é o melhor tipo de janela para o isolamento térmico?",
+    "Qual é a melhor técnica para revestir paredes exteriores?",
+    "Que materiais inflamáveis comuns na construção de casas podem ser substituídos por versões não inflamáveis?"
+  ],
+  "p36": [
+    "Gostava de ir à Rota das Cerejas, no Fundão. De que formas posso lá chegar?",
+    "Que pratos típicos posso experimentar na zona do Fundão?"
+  ],
+  "p37": [
+    "De que ingredientes preciso para fazer um ratatoiulle?",
+    "Qual a melhor refeição do dia para comer um ratatouille?"
+  ],
+  "p38": [
+    "Há algum alimento que os bebés possam comer a partir dos 4 meses?",
+    "Que alimentos é que os bebés só podem comer a partir dos 2 anos?"
+  ],
+  "p39": [
+    "Preciso de fazer cópias da ata da reunião de condomínio. Como é que o posso fazer?",
+    "Em que área do prédio se devem fazer as reuniões de condomínio?"
+  ],
+  "p40": [
+    "Quero começar a praticar exercício, mas não gosto de o fazer nem sozinho nem ao ar livre. Existem outras opções?",
+    "Que tipos de aulas de grupo existem?",
+    "Quais os melhores exercícios para ganhar resistência?"
+  ],
+  "p41": [
+    "Tenho um problema numa divisão da casa que está associada à higiene. O problema está num objeto que é feito de porcelana e é usado para fazer descargas de água. O problema está no mecanismo que permite fazer uma descarga de água. O que posso fazer para tentar resolver o problema?",
+    "Quem é que eu posso chamar para resolver problemas como este ou problemas com canalizações?"
+  ],
+  "p42": [
+    "Quantos anos é que tenho de trabalhar?",
+    "Vou receber alguma coisa quando parar de trabalhar quando for mais velho?",
+    "Tenho de descontar alguma coisa para depois continuar a receber dinheiro quando parar de trabalhar?"
+  ],
+  "p43": [
+    "Que sobremesas ou doces congeladas é que existem?",
+    "Como é que posso fazer a sobremesa congelada mais popular que existe?",
+    "Existe uma maneira de fazer essa sobremesa sem leite?",
+    "Onde é que devo guardar essa sobremesa para que não derreta?"
+  ],
+  "p44": [
+    "O pneu do meu carro tem um furo. O que posso fazer?",
+    "Em que parte do carro posso encontrar um pneu para substituir o que tem o furo?"
+  ],
+  "p45": [
+    "Vou a uma gala formal e não sei o que vestir. Que roupas de homem são apropriadas para um evento destes?",
+    "Quantas peças de roupa e acessórios no total será necessário usar? Que peças de roupa e acessórios são esses?"
+  ],
+  "p46": [
+    "Que produtos é que posso usar para lavar ou branquear escadas de mármore?",
+    "Que produtos são mais indicados para cada divisão da casa?"
+  ],
+  "p47": [
+    "Que documentos devo ter comigo se estiver num carro e a polícia me mandar parar?",
+    "Há alguma coisa que eu possa ter feito que levasse a polícia a mandar-me parar o carro?",
+    "Como é que posso parar o carro?",
+    "Se alguém quiser atravessar a estrada a pé, onde o deve fazer?",
+    "Quais são as regras de estrada nos cruzamentos circulares?"
+  ],
+  "p48": [
+    "No futebol, qual é o jogador que defende a baliza?",
+    "No futebol, como é que se ganha?"
+  ],
+  "p49": [
+    "Quais são as melhores maneiras de alimentar um recém-nascido?",
+    "Quais são as melhores maneiras de transportar um recém-nascido?",
+    "Existem regras para levar um recém-nascido no carro?",
+    "E para uma criança pequena, existem regras para o transporte no carro?"
+  ],
+  "p50": [
+    "O meu filho está com dificuldades a Matemática do 12.º ano e acredito que precisaria de um apoio extracurricular para melhorar as notas. Quem o poderá ajudar?",
+    "Seria importante ele ter acesso aos apontamentos dos anos anteriores?",
+    "Há algum caderno usado pelos alunos com a matéria resumida e organizada?"
+  ],
+  "p51": [
+    "Uma das minhas camisas brancas tem uma nódoa que não consigo tirar e preciso dela para levar a um casamento. Há algum produto mais forte que possa usar?",
+    "Com que objeto posso tirar os vincos da camisa?",
+    "Se a nódoa não sair, o que devo fazer à camisa?"
+  ],
+  "p52": [
+    "Os filmes de super-heróis são muitas vezes adaptados de que tipo de livros?",
+    "E onde é possível ver este tipo de filmes (e outros)?",
+    "Onde são projetados os filmes?"
+  ],
+  "p53": [
+    "Eu tenho um objeto que serve para fazer chamadas telefónicas. A parte da frente de vidro partiu-se. O que posso fazer?",
+    "De futuro, o que posso fazer para prevenir que a parte de vidro se volte a partir?"
+  ],
+  "p54": [
+    "Existe uma comida que é muito comum ser comida ao lanche que envolve tosta, queijo, manteira e outro ingrediente. Qual é o nome desta comida?",
+    "Qual é o ingrediente que está em falta?"
+  ],
+  "p55": [
+    "O que devo fazer quando o meu lápis não está afiado?",
+    "Se eu quiser apagar o que escrevi com o lápis, devo usar o quê?",
+    "Que outro material escolar devia levar comigo para a escola?",
+    "E se eu precisar de colar folhas à parede, devo usar o quê?"
+  ],
+  "p56": [
+    "Estava a nadar no mar e acho que algum animal me picou. Que animal poderia ser?",
+    "O que é que eu devo fazer se um animal me picar no mar?"
+  ],
+  "p57": [
+    "Hoje ofereceram-me um doce feito de açúcar muito pequeno que se dissolve na boca. Que doce poderia ser?",
+    "Se eu quiser comer este doce novamente, será melhor fazer o doce em casa ou comprá-lo numa loja?",
+    "Também me deram um doce que se mastiga e não se pode engolir. Que doce poderia ser?"
+  ],
+  "p58": [
+    "É possível fazer uma versão vegetariana de bacalhau com batata palha e ovo?",
+    "Qual o vegetal mais frequentemente usado para substituir o bacalhau nesta receita?"
+  ],
+  "p59": [
+    "Preciso de ideias para refeições de forno e quero comer mais vegetais. Que pratos posso fazer?",
+    "Que vegetais se podem rechear e levar ao forno?",
+    "Já no verão, prefiro vegetais grelhados. Quais os melhores vegetais grelhados?"
+  ],
+  "p60": [
+    "Que frutas e legumes têm uma maior pegada hídrica?",
+    "E que frutas e legumes têm uma pegada hídrica mais baixa?"
+  ],
+  "p61": [
+    "Que variedades de feijão existem?",
+    "E qual a variedade mais usada para acompanhar atum enlatado?"
+  ],
+  "p62": [
+    "Quais são as melhores maneiras de preparar um chá para uma só pessoa?",
+    "Qual é a melhor maneira de preparar chá para várias pessoas?",
+    "E se cada pessoa quiser um chá diferente? Qual é a maneira mais prática de preparar o chá?"
+  ],
+  "p63": [
+    "Preciso de contratar alguém para reparar o revestimento interior da minha casa. Quem devo contratar?",
+    "Que opções existem para colocar um revestimento novo?",
+    "Qual é o revestimento mais apropriado para um quarto?",
+    "Qual é o revestimento mais apropriado para uma cozinha?",
+    "Qual é o revestimento mais caro e o mais barato para uma cozinha?",
+    "Qual é o melhor tipo de madeira para usar como revestimento num quarto?"
+  ],
+  "p64": [
+    "De que legumes vou precisar para fazer uma jardineira?",
+    "E onde devo armazenar o que sobrar da jardineira?"
+  ],
+  "p65": [
+    "Como se chama o vegetal de folha verde-escura e com floretes, de aspeto semelhante à couve-flor?",
+    "Se colocar esse vegetal na liquidificadora juntamente com água e outros legumes ou frutas, o que é que terei para beber?",
+    "Fiz uma dose grande desse líquido. Onde o devo colocar?"
+  ],
+  "p66": [
+    "Qual o nome do objeto que se encontra por cima dos fogões e que tem a forma de uma campânula?",
+    "Esse objeto deve ser revestido com um material branco e muito leve que serve como isolante?",
+    "Caso esse objeto se avarie, quem devo chamar para o reparar?"
+  ],
+  "p67": [
+    "Preciso de encomendar um sofá de 6 metros de outro país. De que maneiras é que o transporte pode ser feito?",
+    "Se eu não quiser encomendar mobília de outro país, onde é que a posso comprar?",
+    "Como é que posso mover mobília que já está montada, como uma cama, um armário ou um sofá, de uma casa para outra?"
+  ],
+  "p68": [
+    "Estou a pensar em fazer um piquenique. Que comidas e bebidas são as melhores e mais práticas para comer ao ar livre?",
+    "O que é que devo levar para um piquenique num parque verde?"
+  ],
+  "p69": [
+    "O meu jardim está feio e sem vida. Que plantas resistentes e de baixa manutenção é que devo plantar?",
+    "Quero uma zona verde onde se possam fazer piqueniques ou onde as crianças possam brincar. O que é que devo plantar?"
+  ],
+  "p70": [
+    "Quais são as melhores frutas para fazer uma tarte?",
+    "Quais são as melhores frutas para fazer um doce de fruta?",
+    "Quais são as melhores frutas para comer em cada época do ano?"
+  ],
+  "p71": [
+    "Estou a fazer uma viagem de carro. Em caso de emergência, qual o nome do espaço onde posso parar?",
+    "Que outros veículos de quatro rodas podem circular no mesmo espaço que eu?",
+    "Se o meu carro tiver pouco combustível, onde posso parar para tratar do assunto?"
+  ],
+  "p72": [
+    "Queria abrir uma loja de artigos de roupa usados. Que tipo de loja seria essa?",
+    "A frente da loja é feita de vidro. O que é que lá posso colocar para fazer a minha loja e os meus produtos mais apelativos para os meus clientes?"
+  ],
+  "p73": [
+    "Qual o nome da erva aromática usada, na sua forma seca, em pizzas?",
+    "Que ervas aromáticas frescas se utilizam mais commumente em saladas?"
+  ]
+}

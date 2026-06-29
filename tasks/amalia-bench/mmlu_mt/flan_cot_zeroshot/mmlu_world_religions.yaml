@@ -1,0 +1,6 @@
+"dataset_name": "world_religions_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre as religiões
+  do mundo.\n\n"
+"tag": "amalia_mmlu_flan_cot_zeroshot_humanities_mt_pt"
+"include": "_mmlu_flan_cot_zeroshot_template_yaml"
+"task": "amalia_mmlu_flan_cot_zeroshot_world_religions_mt_pt"

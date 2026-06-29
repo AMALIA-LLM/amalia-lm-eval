@@ -1,0 +1,7 @@
+task: harmbench_standard
+dataset_path: walledai/HarmBench
+dataset_name: standard
+dataset_kwargs: null
+test_split: train
+doc_to_text: prompt
+include: safety_common_yaml

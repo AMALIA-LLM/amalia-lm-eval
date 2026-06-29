@@ -1,0 +1,16 @@
+dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: Direito_da_Família
+test_split: test
+task: amalia_legalbench_pt_family_cloze_tasks_log
+task_alias: family_cloze_tasks_log
+process_docs: !function utils.process_cloze_tasks
+output_type: multiple_choice
+doc_to_text: !function utils.process_question
+doc_to_choice: !function utils.get_answer_options
+doc_to_target: !function utils.process_answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0

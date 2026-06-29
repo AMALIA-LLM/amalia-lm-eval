@@ -1,0 +1,5 @@
+"dataset_name": "anatomy_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre anatomia.\n\n"
+"tag": "amalia_mmlu_continuation_stem_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_anatomy_mt_pt"

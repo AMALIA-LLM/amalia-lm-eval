@@ -1,0 +1,44 @@
+dataset_name: world_religions_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre as religiões
+  do mundo.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Como podem ser caracterizados os Upanishads?
+
+      (A) Textos rituais (B) Textos filosóficos (C) Hinos (D) Histórias de origem'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre as religiões do mundo. Os Upanishads são a parte mais recente dos Vedas
+      (as escrituras mais antigas do hinduísmo) e forneceram a base da filosofia hindu
+      posterior. Por conseguinte, são textos filosóficos. A resposta é (B).
+  - question: 'O que é a Segunda Joia no Budismo?
+
+      (A) O Dharma (B) A Sangha (C) O Buda (D) O Bodhisattva'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre as religiões do mundo. A Segunda Joia do Budismo é o Dharma. A resposta
+      é (A).
+  - question: 'Que governo japonês promoveu uma espécie de culto nacional baseado
+      no imperador e nas suas associações com os kami?
+
+      (A) Honen (B) Tanaka (C) Tokugawa (D) Meiji'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre as religiões do mundo. A promoção de um culto nacional baseado no imperador
+      e nas suas associações com Kami ocorreu durante o reinado do Imperador Meiji
+      (1852-1912). A resposta é (D).
+  - question: 'Em que dinastia foi desenvolvido o "Mandato do Céu" para legitimar
+      os novos governantes?
+
+      (A) Shang (B) Zhou (C) Han (D) Xia'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre as religiões mundiais. O "Mandato do Céu" foi desenvolvido como
+      um antigo conceito filosófico chinês durante a dinastia Zhou (1046-256 a.C.).
+      A resposta é (B).
+  - question: 'Qual é o sinal da aliança para os judeus do sexo masculino?
+
+      (A) O arco-íris (B) A circuncisão (C) Um filho (D) Bar mitzvah'
+    target: 'Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos
+      da Wikipédia sobre as religiões do mundo. No judaísmo, o sinal mais caraterístico
+      da aliança é a circuncisão (brit milah). A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_world_religions_mt_pt

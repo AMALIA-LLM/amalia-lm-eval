@@ -1,0 +1,52 @@
+dataset_name: high_school_physics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre física
+  do ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Um forno de micro-ondas está ligado a uma tomada de 120 V e consome
+      uma corrente de 2 amperes. A que ritmo está a ser consumida a energia pelo forno
+      de micro-ondas?
+
+      (A) 10 W B) 30 W C) 60 W D) 240 W'
+    target: Vamos pensar passo a passo. A taxa de utilização de energia é conhecida
+      como potência; num circuito elétrico dissipativo, a potência é dada pela tensão
+      vezes a corrente. Assim, no nosso caso, a potência é 120 V vezes 2 amperes,
+      ou 240 W. A resposta é (D).
+  - question: "Uma carga pontual, Q = +1 mC, está fixa na origem. Quanto trabalho
+      é necessário para mover uma carga, Q = +8 µC, do ponto (0, 4 metros) para o
+      ponto (3 metros, 0)?\n(A) 3,5 J (B) 6,0 J (C) 22,5 J (D) 40 J"
+    target: "Vamos pensar passo a passo. Para calcular o trabalho necessário para
+      mover uma carga de um local para outro num campo elétrico fixo, basta calcular
+      a diferença de potencial entre os dois locais. Aqui, o potencial depende apenas
+      da distância entre as cargas; é $k q_1 q_2 / r$, onde $k$ é a constante de Coulomb.
+      Se introduzirmos os valores $q_1 = $ 1 mC, $q_2 = 8 \\mu$ C, obtemos a resposta
+      5,992 J, que arredonda para 6 J. A resposta é (B)."
+  - question: 'Qual das seguintes condições garante a conservação do momento angular?
+      I. Conservação do momento linear II. Força externa líquida nula III. Binário
+      externo líquido nulo
+
+      (A) Apenas I e II (B) Apenas I e III (C) Apenas II e III (D) Apenas III'
+    target: Vamos pensar passo a passo. O binário é definido como a variação do momento
+      angular; se o binário externo for nulo, o momento angular conserva-se. A resposta
+      é (D).
+  - question: "Uma fotocélula de função trabalho ϕ = 2eV está ligada a uma resistência
+      em série. Uma luz de frequência f = 1 × 10^15 Hz atinge uma placa metálica da
+      fotocélula. Se a potência da luz é P = 100 W, qual é a corrente que atravessa
+      a resistência?\n (A) 2:00 AM (B) 6:00 AM (C) 12:00 AM (D) 24 A"
+    target: Vamos pensar passo a passo. A única resposta acima que tem unidades de
+      corrente é D, 24 A. A resposta é (D).
+  - question: "Um tubo cheio de ar é fechado numa das extremidades. Uma onda estacionária
+      é produzida no tubo, fazendo com que o tubo soe uma nota. Qual das seguintes
+      é uma afirmação correta sobre as propriedades da onda na extremidade fechada
+      do tubo?\n(A) A pressão está num nó, mas o deslocamento da partícula está num
+      antinódo. (B) A pressão está num antinó, mas o deslocamento da partícula está
+      num nó. (C) A pressão e o deslocamento da partícula estão ambos em nós. (D)
+      A pressão e o deslocamento da partícula estão ambos em antinós."
+    target: 'Vamos pensar passo a passo. Na extremidade fechada do tubo, as partículas
+      não podem ter qualquer deslocamento líquido porque o fecho do tubo as impede.
+      Assim, o deslocamento das partículas é num nó. Este fecho também faz com que
+      a pressão seja máxima, ou seja, um antinó. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_physics_mt_pt

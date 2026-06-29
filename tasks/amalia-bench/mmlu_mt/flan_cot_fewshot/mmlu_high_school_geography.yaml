@@ -1,0 +1,57 @@
+dataset_name: high_school_geography_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre geografia
+  do ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual dos seguintes objectos é um exemplo de cultura não material?
+
+      (A) Sabonete Dove (B) Barra de chocolate Dove (C) Símbolo Dove (D) Uma pomba
+      (ave).'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre geografia. A cultura imaterial consiste em ideias, crenças ou símbolos
+      culturais que não são objectos físicos. A resposta é (C).
+  - question: 'Durante a terceira fase do modelo de transição demográfica, qual das
+      seguintes afirmações é verdadeira?
+
+      (A) As taxas de natalidade aumentam e a taxa de crescimento da população é menos
+      rápida. (B) As taxas de natalidade diminuem e a taxa de crescimento da população
+      é menos rápida. (C) As taxas de natalidade aumentam e a taxa de crescimento
+      da população aumenta. (D) As taxas de natalidade diminuem e a taxa de crescimento
+      da população aumenta.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre geografia. O modelo de transição demográfica modela as cinco fases diferentes
+      do crescimento da população à medida que um país passa pelo desenvolvimento
+      económico, em que a terceira fase se refere a um período de declínio das taxas
+      de natalidade e de menor crescimento da população. A resposta é (B).
+  - question: 'A prática de contratar um prestador de serviços estrangeiro para gerir
+      uma operação é designada por
+
+      (A) externalização. (B) offshoring. (C) maquiladoras. (D) interdependência locacional.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre geografia. "Offshoring" significa literalmente deslocar ou basear algumas
+      das actividades ou processos de uma empresa para um país estrangeiro. A resposta
+      é (B).
+  - question: 'Qual das seguintes afirmações NÃO é exacta em relação aos serviços
+      prestados pelas autarquias locais nos Estados Unidos?
+
+      (A) A duplicação de esforços é frequente. (B) Os problemas sociais do centro
+      da cidade alastram para os subúrbios residenciais circundantes. (C) A ineficiência
+      na prestação de serviços ocorre com frequência. (D) Os esforços de um bairro
+      para reduzir a poluição são sempre apoiados pelas comunidades vizinhas.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre geografia. Pode haver razões económicas, sociais ou políticas para que
+      duas comunidades vizinhas e os seus governos locais não concordem com os esforços
+      de redução da poluição iniciados por uma delas. A resposta é (D).
+  - question: 'A taxa de crescimento natural de uma população é encontrada subtraindo
+      a
+
+      (A) taxa bruta de mortalidade pela taxa bruta de natalidade. (B) a taxa bruta
+      de natalidade da taxa bruta de mortalidade. (C) tempo de duplicação da taxa
+      bruta de natalidade. (D) taxa de fecundidade da taxa bruta de mortalidade.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre geografia. A diferença entre o número de nascimentos e o número
+      de mortes dá o aumento da população num determinado momento. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_geography_mt_pt

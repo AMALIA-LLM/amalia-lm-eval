@@ -1,0 +1,11 @@
+group: amalia_mmlu_mt_pt
+task:
+- amalia_mmlu_stem_mt_pt
+- amalia_mmlu_other_mt_pt
+- amalia_mmlu_social_sciences_mt_pt
+- amalia_mmlu_humanities_mt_pt
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 2

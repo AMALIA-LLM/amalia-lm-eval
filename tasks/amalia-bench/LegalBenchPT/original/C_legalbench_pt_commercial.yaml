@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_commercial
+group_alias: commercial
+task: 
+  - amalia_legalbench_pt_commercial_matching_questions
+  - amalia_legalbench_pt_commercial_case_analysis_questions
+  - amalia_legalbench_pt_commercial_multiple_choice
+  - amalia_legalbench_pt_commercial_true_false
+  - amalia_legalbench_pt_commercial_multiple_selection_questions
+  - amalia_legalbench_pt_commercial_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

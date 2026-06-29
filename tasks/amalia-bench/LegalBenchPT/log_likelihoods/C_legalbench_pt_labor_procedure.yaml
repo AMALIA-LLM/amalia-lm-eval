@@ -1,0 +1,11 @@
+group: amalia_legalbench_pt_labor_procedure_log
+group_alias: labor_procedure_log
+task: 
+  - amalia_legalbench_pt_labor_procedure_cloze_tasks_log
+  - amalia_legalbench_pt_labor_procedure_true_false_log
+  - amalia_legalbench_pt_labor_procedure_case_analysis_questions_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

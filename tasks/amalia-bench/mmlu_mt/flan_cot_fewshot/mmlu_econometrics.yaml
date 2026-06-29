@@ -1,0 +1,95 @@
+dataset_name: econometrics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre econometria.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Suponha agora que um investigador pretende utilizar critérios de informação
+      para determinar o comprimento ótimo do desfasamento para um VAR. Estão disponíveis
+      500 observações para o VAR bivariado e os valores do determinante da matriz
+      de variância-covariância dos resíduos são 0,0336, 0,0169, 0,0084 e 0,0062 para
+      1, 2, 3 e 4 desfasamentos, respetivamente. Qual é a ordem óptima do modelo de
+      acordo com o critério de informação de Akaike?
+
+      (A) 1 desfasamento (B) 2 desfasamentos (C) 3 desfasamentos (D) 4 desfasamentos'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre econometria. Vamos resolver este problema passo a passo. Antes de mais,
+      recordemos que, para um dado conjunto de dados, o critério de informação de
+      Akaike (AIC) permite-nos medir o grau de ajustamento de um modelo estatístico
+      aos dados; é um estimador do erro de previsão. Neste problema, precisaremos
+      de utilizar a fórmula ln(det(sigma_hat)) + (2 * k / T) para determinar os valores
+      do critério de Akaike, em que ln denota a função logarítmica natural, det a
+      função determinante, k o número total de parâmetros no total (em ambas as equações)
+      e T o número de observações (que, neste caso, é igual a 500). Para 1 desfasamento,
+      o número total de parâmetros é igual a 6; para 2 desfasamentos, é 10; para 3
+      desfasamentos, é 14; e para 4 desfasamentos, é 18. Agora, vamos calcular os
+      valores do critério para cada desfasamento:\n(A) 1 desfasamento: ln(0,0336)
+      + (2 * 6 / 500) = ln(0,0336) + (12 / 500) = -3,369\n (B) 2 desfasamentos: ln(0,0169)
+      + (2 * 10 / 500) = ln(0,0169) + (20 / 500) = -4,040\n (C) 3 desfasamentos: ln(0,0084)
+      + (2 * 14 / 500) = ln(0,0084) + (28 / 500) =-4,724\n (D) 4 desfasamentos: ln(0,0062)
+      + (2 * 18 / 500) = ln(0,0062) + (36 / 500) =-5,011\n Como a ordem óptima do
+      modelo de acordo com o AIC minimiza o critério de informação, a resposta deve
+      ser a que tem o valor mais baixo. Neste caso, (D) tem o valor mais baixo. A
+      resposta é (C)."
+  - question: 'Considere-se o seguinte modelo AR(1) com as perturbações com média
+      zero e variância unitária
+
+      yt = 0,2 + 0,4 yt-1 + ut
+
+      A média (incondicional) de y será dada por
+
+      (A) 0,2 (B) 0,4 (C) 0,5 (D) 0,33'
+    target: "Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipedia sobre econometria. Vamos resolver este problema passo a passo. Se
+      tivermos um modelo AR(1) com as perturbações com média zero e variância unitária,
+      então a média incondicional de y é igual à seguinte:\nmédia incondicional de
+      y = (o termo de interceção) / (1 - coeficiente autoregressivo)\nSabemos que
+      o termo de interceção é 0,2 e o coeficiente autoregressivo é 0,4; assim, temos\n
+      média incondicional de y = (0,2) / (1 - 0,4) = (0,2) / (0,6) = 2 / 6 = 1 / 3,
+      que é aproximadamente 0,33. Isso significa que a resposta deve ser (D) 0,33.
+      A resposta é (D)."
+  - question: 'Quais seriam então as consequências para o estimador OLS se a heterocedasticidade
+      estiver presente num modelo de regressão mas for ignorada?
+
+      (A) Será enviesado (B) Será inconsistente (C) Será ineficiente (D) Todas as
+      afirmações (a), (b) e (c) serão verdadeiras.'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre econometria. A heterocedasticidade refere-se à condição em que
+      a variância dos termos de erro não é constante em várias observações. Se a heterocedasticidade
+      estiver presente num modelo de regressão, então as estimativas dos coeficientes
+      no estimador OLS serão não só não invejadas e consistentes, mas também ineficientes.
+      Uma vez que (A) e (B) são escolhas incorrectas e (C) é uma escolha correta,
+      (D) não pode ser a resposta correta. Em última análise, (C) é a única opção
+      correta. A resposta é (C).
+  - question: 'Suponha que uma estatística de teste tem associado um valor p de 0,08.
+      Qual das seguintes afirmações é verdadeira?
+
+      (i) Se a dimensão do teste fosse exatamente 8%, seríamos indiferentes entre
+      rejeitar e não rejeitar a hipótese nula
+
+      (ii) A hipótese nula seria rejeitada se fosse utilizado um tamanho de teste
+      de 10%.
+
+      (iii) A hipótese nula não seria rejeitada se fosse utilizada uma dimensão do
+      teste de 1%.
+
+      (iv) A hipótese nula seria rejeitada se fosse utilizada uma dimensão de teste
+      de 5%.
+
+      (A) (ii) e (iv) apenas (B) (i) e (iii) apenas (C) (i), (ii) e (iii) apenas (D)
+      (i), (ii), (iii) e (iv).'
+    target: "Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipedia sobre econometria. Vamos raciocinar sobre cada uma das opções.\n(i)
+      é uma afirmação verdadeira.\n (ii) é uma afirmação verdadeira.\n(iii) é uma
+      afirmação verdadeira.\n(iv) não é uma afirmação verdadeira. Portanto, (i), (ii)
+      e (iii) são verdadeiras. A resposta é (C)."
+  - question: 'Para um processo autoregressivo estacionário, os choques
+
+      (A) Acabam por desaparecer (B) Persistem indefinidamente (C) Crescem exponencialmente
+      (D) Nunca ocorrem'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipedia sobre econometria. Este é um problema de lógica formal sobre um processo
+      estacionário. Para um processo autoregressivo estacionário, os choques acabarão
+      por desaparecer. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_econometrics_mt_pt

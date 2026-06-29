@@ -1,0 +1,6 @@
+"dataset_name": "high_school_us_history_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre História
+  dos EUA no ensino secundário.\n\n"
+"tag": "amalia_mmlu_flan_cot_zeroshot_humanities_mt_pt"
+"include": "_mmlu_flan_cot_zeroshot_template_yaml"
+"task": "amalia_mmlu_flan_cot_zeroshot_high_school_us_history_mt_pt"

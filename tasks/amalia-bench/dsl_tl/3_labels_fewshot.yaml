@@ -1,0 +1,13 @@
+include: _default_template_yaml
+doc_to_text: !function utils.doc_to_text
+description: "Identifica a variante de português a que cada texto pertence. As opções são: 'PT-PT' para Português Europeu, 'PT-BR' para Português do Brasil, apenas 'PT' se não for possível distinguir a variante do português.\n"
+#fewshot_split: train
+fewshot_config:
+  #sampler: first_n
+  samples: !function utils.process_for_fewshot_3
+  doc_to_text: !function utils.fewshot_to_text
+  doc_to_target: ""
+task: amalia_dsl_tl_3_labels_fewshot
+task_alias: 3_labels_fewshot
+num_fewshot: 2
+doc_to_choice: ["PT-PT", "PT-BR", "PT"]

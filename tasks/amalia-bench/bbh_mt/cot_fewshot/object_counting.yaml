@@ -1,0 +1,37 @@
+dataset_name: object_counting
+description: 'Perguntas que envolvem a enumeração de objectos e que pedem ao modelo
+  para os contar.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: Tenho uma amora, um clarinete, uma nectarina, uma ameixa, um morango, uma
+      banana, uma flauta, uma laranja e um violino. Quantas frutas é que eu tenho?
+    target: "Vamos pensar passo a passo.\nPrimeiro identificamos os frutos da lista
+      e incluímos a sua quantidade entre parêntesis:\n- amora (1)\n- nectarina (1)\n
+      - ameixa (1)\n- morango (1)\n- banana (1)\n- laranja (1)\nAgora, vamos adicionar
+      os números entre parênteses: 1 + 1 + 1 + 1 + 1 + 1 + 1 = 6.
+      Portanto, a resposta é 6."
+  - input: Tenho uma laranja, uma framboesa, dois pêssegos, uma amora, uma maçã, uma
+      uva, uma nectarina e três ameixas. Quantos frutos tenho?
+    target: "Vamos pensar passo a passo.\nPrimeiro identificamos os frutos da lista
+      e incluímos a sua quantidade entre parênteses:\n- laranja (1)\n- framboesa (1)\n
+      - pêssegos (2)\n- amora (1)\n- maçã (1)\n- uva (1)\n- nectarina (1)\n- ameixas
+      (3)\nAgora, vamos adicionar os números entre parênteses: 1 + 1 + 2 + 1 + 1 + 1 + 1 + 3 = 11.
+      Portanto, a resposta é 11."
+  - input: Tenho uma cabeça de alface, uma cabeça de brócolos, uma cebola, um talo
+      de aipo, duas cenouras, um alho e um inhame. Quantos legumes tenho?
+    target: "Vamos pensar passo a passo.\nComeçamos por identificar os legumes da
+      lista e incluímos a sua quantidade entre parênteses:\n- alface (1)\n- brócolos
+      (1)\n- cebola (1)\n- aipo (1)\n- cenoura (2)\n- alho (1)\n- inhame (1)\nAgora,
+      vamos somar os números entre parênteses: 1 + 1 + 1 + 1 + 2 + 1 + 1 = 8. 
+      Portanto, a resposta é 8."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_object_counting_mt_pt

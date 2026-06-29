@@ -1,0 +1,46 @@
+dataset_name: navigate
+description: 'Dada uma série de instruções de navegação, determinar se uma pessoa
+  acabaria por regressar ao ponto de partida.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Se seguires estas instruções, regressas ao ponto de partida? Vira à esquerda.
+      Vira-se para trás. Vira à esquerda. Dá 7 passos. Dá 2 passos. Dê 4 passos. Dar
+      8 passos.\nOpções:\n- Sim\n- Não"
+    target: "Vamos pensar passo a passo.\nComeçamos na origem (0, 0), virados para
+      o eixo y positivo.\n(1) Vira-se para a esquerda: (0, 0), virado para o eixo
+      x negativo.\n(2) Virar: (0, 0), virado para o eixo dos x positivos.\n(3) Virar
+      à esquerda: (0, 0), virado para o eixo y positivo.\n(4) Dar 7 passos: (0, 7),
+      virado para o eixo y positivo.\n(5) Dê 2 passos: (0, 9), virado para o eixo
+      y positivo.\n(6) Dê 4 passos: (0, 13), virado para o eixo y positivo.\n(7) Dê
+      8 passos: (0, 21), voltado para o eixo y positivo.\nComo (0, 21) não é (0, 0),
+      não estamos onde começámos. Portanto, a resposta é Não."
+  - input: "Se seguires estas instruções, regressas ao ponto de partida? Volta para
+      trás. Dá 1 passo. Dá 6 passos. Volta para trás. Dá 6 passos. Dar 9 passos. Dar
+      1 passo.\nOpções:\n- Sim\n- Não"
+    target: "Vamos pensar passo a passo.\nComeçamos na origem (0, 0), virados para
+      o eixo y positivo.\n(1) Vira-se: (0, 0), virado para o eixo y negativo.\n(2)
+      Dar 1 passo: (0, -1), virado para o eixo y negativo.\n(3) Dê 6 passos: (0, -7),
+      virado para o eixo y negativo.\n(4) Virar: (0, -7), virado para o eixo y positivo.\n
+      (5) Dê 6 passos: (0, -1), virado para o eixo y positivo.\n(6) Dar 9 passos:
+      (0, 8), virado para o eixo y positivo.\n(7) Dê 1 passo: (0, 9), voltado para
+      o eixo y positivo.\nComo (0, 9) não é (0, 0), não estamos onde começámos. Portanto, a resposta é Não."
+  - input: "Se seguir estas instruções, regressa ao ponto de partida? Sempre virado
+      para a frente. Dá 2 passos para a direita. Dá 9 passos para a esquerda. Dá 7
+      passos para a direita.\nOpções:\n- Sim\n- Não"
+    target: "Vamos pensar passo a passo.\nComeçamos na origem (0, 0), virados para
+      o eixo y positivo.\n(1) Sempre em frente: (0, 0), virado para o eixo y positivo.\n
+      (2) Dar 2 passos para a direita: (0, 2), virado para o eixo y positivo.\n(3)
+      Dar 9 passos para a esquerda: (0, -7), virado para o eixo y positivo.\n(4) Dar
+      7 passos para a direita: (0, 7), virado para o eixo y positivo.\nComo (0, 0)
+      é (0, 0), estamos de facto onde começámos. Portanto, a resposta é Sim."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_navigate_mt_pt

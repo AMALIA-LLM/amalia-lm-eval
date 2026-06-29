@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_public_international
+group_alias: public_international
+task: 
+  - amalia_legalbench_pt_public_international_matching_questions
+  - amalia_legalbench_pt_public_international_case_analysis_questions
+  - amalia_legalbench_pt_public_international_multiple_choice
+  - amalia_legalbench_pt_public_international_true_false
+  - amalia_legalbench_pt_public_international_multiple_selection_questions
+  - amalia_legalbench_pt_public_international_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

@@ -1,0 +1,7 @@
+"dataset_name": "medical_genetics_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre genética
+  médica.\n\n"
+"tag": "amalia_mmlu_other_tasks_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_medical_genetics_mt_pt"
+"task_alias": "medical_genetics"

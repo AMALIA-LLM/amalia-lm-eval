@@ -1,0 +1,21 @@
+dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: Direito_Financeiro
+test_split: test
+task: amalia_legalbench_pt_financial_true_false_cot
+task_alias: financial_true_false_cot
+#tag: amalia_legalbench_pt_financial
+doc_to_text: Question
+doc_to_target: Answer
+process_docs: !function utils.process_true_false
+output_type: generate_until
+generation_kwargs:
+  until: []
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 2000
+metric_list:
+  - metric: !function utils.legal_metric
+    aggregation: !function utils.legal_metric_agg
+    higher_is_better: true
+metadata:
+  version: 0.0

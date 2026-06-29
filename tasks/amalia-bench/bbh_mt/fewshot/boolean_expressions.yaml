@@ -1,0 +1,19 @@
+dataset_name: boolean_expressions
+description: 'Avalia o resultado de uma expressão booleana aleatória.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: não ( ( não não Verdadeiro ) ) é
+    target: Falso
+  - input: Verdadeiro e Falso e não Verdadeiro e Verdadeiro é
+    target: Falso
+  - input: não não ( não ( Falso ) ) é
+    target: Verdadeiro
+include: _fewshot_template_yaml
+task: bbh_fewshot_boolean_expressions_mt_pt

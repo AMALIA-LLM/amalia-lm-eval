@@ -1,0 +1,47 @@
+dataset_name: management_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre gestão.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Como podem ser descritas as estruturas organizacionais que se caracterizam
+      por estilos de gestão democráticos e inclusivos?
+
+      (A) Hierárquicas (B) Burocráticas (C) Planas (D) Funcionais'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre gestão. As estruturas organizacionais planas são caracterizadas por estilos
+      de gestão democráticos e inclusivos e têm poucos (ou nenhuns) níveis de gestão
+      entre os trabalhadores e os gestores.  A resposta é (C).
+  - question: 'Os factores de higiene estão associados a que escritor?
+
+      (A) Frederick Hertzberg (B) D.C. McClelland (C) Abraham Maslow (D) Douglas McGregor'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre gestão. Os factores de higiene incluem a remuneração, as políticas da
+      empresa, a supervisão, as relações interpessoais e o ambiente de trabalho. Hertzberg
+      enumera-os como factores que não podem motivar os trabalhadores, mas podem minimizar
+      a insatisfação no trabalho. A resposta é (A).
+  - question: 'Que caraterística não é uma caraterística-chave do modelo de gestão
+      de "sistemas abertos"?
+
+      (A) Moral (B) Inovação (C) Recursos de crescimento (D) Adaptação'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre gestão. As principais caraterísticas de um sistema aberto na gestão incluem
+      inovação, recursos de crescimento e adaptação, mas não incluem a moral. A resposta
+      é (A).
+  - question: 'Que elemento da teia cultural constitui a regalia?
+
+      (A) Símbolos (B) Rituais e rotinas (C) Estruturas de poder (D) Sistemas de controlo'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre gestão. A teia cultural é uma ferramenta para mapear a cultura de uma
+      organização, onde os símbolos formam a regalia que expressa visualmente os valores
+      que a organização considera importantes. A resposta é (A).
+  - question: 'Quais são as duas principais dimensões dos Estudos de Ohio sobre liderança?
+
+      (A) Posição inicial e posição final (B) Ambiente inicial e ambiente alterado
+      (C) Estrutura organizacional e condicionamento (D) Estrutura inicial e considerações'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre gestão. Os Estudos de Liderança do Estado de Ohio, realizados
+      nos anos 40, identificaram a estrutura de iniciação e a consideração como as
+      duas principais dimensões do comportamento do líder. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_management_mt_pt

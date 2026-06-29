@@ -1,0 +1,18 @@
+"dataset_name": "geometric_shapes"
+"description": "Nomear formas geométricas a partir dos seus caminhos SVG.\n\n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_geometric_shapes_mt_pt"
+
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MultiChoiceRegexFilter
+    group_select: 0
+    ignore_case: true
+    ignore_punctuation: true
+    regex_pattern: "(\\([A-Z]\\))"
+  - function: "take_first"

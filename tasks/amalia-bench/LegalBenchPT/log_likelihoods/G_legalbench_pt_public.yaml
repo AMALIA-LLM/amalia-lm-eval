@@ -1,0 +1,21 @@
+group: amalia_legalbench_pt_public_log
+group_alias: public_log
+task: 
+  - amalia_legalbench_pt_administrative_log
+  - amalia_legalbench_pt_constitutional_log
+  - amalia_legalbench_pt_financial_log
+  - amalia_legalbench_pt_tax_log
+  - amalia_legalbench_pt_criminal_log
+  - amalia_legalbench_pt_administrative_procedure_log
+  - amalia_legalbench_pt_civil_procedure_log
+  - amalia_legalbench_pt_criminal_procedure_log
+  - amalia_legalbench_pt_labor_procedure_log
+  - amalia_legalbench_pt_energy_log
+  - amalia_legalbench_pt_public_finance_log
+  - amalia_legalbench_pt_environmental_log
+  - amalia_legalbench_pt_urban_planning_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

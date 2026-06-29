@@ -1,0 +1,7 @@
+"dataset_name": "abstract_algebra_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre álgebra
+  abstrata.\n\n"
+"tag": "amalia_mmlu_stem_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_abstract_algebra_generative_mt_pt"
+"task_alias": "abstract_algebra"

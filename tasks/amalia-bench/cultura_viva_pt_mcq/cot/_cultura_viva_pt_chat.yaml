@@ -1,0 +1,17 @@
+group: cultura_viva_pt_chat_cot
+task:
+  - cultura_viva_pt_audiovisual_chat_cot
+  - cultura_viva_pt_festivals_chat_cot
+  - cultura_viva_pt_gastronomy_chat_cot
+  - cultura_viva_pt_geography_chat_cot
+  - cultura_viva_pt_heritage_chat_cot
+  - cultura_viva_pt_holidays_chat_cot
+  - cultura_viva_pt_literature_chat_cot
+  - cultura_viva_pt_personalities_chat_cot
+  - cultura_viva_pt_proverbs_chat_cot
+  - cultura_viva_pt_sports_chat_cot
+aggregate_metric_list:
+  - metric: exact_match
+    weight_by_size: true
+metadata:
+  version: 1.0

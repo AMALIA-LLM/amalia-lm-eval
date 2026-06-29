@@ -1,0 +1,22 @@
+task: amalia_pt_text_completion_chat
+dataset_path: amalia-llm/pt_text_completion
+output_type: multiple_choice
+validation_split: valid
+fewshot_split: valid
+test_split: test
+doc_to_text: "Qual a palavra mais adequada para completar o espaço em falta na seguinte frase: {{text}}
+{{choices_str}}
+"
+gen_prefix: "A resposta é"
+doc_to_target: "{{label}}"
+doc_to_choice: "choices"
+process_docs: !function utils.process_pt_text_completion_docs
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

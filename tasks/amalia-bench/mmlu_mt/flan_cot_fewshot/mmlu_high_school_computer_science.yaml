@@ -1,0 +1,89 @@
+dataset_name: high_school_computer_science_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre informática
+  no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes opções é um exemplo da utilização de um dispositivo
+      na Internet das Coisas (IoT)?
+
+      (A) Um automóvel avisa o condutor de que está prestes a embater num objeto.
+      (B) Um caminhante utiliza um relógio GPS para registar a sua posição. (C) Um
+      frigorífico encomenda leite a um serviço de entregas em linha quando o leite
+      que tem no frigorífico está quase a acabar. (D) Um corredor utiliza um relógio
+      com sensores ópticos para monitorizar o seu ritmo cardíaco.'
+    target: Vamos pensar passo a passo. O termo Internet das Coisas (IoT) refere-se
+      a dispositivos comuns que estão ligados à Internet, permitindo novas funcionalidades.
+      A opção A está incorrecta porque não descreve um dispositivo ligado à Internet.
+      Na opção B, o relógio é descrito apenas como tendo a funcionalidade GPS, mas
+      sem ligação à Internet. A opção C descreve um dispositivo comum (um frigorífico)
+      que tem ligação à Internet, permitindo uma nova funcionalidade (encomendas em
+      linha). A opção D não menciona a conetividade à Internet para o relógio, mas
+      apenas sensores ópticos. A resposta é (C).
+  - question: 'Muitos navegadores Web permitem aos utilizadores abrir janelas anónimas.
+      Durante uma sessão de navegação numa janela anónima, o browser não regista um
+      histórico de navegação ou uma lista de ficheiros descarregados. Quando a janela
+      anónima é encerrada, os cookies criados durante a sessão são eliminados. Qual
+      das seguintes afirmações acerca das sessões de navegação numa janela anónima
+      é verdadeira?
+
+      (A) As actividades de um utilizador que navegue numa janela anónima não serão
+      visíveis para as pessoas que monitorizam a rede do utilizador, como o administrador
+      do sistema. (B) Os itens colocados no carrinho de compras de uma loja Web para
+      compra futura durante a sessão de navegação anónima não serão guardados no computador
+      do utilizador. (C) Um utilizador não poderá iniciar sessão em contas de correio
+      eletrónico ou de redes sociais durante a sessão de navegação anónima. (D) Um
+      utilizador que navegue numa janela anónima estará protegido contra vírus lançados
+      a partir de quaisquer sítios Web visitados ou ficheiros descarregados.'
+    target: "Vamos pensar passo a passo. A opção A está incorrecta, pois descreve
+      apenas o tráfego de rede, que um browser anónimo não altera. A opção B está
+      correta, pois descreve corretamente a forma como um programa de navegação anónima
+      impede que os dados sejam guardados no computador do utilizador após o fim da
+      sessão. A opção C está incorrecta porque um navegador anónimo não impede o início
+      de sessão em contas de correio eletrónico ou de redes sociais. A opção D está
+      incorrecta porque um browser anónimo, por si só, não executa qualquer proteção
+      contra vírus. A resposta é (B)."
+  - question: "No programa abaixo, o valor inicial de X é 5 e o valor inicial de Y
+      é 10.\nIF (X < 0){\n DISPLAY (\"Foxtrot\")\n} ELSE {\n IF (X > Y){\n  EXIBIR
+      (\"Hotel\")\n } ELSE {\n  IF (Y > 0){\n   EXIBIR (\"novembro\")\n  } ELSE {\n\
+      \   DISPLAY (\"Yankee\")\n  }\n }\n}\nO que é apresentado como resultado da
+      execução do programa?\n(A) Foxtrot (B) Hotel (C) novembro (D) Yankee"
+    target: Vamos pensar passo a passo. Como X tem o valor 5, a primeira condicional
+      IF (X < 0) é falsa, pelo que passamos à primeira cláusula ELSE. Como X tem o
+      valor 5 e Y tem o valor 10, a segunda condicional IF (X > Y) é falsa, pelo que
+      passamos para a seguinte cláusula ELSE. Uma vez que Y é 10, a condicional IF
+      (Y > 0) é verdadeira, pelo que o comando DISPLAY ("November") é executado. A
+      resposta é (C).
+  - question: 'Qual é o resultado de "abc"[::-1] em Python 3?
+
+      (A) Erro (B) abc (C) cba (D) c'
+    target: Vamos pensar passo a passo. Sabemos que o operador de corte [::-1] pega
+      em todos os elementos da cadeia por ordem inversa, por isso invertemos a ordem
+      da cadeia "abc", resultando em "cba". A resposta é (C).
+  - question: "Uma lista de números possui n elementos, indexados de 1 a n. O algoritmo
+      a seguir tem como objetivo exibir a quantidade de elementos da lista que possuem
+      valor maior que 100. O algoritmo utiliza as variáveis contagem e posição. Faltam
+      os passos 3 e 4.\n Passo 1: Definir contagem como 0 e posição como 1.\n Passo
+      2: Se o valor do elemento na posição do índice for maior que 100, aumente o
+      valor de contagem em 1.\n Passo 3: (passo em falta)\n Passo 4: (passo em falta)\n
+      Passo 5: Mostrar o valor de count.\nQual das seguintes opções poderia ser usada
+      para substituir os passos 3 e 4 para que o algoritmo funcione como pretendido?\n
+      (A) Passo 3: Aumentar o valor de posição em 1.\n  Passo 4: Repetir os passos
+      2 e 3 até que o valor de contagem seja maior que 100.\n(B) Passo 3: Aumentar
+      o valor da posição em 1.\n  Passo 4: Repetir os passos 2 e 3 até que o valor
+      de posição seja superior a n.\n(C) Passo 3: Repetir o passo 2 até que o valor
+      de count seja superior a 100.\n  Passo 4: Aumentar o valor da posição em 1.\n
+      (D) Passo 3: Repetir o passo 2 até que o valor da posição seja superior a n.\n\
+      \  Passo 4: Aumentar o valor de count em 1."
+    target: 'Vamos pensar passo a passo. A opção A está incorrecta, porque o Passo
+      4 tem uma condição de terminação incorrecta, parando quando a contagem é superior
+      a 100. Temos de parar depois de inspecionar todos os elementos da lista. A opção
+      B está correta porque incrementa corretamente tanto a contagem como a posição,
+      repete corretamente estes passos e termina quando todos os elementos da lista
+      tiverem sido inspeccionados. A opção C está incorrecta porque incrementa incorretamente
+      a variável count até que o seu valor seja superior a 100, independentemente
+      dos elementos da lista. A opção D está incorrecta porque o seu passo 3 não incrementa
+      o valor da posição, pelo que se repetirá para sempre. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_computer_science_mt_pt

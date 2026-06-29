@@ -1,0 +1,6 @@
+"dataset_name": "astronomy_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre astronomia.\n\
+  \n"
+"tag": "amalia_mmlu_flan_n_shot_loglikelihood_stem_mt_pt"
+"include": "_mmlu_flan_loglikelihood_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_loglikelihood_astronomy_mt_pt"

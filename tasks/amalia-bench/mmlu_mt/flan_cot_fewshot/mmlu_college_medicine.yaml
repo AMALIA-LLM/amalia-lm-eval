@@ -1,0 +1,73 @@
+dataset_name: college_medicine_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre medicina
+  universitária.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Um efeito secundário esperado da suplementação com creatina é:
+
+      (A) fraqueza muscular. (B) ganho de massa corporal. (C) cãibras musculares.
+      (D) perda de electrólitos.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre medicina. A suplementação com creatina é um suplemento alimentar que resulta
+      em ganho de massa corporal. A resposta é (B).
+  - question: 'Qual das seguintes afirmações não é verdadeira?
+
+      (A) O glicogénio muscular é decomposto enzimaticamente em glicose-1-fosfato
+      (B) Os corredores de resistência de elite têm uma elevada proporção de fibras
+      de tipo I nos músculos das pernas (C) O glicogénio hepático é importante para
+      a manutenção da concentração de glicose no sangue (D) A insulina promove a absorção
+      de glicose por todos os tecidos do organismo'
+    target: "Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre medicina. Vamos resolver esta questão passo a passo e analisar
+      cada opção:\n(A) \"O glicogénio muscular é decomposto enzimaticamente em glucose-1-fosfato\"\
+      : Esta afirmação está correta.\n(B) \"Os corredores de resistência de elite
+      têm uma elevada proporção de fibras de tipo I nos músculos das pernas\": Esta
+      afirmação está correta.\n(C) \"O glicogénio hepático é importante para a manutenção
+      da concentração de glicose no sangue\": Esta é uma afirmação correta.\n(D) \"\
+      A insulina promove a captação de glicose por todos os tecidos do organismo\"\
+      : Esta afirmação não é correta, porque a insulina promove a absorção de glicose
+      pelo fígado, tecido adiposo e músculo, mas não por todos os tecidos. Por exemplo,
+      os tecidos do cérebro e os glóbulos vermelhos não são afectados pela insulina.
+      A resposta é (D)."
+  - question: "Um professor de ciências do ensino secundário enche uma garrafa de
+      1 litro com azoto puro e fecha a tampa. A pressão é de 1,70 atm e a temperatura
+      ambiente é de 25°C. Que duas variáveis aumentarão a pressão do sistema, se todas
+      as outras variáveis se mantiverem constantes?\n(A) Aumento da temperatura, aumento
+      das moléculas de gás (B) Aumento da temperatura, aumento do volume (C) Diminuição
+      do volume, diminuição da temperatura (D) Diminuição das moléculas de gás, aumento
+      do volume"
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre medicina. A equação relevante para isto é a lei dos gases ideais:
+      PV=nRT. Para aumentar a pressão do sistema (P), então ou n (número de moles
+      do gás) ou T (temperatura) têm de aumentar. A resposta é (A).'
+  - question: 'Num teste genético de um recém-nascido, é encontrada uma doença genética
+      rara que tem transmissão recessiva ligada ao X. Qual das seguintes afirmações
+      é provavelmente verdadeira relativamente ao pedigree desta doença?
+
+      (A) Todos os descendentes do lado materno terão a doença. (B) As mulheres serão
+      aproximadamente duas vezes mais afectadas do que os homens nesta família. (C)
+      Todas as filhas de um homem afetado serão afectadas. (D) Haverá uma distribuição
+      igual de homens e mulheres afectados.'
+    target: "Vamos pensar passo a passo. Consultamos os artigos da Wikipédia sobre
+      medicina para obter ajuda. Vamos resolver isto passo a passo. Em primeiro lugar,
+      recordemos que as mulheres têm dois cromossomas X, enquanto os homens têm um
+      cromossoma X e um Y. Este é um facto importante que precisamos de saber antes
+      de responder a esta pergunta.\nUma vez que um homem só pode transmitir o seu
+      único cromossoma X a uma filha, se ele for afetado por esta doença genética
+      rara, então temos a certeza de que ele transmitirá esta doença genética rara
+      a todas as suas futuras filhas. Portanto, \"(C): Todas as filhas de um homem
+      afetado serão afectadas\" é uma afirmação correta. A resposta é (C)."
+  - question: 'A glicose é transportada para o interior da célula muscular:
+
+      (A) através de transportadores proteicos chamados GLUT4. (B) apenas na presença
+      de insulina. (C) através da hexoquinase. (D) através de transportadores de ácidos
+      monocarboxílicos.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre medicina. A glicose (também conhecida como açúcar no sangue)
+      é o principal açúcar encontrado no corpo humano. É transportada para a célula
+      muscular por difusão através de transportadores proteicos chamados GLUT4. A
+      resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_college_medicine_mt_pt

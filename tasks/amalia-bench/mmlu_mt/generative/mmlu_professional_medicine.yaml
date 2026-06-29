@@ -1,0 +1,7 @@
+"dataset_name": "professional_medicine_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre medicina
+  profissional.\n\n"
+"tag": "amalia_mmlu_other_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_professional_medicine_generative_mt_pt"
+"task_alias": "professional_medicine"

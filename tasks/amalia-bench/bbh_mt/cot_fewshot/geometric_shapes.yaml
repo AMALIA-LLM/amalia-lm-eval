@@ -1,0 +1,79 @@
+dataset_name: geometric_shapes
+description: 'Nomear formas geométricas a partir dos seus caminhos SVG.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Este elemento de caminho SVG <path d=\"M 31.00,73.00 L 32.00,59.00 L 44.00,50.00
+      L 49.00,41.00 L 64.00,37.00 L 71.00,55.00 L 64.00,76.00 L 52.00,61.00 L 31.00,73.00\"\
+      /> desenha um\nOpções:\n(A) círculo\n(B) heptágono\n(C) hexágono\n(D) pipa\n
+      (E) linha\n(F) octógono\n(G) pentágono\n(H) retângulo\n(I) sector\n(J) Triângulo"
+    target: "Vamos pensar passo a passo.\nEste elemento de caminho SVG contém os comandos
+      \"M\" e \"L\". M recebe dois parâmetros (x,y) e move o ponto atual para as coordenadas
+      (x,y). L recebe dois parâmetros (x,y) e desenha uma linha desde a coordenada
+      anterior até à nova coordenada (x,y).\nEsta trajetória pode ser decomposta em
+      9 comandos distintos.\n(1) M 31.00,73.00: Desloca o ponto atual para 31.00,73.00.\n
+      (2) L 32.00,59.00: Cria uma linha de 31.00,73.00 a 32.00,59.00.\n(3) L 44.00,50.00:
+      Criar uma linha de 32.00,59.00 até 44.00,50.00.\n(4) L 49.00,41.00: Criar uma
+      linha de 44.00,50.00 até 49.00,41.00.\n(5) L 64.00,37.00: Criar uma linha de
+      49,00,41,00 a 64,00,37,00.\n(6) L 71.00,55.00: Criar uma linha de 64.00,37.00
+      até 71.00,55.00.\n(7) L 64.00,76.00: Criar uma linha de 71.00,55.00 até 64.00,76.00.\n
+      (8) L 52.00,61.00: Criar uma linha de 64.00,76.00 até 52.00,61.00.\n(9) L 31.00,73.00:
+      Criar uma linha de 52.00,61.00 até 31.00,73.00.\nEste caminho SVG começa no
+      ponto 31.00,73.00, cria oito linhas consecutivas e que se tocam, e depois regressa
+      ao ponto de partida, criando assim uma forma de oito lados. Não tem curvas ou
+      arcos. O \"octógono\" é o único objeto com oito lados na lista. Portanto, a resposta é (F)."
+  - input: "Este elemento de caminho SVG <path d=\"M 14.19,26.04 L 51.43,39.21 L 58.44,36.69
+      L 56.63,30.17 L 48.53,26.66 L 14.19,26.04\"/> desenha um\nOpções:\n(A) círculo\n
+      (B) heptágono\n(C) hexágono\n(D) pipa\n(E) linha\n(F) octógono\n(G) pentágono\n
+      (H) retângulo\n(I) sector\n(J) Triângulo"
+    target: "Vamos pensar passo a passo.\nEste elemento de caminho SVG contém os comandos
+      \"M\" e \"L\". M recebe dois parâmetros (x,y) e move o ponto atual para as coordenadas
+      (x,y). L recebe dois parâmetros (x,y) e desenha uma linha desde a coordenada
+      anterior até à nova coordenada (x,y).\nEsta trajetória pode ser decomposta em
+      6 comandos distintos.\n(1) M 14.19,26.04: Move o ponto atual para 14.19,26.04.\n
+      (2) L 51.43,39.21: Cria uma linha de 14.19,26.04 a 51.43,39.21.\n(3) L 58.44,36.69:
+      Criar uma linha de 51.43,39.21 a 58.44,36.69.\n(4) L 56.63,30.17: Criar uma
+      linha de 58.44,36.69 a 56.63,30.17.\n(5) L 48.53,26.66: Criar uma linha de 56.63,30.17
+      a 48.53,26.66.\n(6) L 14.19,26.04: Criar uma reta de 48.53,26.66 até 14.19,26.04.\n
+      Este percurso SVG começa no ponto 14.19,26.04, cria cinco linhas consecutivas
+      e que se tocam, e depois regressa ao seu ponto de partida, criando assim uma
+      forma de cinco lados. Não tem quaisquer curvas ou arcos. O \"pentágono\" é o
+      único polígono de cinco lados da lista. Portanto, a resposta é (G)."
+  - input: "Este elemento de caminho SVG <path d=\"M 41.00,43.00 L 37.00,34.00 L 41.00,33.00
+      L 45.00,34.00 L 41.00,43.00\"/> desenha um\nOpções:\n(A) círculo\n(B) heptágono\n
+      (C) hexágono\n(D) pipa\n(E) linha\n(F) octógono\n(G) pentágono\n(H) retângulo\n
+      (I) sector\n(J) Triângulo"
+    target: "Vamos pensar passo a passo.\nEste elemento de caminho SVG contém os comandos
+      \"M\" e \"L\". M recebe dois parâmetros (x,y) e move o ponto atual para as coordenadas
+      (x,y). L recebe dois parâmetros (x,y) e desenha uma linha desde a coordenada
+      anterior até à nova coordenada (x,y).\nEsta trajetória pode ser decomposta em
+      5 comandos distintos.\n(1) M 41.00,43.00: Move o ponto atual para 41.00,43.00.\n
+      (2) L 37.00,34.00: Cria uma linha de 41.00,43.00 até 37.00,34.00.\n(3) L 41.00,33.00:
+      Criar uma linha de 37,00,34,00 até 41,00,33,00.\n(4) L 45.00,34.00: Criar uma
+      linha de 41,00,33,00 a 45,00,34,00.\n(5) L 41.00,43.00: Cria uma linha de 45,00,34,00
+      a 41,00,43,00.\nEste caminho SVG começa no ponto 41.00,43.00, cria quatro linhas
+      consecutivas e que se tocam, e depois regressa ao seu ponto de partida, criando
+      assim uma forma de quatro lados. O \"papagaio\" e o \"retângulo\" são os dois
+      únicos polígonos de quatro lados da lista. Por isso, temos de determinar qual
+      é a resposta correta.\nUm papagaio tem dois pares de lados adjacentes de igual
+      comprimento, enquanto um retângulo tem dois pares de lados alternados (opostos)
+      de igual comprimento. Agora, vamos verificar se os dois lados adjacentes desta
+      forma são iguais.\nComprimento do lado A: |A| = sqrt((41.00-37.00)^2 + (43.00-34.00)^2)
+      = sqrt((4)^2 + (9)^2) = sqrt(16 + 81) = sqrt(97).\nComprimento do lado B: |B|
+      = sqrt((37.00-41.00)^2 + (34.00-33.00)^2)) = sqrt((4)^2 + (1)^2) = sqrt(16 +
+      1) = sqrt(17).\nComprimento do lado C: |C| = sqrt((41.00-45.00)^2 + (33.00-34.00)^2))
+      = sqrt((-4)^2 + (-1)^2) = sqrt(16 + 1) = sqrt(17).\nComprimento do lado D: |D|
+      = sqrt((45.00-41.00)^2 + (34.00-43.00)^2)) = sqrt((4)^2 + (-9)^2) = sqrt(16
+      + 81) = sqrt(97).\nObserve que |A| = |D| e |B| = |C|. Além disso, A e D são
+      adjacentes e B e C são adjacentes. Assim, este polígono tem dois pares de lados
+      adjacentes de igual comprimento e é uma \"pipa\". Portanto, a resposta é (D)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_geometric_shapes_mt_pt

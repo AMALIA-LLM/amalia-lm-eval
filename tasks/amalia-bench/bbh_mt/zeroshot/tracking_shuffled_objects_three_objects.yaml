@@ -1,0 +1,19 @@
+"dataset_name": "tracking_shuffled_objects_three_objects"
+"description": "Uma tarefa que requer a determinação das posições finais de um conjunto
+  de objectos dadas as suas posições iniciais e uma descrição de uma sequência de
+  trocas.\n\n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_tracking_shuffled_objects_three_objects_mt_pt"
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MultiChoiceRegexFilter
+    group_select: 0
+    ignore_case: true
+    ignore_punctuation: true
+    regex_pattern: "(\\([A-Z]\\))"
+  - function: "take_first"

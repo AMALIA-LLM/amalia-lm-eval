@@ -1,0 +1,10 @@
+group: calame_pt
+task:
+  - calame_pt_genererated
+  - calame_pt_handwritten
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

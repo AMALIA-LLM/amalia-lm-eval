@@ -1,0 +1,6 @@
+"dataset_name": "international_law_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre direito
+  internacional.\n\n"
+"tag": "amalia_mmlu_flan_cot_zeroshot_humanities_mt_pt"
+"include": "_mmlu_flan_cot_zeroshot_template_yaml"
+"task": "amalia_mmlu_flan_cot_zeroshot_international_law_mt_pt"

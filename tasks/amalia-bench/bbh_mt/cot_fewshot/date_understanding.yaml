@@ -1,0 +1,34 @@
+dataset_name: date_understanding
+description: 'Inferir a data a partir do contexto.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Hoje é véspera de Natal de 1937. Qual é a data de há 10 dias atrás em
+      MM/DD/AAAA?\nOpções:\n(A) 12/14/2026\n(B) 12/14/1950\n(C) 12/14/2007\n(D) 12/14/1937\n
+      (E) 07/14/1938\n(F) 12/14/1988"
+    target: "Vamos pensar passo a passo.\nSe hoje é véspera de Natal de 1937, então
+      a data de hoje é 24 de dezembro de 1937. 10 dias antes de hoje é 14 de dezembro
+      de 1937, ou seja, 14/12/1937. Portanto, a resposta é (D)."
+  - input: "Amanhã é dia 11/12/2019. Qual é a data de há um ano a partir de hoje em
+      MM/DD/AAAA?\nOpções:\n(A) 09/04/2018\n(B) 11/11/2018\n(C) 08/25/2018\n(D) 11/02/2018\n
+      (E) 11/04/2018"
+    target: "Vamos pensar passo a passo.\nSe amanhã é 11/12/2019, então hoje é 11/11/2019.
+      A data de um ano atrás a partir de hoje é 11/11/2018. Portanto, a resposta é
+      (B)."
+  - input: "A Jane e o John casaram-se a 2 de janeiro de 1958. Fazem hoje 5 anos de
+      casados. Qual é a data de amanhã em MM/DD/AAAA?\nOpções:\n(A) 01/11/1961\n(B)
+      01/03/1963\n(C) 01/18/1961\n(D) 10/14/1960\n(E) 01/03/1982\n(F) 12/03/1960"
+    target: "Vamos pensar passo a passo.\nSe a Joana e o João casaram a 2 de janeiro
+      de 1958, então e se hoje é o seu aniversário de 5 anos, então a data de hoje
+      é 2 de janeiro de 1963. A data de amanhã é 3 de janeiro de 1963, ou seja, 01/03/1963.
+      Portanto, a resposta é (B)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_date_understanding_mt_pt

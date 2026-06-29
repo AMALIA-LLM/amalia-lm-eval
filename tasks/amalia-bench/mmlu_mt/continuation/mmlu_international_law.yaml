@@ -1,0 +1,6 @@
+"dataset_name": "international_law_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre o direito internacional.\n\
+  \n"
+"tag": "amalia_mmlu_continuation_humanities_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_international_law_mt_pt"

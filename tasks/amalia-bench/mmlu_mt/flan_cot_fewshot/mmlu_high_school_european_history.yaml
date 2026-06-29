@@ -1,0 +1,197 @@
+dataset_name: high_school_european_history_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre história
+  europeia no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Esta pergunta refere-se à seguinte informação.
+
+      Embora a Majestade do Rei seja e deva ser, justa e legitimamente, a cabeça suprema
+      da Igreja de Inglaterra, e assim seja reconhecida pelo clero deste reino nas
+      suas convocações, contudo, para corroboração e confirmação da mesma, e para
+      o aumento da virtude na religião de Cristo neste reino de Inglaterra, e para
+      reprimir e extirpar todos os erros, heresias e outras enormidades e abusos até
+      agora usados na mesma, seja decretado, por autoridade do presente Parlamento,
+      que o rei, nosso soberano senhor, os seus herdeiros e sucessores, reis deste
+      reino, serão considerados, aceites e reputados como a única cabeça suprema na
+      terra da Igreja de Inglaterra, chamada Anglicans Ecclesia; e terá e gozará,
+      anexado e unido à coroa imperial deste reino, tanto o título e o estilo da mesma,
+      como todas as honras, dignidades, preeminências, jurisdições, privilégios, autoridades,
+      imunidades, lucros e bens da dita dignidade de chefe supremo da mesma Igreja,
+      pertencentes e pertinentes; e que o nosso dito senhor soberano, os seus herdeiros
+      e sucessores, reis deste reino, terão pleno poder e autoridade para, de tempos
+      a tempos, visitar, reprimir, reparar, registar, ordenar, corrigir, restringir
+      e emendar todos esses erros, heresias, abusos, ofensas, delitos e enormidades,
+      sejam eles quais forem, que, por qualquer forma de autoridade ou jurisdição
+      espiritual, devam ou possam ser legalmente reformados, reprimidos, ordenados,
+      redimidos, corrigidos, restringidos ou emendados, mais para o prazer do Deus
+      Todo-Poderoso, para o aumento da virtude na religião de Cristo e para a conservação
+      da paz, unidade e tranquilidade deste reino; não obstante qualquer uso, terra
+      estrangeira, autoridade estrangeira, prescrição, ou qualquer outra coisa ou
+      coisas em contrário.
+
+      Parlamento inglês, Ato de Supremacia, 1534
+
+      A partir desta passagem, pode inferir-se que o Parlamento inglês pretendia argumentar
+      que o Ato de Supremacia
+
+      (A) conferir ao rei inglês uma nova posição de autoridade (B) conferir a posição
+      de chefe da Igreja de Inglaterra apenas a Henrique VIII e excluir os seus herdeiros
+      (C) estabelecer o calvinismo como a única teologia verdadeira em Inglaterra
+      (D) pôr fim a várias formas de corrupção que assolavam a Igreja em Inglaterra'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a história da Europa. O Ato de Supremacia afirma que concede autoridade
+      ao rei "para reprimir e extirpar todos os erros, heresias e outras enormidades
+      e abusos", referindo-se à corrupção na Igreja de Inglaterra. A resposta é (D).
+  - question: "Esta pergunta refere-se às seguintes informações.\nLê o seguinte excerto.\n
+      A semente revolucionária penetrou em todos os países e espalhou-se mais ou menos.
+      Desenvolveu-se grandemente sob o regime do despotismo militar de Bonaparte.
+      As suas conquistas deslocaram uma série de leis, instituições e costumes; romperam
+      laços sagrados entre todas as nações, suficientemente fortes para resistir ao
+      próprio tempo; o que é mais do que se pode dizer de certos benefícios conferidos
+      por esses inovadores.\n Os monarcas cumprirão os deveres que lhes são impostos
+      por Aquele que, confiando-lhes o poder, os encarregou de velar pela manutenção
+      da justiça e dos direitos de todos, de evitar os caminhos do erro e de trilhar
+      firmemente o caminho da verdade. Colocados para além das paixões que agitam
+      a sociedade, é sobretudo nos dias de provação que são chamados a despojar as
+      realidades das suas falsas aparências e a mostrarem-se como são, pais investidos
+      da autoridade que pertence por direito aos chefes de família, a provar que,
+      nos dias de luto, sabem ser justos, sábios e, por conseguinte, fortes, e que
+      não abandonarão o povo que devem governar ao desporto das facções, ao erro e
+      às suas consequências, que devem implicar a perda da sociedade.\nA união entre
+      os monarcas é a base da política que deve agora ser seguida para salvar a sociedade
+      da ruína total. . . .\nQue não confundam as concessões feitas aos partidos com
+      o bem que devem fazer ao seu povo, modificando, de acordo com as suas necessidades
+      reconhecidas, os ramos da administração que o exijam.\nQue sejam justos, mas
+      fortes; benéficos, mas rigorosos.\nQue eles mantenham os princípios religiosos
+      em toda a sua pureza, e não permitam que a fé seja atacada e a moralidade interpretada
+      de acordo com o contrato social ou as visões de sectários tolos.\nQue eles suprimam
+      as Sociedades Secretas; essa gangrena da sociedade.\n-Klemens von Metternich,
+      Confissão de Fé Política, 1820\nQual das seguintes foi a maior causa dos receios
+      expressos por Metternich no documento acima?\n(A) As ideias de liberdade pessoal
+      e nacionalismo concebidas durante o Iluminismo resultaram em revoluções radicais
+      que se poderiam espalhar por toda a Europa. (B) A conquista da Europa por Napoleão
+      levou à criação de novas facções e alterou o equilíbrio de poder europeu. (C)
+      O poder dos monarcas tinha crescido ao ponto de precisar de ser controlado por
+      outros poderes dentro de cada nação, sob pena de ocorrer o domínio dos civis.
+      (D) O ciclo económico de ascensão e queda da nova economia capitalista emergente
+      poderia levar a distúrbios civis que teriam de ser suprimidos."
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre história europeia. Os receios de uma revolução na Europa do início do
+      século XIX, expressos por Klemens von Metternich, um estadista austríaco conservador,
+      foram um resultado direto da era do Iluminismo, um período da história europeia
+      em que o poder absoluto da monarquia foi desafiado por ideias de liberdade individual
+      e nacionalismo, levando à revolução francesa e aos seus efeitos em toda a Europa.
+      A resposta é (A).
+  - question: 'Esta pergunta refere-se às seguintes informações.
+
+      Os excertos abaixo são dos Actos de Navegação de 1651.
+
+      [A partir do primeiro dia de dezembro de mil seiscentos e cinquenta e um, e
+      daí em diante, nenhum bem ou mercadoria, seja qual for para o seu crescimento,
+      produção ou fabrico, da Ásia, África ou América, ou de qualquer parte destas;
+      ou de quaisquer ilhas que lhes pertençam, ou que estejam descritas ou estabelecidas
+      nos mapas ou cartas habituais desses lugares, tanto das plantações inglesas
+      como de outras, serão importados ou trazidos para esta Comunidade de Inglaterra,
+      ou para a Irlanda, ou para quaisquer outras terras, ilhas, plantações ou territórios
+      a esta Comunidade pertencentes, ou em sua posse, em qualquer outro navio ou
+      navios, embarcação ou embarcações, mas apenas naqueles que pertençam verdadeiramente
+      e sem fraude apenas ao povo desta Comunidade, ou às suas plantações, como seus
+      proprietários ou legítimos proprietários; e cujo capitão e marinheiros são também
+      do povo desta Comunidade, sob pena de confisco e perda de todas as mercadorias
+      que forem importadas em violação do presente ato, , , ,
+
+      [Nenhum bem ou mercadoria proveniente do crescimento, produção ou fabrico da
+      Europa, ou de qualquer parte dela, será, depois do primeiro dia de dezembro
+      de mil seiscentos e cinquenta e um, importado ou trazido para esta Comunidade
+      de Inglaterra, ou para quaisquer outras terras ou territórios a ela pertencentes,
+      ou na sua posse, em qualquer navio ou navios, embarcação ou embarcações que
+      sejam, mas naqueles que pertencem verdadeiramente e sem fraude apenas ao povo
+      desta Commonwealth, e em nenhum outro, exceto apenas os navios e embarcações
+      estrangeiros que pertencem verdadeira e adequadamente ao povo desse país ou
+      lugar, do qual as ditas mercadorias são o crescimento, produção ou fabrico.
+
+      Qual das seguintes opções descreve melhor o resultado dos Actos de Navegação
+      de 1651?
+
+      (A) Serviram de catalisador para o crescimento da navegação inglesa e do comércio
+      ultramarino, mas pouco fizeram para limitar as perspectivas dos holandeses no
+      século XVII. (B) Provocaram dificuldades quase imediatas para a economia holandesa,
+      uma vez que o seu domínio do comércio ultramarino terminou rapidamente. (C)
+      Foram rescindidas durante a restauração dos Stuarts, que procuraram manter relações
+      diplomáticas normais com os holandeses para não precisarem do apoio financeiro
+      do Parlamento para a guerra. (D) Levaram a quase um século de guerras recorrentes
+      entre a Inglaterra e os Países Baixos, que só terminariam após a independência
+      americana.'
+    target: Vamos pensar passo a passo. Para o ajudar, consulte os artigos da Wikipédia
+      sobre história europeia. As Leis de Navegação de 1651 ajudaram a navegação inglesa
+      a restringir a capacidade dos navios de outros países europeus, especialmente
+      os holandeses, de transportar mercadorias das colónias da Ásia e de África para
+      Inglaterra. A resposta é (A).
+  - question: "Esta pergunta refere-se à seguinte informação.\nNa Rússia não se passava
+      nada de bom e [Souvarine] estava desesperado com as notícias que tinha recebido.
+      Os seus antigos companheiros viram-se todos para os políticos; os famosos niilistas
+      que fizeram tremer a Europa - filhos de padres de aldeia, da classe média baixa,
+      de comerciantes - não conseguiam ultrapassar a ideia de libertação nacional
+      e pareciam acreditar que o mundo seria libertado - quando tivessem matado o
+      seu déspota...\n\"Tolice! Nunca sairão disto com as suas tolices.\"\nDepois,
+      baixando ainda mais a voz, descreveu, em poucas e amargas palavras, o seu antigo
+      sonho de fraternidade. Tinha renunciado à sua posição e à sua fortuna; tinha
+      ido para o meio dos operários, apenas na esperança de ver finalmente a fundação
+      de uma nova sociedade de trabalho em comum. Todos os sous que tinham nos bolsos
+      tinham ido há muito tempo para os moleques da colónia; ele tinha sido tão terno
+      como um irmão com os operários, sorrindo às suas suspeitas, conquistando-os
+      com a sua calma de operário e a sua aversão à tagarelice. Mas, decididamente,
+      a fusão não se tinha dado.\nA sua voz mudou, os seus olhos tornaram-se brilhantes,
+      fixou-os em Étienne, dirigindo-se diretamente a ele:\n\"Compreendes isto? Estes
+      chapeleiros de Marselha, que ganharam o grande prémio da lotaria de cem mil
+      francos, foram imediatamente investi-lo, declarando que vão viver sem fazer
+      nada! Sim, é essa a vossa ideia, todos vós, operários franceses; quereis desenterrar
+      um tesouro para depois o devorardes sozinhos num canto preguiçoso e egoísta.
+      Podem gritar o quanto quiserem contra os ricos, mas não têm coragem de devolver
+      aos pobres o dinheiro que a sorte vos dá. Nunca sereis dignos de felicidade
+      enquanto fordes donos de alguma coisa, e o vosso ódio aos burgueses provém unicamente
+      de um desejo furioso de serdes vós próprios burgueses no lugar deles.\"\nÉmile
+      Zola, escritor francês, Germinal, 1885\nA passagem mostra a preocupação direta
+      com o bem-estar das classes trabalhadoras que era tipicamente parte de que movimento?\n
+      (A) Capitalista (B) Científico (C) Comunista (D) Existencialista"
+    target: Vamos pensar passo a passo. Para o ajudar, consulte os artigos da Wikipédia
+      sobre a história da Europa. O movimento comunista moderno tem como objetivo
+      a criação de uma sociedade sem classes, baseada na propriedade comum e na distribuição
+      da propriedade e dos meios de produção, beneficiando assim especialmente as
+      classes trabalhadoras. A resposta é (C).
+  - question: "Esta pergunta refere-se às seguintes informações.\nO seguinte excerto
+      foi retirado de um panfleto.\nFar-me-ão a justiça de recordar que sempre apoiei
+      vigorosamente o direito de cada homem à sua própria opinião, por mais diferente
+      que essa opinião possa ser da minha. Aquele que nega a outro esse direito, faz
+      de si mesmo um escravo de sua opinião atual, porque exclui a si mesmo o direito
+      de mudá-la.\nA arma mais formidável contra erros de todo tipo é a Razão. Nunca
+      usei nenhuma outra, e confio que nunca usarei.\nA circunstância que agora ocorreu
+      em França da abolição total de toda a ordem nacional de sacerdócio, e de tudo
+      o que pertence a sistemas compulsivos de religião, e artigos compulsivos de
+      fé, não só precipitou a minha intenção, mas tornou uma obra deste tipo extremamente
+      necessária, para que no naufrágio geral da superstição, de falsos sistemas de
+      governo, e falsa teologia, não percamos de vista a moralidade, a humanidade,
+      e a teologia que é verdadeira.\nAcredito num só Deus, e mais nenhum; e espero
+      a felicidade para além desta vida.\nAcredito na igualdade do homem; e acredito
+      que os deveres religiosos consistem em fazer justiça, amar a misericórdia e
+      esforçar-se por fazer felizes os nossos semelhantes.\n Não acredito no credo
+      professado pela igreja judaica, pela igreja romana, pela igreja grega, pela
+      igreja turca, pela igreja protestante, nem por qualquer outra igreja que eu
+      conheça. A minha própria mente é a minha própria igreja.\nTodas as instituições
+      nacionais de igrejas, sejam judaicas, cristãs ou turcas, não me parecem mais
+      do que invenções humanas, criadas para aterrorizar e escravizar a humanidade,
+      e monopolizar o poder e o lucro.\nNão pretendo com esta declaração condenar
+      aqueles que acreditam no contrário; eles têm o mesmo direito à sua crença que
+      eu tenho à minha.\n-Thomas Paine, A Idade da Razão, 1794-1795\nQual dos seguintes
+      filósofos do Iluminismo concebeu um sistema de pesos e contrapesos para o governo,
+      a fim de evitar abusos de poder?\n (A) Jean Jacques Rousseau (B) Barão de Montesquieu
+      (C) Mary Wollstonecraft (D) Adam Smith"
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre história europeia. O Barão de Montesquieu foi um filósofo francês
+      do século XVIII que escreveu extensivamente contra a monoplização do poder e
+      defendeu um sistema de pesos e contrapesos no governo para evitar a ascensão
+      do despotismo. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_european_history_mt_pt

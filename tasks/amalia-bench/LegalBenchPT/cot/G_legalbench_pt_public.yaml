@@ -1,0 +1,21 @@
+group: amalia_legalbench_pt_public_cot
+group_alias: public_cot
+task: 
+  - amalia_legalbench_pt_administrative_cot
+  - amalia_legalbench_pt_constitutional_cot
+  - amalia_legalbench_pt_financial_cot
+  - amalia_legalbench_pt_tax_cot
+  - amalia_legalbench_pt_criminal_cot
+  - amalia_legalbench_pt_administrative_procedure_cot
+  - amalia_legalbench_pt_civil_procedure_cot
+  - amalia_legalbench_pt_criminal_procedure_cot
+  - amalia_legalbench_pt_labor_procedure_cot
+  - amalia_legalbench_pt_energy_cot
+  - amalia_legalbench_pt_public_finance_cot
+  - amalia_legalbench_pt_environmental_cot
+  - amalia_legalbench_pt_urban_planning_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

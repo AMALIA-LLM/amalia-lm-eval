@@ -1,0 +1,23 @@
+group: amalia_legalbench_pt_private
+group_alias: private
+task: 
+  - amalia_legalbench_pt_aviation
+  - amalia_legalbench_pt_banking
+  - amalia_legalbench_pt_commercial
+  - amalia_legalbench_pt_private_international
+  - amalia_legalbench_pt_maritime
+  - amalia_legalbench_pt_family
+  - amalia_legalbench_pt_insolvency
+  - amalia_legalbench_pt_obligations
+  - amalia_legalbench_pt_corporate
+  - amalia_legalbench_pt_succession
+  - amalia_legalbench_pt_labor
+  - amalia_legalbench_pt_contract
+  - amalia_legalbench_pt_transportation
+  - amalia_legalbench_pt_securities
+  - amalia_legalbench_pt_property
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

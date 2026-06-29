@@ -1,0 +1,26 @@
+dataset_name: navigate
+description: 'Dada uma série de instruções de navegação, determinar se uma pessoa
+  acabaria por regressar ao ponto de partida.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Se seguires estas instruções, regressas ao ponto de partida? Vira à esquerda.
+      Vira-se para trás. Vira à esquerda. Dá 7 passos. Dá 2 passos. Dê 4 passos. Dar
+      8 passos.\nOpções:\n- Sim\n- Não"
+    target: Não
+  - input: "Se seguires estas instruções, regressas ao ponto de partida? Volta para
+      trás. Dá 1 passo. Dá 6 passos. Volta para trás. Dá 6 passos. Dar 9 passos. Dar
+      1 passo.\nOpções:\n- Sim\n- Não"
+    target: Não
+  - input: "Se seguir estas instruções, regressa ao ponto de partida? Sempre virado
+      para a frente. Dá 2 passos para a direita. Dá 9 passos para a esquerda. Dá 7
+      passos para a direita.\nOpções:\n- Sim\n- Não"
+    target: Sim
+include: _fewshot_template_yaml
+task: bbh_fewshot_navigate_mt_pt

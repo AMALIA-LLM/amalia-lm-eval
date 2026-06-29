@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_banking
+group_alias: banking
+task: 
+  - amalia_legalbench_pt_banking_matching_questions
+  - amalia_legalbench_pt_banking_multiple_choice
+  - amalia_legalbench_pt_banking_true_false
+  - amalia_legalbench_pt_banking_multiple_selection_questions
+  - amalia_legalbench_pt_banking_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

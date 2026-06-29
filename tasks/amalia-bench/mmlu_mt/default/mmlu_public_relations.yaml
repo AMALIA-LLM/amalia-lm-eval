@@ -1,0 +1,7 @@
+"dataset_name": "public_relations_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre relações
+  públicas.\n\n"
+"tag": "amalia_mmlu_social_sciences_tasks_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_public_relations_mt_pt"
+"task_alias": "public_relations"

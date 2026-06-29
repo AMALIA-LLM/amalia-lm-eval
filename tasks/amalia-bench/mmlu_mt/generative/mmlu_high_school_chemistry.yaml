@@ -1,0 +1,7 @@
+"dataset_name": "high_school_chemistry_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre química
+  no ensino secundário.\n\n"
+"tag": "amalia_mmlu_stem_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_high_school_chemistry_generative_mt_pt"
+"task_alias": "high_school_chemistry"

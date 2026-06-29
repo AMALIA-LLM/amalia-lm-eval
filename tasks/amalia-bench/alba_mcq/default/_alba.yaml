@@ -1,0 +1,15 @@
+group: alba_mcq
+task:
+- alba_semantics_mcq
+- alba_discourse_mcq
+- alba_variety_mcq
+- alba_lexicology_mcq
+- alba_morphology_mcq
+- alba_phonetics_mcq
+- alba_syntax_mcq
+- alba_word_play_mcq
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 1

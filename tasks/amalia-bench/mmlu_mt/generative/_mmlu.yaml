@@ -1,0 +1,33 @@
+group: amalia_mmlu_generative_mt_pt
+group_alias: mmlu (generative)
+task:
+- group: stem
+  task:
+  - amalia_mmlu_stem_generative_mt_pt
+  aggregate_metric_list:
+  - metric: exact_match
+    weight_by_size: true
+- group: other
+  task:
+  - amalia_mmlu_other_generative_mt_pt
+  aggregate_metric_list:
+  - metric: exact_match
+    weight_by_size: true
+- group: social sciences
+  task:
+  - amalia_mmlu_social_sciences_generative_mt_pt
+  aggregate_metric_list:
+  - metric: exact_match
+    weight_by_size: true
+- group: humanities
+  task:
+  - amalia_mmlu_humanities_generative_mt_pt
+  aggregate_metric_list:
+  - metric: exact_match
+    weight_by_size: true
+aggregate_metric_list:
+- aggregation: mean
+  metric: exact_match
+  weight_by_size: true
+metadata:
+  version: 3

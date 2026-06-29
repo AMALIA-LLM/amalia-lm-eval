@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <h2 class="mb-0">Display names</h2>
+    <p class="text-muted mb-0">Adjust how tasks and models appear across the interface. Leave fields blank to fall back to the defaults.</p>
+  </div>
+  <a class="btn btn-outline-secondary" href="{{ url_for('overview', root=selected_root, mode=mode, tasks_mode=tasks_mode) }}">Back to overview</a>
+</div>
+{% if updated %}
+<div class="alert alert-success">Display names updated successfully.</div>
+{% endif %}
+<form method="post" action="{{ url_for('edit_display_names', root=selected_root, mode=mode, tasks_mode=tasks_mode) }}" class="row g-4">
+  <div class="col-lg-6">
+    <div class="card h-100">
+      <div class="card-header">
+        <strong>Tasks</strong>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-sm mb-0 align-middle">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" style="width: 35%;">Task id</th>
+                <th scope="col">Display name override</th>
+                <th scope="col" style="width: 25%;">Current display</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for task in tasks %}
+              <tr>
+                <td><code>{{ task }}</code></td>
+                <td>
+                  <input type="hidden" name="task_name" value="{{ task }}">
+                  <input type="text" class="form-control form-control-sm" name="task_display" value="{{ task_overrides.get(task, '') }}" placeholder="{{ task_defaults.get(task, task) }}">
+                </td>
+                <td>{{ task_effective.get(task) }}</td>
+              </tr>
+              {% endfor %}
+              {% if not tasks %}
+              <tr>
+                <td colspan="3" class="text-muted fst-italic">No tasks indexed yet.</td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card h-100">
+      <div class="card-header">
+        <strong>Models</strong>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-sm mb-0 align-middle">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" style="width: 35%;">Model id</th>
+                <th scope="col">Display name override</th>
+                <th scope="col" style="width: 25%;">Current display</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for model in models %}
+              <tr>
+                <td><code>{{ model }}</code></td>
+                <td>
+                  <input type="hidden" name="model_name" value="{{ model }}">
+                  <input type="text" class="form-control form-control-sm" name="model_display" value="{{ model_overrides.get(model, '') }}" placeholder="{{ model_effective.get(model) }}">
+                </td>
+                <td>{{ model_effective.get(model) }}</td>
+              </tr>
+              {% endfor %}
+              {% if not models %}
+              <tr>
+                <td colspan="3" class="text-muted fst-italic">No models indexed yet.</td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 text-end">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </div>
+</form>
+{% endblock %}

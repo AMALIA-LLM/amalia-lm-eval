@@ -1,0 +1,17 @@
+"dataset_name": "formal_fallacies"
+"description": "Distinguir argumentos dedutivamente válidos de falácias formais.\n\
+  \n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_formal_fallacies_mt_pt"
+
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: "regex"
+    group_select: 0
+    regex_pattern: "\\b(válido|inválido|valido|invalido|válida|inválida|valida|invalida)\\b"
+  - function: "take_first"

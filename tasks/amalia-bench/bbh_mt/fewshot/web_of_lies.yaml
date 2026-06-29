@@ -1,0 +1,25 @@
+dataset_name: web_of_lies
+description: 'Avaliar uma função booleana aleatória expressa como um problema de palavras.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: 'Pergunta: Fidel diz a verdade. Jerry diz que Fidel diz a verdade. Vina
+      diz que Jerry diz a verdade. Millicent diz que Vina mente. Raimundo diz que
+      Millicent mente. O Raymond diz a verdade?'
+    target: Sim
+  - input: 'Pergunta: Kristian mente. A Millie diz que o Kristian mente. Maybelle
+      diz que Millie diz a verdade. Fidel diz que Maybelle mente. Leda diz que Fidel
+      mente. Leda diz a verdade?'
+    target: Sim
+  - input: 'Pergunta: Kristian diz a verdade. Michaela diz que Kristian está a mentir.
+      Raimundo diz que Michaela diz a verdade. Osvaldo diz que Raymond diz a verdade.
+      Jamey diz que Osvaldo diz a verdade. Será que Jamey diz a verdade?'
+    target: Não
+include: _fewshot_template_yaml
+task: bbh_fewshot_web_of_lies_mt_pt

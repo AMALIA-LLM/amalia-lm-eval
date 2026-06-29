@@ -1,0 +1,62 @@
+dataset_name: sociology_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre sociologia.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes opções não constitui um problema associado às estatísticas
+      oficiais sobre as acções de greve?
+
+      (A) a maioria das greves passa despercebida aos empregadores e aos meios de
+      comunicação social (B) nem todos os conflitos laborais são comunicados pelo
+      empregador (C) a definição de greves exclui as que envolvem menos de dez trabalhadores
+      ou que duram menos de um dia (D) é difícil comparar greves que foram medidas
+      de formas diferentes'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre sociologia. As estatísticas oficiais sobre acções de greve podem ser problemáticas
+      porque nem todos os conflitos laborais são comunicados pelos empregadores, a
+      definição de greve exclui as que envolvem menos de dez trabalhadores ou duram
+      menos de um dia e é difícil comparar greves que foram medidas de formas diferentes.
+      Assim, (A) não é um problema associado às estatísticas oficiais sobre acções
+      de greve. A resposta é (A).
+  - question: 'O que é que Berger (1963) descreve como uma metáfora da realidade social?
+
+      (A) uma feira de diversões (B) um circo (C) um teatro de marionetas (D) um ballet'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre sociologia. Berger descreve a realidade social utilizando a
+      metáfora de um teatro de marionetas. A resposta é (C).
+  - question: 'O termo "hegemonia" refere-se a:
+
+      (A) à tendência da classe trabalhadora para não realizar os seus próprios interesses
+      (B) a uma ideologia dominante que legitima o poder económico, político e cultural
+      (C) a uma forma de dupla consciência baseada na ideologia e nas experiências
+      quotidianas (D) a um modo de pagamento dado por uma topiaria excecional'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre sociologia. A hegemonia refere-se a uma ideologia dominante
+      que legitima o poder económico, político e cultural. A resposta é (B).
+  - question: 'A passagem da "religião civil" para a "religião comum" significa que:
+
+      (A) a crescente burocracia do Estado tornou a religião apenas uma parte marginal
+      das nossas vidas (B) apesar do enfraquecimento da autoridade tradicional, a
+      nossa vida quotidiana e o nosso "senso comum" continuam a ser moldados por crenças
+      e valores religiosos (C) a participação religiosa no culto coletivo pode ter
+      diminuído, mas as pessoas continuam a praticar a sua fé em privado (D) é muito
+      mais provável que as pessoas discutam as suas crenças religiosas em ambientes
+      públicos e informais'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre sociologia. A passagem da religião civil para a religião comum significa
+      que, apesar do enfraquecimento da autoridade tradicional, a nossa vida quotidiana
+      e o nosso senso comum continuam a ser moldados por crenças e valores religiosos.
+      A resposta é (B).
+  - question: 'Qual dos seguintes objectivos o Estado-providência do pós-guerra de
+      1948 não visava proporcionar:
+
+      (A) cuidados de saúde e educação gratuitos para todos (B) um salário mínimo
+      (C) pleno emprego (D) assistência social universal'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre sociologia. O Estado-Providência do pós-guerra de 1948 tinha
+      como objetivo proporcionar cuidados de saúde e educação gratuitos, pleno emprego
+      e assistência social universal. Mas não tinha como objetivo a criação de um
+      salário mínimo. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_sociology_mt_pt

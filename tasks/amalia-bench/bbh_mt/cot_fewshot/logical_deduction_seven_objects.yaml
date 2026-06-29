@@ -1,0 +1,51 @@
+dataset_name: logical_deduction_seven_objects
+description: 'Uma tarefa de dedução lógica que exige a dedução da ordem de uma sequência
+  de objectos.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Os parágrafos seguintes descrevem um conjunto de três objectos dispostos
+      numa ordem fixa. As afirmações são logicamente coerentes em cada parágrafo.
+      Num torneio de golfe, havia três jogadores: Amy, Eli e Eva. A Eva terminou acima
+      da Amy. Eli terminou abaixo de Amy.\nOpções:\n(A) Amy terminou em último lugar\n
+      (B) Eli terminou em último\n(C) Eva terminou em último lugar"
+    target: "Vamos pensar passo a passo.\n(1) Eva terminou acima de Amy: \"(acima)
+      ? Eva ? Amy ? (em baixo)\".\n(2) Eli terminou abaixo de Amy: \"(acima) ? Amy
+      ? Eli ? (em baixo)\".\n(3) Combinando (1) e (2) obtém-se a seguinte ordenação:
+      \"(acima) Eva Amy Eli (abaixo)\".\nDe acordo com esta ordenação, a pessoa que
+      ficou em último lugar (a que está no fim da lista) é o Eli.\nEli ficou em último
+      lugar. Portanto, a resposta é (B)."
+  - input: "Os parágrafos seguintes descrevem um conjunto de três objectos dispostos
+      numa ordem fixa. As afirmações são logicamente coerentes em cada parágrafo.
+      Numa prateleira, há três livros: um livro branco, um livro verde e um livro
+      cor de laranja. O livro verde está à direita do livro branco. O livro laranja
+      é o mais à direita.\nOpções:\n(A) O livro branco é o mais à esquerda\n(B) O
+      livro verde é o mais à esquerda\n(C) O livro laranja é o mais à esquerda"
+    target: "Vamos pensar passo a passo.\n(1) O livro verde está à direita do livro
+      branco: \"(esquerda) ? branco ? verde ? (direita)\".\n(2) O livro laranja é
+      o mais à direita: \"(esquerda) ? branco ? verde laranja (direita)\".\n(3) Combinando
+      (1) e (2) obtém-se a seguinte ordenação: \"(esquerda) branco verde laranja (direita)\"\
+      .\nDe acordo com esta ordenação, o livro mais à esquerda é o livro branco.\n
+      O livro branco é o mais à esquerda. Portanto, a resposta é (A)."
+  - input: "Os parágrafos seguintes descrevem um conjunto de três objectos dispostos
+      numa ordem fixa. As afirmações são logicamente coerentes dentro de cada parágrafo.
+      Numa prateleira, há três livros: um livro vermelho, um livro cinzento e um livro
+      branco. O livro branco está à esquerda do livro cinzento. O livro vermelho é
+      o segundo a contar da esquerda.\nOpções:\n(A) O livro vermelho é o mais à esquerda\n
+      (B) O livro cinzento é o mais à esquerda\n(C) O livro branco é o mais à esquerda"
+    target: "Vamos pensar passo a passo.\n(1) O livro branco está à esquerda do livro
+      cinzento: \"(esquerda) ? branco ? cinzento ? (direita)\".\n(2) O livro vermelho
+      é o segundo a contar da esquerda: \"(esquerda) ? branco vermelho cinzento ?
+      (direita)\".\n(3) Combinando (1) e (2) obtém-se a seguinte ordenação: \"(esquerda)
+      branco vermelho cinzento (direita)\".\nDe acordo com esta ordenação, o livro
+      mais à esquerda é o livro branco.\nO livro branco é o mais à esquerda. Portanto, a resposta é (C)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_logical_deduction_seven_objects_mt_pt

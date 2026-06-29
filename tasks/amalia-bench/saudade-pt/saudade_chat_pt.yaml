@@ -1,0 +1,26 @@
+task: saudade_chat_pt
+dataset_path: amalia-llm/saudade-pt
+test_split: test
+output_type: generate_until
+doc_to_text: 'Dada a seguinte pergunta e duas respostas candidatas (A e B), escolha a resposta correta.\nPergunta: {{prompt}}:\nA. {{facts_pair[0]}}\nB. {{facts_pair[1]}}?\nA sua resposta deve terminar com "A melhor resposta é [letra_da_resposta]" onde [letra_da_resposta] é A ou B.'
+doc_to_target: '{{"AB"[answer_index] }}'
+gen_prefix: 'A melhor resposta é'
+num_fewshot: 0
+generation_kwargs:
+  max_gen_toks: 100
+  until:
+    - "\n\n"
+    - "."
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+filter_list:
+  - name: remove_whitespace
+    filter:
+      - function: remove_whitespace
+      - function: take_first
+metadata:
+  version: 1.0

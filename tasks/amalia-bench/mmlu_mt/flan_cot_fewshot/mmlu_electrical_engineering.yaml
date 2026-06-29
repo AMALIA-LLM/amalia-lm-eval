@@ -1,0 +1,23 @@
+dataset_name: electrical_engineering_PT-PT
+description: '
+
+  Seguem-se perguntas de escolha múltipla (com respostas) sobre engenharia eléctrica.'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Um poste pontual tem uma força de 4π * 10^-4 weber. A força em newtons
+      num poste pontual de 4π * 1,5 * 10^-4 weber colocado a uma distância de 10 cm
+      dele será\n(A) 15 N. (B) 20 N. (C) 7,5 N. (D) 3,75 N."
+    target: "Vamos pensar passo a passo. A força entre dois pólos pontuais é dada
+      por m_1m_2/(mu_0 4 \\pi r^2), por analogia com a lei de Coulomb. Inserindo os
+      valores dados na questão, calculamos que a força é de aproximadamente 15 N.
+      A resposta é (A)."
+  - question: 'A bobina de um medidor de bobina móvel tem 100 voltas, 40 mm de comprimento
+      e 30 mm de largura. O binário de controlo é de 240*10-6 N-m na escala completa.
+      Se a densidade do fluxo magnético for 1Wb/m2 , a gama do medidor é
+
+      (A) 1 mA. (B) 2 mA. (C) 3 mA. (D) 4 mA.'
+    target: "Vamos pensar passo a passo. Na bobinagem em espira, dois resistores estão efetivamente ligados em paralelo, pelo que a resistência real de cada par é de 1 Ohm. Como temos 50 pares, obtemos uma resistência total de 50 Ohms. A resposta é (C)."
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_electrical_engineering_mt_pt

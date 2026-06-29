@@ -1,0 +1,3 @@
+"dataset_name": "social_media"
+"include": "_default_template.yaml"
+"task": "amalia_ptbrvid_social_media_mcq_shuffle"

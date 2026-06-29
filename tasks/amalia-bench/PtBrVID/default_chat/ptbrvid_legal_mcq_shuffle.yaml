@@ -1,0 +1,3 @@
+"dataset_name": "legal"
+"include": "_default_template.yaml"
+"task": "amalia_ptbrvid_legal_mcq_shuffle_chat"

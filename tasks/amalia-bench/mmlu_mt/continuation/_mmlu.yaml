@@ -1,0 +1,32 @@
+group: amalia_mmlu_continuation_mt_pt
+group_alias: mmlu (continuation)
+task:
+- group: stem
+  task:
+  - amalia_mmlu_continuation_stem_mt_pt
+  aggregate_metric_list:
+  - metric: acc
+    weight_by_size: true
+- group: other
+  task:
+  - amalia_mmlu_continuation_other_mt_pt
+  aggregate_metric_list:
+  - metric: acc
+    weight_by_size: true
+- group: social sciences
+  task:
+  - amalia_mmlu_continuation_social_sciences_mt_pt
+  aggregate_metric_list:
+  - metric: acc
+    weight_by_size: true
+- group: humanities
+  task:
+  - amalia_mmlu_continuation_humanities_mt_pt
+  aggregate_metric_list:
+  - metric: acc
+    weight_by_size: true
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 2

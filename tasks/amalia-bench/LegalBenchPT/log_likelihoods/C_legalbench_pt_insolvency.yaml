@@ -1,0 +1,11 @@
+group: amalia_legalbench_pt_insolvency_log
+group_alias: insolvency_log
+task: 
+  - amalia_legalbench_pt_insolvency_cloze_tasks_log
+  - amalia_legalbench_pt_insolvency_multiple_choice_log
+  - amalia_legalbench_pt_insolvency_true_false_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

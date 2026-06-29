@@ -1,0 +1,21 @@
+dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: Direito_da_Família
+test_split: test
+task: amalia_legalbench_pt_family_multiple_choice_cot
+task_alias: family_multiple_choice_cot
+#tag: amalia_legalbench_pt_family
+doc_to_text: Question
+doc_to_target: Answer
+process_docs: !function utils.process_multiple_choice
+output_type: generate_until
+generation_kwargs:
+  until: []
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 2000
+metric_list:
+  - metric: !function utils.legal_metric
+    aggregation: !function utils.legal_metric_agg
+    higher_is_better: true
+metadata:
+  version: 0.0

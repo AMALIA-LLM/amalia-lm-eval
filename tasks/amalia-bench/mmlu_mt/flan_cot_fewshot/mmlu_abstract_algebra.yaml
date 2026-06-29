@@ -1,0 +1,60 @@
+dataset_name: abstract_algebra_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre álgebra
+  abstrata.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Declaração 1 | Cada elemento de um grupo gera um subgrupo cíclico do
+      grupo. Declaração 2 | O grupo simétrico S_10 tem 10 elementos.
+
+      (A) Verdadeiro, Verdadeiro (B) Falso, Falso (C) Verdadeiro, Falso (D) Falso,
+      Verdadeiro'
+    target: Vamos pensar passo a passo. Um grupo cíclico é um grupo que é gerado por
+      um único elemento. Portanto, um subgrupo gerado por um único elemento de um
+      grupo é cíclico e a afirmação 1 é verdadeira. A resposta é (C).
+  - question: 'O grupo simétrico $S_n$ tem $
+
+      actorial{n}$ elementos, logo não é verdade que $S_{10}$ tem 10 elementos.
+
+      Determine a caraterística do anel 2Z.
+
+      (A) 0 (B) 3 (C) 12 (D) 30'
+    target: Vamos pensar passo a passo. Uma caraterística de um anel é R é $n$ se
+      a afirmação $ka = 0$ para todos os $a\em 2Z$ implica que $k$ é um múltiplo de
+      $n$. Suponha-se que $ka = 0$ para todos os $a\in 2Z$ para alguns $k$. Em particular,
+      $2k = 0$. Logo, $k=0$ e $n=0$. A resposta é (A).
+  - question: 'Declaração 1| Toda função de um conjunto finito sobre ele mesmo deve
+      ser um para um. Declaração 2 | Todo subgrupo de um grupo abeliano é abeliano.
+
+      (A) Verdadeiro, Verdadeiro (B) Falso, Falso (C) Verdadeiro, Falso (D) Falso,
+      Verdadeiro'
+    target: "Vamos pensar passo a passo. A afirmação 1 é verdadeira. Seja $S$ um conjunto
+      finito. Se $f:S\nS$ é uma função onto, então $|S| = |f(S)|$. Se $f$ não fosse
+      um para um, então para um domínio finito $S$ a imagem teria menos de $S$ elementos,
+      uma contradição.\nA afirmação 2 é verdadeira. Seja $G$ um grupo abeliano e $H$
+      um subgrupo de $G$. Temos de mostrar que $H$ é abeliano. Sejam $a,b \\em H$.
+      Então $a,b \\em G$ e $ab=ba$. Como $G$ é abeliano, $ab=ba$. Como $H$ é um subgrupo
+      de $G$, $ab \\em H$. Logo, $ab=ba$ e $H$ é abeliano. A resposta é (A)."
+  - question: 'Declaração 1 | Se aH é um elemento de um grupo fatorial, então |aH|
+      divide |a|. Declaração 2 | Se H e K são subgrupos de G, então HK é um subgrupo
+      de G.
+
+      (A) Verdadeiro, Verdadeiro (B) Falso, Falso (C) Verdadeiro, Falso (D) Falso,
+      Verdadeiro'
+    target: Vamos pensar passo a passo. A afirmação 2 é falsa. Seja $H$ um subgrupo
+      de $S_3$ gerado pelo ciclo $(1,2)$ e $K$ um subgrupo de $S_3$ gerado pelo ciclo
+      $(1,3)$. Tanto $H$ como $K$ têm dois elementos, os geradores e a identidade.
+      No entanto, $HK$ contém os ciclos (1,2), (1,3) e (2,3,1), mas o inverso de (2,3,1)
+      é (2,1,3) e não pertence a HK, pelo que HK não é um subgrupo. A resposta é (B).
+  - question: 'Encontre todos os c em Z_3 tais que Z_3[x]/(x^2 + c) é um campo.
+
+      (A) 0 (B) 1 (C) 2 (D) 3'
+    target: 'Vamos pensar passo a passo. Z_3[x]/(x^2 + c) é um campo se e só se x^2
+      + c não tem raízes em Z_3. Ou seja, x^2 + c != 0 para todo x em Z_3. Se c =
+      0, então x^2 + c = x^2 tem raiz 0. Se c = 1, então x^2 + c = x^2 + 1 = 0 + 1
+      para x = 0, 1 + 1 = 2 para x = 1 e 1 + 1 = 2 para x = 2, pelo que x^2 + 1 não
+      tem raízes. Para c = 2, o polinómio x^2 + 2 tem duas raízes em x = 1 e x = 2.
+      Logo, Z_3[x]/(x^2 + c) é um campo se e só se c = 1. A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_abstract_algebra_mt_pt

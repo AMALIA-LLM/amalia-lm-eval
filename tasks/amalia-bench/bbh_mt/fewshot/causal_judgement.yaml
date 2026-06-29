@@ -1,0 +1,46 @@
+dataset_name: causal_judgement
+description: 'Responder a perguntas sobre a atribuição de causas.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Como é que uma pessoa normal responderia a cada uma das seguintes perguntas
+      sobre o nexo de causalidade?\nFrank T. tinha uma disputa constante com o seu
+      vizinho por causa de um terreno e um dia decidiu dar-lhe um tiro no corpo. Frank
+      T. não tinha experiência com armas, a sua mão escorregou no cano da arma e o
+      tiro saiu disparado. No entanto, a bala ricocheteou numa grande rocha a vários
+      metros de distância e atingiu o corpo do vizinho, causando ferimentos significativos.
+      Será que Frank T. disparou intencionalmente contra o corpo do seu vizinho?\n
+      Opções:\n- Sim\n- Não"
+    target: Não
+  - input: "Como é que uma pessoa normal responderia a cada uma das seguintes perguntas
+      sobre causalidade?\nA Suzy e o Billy estão a trabalhar num projeto que é muito
+      importante para a segurança da nossa nação. O chefe diz-lhes: \"Certifiquem-se
+      de que estão aqui exatamente às 9 horas da manhã. É absolutamente essencial
+      que cheguem a essa hora\". Tanto o Billy como a Suzy chegam às 9 horas. Acontece
+      que havia um detetor de movimentos instalado na sala onde eles chegaram. O detetor
+      de movimentos estava programado para ser acionado se pelo menos uma pessoa aparecesse
+      na sala ao mesmo tempo. Por isso, o detetor de movimentos disparou. O Billy
+      provocou o disparo do detetor de movimentos?\nOpções:\n- Sim\n- Não"
+    target: Sim
+  - input: "Como é que uma pessoa normal responderia a cada uma das seguintes perguntas
+      sobre causalidade?\nJorge e a sua irmã Lena reúnem-se em casa dos pais para
+      o Dia de Ação de Graças. Enquanto o Jorge acabou de entrar na faculdade de medicina,
+      a Lena está infeliz no seu casamento e perdeu recentemente o emprego. Ao longo
+      do dia, Jorge e Lena discutem acaloradamente. No final da tarde, jogam uma partida
+      de dardos. Dividem os dois primeiros jogos e o terceiro jogo é renhido até ao
+      fim. A vitória depende da última tacada de George. Se ele acertar numa região
+      de ponto alto, ganha; se acertar numa região de ponto baixo, Lena ganha. O Jorge
+      pensa no momento difícil que a Lena está a passar e quer mesmo deixá-la ganhar.
+      Aponta o dardo para a região do ponto baixo. Prepara a sua tacada e o dardo
+      cai na região do ponto baixo. Após o lançamento, a Lena ganha o jogo e fica
+      muito feliz. O Jorge acertou na região do ponto baixo intencionalmente?\nOpções:\n
+      - Sim\n- Não"
+    target: Sim
+include: _fewshot_template_yaml
+task: bbh_fewshot_causal_judgement_mt_pt

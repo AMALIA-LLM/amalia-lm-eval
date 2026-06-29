@@ -1,0 +1,18 @@
+task: saudade_pt
+dataset_path: amalia-llm/saudade-pt
+test_split: test
+output_type: multiple_choice
+doc_to_text: "Pergunta: {{prompt}} {{facts_pair[0]}} ou {{facts_pair[1]}}?\nA resposta é"
+doc_to_target: "{{answer_index}}"
+doc_to_choice: "{{facts_pair}}"
+should_decontaminate: true
+doc_to_decontamination_query: "Pergunta: Qual destes eventos relacionados com {{entity}} ocorreu primeiro: {{facts_pair[0]}} ou {{facts_pair[1]}}?\nA resposta é"
+metric_list:
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

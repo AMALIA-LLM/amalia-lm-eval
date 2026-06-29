@@ -1,0 +1,63 @@
+dataset_name: high_school_government_and_politics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre governo
+  e política no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes afirma melhor um argumento apresentado por James
+      Madison em O Federalista número 10?
+
+      (A) Os políticos honestos podem impedir o desenvolvimento de facções. (B) As
+      facções são mais prováveis de ocorrer em grandes repúblicas do que em pequenas.
+      (C) Os efeitos negativos do facciosismo podem ser reduzidos por um governo republicano.
+      (D) Eleições livres são a melhor defesa do povo contra o facciosismo.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre governo e política. No Federalista número 10, James Madison defendeu uma
+      forma de governo republicana representativa para evitar o facciosismo. A resposta
+      é (C).
+  - question: 'O termo "défice orçamental" refere-se ao
+
+      (A) aumento anual das despesas federais com as forças armadas (B) montante dos
+      juros da dívida nacional (C) diferença entre as propostas orçamentais iniciais
+      apresentadas pelo Presidente e pelo Congresso (D) montante que o governo gasta
+      para além das suas receitas'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre governo e política. Quando o governo gasta mais do que ganha, a diferença
+      é o défice orçamental. A resposta é (D).
+  - question: 'Qual das seguintes afirmações sobre os departamentos ministeriais é
+      FALSA?
+
+      (A) São criados pelo poder legislativo. (B) Os seus membros não têm, muitas
+      vezes, grande influência nas decisões presidenciais. (C) Nem todos podem ser
+      dirigidos por líderes que pertençam ao mesmo partido político do Presidente.
+      (D) Nem todas as agências federais são departamentos de gabinete.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre governo e política. Não existe nenhuma lei que estipule que alguns chefes
+      de departamento do gabinete têm de pertencer a um partido político diferente
+      do Presidente. A resposta é (C).
+  - question: 'Qual dos seguintes casos estabeleceu o precedente de que um arguido
+      deve ser informado do direito de permanecer em silêncio, do direito a um advogado
+      e da proteção contra a auto-incriminação?
+
+      (A) Weeks v. United States (B) Betts v. Brady (C) Mapp v. Ohio (D) Miranda v.
+      Arizona'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre governo e política. No caso histórico Miranda vs. Arizona, em 1966, o
+      Supremo Tribunal dos EUA, com base na Quinta e Sexta Emendas da Constituição
+      dos EUA, garantiu o direito do arguido a um advogado e a proteção contra a auto-incriminação.
+      A resposta é (D).
+  - question: 'A incerteza sobre os limites do poder presidencial é causada principalmente
+      pelo facto de
+
+      (A) a definição constitucional desses poderes ser ampla e pouco específica (B)
+      a maioria das pessoas concordar que a Constituição impõe demasiados limites
+      ao poder presidencial (C) o Supremo Tribunal se recusar sistematicamente a pronunciar-se
+      sobre casos relativos aos poderes presidenciais (D) as alterações constitucionais
+      terem aumentado consideravelmente os poderes presidenciais'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre governo e política. A Constituição dos Estados Unidos não é
+      muito específica quanto aos poderes do Presidente, o que gera incerteza quanto
+      aos seus limites. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_government_and_politics_mt_pt

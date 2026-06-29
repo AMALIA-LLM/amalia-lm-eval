@@ -1,0 +1,58 @@
+dataset_name: dyck_languages
+description: 'Fechar corretamente uma palavra Dyck-n.
+
+
+  '
+generation_kwargs:
+  max_gen_toks: 2048
+  until:
+  - </s>
+  - <|endoftext|>
+  - <|im_end|>
+  do_sample: false
+  temperature: 0.0
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: [ { ['
+    target: "Vamos pensar passo a passo.\nDevemos processar cada entrada uma a uma
+      e manter um registo da configuração da pilha.\n0: pilha vazia\n1: [ ; pilha:
+      [\n2: { ; pilha: [ {\n3: [ ; pilha: [ { [\nAgora, chegámos ao fim. A pilha final
+      é \"[ { [\".\nPrecisamos de retirar \"[\", \"{\", \"[\" um a um, por esta ordem.\n
+      Então, precisamos de \"]\", \"}\", \"]\". Portanto, a resposta é ] } ]."
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: < > ( ( [ [ ( { } ) [ < > ] ]'
+    target: "Vamos pensar passo a passo.\nDevemos processar cada entrada uma a uma
+      e manter um registo da configuração da pilha.\n0: pilha vazia\n1: < ; pilha:
+      <\n2: > ; pilha: vazia\n3: ( ; pilha: (\n4: ( ; pilha: ( (\n5: [ ; pilha: (
+      ( [\n6: [ ; pilha: ( ( [ [\n7: ( ; pilha: ( ( [ [ (\n8: { ; pilha: ( ( [ [ (
+      {\n9: } ; pilha: ( ( [ [ (\n10: ) ; pilha: ( ( [ [\n11: [ ; pilha: ( ( [ [ [\n
+      12: < ; pilha: ( ( [ [ [ <\n13: > , pilha: ( ( [ [ [\n14: ] ; pilha: ( ( [ [\n
+      15: ] ; pilha: ( ( [ [\nAgora, chegámos ao fim. A pilha final é \"( ( [ [ [\"\
+      \ .\n Precisamos de retirar \"[\", \"(\", \"(\" um a um, por esta ordem.\nEntão,
+      precisamos de \"]\", \")\", \")\". Portanto, a resposta é ] ) )."
+  - input: 'Complete o resto da sequência, certificando-se de que os parênteses estão
+      corretamente fechados. Entrada: < [ < [ { < [ ] < { } > > } ] > { { ( ) } {
+      < [ < > ] > }'
+    target: "Vamos pensar passo a passo.\nDevemos processar cada entrada uma a uma
+      e manter um registo da configuração da pilha.\n0: pilha vazia\n1: < ; pilha:
+      <\n2: [ ; pilha: < [\n3: < ; pilha: < [ <\n4: [ ; stack: < [ < [\n5: { ; pilha:
+      < [ < [ {\n6: < ; pilha: < [ < [ { <\n7: [ ; pilha: < [ < [ { < [\n8: ] ; stack:
+      < [ < [ { <\n9: < ; pilha: < [ < [ { < <\n10: { ; pilha: < [ < [ { < < {\n11:
+      } ; stack: < [ < [ { < <\n12: > ; stack: < [ < [ { <\n13: > ; stack: < [ < [
+      {\n14: } ; stack: < [ < [\n15: ] ; stack: < [ <\n16: > ; stack: < [\n17: { ;
+      stack: < [ {\n18: { ; stack: < [ { {\n19: ( ; pilha: < [ { { (\n20: ) ; stack:
+      < [ { {\n21: } ; stack: < [ {\n22: { ; stack: < [ { {\n23: < ; stack: < [ {
+      { <\n24: [ ; pilha: < [ { { < [\n25: < ; stack: < [ { { < [ <\n26: < ; stack:
+      < [ { { < [\n27: ] ; stack: < [ { { <\n28: > ; stack: < [ { {\n29: } ; stack:
+      < [ {\nAgora, chegámos ao fim. A pilha final é \"< [ {\".\nPrecisamos de retirar
+      \"{\", \"[\", \"<\" um a um por esta ordem.\nEntão, precisamos de \"}\", \"\
+      ]\", \">\". Então a resposta é } ] >."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_dyck_languages_mt_pt

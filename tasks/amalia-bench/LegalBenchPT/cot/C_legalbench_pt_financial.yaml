@@ -1,0 +1,12 @@
+group: amalia_legalbench_pt_financial_cot
+group_alias: financial_cot
+task: 
+  - amalia_legalbench_pt_financial_multiple_choice_cot
+  - amalia_legalbench_pt_financial_true_false_cot
+  - amalia_legalbench_pt_financial_cloze_tasks_cot
+  - amalia_legalbench_pt_financial_matching_questions_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

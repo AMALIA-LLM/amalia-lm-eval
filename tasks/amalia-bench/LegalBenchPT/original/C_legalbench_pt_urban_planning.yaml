@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_urban_planning
+group_alias: urban_planning
+task: 
+  - amalia_legalbench_pt_urban_planning_matching_questions
+  - amalia_legalbench_pt_urban_planning_multiple_choice
+  - amalia_legalbench_pt_urban_planning_true_false
+  - amalia_legalbench_pt_urban_planning_multiple_selection_questions
+  - amalia_legalbench_pt_urban_planning_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

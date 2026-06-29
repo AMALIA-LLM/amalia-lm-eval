@@ -1,0 +1,73 @@
+dataset_name: anatomy_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre anatomia.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes é a cavidade corporal que contém a glândula pituitária?
+
+      (A) Abdominal (B) Craniana (C) Pleural (D) Espinal'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre anatomia. Vamos resolver este problema passo a passo. A glândula pituitária
+      é a principal glândula endócrina ligada à base do cérebro e está contida na
+      cavidade craniana. A resposta é (B)."
+  - question: 'Qual destes ramos do nervo trigémeo contém processos motores somáticos?
+
+      (A) O nervo supraorbital (B) O nervo infra-orbital (C) O nervo mental (D) Nenhuma
+      das anteriores'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre anatomia. Vamos resolver este problema passo a passo.\nSabemos o seguinte:
+      (A) O nervo supraorbital (também conhecido como nervo frontal) é o maior ramo
+      do nervo oftálmico e ramo da divisão oftálmica do nervo trigémeo. (B) O nervo
+      infra-orbital é um ramo da divisão maxilar do nervo trigémeo. (C) O nervo mental
+      é um ramo da divisão mandibular do nervo trigémeo. Porque todos estes nervos
+      são puramente sensoriais e não contêm processos motores somáticos. Por conseguinte,
+      a resposta não deve ser nenhuma das anteriores, ou seja, (D). A resposta é (D)."
+  - question: 'Na oclusão de Classe II Div 2 de Angle existe
+
+      (A) sobremordida excessiva dos incisivos laterais superiores. (B) sobressaliência
+      negativa dos incisivos centrais superiores. (C) excesso de sobressaliência dos
+      incisivos laterais superiores. (D) excesso de sobressaliência dos incisivos
+      centrais superiores.'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre anatomia. Vamos resolver este problema passo a passo. Esta é uma questão
+      relacionada com a anatomia e a ortodontia. O excesso de sobressaliência está
+      associado a oclusões de Classe II; por isso, podemos eliminar com segurança
+      (B) da lista, uma vez que a sobressaliência negativa está frequentemente associada
+      a oclusões de Classe III. Agora, precisamos de determinar a localização do excesso
+      de sobressaliência, e isso seria nos incisivos laterais superiores (maxilares).
+      Apenas (C) tem a informação correta. A resposta é (C)."
+  - question: 'A pleura
+
+      (A) não têm inervação sensorial. (B) estão separadas por um espaço de 2 mm.
+      (C) estendem-se até ao pescoço. (D) são compostas por epitélio respiratório.'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre anatomia. Vamos resolver este problema passo a passo. Primeiro, lembra-te
+      que a pleura se refere à fina camada de tecido que cobre os pulmões e reveste
+      a parede interior da cavidade torácica. Agora, vamos analisar cada opção:\n
+      Opção (A): \"A pleura não tem inervação sensorial.\" Esta informação não está
+      correta. A pleura tem uma inervação sensorial.\nOpção (B): \"As pleuras estão
+      separadas por um espaço de 2 mm.\" Esta informação não está correta. Existe
+      um espaço \"potencial\" muito fino entre as camadas da pleura; no entanto, é
+      normalmente preenchido por líquido pleural seroso.\nOpção (C): \"A pleura estende-se
+      até ao pescoço.\" Esta informação é, de facto, verdadeira. A pleura cervical,
+      também conhecida como cúpula da pleura, reveste a extensão da cavidade pleural
+      até ao pescoço.\n Opção (D): \"A pleura é composta por epitélio respiratório.\"\
+      \ Esta informação não está correta. As pleuras são compostas por tecido conjuntivo
+      (TC).\nUma vez que (A), (B) e (D) estão incorrectas, (D) é a única resposta
+      correta. A resposta é (C)."
+  - question: 'Qual é a origem embriológica do osso hioide?
+
+      (A) O primeiro arco faríngeo (B) O primeiro e o segundo arcos faríngeos (C)
+      O segundo arco faríngeo (D) O segundo e o terceiro arcos faríngeos'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre anatomia. Vamos resolver este problema passo a passo. O osso hioide, também
+      conhecido como hioide, é um pequeno osso em forma de U localizado na parte anterior
+      do pescoço. Na sua posição de repouso, situa-se entre a base da mandíbula e
+      a terceira vértebra cervical. Sabemos que o segundo e o terceiro arcos faríngeos
+      dão origem aos cornos do osso hioide; portanto, a origem embriológica do osso
+      hioide são o segundo e o terceiro arcos faríngeos - esta informação está contemplada
+      na última opção (D). Assim, concluímos que (D) deve ser a resposta correta.
+      A resposta é (D).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_anatomy_mt_pt

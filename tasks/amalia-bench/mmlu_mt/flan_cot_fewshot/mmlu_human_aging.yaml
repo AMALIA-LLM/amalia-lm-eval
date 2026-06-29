@@ -1,0 +1,44 @@
+dataset_name: human_aging_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre o envelhecimento
+  humano.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Se todos os outros factores forem iguais, qual das seguintes pessoas
+      tem maior probabilidade de apresentar osteoporose?
+
+      (A) Uma mulher idosa hispano-americana (B) Uma mulher idosa afro-americana (C)
+      Uma mulher idosa asiático-americana (D) Uma mulher idosa indígena americana'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre o envelhecimento humano. Embora a osteoporose possa ocorrer em qualquer
+      idade, o risco é maior nas pessoas mais velhas. É mais comum em mulheres asiáticas
+      e brancas não hispânicas. A resposta é (C).
+  - question: 'A constatação de que os adultos tendem a recordar melhor os acontecimentos
+      da sua adolescência do que os de outros períodos da sua vida é designada por
+
+      (A) Vantagem da adolescência (B) Batida de reminiscência (C) Memória memorial
+      (D) Pico de recuperação quadrático'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre o envelhecimento humano. A reminiscência é um fenómeno em que os adultos
+      mais velhos tendem a recordar acontecimentos ocorridos durante a sua juventude.
+      Normalmente, as pessoas têm um período de amnésia infantil desde o nascimento
+      até cerca dos 5 anos de idade, e uma reminiscência entre os 10 e os 30 anos.
+      A resposta é (B).
+  - question: 'Que elemento do fumo do tabaco é responsável pelo cancro?
+
+      (A) Nicotina (B) Alcatrão (C) Monóxido de carbono (D) Partículas de fumo'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre o envelhecimento humano. O benzeno, a acrilamida e o acrilonitrilo presentes
+      no alcatrão interagem com os pulmões e provocam mutações no ADN das células
+      dos pulmões, levando ao cancro. A resposta é (B).
+  - question: 'Quando os adultos mais velhos se mudam para um novo estado após a reforma,
+      qual dos seguintes é o destino mais provável?
+
+      (A) Texas (B) Califórnia (C) Hawaii (D) Vermont'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre o envelhecimento humano. O Texas não tem imposto estatal e tem
+      um custo de vida baixo em comparação com as outras três opções. A resposta é
+      (A).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_human_aging_mt_pt

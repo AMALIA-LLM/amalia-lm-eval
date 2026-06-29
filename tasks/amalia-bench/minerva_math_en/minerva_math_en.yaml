@@ -1,0 +1,18 @@
+group: minerva_math_en
+task:
+  - minerva_math_algebra_en
+  - minerva_math_counting_and_prob_en
+  - minerva_math_geometry_en
+  - minerva_math_intermediate_algebra_en
+  - minerva_math_num_theory_en
+  - minerva_math_prealgebra_en
+  - minerva_math_precalc_en
+aggregate_metric_list:
+  - metric: math_verify
+    aggregation: mean
+    weight_by_size: true
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

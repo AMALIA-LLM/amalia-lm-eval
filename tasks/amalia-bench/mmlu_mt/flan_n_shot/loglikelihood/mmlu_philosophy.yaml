@@ -1,0 +1,6 @@
+"dataset_name": "philosophy_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre filosofia.\n\
+  \n"
+"tag": "amalia_mmlu_flan_n_shot_loglikelihood_humanities_mt_pt"
+"include": "_mmlu_flan_loglikelihood_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_loglikelihood_philosophy_mt_pt"

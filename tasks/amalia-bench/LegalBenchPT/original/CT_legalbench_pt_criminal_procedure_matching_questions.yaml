@@ -1,0 +1,21 @@
+dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: Direito_Processual_Penal
+test_split: test
+task: amalia_legalbench_pt_criminal_procedure_matching_questions
+task_alias: criminal_procedure_matching_questions
+#tag: amalia_legalbench_pt_criminal_procedure
+doc_to_text: Question
+doc_to_target: Answer
+process_docs: !function utils.process_matching_questions
+output_type: generate_until
+generation_kwargs:
+  until: []
+  do_sample: true
+  temperature: 0.001
+  max_gen_toks: 2000
+metric_list:
+  - metric: !function utils.legal_metric
+    aggregation: !function utils.legal_metric_agg
+    higher_is_better: true
+metadata:
+  version: 0.0

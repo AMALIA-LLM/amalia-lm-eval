@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_property
+group_alias: property
+task: 
+  - amalia_legalbench_pt_property_matching_questions
+  - amalia_legalbench_pt_property_case_analysis_questions
+  - amalia_legalbench_pt_property_multiple_choice
+  - amalia_legalbench_pt_property_true_false
+  - amalia_legalbench_pt_property_multiple_selection_questions
+  - amalia_legalbench_pt_property_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

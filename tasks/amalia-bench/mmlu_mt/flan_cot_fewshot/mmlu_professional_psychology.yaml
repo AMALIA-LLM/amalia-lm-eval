@@ -1,0 +1,63 @@
+dataset_name: professional_psychology_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre psicologia
+  profissional.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Na construção de uma equação de regressão múltipla para fins de previsão,
+      a combinação óptima de medidas é aquela em que os factores de previsão
+
+      (A) não estão correlacionados entre si mas estão moderadamente correlacionados
+      com o critério (B) têm baixas correlações entre si e baixas correlações com
+      o critério (C) estão altamente intercorrelacionados entre si e moderadamente
+      correlacionados com o critério (D) têm baixas correlações com o critério mas
+      estão moderadamente correlacionados entre si'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre psicologia. A base da regressão múltipla é avaliar a relação entre uma
+      variável contínua e um conjunto de variáveis independentes. Assim, os factores
+      de previsão não devem estar correlacionados entre si, mas devem estar moderadamente
+      correlacionados com o critério. A resposta é (A).
+  - question: 'Existem três formas de medir a Tendência Central: a Média, a Mediana
+      e a Moda. Com base no seu conhecimento sobre elas, qual é a moda?
+
+      (A) menos sensível a valores extremos do que a média (B) mais útil para distribuições
+      assimétricas (C) sensível a valores extremos e a distribuições altamente assimétricas
+      (D) o número que ocorre com maior frequência'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre psicologia. A definição de moda é o número que ocorre com maior frequência.
+      A resposta é (D).
+  - question: "Carl Jung acreditava que a transferência de um cliente:\n(A) é uma
+      fantasia que distrai o cliente da realidade. (B) representa \"sentimentos mistos\"\
+      \ em relação ao terapeuta. (C) \"é uma forma de \"acting out\"\". (D) reflecte
+      o inconsciente pessoal e coletivo do cliente."
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre psicologia. A transferência é um fenómeno em que os sentimentos de uma
+      pessoa são redireccionados inconscientemente, reflectindo assim o inconsciente
+      pessoal e coletivo do cliente. A resposta é (D).
+  - question: "Em termos das cinco dimensões culturais de Hofstede (1980), os Estados
+      Unidos estão no topo da escala em:\n(A) individualismo. (B) individualismo e
+      distância do poder. (C) distância do poder e masculinidade. (D) evitação de
+      incerteza."
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre psicologia. Entre as cinco dimensões culturais, os EUA têm a pontuação
+      mais elevada em individualismo. A resposta é (A).
+  - question: 'Um dos seus clientes de terapia pede-lhe conselhos sobre um bom programa
+      de redução de peso. Investigou os programas na comunidade e está inscrito naquele
+      que considera ser o melhor. Este programa oferece um bónus de 50 dólares aos
+      seus clientes por cada nova pessoa que eles trouxerem para o programa. Nestas
+      circunstâncias, a sua resposta mais apropriada seria
+
+      (A) informar o seu cliente sobre os prós e contras de cada programa que conhece,
+      exceto aquele em que está inscrito (B) recomendar ao seu cliente o programa
+      em que está inscrito e explicar o bónus de 50 dólares que irá receber (C) recomendar
+      ao seu cliente o programa em que está inscrito e oferecer-se para que o bónus
+      de 50 dólares seja creditado na conta do seu cliente no programa (D) informar
+      o seu cliente sobre os prós e contras de cada programa que conhece, mas não
+      reclamar o bónus de 50 dólares se o seu cliente se inscrever no seu programa'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre psicologia. Com base nas circunstâncias, deve informar o seu
+      cliente sobre os prós e os contras de cada programa, mas seria inadequado receber
+      o bónus, pelo que não deve reclamar o bónus de 50 dólares. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_professional_psychology_mt_pt

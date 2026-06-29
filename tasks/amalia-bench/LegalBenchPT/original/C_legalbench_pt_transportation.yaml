@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_transportation
+group_alias: transportation
+task: 
+  - amalia_legalbench_pt_transportation_case_analysis_questions
+  - amalia_legalbench_pt_transportation_multiple_choice
+  - amalia_legalbench_pt_transportation_true_false
+  - amalia_legalbench_pt_transportation_multiple_selection_questions
+  - amalia_legalbench_pt_transportation_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

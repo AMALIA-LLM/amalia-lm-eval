@@ -1,0 +1,33 @@
+dataset_name: snarks
+description: 'Determina qual das duas frases é sarcástica.
+
+
+  De acordo com o Cambridge University Dictionary, o sarcasmo é "o uso de observações
+  que significam claramente o oposto do que dizem, feitas com o objetivo de ferir
+  os sentimentos de alguém ou de criticar algo de uma forma humorística". As frases
+  sarcásticas contêm frequentemente afirmações satíricas ou irónicas, hipérboles,
+  observações ambivalentes ou espirituosas.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Sim, porque ter interesses e
+      pesquisá-los ativamente é um enorme desperdício\n(B) Sim, porque ter interesses
+      e pesquisá-los ativamente é um grande negócio"
+    target: (A)
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Ninguém vai discordar de ti
+      nesta questão. Evitar ataques ad hominem ajuda muito o seu caso\n(B) Ninguém
+      vai discordar de si nesta questão. Os ataques ad hominem ajudam muito o seu
+      caso"
+    target: (B)
+  - input: "Que afirmação é sarcástica?\nOpções:\n(A) Consistência nos castigos da
+      liga? O que é que acha que isto é suposto ser, política?\n(B) Coerência nos
+      castigos da liga? O que é que acha que isto é suposto ser, moral?"
+    target: (A)
+include: _fewshot_template_yaml
+task: bbh_fewshot_snarks_mt_pt

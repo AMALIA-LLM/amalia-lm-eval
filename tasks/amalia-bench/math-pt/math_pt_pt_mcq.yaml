@@ -1,0 +1,29 @@
+dataset_path: tiagoteixeira03/MATH-PT
+dataset_name: ptpt_multiple_choice
+task: math_pt_pt_mcq
+test_split: test
+output_type: generate_until
+doc_to_text: "Problema:\n{{problem.strip()}}\nOpções:\n(A) {{choices['A']}}\n(B) {{choices['B']}}\n(C) {{choices['C']}}\n(D) {{choices['D']}}\n(E) {{choices['E']}}\n\nEscolha a opção correta para o problema acima. Apresente o seu raciocínio antes de responder. No final, apresente a sua resposta no formato \\boxed{X}, onde X é a letra da opção correta (A, B, C, D ou E)."
+doc_to_target: "{{answer}}"
+generation_kwargs:
+  until:
+  - "</s>"
+  - "<|im_end|>"
+  - "<|endoftext|>"
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 2048
+num_fewshot: 0
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_punctuation: true
+    ignore_case: true
+filter_list:
+- name: "math-pt-answer-extractor"
+  filter:
+  - function: !function utils.ExtractAnswerMathPT
+  - function: "take_first"
+metadata:
+  version: 1.0

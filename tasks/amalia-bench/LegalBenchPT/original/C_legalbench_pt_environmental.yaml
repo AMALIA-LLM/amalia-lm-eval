@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_environmental
+group_alias: environmental
+task: 
+  - amalia_legalbench_pt_environmental_matching_questions
+  - amalia_legalbench_pt_environmental_case_analysis_questions
+  - amalia_legalbench_pt_environmental_multiple_choice
+  - amalia_legalbench_pt_environmental_true_false
+  - amalia_legalbench_pt_environmental_multiple_selection_questions
+  - amalia_legalbench_pt_environmental_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

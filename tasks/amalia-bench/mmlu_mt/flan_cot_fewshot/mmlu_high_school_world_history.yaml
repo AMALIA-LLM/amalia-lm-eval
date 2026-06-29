@@ -1,0 +1,100 @@
+dataset_name: high_school_world_history_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre história
+  mundial no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Esta pergunta refere-se à seguinte informação.\n\"Pelo menos uma das
+      sociedades [mundiais] teria de, de alguma forma, aumentar enormemente a sua
+      produtividade [para conseguir a hegemonia global]. Esse salto quântico teria
+      de ser dado antes das várias revoluções científicas, tecnológicas, agrícolas
+      e industriais em que assenta o nosso mundo pós salto quântico. Só poderia ser
+      conseguido através da exploração dos ecossistemas, dos recursos minerais e dos
+      activos humanos de continentes inteiros fora das terras da sociedade que desse
+      o salto. A Europa Ocidental fez exatamente isso através da sua brutalidade e
+      das suas armas e, mais importante, por sorte geográfica e ecológica.\"\nCopyright
+      © 2015 Cambridge University Press.\nAlfred Crosby, historiador, Imperialismo
+      Ecológico, 2004\nO \"salto quântico\" mencionado na passagem contribuiu mais
+      diretamente para qual dos seguintes desenvolvimentos no período 1450-1750 E.C.?\n
+      (A) A rutura das rotas comerciais devido ao colapso da estrutura estatal estabelecida
+      (B) O aumento da população mundial devido à maior abundância de alimentos (C)
+      A disseminação dos sistemas de crenças chineses e indianos pelo mundo (D) O
+      aumento da agitação social"
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre a história mundial. O "salto quântico" mencionado na passagem refere-se
+      à conquista do Novo Mundo e ao intercâmbio colombiano. As opções (A) e (C) não
+      aconteceram na história. A opção (C) refere-se ao património humano. A resposta
+      é (B).
+  - question: "Esta questão refere-se à seguinte informação.\n\"A luta contra o neocolonialismo
+      não tem por objetivo impedir que o capital do mundo desenvolvido opere nos países
+      menos desenvolvidos. O seu objetivo é impedir que o poder financeiro dos países
+      desenvolvidos seja utilizado de forma a empobrecer os menos desenvolvidos.\n
+      O não-alinhamento, tal como praticado pelo Gana e por muitos outros países,
+      baseia-se na cooperação com todos os Estados, sejam eles capitalistas, socialistas
+      ou de economia mista. Esta política implica, por conseguinte, investimentos
+      estrangeiros provenientes de países capitalistas, mas estes devem ser efectuados
+      em conformidade com um plano nacional elaborado pelo governo do Estado não alinhado,
+      tendo em conta os seus próprios interesses. A questão não é o retorno que o
+      investidor estrangeiro recebe dos seus investimentos... A questão é de poder.
+      Um Estado dominado pelo neocolonialismo não é senhor do seu próprio destino.\"\
+      \nKwame Nkrumah, Neo-Colonialismo, 1965\nQual das seguintes opções constitui
+      o melhor contexto para os escritos de Nkrumah?\n (A) A Revolução Industrial
+      (B) A descolonização (C) As associações regionais de comércio livre (D) A autarquia"
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre história mundial. A passagem expressa a ideia de que a luta bem sucedida
+      contra o neocolonialismo estava em perigo e que as nações recém-independentes,
+      como o Gana, poderiam ser recolonizadas através do poder financeiro dos países
+      desenvolvidos. A resposta é (B).
+  - question: "Esta pergunta refere-se à seguinte informação.\n\"De facto, uma vez
+      que tanto as fatwas de distintos [eruditos] que baseiam a sua opinião na razão
+      e na tradição como o consenso da comunidade sunita concordam que a antiga obrigação
+      de extirpação, extermínio e expulsão da má inovação deve ser o objetivo da nossa
+      exaltada aspiração, pois \"O zelo religioso é uma vitória para a Fé de Deus,
+      o Benéfico\"; então, de acordo com as palavras do Profeta (que a paz esteja
+      com ele!) \"Quem introduzir inovações malignas na nossa ordem deve ser expulso\"\
+      \ e \"Quem fizer algo contra a nossa ordem deve ser expulso\", a ação tornou-se
+      necessária e exigente...\"\nCarta do Sultão Otomano Selim I ao Xá Safávida Ismail
+      I, 1514\nA carta de Selim I é claramente um exemplo de qual das seguintes situações?\n
+      (A) A manutenção da supremacia militar a todo o custo (B) O agravamento das
+      tensões entre seitas religiosas (C) Os factores que provocaram o colapso do
+      Império Otomano (D) Os esforços de pacificação entre os impérios islâmicos"
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre história mundial. A passagem é um exemplo do aumento das tensões entre
+      Selim e Ismail. Na passagem, Selim faz referência à fatwa e ao consenso da comunidade
+      sunita contra quem introduz o mal. A resposta é (B). A resposta é (B).
+  - question: 'Esta questão refere-se à seguinte informação.
+
+      "O verdadeiro sofrimento do trabalhador é a insegurança da sua existência; não
+      tem a certeza de que terá sempre trabalho, não tem a certeza de que terá sempre
+      saúde e prevê que um dia será velho e incapaz de trabalhar. Se cair na pobreza,
+      mesmo que seja apenas devido a uma doença prolongada, fica completamente desamparado,
+      entregue a si próprio, e a sociedade não lhe reconhece atualmente qualquer obrigação
+      real para além da ajuda habitual aos pobres, mesmo que ele tenha trabalhado
+      sempre de forma fiel e diligente. A ajuda habitual aos pobres, no entanto, deixa
+      muito a desejar, especialmente nas grandes cidades, onde é muito pior do que
+      no campo."
+
+      Otto von Bismarck, 1884
+
+      Otto von Bismarck terá feito este discurso em reação a qual das seguintes questões?
+
+      (A) Aceitação social do trabalho infantil (B) Diminuição da esperança de vida
+      na Alemanha (C) Críticas às tarifas comerciais alemãs (D) Efeitos negativos
+      atribuídos ao capitalismo industrial'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre história mundial. O texto fala das queixas dos trabalhadores no capitalismo
+      industrial. A resposta é (D).
+  - question: "Esta pergunta refere-se às seguintes informações.\nEle contém todas
+      as obras e desejos e todos os perfumes e todos os gostos. Ele envolve todo o
+      universo e em silêncio é amoroso para com todos. Este é o Espírito que está
+      no meu coração, este é Brahman. A ele irei quando for para além desta vida,
+      e a ele irá aquele que tem fé e não duvida.\n-Os Upanishads, Índia, c. 1000
+      a.C.\n A que religião pertence mais provavelmente o orador?\n(A) Hinduísmo (B)
+      Budismo (C) Xintoísmo (D) Zoroastrismo"
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre a história mundial. Brahman refere-se à realidade suprema de
+      todas as coisas na religião hindu. Em contrapartida, o budismo não tem um conceito
+      de Deus supremo. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_world_history_mt_pt

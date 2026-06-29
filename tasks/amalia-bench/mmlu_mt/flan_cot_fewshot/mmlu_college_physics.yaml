@@ -1,0 +1,62 @@
+dataset_name: college_physics_PT-PT
+description: As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  física universitária.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Um telescópio refratário é constituído por duas lentes convergentes
+      separadas por 100 cm. A lente ocular tem uma distância focal de 20 cm. A ampliação
+      angular do telescópio é
+
+      (A) 4 B) 5 C) 6 D) 20'
+    target: Vamos pensar passo a passo. Num telescópio refratário, se ambas as lentes
+      são convergentes, o foco de ambas as lentes tem de estar entre as duas lentes
+      e, portanto, as distâncias focais das duas lentes têm de somar a sua separação.
+      Como a distância focal de uma lente é de 20 cm, a distância focal da outra lente
+      deve ser de 80 cm. A ampliação é o rácio destas duas distâncias focais, ou seja,
+      4. A resposta é (A).
+  - question: 'O muão decai com um tempo de vida caraterístico de cerca de 10^-6 segundos
+      num eletrão, num neutrino do muão e num antineutrino do eletrão. A lei da conservação
+      da
+
+      (A) carga (B) massa (C) energia e momento (D) número leptónico'
+    target: Vamos pensar passo a passo. O número de leptões deve ser conservado, ou
+      seja, o número total de leptões menos o número de antileptões. Se um muão decair
+      num eletrão e num único neutrino, o número total de leptões passaria de um para
+      dois, violando a conservação do número de leptões. A resposta é (D).
+  - question: 'Uma extremidade de um fio de nicrómio de comprimento 2L e área da secção
+      transversal A está ligada a uma extremidade de outro fio de nicrómio de comprimento
+      L e área da secção transversal 2A. Se a extremidade livre do fio mais comprido
+      está a um potencial elétrico de 8,0 volts e a extremidade livre do fio mais
+      curto está a um potencial elétrico de 1,0 volts, o potencial na junção dos dois
+      fios é praticamente igual a
+
+      (A) 2,4 V (B) 3,3 V (C) 4,5 V (D) 5,7 V'
+    target: Vamos pensar passo a passo. Este é um problema simples de divisor de tensão,
+      em que o fio mais comprido tem uma resistência quatro vezes superior à da extremidade
+      mais curta. Assim, o rácio do divisor de tensão é 1 / 5, o que significa que
+      o potencial no meio é 1,0 V + (8,0 V - 1,0 V) * 1/5 = 2,4 V. A resposta é (A).
+  - question: 'Um telescópio refratário é constituído por duas lentes convergentes
+      separadas por 100 cm. A lente ocular tem uma distância focal de 20 cm. A ampliação
+      angular do telescópio é
+
+      (A) 4 B) 5 C) 6 D) 20'
+    target: Vamos pensar passo a passo. Num telescópio refratário, se ambas as lentes
+      são convergentes, o foco de ambas as lentes tem de estar entre as duas lentes
+      e, portanto, as distâncias focais das duas lentes têm de somar a sua separação.
+      Como a distância focal de uma lente é de 20 cm, a distância focal da outra lente
+      deve ser de 80 cm. A ampliação é o rácio destas duas distâncias focais, ou seja,
+      4. A resposta é (A).
+  - question: 'Para qual dos seguintes processos termodinâmicos o aumento da energia
+      interna de um gás ideal é igual ao calor adicionado ao gás?
+
+      (A) Temperatura constante (B) Volume constante (C) Pressão constante (D) Adiabático'
+    target: 'Vamos pensar passo a passo. O calor adicionado ao gás pode ser utilizado
+      como energia interna do gás ou como trabalho realizado contra uma força externa.
+      No entanto, se o volume do recipiente de gás for constante, não será efectuado
+      qualquer trabalho (uma vez que o trabalho é a pressão vezes a variação de volume).
+      Assim, a volume constante, todo o calor vai para a energia interna. A resposta
+      é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_college_physics_mt_pt

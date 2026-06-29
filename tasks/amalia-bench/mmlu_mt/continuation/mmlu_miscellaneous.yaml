@@ -1,0 +1,5 @@
+"dataset_name": "miscellaneous_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre miscelânea.\n\n"
+"tag": "amalia_mmlu_continuation_other_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_miscellaneous_mt_pt"

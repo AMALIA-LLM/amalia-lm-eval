@@ -1,0 +1,24 @@
+.sample-json {
+  white-space: pre;
+  overflow-x: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.wrap-enabled .sample-json {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+table td {
+  vertical-align: top;
+}
+
+.cell-details {
+  display: none;
+  margin-top: 0.25rem;
+}
+
+#results-table.details-expanded .cell-details {
+  display: block;
+}

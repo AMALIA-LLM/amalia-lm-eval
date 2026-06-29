@@ -1,0 +1,78 @@
+dataset_name: college_biology_PT-PT
+description: As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  biologia universitária.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual das seguintes afirmações é correta relativamente aos artrópodes?
+
+      (A) Possuem um exoesqueleto composto principalmente por peptidoglicano. (B)
+      Possuem um sistema circulatório aberto com um coração dorsal. (C) São membros
+      de um filo biologicamente mal sucedido, incapaz de explorar diversos habitats
+      e fontes de nutrição. (D) Não possuem apêndices emparelhados e articulados.'
+    target: Vamos pensar passo a passo. Sabe-se que o peptidoglicano compõe a membrana
+      plasmática da maioria das bactérias, e não o exoesqueleto dos artrópodes, que
+      é feito de quitina, o que exclui a resposta (A). A resposta (C) é falsa porque
+      os artrópodes são um filo muito bem sucedido. Da mesma forma, os artrópodes
+      têm apêndices emparelhados e articulados, o que exclui a opção (D). A única
+      opção restante é a (B), uma vez que os artrópodes têm um sistema circulatório
+      aberto com um coração tubular dorsal. A resposta é (B).
+  - question: 'Numa dada população, 1 em cada 400 pessoas tem um cancro causado por
+      um alelo completamente recessivo, b. Assumindo que a população está em equilíbrio
+      de Hardy-Weinberg, qual das seguintes opções é a proporção esperada de indivíduos
+      que são portadores do alelo b mas que não se espera que desenvolvam o cancro?
+
+      (A) 1/400 (B) 19/400 (C) 20/400 (D) 38/400'
+    target: "Vamos pensar passo a passo. De acordo com a Lei de Hardy Weinberg, $p^2
+      + 2 p q + q^2 = 1$ e $p + q = 1$ onde $p$ é a frequência do alelo dominante,
+      $q$ é a frequência do alelo recessivo e $p^2$, $q^2$ e $2pq$ são as frequências
+      dos indivíduos homozigóticos dominantes, homozigóticos recessivos e heterozigóticos,
+      respetivamente. A frequência do alelo recessivo (q) é $\\sqrt{ rac{1}{400}}}
+      = 0,05$. Temos $p = 1 - q = 0,95$. A frequência de indivíduos heterozigóticos
+      é $2pq = 2 \\cdot 0,05 \\cdot 0,95 = 0,095$. O número de indivíduos heterozigóticos
+      é igual à frequência de indivíduos heterozigóticos vezes o tamanho da população,
+      ou $0,095 * 400 = 38$. Portanto, o resultado é 38/400. A resposta é (D)."
+  - question: 'De acordo com o modelo pressão-fluxo do movimento do conteúdo do floema,
+      o movimento do fotossintato da fonte para o sumidouro é impulsionado por
+
+      (A) uma bomba de pressão-fluxo dependente de ATP (B) um gradiente de potencial
+      de pressão da água (C) transpiração (D) difusão apoplástica'
+    target: Vamos pensar passo a passo. É um gradiente de pressão da água que induz
+      o movimento do conteúdo do floema, o que remete para a resposta (B). O mecanismo
+      de movimento não depende do metabolismo, o que exclui a resposta (A). A transpiração
+      refere-se à exalação de vapor de água através dos estomas das plantas e também
+      não está relacionada, o que exclui a resposta (C). Embora a via apoplástica
+      seja uma das duas principais vias de transporte de água nas plantas, não é central
+      para o modelo de fluxo de pressão, o que exclui a hipótese (D). A resposta é
+      (B).
+  - question: 'Quais dos seguintes elementos contêm sequências de ADN necessárias
+      para a segregação dos cromossomas na mitose e na meiose?
+
+      (A) Telómeros (B) Centrómeros (C) Nucleossomas (D) Spliceossomas'
+    target: Vamos pensar passo a passo. O material genético dos telómeros não é utilizado,
+      o que exclui a hipótese (A). Os nucleossomas são a subunidade repetitiva que
+      compõe a cromatina empacotada no núcleo de uma célula e não se referem especificamente
+      às sequências de ADN necessárias para segregar os cromossomas na divisão celular,
+      o que exclui a hipótese (C). Um spliceossoma é uma grande ribonucleoproteína
+      que remove os intrões do pré-RNAm transcrito, em vez de regular a segregação
+      dos cromossomas. Os centrómeros são diretamente responsáveis pela segregação
+      dos cromossomas na divisão celular. A resposta é (B).
+  - question: 'A presença de estruturas homólogas em dois organismos diferentes, como
+      o úmero no membro anterior de um humano e de uma ave, indica que
+
+      (A) o ser humano e a ave são espécies polifiléticas (B) a evolução do ser humano
+      e da ave é convergente (C) o ser humano e a ave pertencem a um clado (D) o ser
+      humano e a ave se desenvolveram por analogia'
+    target: 'Vamos pensar passo a passo. As espécies polifiléticas são organismos
+      que se agrupam por terem caraterísticas semelhantes, mas que não têm um antepassado
+      comum. Este não é o caso dos humanos e das aves, o que exclui a hipótese (A).
+      A evolução convergente refere-se ao desenvolvimento independente de caraterísticas
+      semelhantes em espécies diferentes em períodos diferentes, o que também não
+      é o caso dos seres humanos e das aves, o que exclui a hipótese (B). Analogia
+      refere-se à semelhança superficial de estruturas que têm origens diferentes,
+      o que não é o caso do antebraço humano e do antebraço das aves, o que exclui
+      a hipótese (D). Humanos e aves pertencem ao mesmo clado - um grupo de organismos
+      composto por um ancestral comum. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_college_biology_mt_pt

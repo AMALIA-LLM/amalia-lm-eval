@@ -1,0 +1,48 @@
+dataset_name: multistep_arithmetic_two
+description: 'Resolver problemas de aritmética em várias etapas.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: ((-5 + 9 * -4 - 0) * (4 + -7 + 0 * -5)) =
+    target: "Vamos pensar passo a passo.\nRecordemos que a ordem das operações em
+      matemática é a seguinte: (1) Parênteses, (2) expoentes, (3) multiplicação e
+      divisão (da esquerda para a direita), (4) adição e multiplicação (da esquerda
+      para a direita). Por isso, lembre-se sempre de calcular primeiro as expressões
+      entre parênteses ou colchetes.\nEsta equação pode ser escrita como \"A * B\"\
+      , onde A = (-5 + 9 * -4 - 0) e B = (4 + -7 + 0 * -5).\nVamos calcular A = (-5
+      + 9 * -4 - 0) = (-5 + (9 * -4) - 0) = (-5 + (-36) - 0) = (-5 + -36 - 0) = -5
+      - 36 = -41.\nCalculemos B = (4 + -7 + 0 * -5) = (4 + -7 + (0 * -5)) = (4 + -7
+      + 0) = (4 + -7) = (4 - 7) = -3.\nEntão, a equação final é A * B = -41 * -3 =
+      (-61) * (-3) = 123. Portanto, a resposta é 123."
+  - input: ((-9 * 7 * 7 * -9) + (4 * -9 - 8 - -4)) =
+    target: "Vamos pensar passo a passo.\nRecordemos que a ordem das operações em
+      matemática é a seguinte: (1) Parênteses, (2) expoentes, (3) multiplicação e
+      divisão (da esquerda para a direita), (4) adição e multiplicação (da esquerda
+      para a direita). Por isso, lembre-se sempre de calcular primeiro as expressões
+      entre parênteses ou colchetes.\nEsta equação pode ser escrita como \"A + B\"\
+      , onde A = (-9 * 7 * 7 * -9) e B = (4 * -9 - 8 - -4).\nVamos calcular A = (-9
+      * 7 * 7 * -9) = ((-9 * 7) * (7 * -9)) = ((-63) * (-63)) = 3969.\nVamos calcular
+      B = (4 * -9 - 8 - (-4)) = ((4 * -9) - 8 - (-4)) = ((-36) - 8 - (-4)) = ((-36
+      - 8) - (-4)) = (-44 - (-4)) = -40.\nEntão, a equação final é A + B = 3969 +
+      -40 = 3969 - 40 = 3929. Portanto, a resposta é 3929."
+  - input: ((-3 + 5 * 8 * -4) - (9 - 8 * -7 + -9)) =
+    target: "Vamos pensar passo a passo.\nRecordemos que a ordem das operações em
+      matemática é a seguinte: (1) Parênteses, (2) expoentes, (3) multiplicação e
+      divisão (da esquerda para a direita), (4) adição e multiplicação (da esquerda
+      para a direita). Por isso, lembre-se sempre de calcular primeiro as expressões
+      entre parênteses ou colchetes.\nEsta equação pode ser escrita como \"A - B\"\
+      , onde A = (-3 + 5 * 8 * -4) e B = (9 - 8 * -7 + -9).\nVamos calcular A = (-3
+      + 5 * 8 * -4) = (-3 + (5 * 8) * -4) = (-3 + (40) * -4) = (-3 + (40 * -4)) =
+      (-3 + -160) = -163.\nVamos calcular B = (9 - 8 * -7 + -9) = (9 - (8 * -7) +
+      -9) = (9 - (-56) + -9) = ((9 - (-56)) + -9) = ((65) + -9)= (65 - 9) = 56.\n
+      Então, a equação final é A - B = -163 - 56 = -219. Portanto, a resposta é -219."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_multistep_arithmetic_two_mt_pt

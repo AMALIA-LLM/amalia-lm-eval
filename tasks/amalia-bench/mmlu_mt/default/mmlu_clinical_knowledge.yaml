@@ -1,0 +1,7 @@
+"dataset_name": "clinical_knowledge_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre conhecimentos
+  clínicos.\n\n"
+"tag": "amalia_mmlu_other_tasks_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_clinical_knowledge_mt_pt"
+"task_alias": "clinical_knowledge"

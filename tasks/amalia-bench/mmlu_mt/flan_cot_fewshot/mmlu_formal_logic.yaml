@@ -1,0 +1,65 @@
+dataset_name: formal_logic_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre lógica
+  formal.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Qual das fórmulas de PL dadas é a melhor simbolização da seguinte frase?\n
+      As tartarugas vivem vidas longas e são criaturas felizes, a menos que sejam
+      feridas.\n(A) (L - H) ≡ I (B) (L - H) ∨ I (C) L - (H ∨ I) (D) L - (H ⊃ R)."
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre lógica formal. Vamos resolver esta questão passo a passo. Deixe \"L\"
+      denotar \"viver muito\", H \"ser feliz\" e \"I\" \"estar ferido\". Agora, considera
+      cada uma das opções:\n(A) significa que (viver muito tempo E ser feliz) é equivalente
+      a (ser ferido).\n(B) significa (viver muito tempo E ser feliz) OU (ser ferido).\n
+      (C) significa (viver muito tempo) E (ser feliz OU ser ferido).\n(D) significa
+      (viver muito tempo) E (ser feliz implica ser R), mas o que R denota não é claro.\n
+      Obviamente, (B) é a melhor simbolização da frase original. A resposta é (B)."
+  - question: 'Selecione a melhor tradução para a lógica de predicados: George pede
+      emprestado o cortador de relva de Hector. (g: Jorge; h: Heitor; l: Cortador
+      de relva do Heitor; Bxyx: x pede y emprestado a z).
+
+      (A) Blgh (B) Bhlg (C) Bglh (D) Bghl'
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre lógica formal. Vamos resolver isto passo a passo. Dizem-nos que \"Bxyx\"\
+      \ significa \"x pede emprestado y a z\". Podemos reescrever \"O Jorge pede emprestado
+      o cortador de relva do Heitor\" como \"O Jorge pede emprestado um cortador de
+      relva ao Heitor\", que pode ser traduzido para a lógica de predicados como \"\
+      Bglh\". A resposta \"Bglh\" aparece em (C); portanto, (C) deve ser a resposta
+      correta. A resposta é (C)."
+  - question: "\nSelecione a melhor interpretação inglesa dos argumentos dados na
+      lógica de predicados.\nDm\n(∀x)(Wx ⊃ ~Dx).\n(∀x)Wx ∨ Ag / (∃x)Ax\n(A) Marina
+      é uma bailarina. Alguns fracos não são bailarinos. Ou tudo é um fraco ou a Geórgia
+      joga voleibol. Então alguma coisa joga voleibol. (B) Marina é uma bailarina.
+      Nenhum fraco é bailarino. Ou tudo é um fraco ou joga voleibol. Portanto, alguma
+      coisa joga voleibol. (C) A Marina é bailarina. Alguns fracos não são bailarinos.
+      Tudo é ou um fraco ou joga voleibol. Portanto, alguma coisa joga voleibol. (D)
+      Marina é bailarina. Nenhum fraco é dançarino. Ou tudo é um fraco ou a Geórgia
+      joga voleibol. Então alguma coisa joga voleibol."
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre lógica formal. Vamos resolver isto passo a passo. Que \"D\" denote \"
+      ser bailarina\", \"m\" denote \"Maria\", \"g\" denote \"Geórgia\", \"W\" denote
+      \"fraco\", \"A\" denote \"jogar voleibol\". Então, temos o seguinte:\n1. Dm
+      → Maria é uma dança.\n2. (∀x)(Wx ⊃ ~Dx). → Para todo x, se x é um fraco, então
+      x não é uma dançarina. Por outras palavras, nenhum fraco é bailarino.\n3. (∀x)Wx
+      ∨ Ag / (∃x)Ax → Para todo x, x é um fracote ou Geórgia joga vôlei. Logo, existe
+      um x que joga voleibol.\n As opções (A) e (C) afirmam, de facto, que alguns
+      fracos não são dançarinos, mas o segundo argumento afirma fortemente que nenhum
+      fraco é dançarino. Assim, podemos eliminá-las. A opção (B) omite o pormenor
+      importante sobre o facto de a Geórgia jogar voleibol. A opção (D) tem todos
+      os pormenores apresentados nos argumentos e é a melhor interpretação inglesa
+      dos argumentos. A resposta é (D)."
+  - question: "Selecionar a melhor tradução para a lógica de predicados: Não há pessoas
+      a conduzir em Marte.\n(A) ~Pd (B) (∀x)(Px ∨ ~Dx) (C) (∀x)(Px ⊃ ~Dx) (D) ~Dp"
+    target: "Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre lógica formal. Vamos resolver isto passo a passo. Deixe \"P\" denotar
+      \"estar em Marte\" e \"D\" denotar \"conduzir em Marte\". Vamos então considerar
+      cada uma das opções:\nOpção (A): ~Pd → d não está em Marte.\nOpção (B): (∀x)(Px
+      ∨ ~Dx) → Para todo x, x está em Marte e x não conduz em Marte.\nOpção (C): (∀x)(Px
+      ⊃ ~Dx) → Para todo x, x está em Marte implica que x não dirige em Marte.\nOpção
+      (D): ~Dp: → p não conduz em Marte.\nDe todas estas opções, a opção (C) parece
+      ser a melhor e mais significativa interpretação do argumento \"Não há pessoas
+      a conduzir em Marte.\" A resposta é (C).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_formal_logic_mt_pt

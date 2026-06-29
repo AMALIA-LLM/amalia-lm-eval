@@ -1,0 +1,78 @@
+dataset_name: elementary_mathematics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre matemática
+  elementar.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A Olívia utilizou a regra "Adicionar 11" para criar o padrão numérico
+      apresentado abaixo. 10, 21, 32, 43, 54. Que afirmação sobre o padrão numérico
+      é verdadeira?
+
+      (A) O décimo número no padrão será um número par.
+
+      (B) O padrão numérico nunca terá dois números pares um ao lado do outro.
+
+      (C) Os dois números seguintes no padrão serão um número par e depois um número
+      ímpar.
+
+      (D) Se o padrão numérico começasse com um número ímpar, então o padrão teria
+      apenas números ímpares.'
+    target: Vamos pensar passo a passo. A opção A está incorrecta porque todos os
+      termos pares do padrão são ímpares e 10 é um número par. A opção B está correta,
+      porque adicionar um número ímpar (neste caso 11) a um número ímpar produz um
+      número par, e adicionar um número ímpar a um número par produz um número ímpar.
+      Assim, os termos do padrão alternam entre pares e ímpares, pelo que nunca haverá
+      dois números pares um ao lado do outro. A opção C está incorrecta porque o último
+      termo do exemplo é par (54) e sabemos que os termos alternam entre par e ímpar.
+      A opção D está incorrecta porque os termos do padrão alternarão entre pares
+      e ímpares, independentemente do valor do primeiro termo. A resposta é (B).
+  - question: 'A população da cidade onde a Michelle nasceu é de 145 826 habitantes.
+      Qual é o valor do 5 no número 145.826?
+
+      (A) 5 milhares
+
+      (B) 5 centenas
+
+      (C) 5 dezenas
+
+      (D) 5 unidades'
+    target: 'Vamos pensar passo a passo. A opção A está correta, porque há três dígitos
+      a seguir ao 5, logo
+
+      o 5 está na casa dos milhares. Assim, as outras opções estão incorrectas. A
+      resposta é (A).'
+  - question: "Uma loja vende 107 cores diferentes de tinta. Tem 25 latas de cada
+      núcleo em armazém. O número de latas de tinta que a loja tem em armazém pode
+      ser encontrado usando a expressão abaixo. 107 × 25. Quantas latas de tinta tem
+      a loja em armazém?\n(A) 749\n(B) 2,675\n(C) 2,945\n(D) 4,250"
+    target: Vamos pensar passo a passo. Podemos calcular 107 x 25 = (100 x 25) + (7
+      x 25) = 2500 + 175 = 2675. A resposta é (B).
+  - question: 'Um total de 30 jogadores vão jogar basquetebol num parque. Haverá exatamente
+      5 jogadores em cada equipa. Que afirmação explica corretamente como encontrar
+      o número de equipas necessárias?
+
+      (A) Adicionar 5 a 30 para obter 35 equipas.
+
+      (B) Dividir 30 por 5 para encontrar 6 equipas.
+
+      (C) Multiplicar 30 por 5 para obter 150 equipas.
+
+      (D) Subtrair 5 de 30 para encontrar 25 equipas.'
+    target: Vamos pensar passo a passo. Queremos encontrar o número de equipas. Sabemos
+      que há 5 jogadores/equipa e 30 jogadores. Assim, para obter o número de equipas,
+      dividimos os jogadores por jogadores/equipa, ou seja, 30 jogadores / 5 jogadores/equipa
+      = 6 equipas. A resposta é (B).
+  - question: 'Que expressão é equivalente a 5 x 9?
+
+      (A) (5 x 4) x (6 x 5)
+
+      (B) (5 x 5) + (5 x 4)
+
+      (C) (5 x 5) + (5 x 9)
+
+      (D) (5 x 9) x (6 x 9)'
+    target: 'Vamos pensar passo a passo. Sabemos que 9 = (5 + 4), portanto 5 x 9 =
+      5 x (5 + 4) = (5 x 5) + (5 x 4). A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_elementary_mathematics_mt_pt

@@ -1,0 +1,78 @@
+dataset_name: international_law_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre direito
+  internacional.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Como pode ser expresso o consentimento de um Estado em ficar vinculado?
+
+      (A) O consentimento de um Estado em ficar vinculado só é expresso através da
+      ratificação (B) O consentimento de um Estado em ficar vinculado por um tratado
+      pode ser expresso através da assinatura, ratificação, aceitação, aprovação ou
+      adesão (C) O consentimento de um Estado em ficar vinculado é expresso através
+      da assinatura (D) O consentimento de um Estado em ficar vinculado é expresso
+      por qualquer meio que este escolha'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre direito internacional. O artigo 11.º da Convenção de Viena sobre
+      o Direito dos Tratados, assinada em 1969, estabelece que "o consentimento de
+      um Estado em ficar vinculado por um tratado pode ser expresso pela assinatura,
+      pela troca de instrumentos constitutivos de um tratado, pela ratificação, aceitação,
+      aprovação ou adesão, ou por qualquer outro meio, se assim for acordado". (B)
+      é a resposta mais precisa e exacta. A resposta é (B).
+  - question: 'O que é o juiz ad hoc?
+
+      (A) Se uma parte num processo contencioso perante o TIJ não tiver um nacional
+      como juiz, tem o direito de nomear alguém como juiz exclusivamente para esse
+      processo, com o título de juiz ad hoc (B) O juiz ad hoc é o membro do tribunal
+      do TIJ com voto de qualidade (C) O juiz ad hoc é um juiz substituto, no caso
+      de um juiz ser desqualificado ou falecer (D) O juiz ad hoc é o juiz que cada
+      parte nomeia sempre em todos os processos contenciosos'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito internacional. Tal como "ad hoc" implica, um juiz ad hoc é nomeado
+      apenas para um caso ou período específico, quando uma parte num caso litigioso
+      perante o Tribunal Internacional de Justiça não tem um nacional regular como
+      juiz. A resposta é (A).
+  - question: 'Quando é que o "consentimento" pode servir como circunstância que exclui
+      a ilicitude de um comportamento do Estado?
+
+      (A) O consentimento pode servir como circunstância que exclui a ilicitude sempre
+      que é dado (B) O consentimento nunca pode servir como circunstância que exclui
+      a ilicitude (C) O consentimento pode servir como circunstância que exclui a
+      ilicitude, desde que o consentimento seja válido e na medida em que a conduta
+      se mantenha dentro dos limites do consentimento dado (D) O consentimento pode
+      sempre servir como circunstância que exclui a ilicitude, independentemente do
+      órgão do Estado que o dá'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito internacional. O consentimento válido pode servir como circunstância
+      que exclui a ilicitude da conduta de um Estado se a conduta se mantiver dentro
+      dos limites desse consentimento, de acordo com o Capítulo V da Responsabilidade
+      dos Estados por Actos Internacionalmente Ilícitos, 2001, Nações Unidas. A resposta
+      é (C).
+  - question: 'Uma reserva à definição de tortura constante do PIDCP seria aceitável
+      na prática atual?
+
+      (A) Trata-se de uma reserva aceitável se a legislação do país da reserva adotar
+      uma definição diferente (B) Trata-se de uma reserva inaceitável porque é contrária
+      ao objeto e à finalidade do PIDCP (C) Trata-se-se de uma reserva inaceitável
+      porque a definição de tortura do PIDCP é coerente com o direito internacional
+      consuetudinário (D) Trata-se de uma reserva aceitável porque, nos termos do
+      direito internacional geral, os Estados têm o direito de formular reservas aos
+      tratados'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito internacional. Por ser contrária ao objeto e à finalidade do PIDCP,
+      esta é uma reserva inaceitável na prática contemporânea. A resposta é (B).
+  - question: 'Que tipos de força são proibidos pelo nº 4 do artigo 2º da Carta das
+      Nações Unidas?
+
+      (A) O n.º 4 do artigo 2.º abrange apenas a força armada (B) O n.º 4 do artigo
+      2.º abrange todos os tipos de força, incluindo sanções (C) O n.º 4 do artigo
+      2.º abrange todas as interferências nos assuntos internos dos Estados (D) O
+      n.º 4 do artigo 2.º abrange a força dirigida apenas contra a integridade territorial
+      de um Estado'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre direito internacional. O artigo 2.º, n.º 4, da Carta das Nações
+      Unidas proíbe os Estados de utilizarem forças armadas nas suas relações internacionais.
+      A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_international_law_mt_pt

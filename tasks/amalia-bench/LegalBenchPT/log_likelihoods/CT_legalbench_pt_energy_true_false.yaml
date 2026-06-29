@@ -1,0 +1,16 @@
+dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: Direito_da_Energia
+test_split: test
+task: amalia_legalbench_pt_energy_true_false_log
+task_alias: energy_true_false_log
+process_docs: !function utils.process_true_false
+output_type: multiple_choice
+doc_to_text: !function utils.process_question
+doc_to_choice: !function utils.get_answer_options
+doc_to_target: !function utils.process_answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0

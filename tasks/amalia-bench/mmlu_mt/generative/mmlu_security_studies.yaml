@@ -1,0 +1,7 @@
+"dataset_name": "security_studies_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre estudos
+  de segurança.\n\n"
+"tag": "amalia_mmlu_social_sciences_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_security_studies_generative_mt_pt"
+"task_alias": "security_studies"

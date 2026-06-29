@@ -1,0 +1,34 @@
+dataset_name: penguins_in_a_table
+description: 'Responder a perguntas sobre uma tabela de pinguins e os seus atributos.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Acrescentamos
+      agora um pinguim à tabela:\nTiago, 12, 90, 12\nQuantos pinguins têm menos de
+      8 anos de idade?\nOpções:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5"
+    target: (B)
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Qual é o
+      pinguim mais novo?\nOpções:\n(A) Luís\n(B) Bernardo\n(C) Vicente\n(D) Gwen\n
+      (E) Tiago"
+    target: (B)
+  - input: "Aqui está uma tabela em que a primeira linha é um cabeçalho e cada linha
+      subsequente é um pinguim: nome, idade, altura (cm), peso (kg) Luís, 7, 50, 11
+      Bernardo, 5, 80, 13 Vicente, 9, 60, 11 Gwen, 8, 70, 15 Por exemplo: a idade
+      do Luís é 7, o peso da Gwen é 15 kg, a altura do Bernardo é 80 cm.  Qual é o
+      nome do segundo pinguim ordenado por ordem alfabética?\nOpções:\n(A) Luís\n
+      (B) Bernardo\n(C) Vicente\n(D) Gwen\n(E) Tiago"
+    target: (D)
+include: _fewshot_template_yaml
+task: bbh_fewshot_penguins_in_a_table_mt_pt

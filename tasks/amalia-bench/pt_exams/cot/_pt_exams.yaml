@@ -1,0 +1,14 @@
+group: pt_exams_cot
+task:
+  - pt_exams_cot_bio_geo
+  - pt_exams_cot_geography
+  - pt_exams_cot_history_a
+  - pt_exams_cot_mathematics_a
+  - pt_exams_cot_philosophy
+  - pt_exams_cot_portuguese
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

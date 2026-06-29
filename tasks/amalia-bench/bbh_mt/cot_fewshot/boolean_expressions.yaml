@@ -1,0 +1,14 @@
+dataset_name: "boolean_expressions"
+description: "Avalia o resultado de uma expressão booleana aleatória.\n\n"
+doc_to_text: "P: {{input}}\nR: Vamos pensar passo a passo.\n"
+include: "_cot_fewshot_template_yaml"
+task: "bbh_cot_fewshot_boolean_expressions_mt_pt"
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: não ( ( não não Verdadeiro ) ) é
+    target: "Lembre-se que (i) as expressões entre parênteses são sempre avaliadas em primeiro lugar e que (ii) a ordem das operações da prioridade mais alta para a mais baixa é \"não\", \"e\", \"ou\", respetivamente.\nComeçamos por simplificar a expressão \"Z\" da seguinte forma: \"Z = não ( ( não não Verdadeiro ) ) = não ( ( ( A ) )\" onde \"A = não não Verdadeiro\".\nVamos avaliar A: A = não não Verdadeiro = não (não Verdadeiro) = não Falso = Verdadeiro.\nSubstituindo A, obtemos: Z = não ( ( A ) ) = não ( ( Verdadeiro ) ) = não Verdadeiro = Falso. Portanto, a resposta é Falso."
+  - input: Verdadeiro e Falso e não Verdadeiro e Verdadeiro é
+    target: "Lembre-se que (i) as expressões entre parênteses são sempre avaliadas em primeiro lugar e que (ii) a ordem das operações da prioridade mais alta para a mais baixa é \"não\", \"e\", \"ou\", respetivamente.\nComeçamos por simplificar esta expressão \"Z\" da seguinte forma: \"Z = Verdadeiro e Falso e não Verdadeiro e Verdadeiro = A e B\" onde \"A = Verdadeiro e Falso\" e \"B = não Verdadeiro e Verdadeiro\".\nVamos avaliar A: A = Verdadeiro e Falso = Falso.\nAvaliemos B: B = não Verdadeiro e Verdadeiro = não (Verdadeiro e Verdadeiro) = não (Verdadeiro) = Falso.\nSubstituindo A e B, obtemos: Z = A e B = Falso e Falso = Falso. Portanto, a resposta é Falso."
+  - input: não não ( não ( Falso ) ) é
+    target: "Lembre-se que (i) as expressões entre parênteses são sempre avaliadas em primeiro lugar e que (ii) a ordem das operações da prioridade mais alta para a mais baixa é \"não\", \"e\", \"ou\", respetivamente.\nComeçamos por simplificar a expressão \"Z\" da seguinte forma: \"Z = não não ( não ( Falso ) ) = não não ( A )\" onde \"A = não ( Falso )\".\nVamos avaliar A: A = não ( Falso ) = não Falso = Verdadeiro.\nSubstituindo A, obtemos: Z = não não ( A ) = não não não (Verdadeiro) = não não Falso = Verdadeiro. Portanto, a resposta é Verdadeiro."

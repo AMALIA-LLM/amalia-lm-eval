@@ -1,0 +1,63 @@
+dataset_name: jurisprudence_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre jurisprudência.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A joalharia Iverson escreveu uma carta a Miller: "Recebemos um relógio
+      Rolox de corda automática excecionalmente bom que lhe venderemos a um preço
+      muito favorável".
+
+      (A) A carta é uma oferta de venda. (B) Uma oferta válida não pode ser feita
+      por carta. (C) A carta contém uma oferta válida que terminará dentro de um prazo
+      razoável. (D) A carta carece de um dos elementos essenciais de uma oferta.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre jurisprudência. Uma proposta mostra a intenção de celebrar um contrato
+      mutuamente benéfico com termos específicos. Uma proposta pode ser feita através
+      de uma carta. Embora esta carta indique a vontade de vender, a falta de termos
+      específicos, como o preço da transação e a data de expiração da oferta, torna-a
+      uma oferta incompleta. A resposta é (D).
+  - question: 'As funções da lei incluem todas, exceto qual das seguintes?
+
+      (A) maximizar a liberdade individual (B) fornecer uma base para o compromisso
+      (C) manter a paz (D) promover os princípios do sistema de livre iniciativa'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre jurisprudência. As leis têm como objetivo fundamental ajudar
+      a resolver disputas entre indivíduos e, por isso, são essenciais para maximizar
+      a liberdade individual, fornecer uma base para o compromisso e manter a paz.
+      A resposta é (D).
+  - question: 'A Escola de jurisprudência ________ postula que a lei se baseia no
+      que é "correto".
+
+      (A) Direito Natural (B) Analítica (C) Histórica (D) Sociológica'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre jurisprudência. A escola de jurisprudência do Direito Natural centra-se
+      nas leis da natureza e afirma que a lei deve basear-se na ética, na moral e
+      no que é "correto". A analítica lida com a lei tal como ela já existe, a histórica
+      postula que a lei foi encontrada e não criada e a sociológica estuda o impacto
+      da lei e da sociedade. A resposta é (A).
+  - question: 'Qual a palavra que melhor resume a explicação de Weber sobre o desenvolvimento
+      do direito formalmente racional?
+
+      (A) Autoridade. (B) Carisma. (C) Cooperação. (D) Capitalismo.'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre jurisprudência. Weber explicou o desenvolvimento da racionalidade
+      formal nas leis como a forma como a sociedade moderna passou da tradição para
+      a racionalidade, em que as pessoas decidem as acções com base menos na forma
+      como eram culturalmente feitas e mais nas utilidades esperadas. A forma como
+      os indivíduos racionais optimizam a eficiência da realização de tarefas para
+      obterem recompensas mais elevadas é um princípio fundamental do capitalismo.
+      A resposta é (D).
+  - question: 'Qual é a posição que Rawls afirma ser a menos provável de ser adoptada
+      pelo POP (pessoas na posição original)?
+
+      (A) O POP escolheria a igualdade acima da liberdade. (B) O POP optaria pela
+      estratégia "maximin". (C) O POP optaria pelo "princípio da diferença". (D) O
+      POP rejeitaria o "sistema de liberdade natural".'
+    target: 'Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos
+      da Wikipédia sobre jurisprudência. O POP optaria pela estratégia "maximin",
+      optaria pelo "princípio da diferença" e rejeitaria o "sistema de liberdade natural",
+      mas o POP não escolheria a igualdade acima da liberdade, uma vez que o POP assume
+      cidadãos iguais e livres. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_jurisprudence_mt_pt

@@ -1,0 +1,163 @@
+#!/bin/bash
+
+#SBATCH --job-name={{ job_name | default('eval') }}
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task={{ cpus_per_task }}
+#SBATCH --gpus-per-node={{ gpus_per_node }}
+{%- if mem is defined and mem %}
+#SBATCH --mem={{ mem }}
+{%- endif %}
+{%- if time is defined and time %}
+#SBATCH --time={{ time }}
+{%- endif %}
+{%- if account is defined and account %}
+#SBATCH --account={{ account }}
+{%- endif %}
+{%- if partition is defined and partition %}
+#SBATCH --partition={{ partition }}
+{%- endif %}
+{%- if qos is defined and qos %}
+#SBATCH --qos={{ qos }}
+{%- endif %}
+{%- if gres is defined and gres %}
+#SBATCH --gres={{ gres }}
+{%- endif %}
+#SBATCH --output={{ model_output_dir }}/logs/%A--{{ job_name }}.out
+
+# Uncomment to capture errors separately
+# #SBATCH --error={{ model_output_dir }}/logs/slurm-%A.err
+
+# Uncomment to support array jobs
+# #SBATCH --output={{ model_output_dir }}/logs/slurm-%A_%a.out
+# #SBATCH --error={{ model_output_dir }}/logs/slurm-%A_%a.err
+# Define the job array based on the length of the tasks list
+# #SBATCH --array=0-{{ tasks|length - 1 }}
+
+set -euo pipefail
+set +x
+
+
+# Force group-write permissions for all files/folders created in this job
+# to avoid problems with HF lock files
+umask 002
+
+
+export CONDA_HOME={{ conda_home }}
+
+# --- Environment Setup ---
+
+# 1. Resolve CONDA_ROOT
+# If conda_home is /path/to/conda/bin/conda, we strip the last two parts to get the root.
+CONDA_INPUT="{{ conda_home }}"
+if [[ "$CONDA_INPUT" == */bin/conda ]] || [[ "$CONDA_INPUT" == */condabin/conda ]]; then
+    CONDA_ROOT="${CONDA_INPUT%/*/*}"
+else
+    CONDA_ROOT="$CONDA_INPUT"
+fi
+
+echo "🔍 Detected Conda Root: $CONDA_ROOT"
+
+# 2. Initialize Conda
+if [ -f "$CONDA_ROOT/etc/profile.d/conda.sh" ]; then
+    source "$CONDA_ROOT/etc/profile.d/conda.sh"
+else
+    echo "⚠️ Warning: conda.sh not found at $CONDA_ROOT/etc/profile.d/conda.sh"
+    echo "Attempting shell hook fallback..."
+    eval "$($CONDA_INPUT shell.bash hook)"
+fi
+
+# 3. Determine and Activate Environment
+# We check if activate_env is a full path (starts with /) or just a name
+ACT_ENV="{{ activate_env | default('py312_amalia') }}"
+
+echo "🔁 Activating environment: $ACT_ENV"
+
+if [[ "$ACT_ENV" == /* ]]; then
+    # It's a full path (e.g., /home/unl/.../bin/activate)
+    if [[ "$ACT_ENV" == */bin/activate ]]; then
+        source "$ACT_ENV"
+    else
+        conda activate "$ACT_ENV"
+    fi
+else
+    # It's a named environment (e.g., py312_amalia)
+    conda activate "$ACT_ENV"
+fi
+
+pip list
+
+MODEL_NAME_OR_PATH={{ model_name_or_path }}
+MODEL_OUTPUT_DIR={{ model_output_dir }}
+
+# Convert the Python list of tasks into a Bash array
+TASKS=(
+{%- for t in tasks %}
+    "{{ t }}"
+{%- endfor %}
+)
+
+# Select the appropriate task based on SLURM_ARRAY_TASK_ID
+# TASK="${TASKS[$SLURM_ARRAY_TASK_ID]}"
+TASK="${TASKS[0]}"
+
+echo "####### STARTING EVALUATION #######"
+echo "Model: $MODEL_NAME_OR_PATH"
+echo "Output directory: $MODEL_OUTPUT_DIR"
+echo "Selected task: $TASK"
+
+{% if harness_args is defined and harness_args %}
+task_kwargs_args=()
+{% for key, value in harness_args.items() %}
+{% if value is sameas true %}
+task_kwargs_args+=("--{{ key }}")
+{% elif value is not sameas false and value is not none %}
+task_kwargs_args+=("--{{ key }}" '{{ value }}')
+{% endif %}
+{% endfor %}
+{% else %}
+task_kwargs_args=()
+{% endif %}
+
+# HF Hub logging arguments
+hf_org="hub_results_org=amalia-llm"
+hf_details_repo="details_repo_name=/test-results-private"
+hf_results_repo="results_repo_name=/test-results-private"
+push_results="push_results_to_hub=True"
+push_samples="push_samples_to_hub=True"
+public_repo="public_repo=False"
+
+# check if log_results_hf is set
+{% if log_results_hf is defined and log_results_hf %}
+echo "Logging results to HF Hub"
+hf_logging_args="${hf_org},${hf_details_repo},${hf_results_repo},${push_results},${push_samples},${public_repo}"
+echo "HF logging args: ${hf_logging_args}"
+echo huggingface-cli whoami
+{% else %}
+echo "Not logging results to HF Hub"
+hf_logging_args=""
+{% endif %}
+
+# check if not_set_hf_env_vars is defined
+{% if hf_home is defined and hf_home %}
+echo "Setting HF environment variables"
+export HF_HOME="{{ hf_home }}"
+export HF_HUB_CACHE="{{ hf_hub_cache }}"
+export HF_ASSETS_CACHE="{{ hf_assets_cache }}"
+export HF_DATASETS_CACHE="{{ hf_datasets_cache }}"
+export HF_HUB_OFFLINE="{{ hf_hub_offline }}"
+export HF_DATASETS_OFFLINE="{{ hf_hub_offline }}"
+export HF_ALLOW_CODE_EVAL="1"  # for coding tasks (e.g., HumanEval)
+{% endif %}
+
+mkdir -p "$MODEL_OUTPUT_DIR"
+lm_eval \
+    --tasks "$TASK" \
+    --output_path "$MODEL_OUTPUT_DIR" \
+    --seed 42 \
+    --hf_hub_log_args "$hf_logging_args" \
+    --trust_remote_code \
+    "${task_kwargs_args[@]}" 
+
+
+echo "Evaluation completed"

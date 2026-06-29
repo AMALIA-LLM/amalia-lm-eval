@@ -1,0 +1,7 @@
+"dataset_name": "philosophy_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre filosofia.\n\
+  \n"
+"tag": "amalia_mmlu_humanities_tasks_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_philosophy_mt_pt"
+"task_alias": "philosophy"

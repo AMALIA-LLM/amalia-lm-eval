@@ -1,0 +1,12 @@
+group: amalia_legalbench_pt_maritime_log
+group_alias: maritime_log
+task: 
+  - amalia_legalbench_pt_maritime_cloze_tasks_log
+  - amalia_legalbench_pt_maritime_multiple_choice_log
+  - amalia_legalbench_pt_maritime_true_false_log
+  - amalia_legalbench_pt_maritime_case_analysis_questions_log
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 0.0

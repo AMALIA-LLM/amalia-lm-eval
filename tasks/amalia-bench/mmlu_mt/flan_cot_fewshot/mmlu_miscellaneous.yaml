@@ -1,0 +1,45 @@
+dataset_name: miscellaneous_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre miscelânea.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Qual destas canções foi um êxito do Top 10 da banda de rock The Police?
+
+      (A) "Radio Ga-Ga" (B) "Ob-la-di Ob-la-da" (C) "De Do Do Do De Da Da Da" (D)
+      "In-a-Gadda-Da-Vida'
+    target: Vamos pensar passo a passo. Consultamos a Wikipédia para nos ajudar. Radio
+      Ga-Ga é dos Queen. Ob-la-di Ob-la-da é dos Beatles. E In-a-Gadda-Da-Vida é dos
+      Iron Butterfly. Deixando 'De Do Do Do De Da Da Da' como a única música do The
+      Police, e também um hit no Top 10. A resposta é (C).
+  - question: 'Que lugar é mencionado no título do álbum ao vivo de 1979 das lendas
+      do rock Cheap Trick?
+
+      (A) Budapeste (B) Budokan (C) Butão (D) Grã-Bretanha'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos à Wikipédia. O Nippon
+      Budokan é uma arena coberta em Tóquio, Japão, conhecida por acolher concertos
+      de música rock, incluindo os Cheap Trick em 1978. "Cheap Trick at Budokan" tornou-se
+      o nome do seu álbum. A resposta é (B).
+  - question: 'O que é produzido durante a fotossíntese?
+
+      (A) hidrogénio (B) nylon (C) oxigénio (D) luz'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos à Wikipédia. A fotossíntese
+      é o processo em que as plantas verdes utilizam o pigmento verde clorofila para
+      sintetizar alimentos com água e dióxido de carbono. O oxigénio é o subproduto
+      deste processo. A resposta é (C).
+  - question: 'Quem é o homem mais baixo de sempre a ganhar uma competição de afundanços
+      da NBA?
+
+      (A) Anthony "Spud" Webb (B) Michael "Air" Jordan (C) Tyrone "Muggsy" Bogues
+      (D) Julius "Dr J" Erving'
+    target: Vamos pensar passo a passo. Para ajudar, recorremos à Wikipédia. Em 1986,
+      Spud Webb, com apenas 1,75 m de altura, tornou-se o jogador da NBA mais baixo
+      da história a ganhar um concurso oficial de afundanços. A resposta é (A).
+  - question: 'Quantos eixos tem um automóvel normal?
+
+      (A) um (B) dois (C) quatro (D) oito'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos à Wikipédia. A
+      maioria dos carros tem dois eixos para fazer girar as rodas... A resposta é
+      (B).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_miscellaneous_mt_pt

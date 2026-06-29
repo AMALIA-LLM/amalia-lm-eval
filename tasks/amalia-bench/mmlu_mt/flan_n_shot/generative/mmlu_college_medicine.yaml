@@ -1,0 +1,6 @@
+"dataset_name": "college_medicine_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre medicina
+  universitária.\n\n"
+"tag": "amalia_mmlu_flan_n_shot_generative_other_mt_pt"
+"include": "_mmlu_flan_generative_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_generative_college_medicine_mt_pt"

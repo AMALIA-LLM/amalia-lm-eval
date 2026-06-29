@@ -1,0 +1,26 @@
+dataset_name: movie_recommendation
+description: 'Recomendar filmes semelhantes à lista de filmes dada.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Encontrar um filme semelhante a Star Wars Episódio IV - Uma Nova Esperança,
+      Indiana Jones e a Última Cruzada, Star Wars Episódio V - O Império Contra-Ataca,
+      O Grande Lebowski:\nOpções:\n(A) Tetsuo\n(B) O Homem de Ferro\n(C) A Princesa
+      Noiva\n(D) As Maratonas de Barkley A Corrida que Come os Seus Jovens\n(E) Bug"
+    target: (C)
+  - input: "Encontrar um filme semelhante a Twister, O Silêncio dos Inocentes, Independence
+      Day, Coração Valente:\nOpções:\n(A) They Shoot Horses\n(B) Don't They\n(C) Forrest
+      Gump\n(D) O Mar de Salton\n(E) Dias Extremos"
+    target: (C)
+  - input: "Encontrar um filme semelhante a Minority Report, Total Recall, Inside
+      Out, Forrest Gump:\nOpções:\n(A) Phenomena\n(B) Lilting\n(C) Catwoman\n(D) Edge
+      of Tomorrow"
+    target: (D)
+include: _fewshot_template_yaml
+task: bbh_fewshot_movie_recommendation_mt_pt

@@ -1,0 +1,22 @@
+"dataset_name": "sports_understanding"
+"description": "Determinar se uma frase construída artificialmente e relacionada com
+  o desporto é plausível ou não.\n\n"
+"doc_to_text": "P: {{input}}\nR: Vamos pensar passo a passo."
+"include": "_cot_zeroshot_template_yaml"
+"task": "bbh_cot_zeroshot_sports_understanding_mt_pt"
+
+filter_list:
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MapRegexFilter
+    group_select: -1
+    ignore_case: true
+    regex_pattern_to_value:
+      \b(no|not plausible)\b: "no"
+      \b(yes|plausible)\b: "yes"
+  - function: "take_first"
+- name: "strict-match"
+  filter:
+  - function: "regex"
+    regex_pattern: "((?<=A resposta é )(.*)(?=.)|(?<=a resposta é )(.*)(?=.)|(?<=A resposta: )(.*)(?=.)|(?<=A resposta final: )(.*)(?=.))"
+  - function: "take_first"

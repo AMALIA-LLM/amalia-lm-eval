@@ -1,0 +1,6 @@
+"dataset_name": "econometrics_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre econometria.\n\
+  \n"
+"tag": "amalia_mmlu_flan_cot_zeroshot_social_sciences_mt_pt"
+"include": "_mmlu_flan_cot_zeroshot_template_yaml"
+"task": "amalia_mmlu_flan_cot_zeroshot_econometrics_mt_pt"

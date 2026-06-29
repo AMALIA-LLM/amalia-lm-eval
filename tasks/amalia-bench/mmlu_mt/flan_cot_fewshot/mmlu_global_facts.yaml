@@ -1,0 +1,51 @@
+dataset_name: global_facts_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre factos
+  globais.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Em 2017, quantas crianças com um ano de idade no mundo foram vacinadas
+      contra alguma doença? *\n(A) 80% (B) 60% (C) 40% (D) 20%"
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre factos mundiais. De acordo com os dados publicados pela Organização Mundial
+      de Saúde, o número de crianças de 1 ano vacinadas em 2017 ultrapassa os 80%.
+      A resposta é (A).
+  - question: 'Em 2019, que percentagem de americanos concorda que o Estado é gerido
+      em benefício de todas as pessoas?
+
+      (A) 31% (B) 46% (C) 61% (D) 76%'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre factos globais. Em 2019, cerca de 46% dos americanos concordam
+      que o Estado é gerido para benefício de todas as pessoas. A resposta é (B).
+  - question: 'Em 2019, que percentagem de russos considera muito importante que os
+      meios de comunicação social sejam livres no nosso país, sem censura governamental/estatal?
+
+      (A) 38% (B) 53% (C) 68% (D) 83%'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre factos mundiais. Em 2019, cerca de 38% dos russos dizem que é muito importante
+      ter meios de comunicação social livres no nosso país. A resposta é (A).
+  - question: 'A partir de 2015, desde 1990, as florestas ____ na Europa e ____ em
+      África e nas Américas.
+
+      (A) aumentaram, aumentaram (B) aumentaram, diminuíram (C) diminuíram, aumentaram
+      (D) diminuíram, diminuíram'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre factos mundiais. A partir de 2015, desde 1990, as florestas aumentaram
+      na Europa e diminuíram em África e nas Américas. A resposta é (B).
+  - question: 'Quais dos seguintes pares de afirmações são ambos verdadeiros (a partir
+      de 2019)?
+
+      (A) As pessoas tendem a ser optimistas em relação ao seu próprio futuro e ao
+      futuro da sua nação ou do mundo. (B) As pessoas tendem a ser optimistas quanto
+      ao seu próprio futuro, mas pessimistas quanto ao futuro da sua nação ou do mundo.
+      (C) As pessoas tendem a ser pessimistas em relação ao seu próprio futuro, mas
+      optimistas em relação ao futuro da sua nação ou do mundo. (D) As pessoas tendem
+      a ser pessimistas em relação ao seu próprio futuro e ao futuro da sua nação
+      ou do mundo.'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre factos mundiais. Em 2019, a maioria das pessoas tende a ser otimista quanto
+      ao seu próprio futuro, mas pessimista quanto ao futuro da sua nação ou do mundo.
+      A resposta é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_global_facts_mt_pt

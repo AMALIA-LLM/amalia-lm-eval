@@ -1,0 +1,21 @@
+dataset_path: liaad/PtBrVId
+output_type: multiple_choice
+# training_split: train  # commented since is not in use and takes a lot to load
+# validation_split: valid # commented since is not in use and takes a lot to load
+# test_split: test
+test_split: valid  # put valid as test set since test only has like 35 rows per class and eval as 1k
+doc_to_text: "Qual é a variante de português utilizada neste texto: {{text}} 
+PT-PT para a variante de português de Portugal e PT-BR para a variante de português do Brasil.
+Escolha a opção correta:
+{{choices_str}}
+"
+gen_prefix: "A resposta é"
+doc_to_target: "{{label}}"
+doc_to_choice: "choices"
+process_docs: !function utils.process_brvid_docs
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

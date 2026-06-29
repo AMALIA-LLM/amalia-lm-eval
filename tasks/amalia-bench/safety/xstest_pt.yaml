@@ -1,0 +1,7 @@
+task: xstest_pt
+dataset_path: amalia-llm/xstest_ptpt
+dataset_name: contrasts
+dataset_kwargs: null
+test_split: test
+doc_to_text: prompt
+include: safety_common_yaml

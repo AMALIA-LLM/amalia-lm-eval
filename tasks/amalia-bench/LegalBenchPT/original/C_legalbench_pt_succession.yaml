@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_succession
+group_alias: succession
+task: 
+  - amalia_legalbench_pt_succession_matching_questions
+  - amalia_legalbench_pt_succession_multiple_choice
+  - amalia_legalbench_pt_succession_true_false
+  - amalia_legalbench_pt_succession_multiple_selection_questions
+  - amalia_legalbench_pt_succession_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

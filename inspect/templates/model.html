@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <h2 class="mb-0">Model: {{ model_display_name }}</h2>
+    {% if model_display_name != model_name %}
+    <div class="text-muted">Internal id: <code>{{ model_name }}</code></div>
+    {% endif %}
+  </div>
+  <a class="btn btn-outline-secondary" href="{{ url_for('overview', root=selected_root, mode=mode, tasks_mode=tasks_mode) }}">Back to overview</a>
+</div>
+<div class="table-responsive">
+  <table class="table table-sm table-striped align-middle">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Runs</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task, runs in entries.items() %}
+      <tr>
+        <td>{{ display_names.get(task, task) }}</td>
+        <td>
+          <div class="d-flex flex-wrap gap-2">
+            {% for run in runs %}
+            <a class="btn btn-sm btn-outline-primary" href="{{ url_for('task_detail', model_name=model_name, task_name=task, root=selected_root, mode=mode, tasks_mode=tasks_mode, stamp=run.timestamp_raw) }}">
+              {{ run.formatted_timestamp }} · {{ run.formatted_value }}
+            </a>
+            {% endfor %}
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

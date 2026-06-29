@@ -1,0 +1,11 @@
+include: humaneval.yaml
+task: humaneval_instruct_mt_pt
+doc_to_text: "Escreve uma solução para o seguinte problema e certifica-te de que passa nos testes:\n```python\n{{ prompt }}\n```\n"
+gen_prefix: "Aqui está a função concluída:\n```python\n{{ prompt }}\n"
+filter_list:
+  - name: "create_test"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.build_predictions_instruct
+metadata:
+  version: 4.0

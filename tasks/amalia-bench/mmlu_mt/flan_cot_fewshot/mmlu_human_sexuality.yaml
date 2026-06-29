@@ -1,0 +1,55 @@
+dataset_name: human_sexuality_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre a sexualidade
+  humana.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'O distúrbio mais comum entre os homens que procuram terapia sexual
+      é:
+
+      (A) ejaculação precoce (B) ejaculação inibida (C) distúrbio erétil (D) distúrbio
+      ejaculatório'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a sexualidade humana. O tipo mais comum de perturbação da excitação nos
+      homens é a disfunção erétil, o que significa que uma pessoa não é capaz de obter
+      qualquer satisfação física da atividade sexual, embora possa estar interessada
+      nela. A resposta é (C).
+  - question: 'Uma mulher que sabe que tem herpes ativo e sífilis não tratada mas
+      continua a ter relações sexuais sem informar os seus parceiros do seu estado
+      tem, em termos psicanalíticos:
+
+      (A) um ego forte (B) um superego fraco (C) um id fraco (D) um superego forte'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a sexualidade humana. Uma pessoa com um superego fraco tende a ser delinquente,
+      criminosa ou a ter uma personalidade antissocial. A atitude da mulher que sabe
+      que tem uma doença venérea ativa, mas que continua a ter relações sexuais com
+      os seus parceiros, indica que ela pode ter uma personalidade antissocial. A
+      resposta é (B).
+  - question: 'A natureza das actividades homossexuais que ocorrem durante a pré-adolescência
+      inclui todas as actividades, exceto qual das seguintes?
+
+      (A) relações sexuais (B) brincadeiras em círculo (C) exibicionismo (D) tocar
+      nos órgãos genitais uns dos outros'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a sexualidade humana. As relações sexuais são proibidas durante a pré-adolescência.
+      A resposta é (A).
+  - question: 'A capacidade das mulheres de terem orgasmos múltiplos deve-se principalmente
+      ao:
+
+      (A) ao facto de não terem um período refratário. (B) à resposta das camadas
+      internas da vagina. (C) ao facto de ter orgasmos alternados em locais diferentes.
+      (D) o ponto G.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre sexualidade humana. O período refratário é o tempo em que uma pessoa não
+      consegue ficar erecta ou não está interessada em sexo. A resposta é (A).
+  - question: 'Os enjoos matinais são normalmente um problema:
+
+      (A) durante o primeiro trimestre (B) durante o segundo trimestre (C) durante
+      o terceiro trimestre (D) durante toda a gravidez'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre a sexualidade humana. Os enjoos matinais começam normalmente
+      nove semanas após a conceção, o que corresponde ao primeiro trimestre. A resposta
+      é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_human_sexuality_mt_pt

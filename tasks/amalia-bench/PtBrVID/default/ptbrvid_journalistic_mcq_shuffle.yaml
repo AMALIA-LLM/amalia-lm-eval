@@ -1,0 +1,3 @@
+"dataset_name": "journalistic"
+"include": "_default_template.yaml"
+"task": "amalia_ptbrvid_journalistic_mcq_shuffle"

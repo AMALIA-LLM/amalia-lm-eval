@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <h2 class="mb-0">{{ model_display_name }} — {{ task_display_name }}</h2>
+    {% if model_display_name != model_name or task_display_name != task_name %}
+    <p class="text-muted mb-1 small">
+      {% if model_display_name != model_name %}Model id: <code>{{ model_name }}</code>{% endif %}
+      {% if model_display_name != model_name and task_display_name != task_name %} · {% endif %}
+      {% if task_display_name != task_name %}Task id: <code>{{ task_name }}</code>{% endif %}
+    </p>
+    {% endif %}
+    <p class="text-muted mb-0">
+      Metric {{ entry.metric_key }} = {{ entry.formatted_value }}{% if entry.formatted_stderr %} ({{ entry.formatted_stderr }}){% endif %}
+      · {{ entry.formatted_timestamp }}
+    </p>
+    <p class="text-muted mb-0">
+      Result file: <code>{{ entry.result_path }}</code>
+      {% if entry.samples_path %}<br>Samples file: <code>{{ entry.samples_path }}</code>{% endif %}
+    </p>
+  </div>
+  <div class="d-flex gap-2">
+    <button type="button" class="btn btn-outline-primary" id="toggle-wrap">Enable wrapping</button>
+  <a class="btn btn-outline-secondary" href="{{ url_for('model_detail', model_name=model_name, mode=mode, root=root, tasks_mode=tasks_mode) }}">Back to model</a>
+  </div>
+</div>
+{% if not rows %}
+  <div class="alert alert-warning">No sample file was found for this run.</div>
+{% else %}
+  <div class="table-responsive" id="samples-table-container" style="max-height: 70vh;">
+    <table class="table table-sm table-striped">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Sample</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td class="text-muted small" style="width: 1%; white-space: nowrap;">{{ loop.index }}</td>
+          <td><pre class="mb-0 sample-json">{{ row | tojson(indent=2) }}</pre></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggleButton = document.getElementById('toggle-wrap');
+    var tableContainer = document.getElementById('samples-table-container');
+    if (!toggleButton || !tableContainer) {
+      return;
+    }
+    toggleButton.textContent = tableContainer.classList.contains('wrap-enabled') ? 'Disable wrapping' : 'Enable wrapping';
+    toggleButton.addEventListener('click', function () {
+      var isEnabled = tableContainer.classList.toggle('wrap-enabled');
+      toggleButton.textContent = isEnabled ? 'Disable wrapping' : 'Enable wrapping';
+    });
+  });
+</script>
+{% endblock %}

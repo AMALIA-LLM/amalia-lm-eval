@@ -1,0 +1,6 @@
+include: minerva_math_algebra.yaml
+task: minerva_math500_pt
+dataset_name: default
+dataset_path: amalia-llm/math-500-ptpt
+training_split: train
+test_split: train

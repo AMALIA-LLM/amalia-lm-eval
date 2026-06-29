@@ -1,0 +1,35 @@
+dataset_name: reasoning_about_colored_objects
+description: 'Responder a perguntas extremamente simples sobre as cores dos objectos
+  numa superfície.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R:'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Na mesa de cabeceira, há um lápis vermelho, uma caneca roxa, um porta-chaves
+      cor de vinho, um ursinho de peluche fúcsia, um prato preto e uma bola anti-stress
+      azul. De que cor é a bola anti-stress?\nOpções:\n(A) vermelho\n(B) laranja\n
+      (C) amarelo\n(D) verde\n(E) azul\n(F) castanho\n(G) magenta\n(H) fúcsia\n(I)
+      malva\n(J) azul-petróleo\n(K) turquesa\n(L) borgonha\n(M) prata\n(N) dourado\n
+      (O) preto\n(P) cinzento\n(Q) púrpura\n(R) cor-de-rosa"
+    target: (E)
+  - input: "Em cima da mesa, vê um conjunto de objectos dispostos em fila: um clip
+      roxo, uma bola anti-stress cor-de-rosa, um porta-chaves castanho, um carregador
+      de telemóvel verde, um fidget spinner lilás e uma caneta cor de vinho. Qual
+      é a cor do objeto diretamente à direita da bola de stress?\nOpções:\n(A) vermelho\n
+      (B) laranja\n(C) amarelo\n(D) verde\n(E) azul\n(F) castanho\n(G) magenta\n(H)
+      fúcsia\n(I) malva\n(J) azul-petróleo\n(K) turquesa\n(L) borgonha\n(M) prata\n
+      (N) dourado\n(O) preto\n(P) cinzento\n(Q) púrpura\n(R) cor-de-rosa"
+    target: (F)
+  - input: "Na mesa de cabeceira, vê os seguintes itens dispostos em fila: um prato
+      azul-petróleo, um porta-chaves cor de vinho, um carregador de telemóvel amarelo,
+      uma caneca cor de laranja, um caderno cor-de-rosa e uma chávena cinzenta. Quantos
+      objectos não cor de laranja vê à esquerda do objeto azul-petróleo?\nOpções:\n
+      (A) zero\n(B) um\n(C) dois\n(D) três\n(E) quatro\n(F) cinco\n(G) seis"
+    target: (A)
+include: _fewshot_template_yaml
+task: bbh_fewshot_reasoning_about_colored_objects_mt_pt

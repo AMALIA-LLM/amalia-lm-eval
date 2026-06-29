@@ -1,0 +1,18 @@
+"dataset_name": "logical_deduction_five_objects"
+"description": "Uma tarefa de dedução lógica que exige a dedução da ordem de uma sequência
+  de objectos.\n\n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_logical_deduction_five_objects_mt_pt"
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.MultiChoiceRegexFilter
+    group_select: 0
+    ignore_case: true
+    ignore_punctuation: true
+    regex_pattern: "(\\([A-Z]\\))"
+  - function: "take_first"

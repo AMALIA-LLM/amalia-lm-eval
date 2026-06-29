@@ -1,0 +1,16 @@
+group: amalia_frmt_zeroshot_entity
+group_alias: zeroshot_entity
+task:
+  - amalia_frmt_zeroshot_entity_tasks
+aggregate_metric_list:
+#  - metric: chrf_plus  #!function ../../metrics.chrf_plus
+#    aggregation: mean
+#    weight_by_size: true
+#  - metric: bleu
+#    aggregation: mean
+#    weight_by_size: true
+  - metric: chrf
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 0.0

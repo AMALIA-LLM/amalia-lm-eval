@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_family
+group_alias: family
+task: 
+  - amalia_legalbench_pt_family_matching_questions
+  - amalia_legalbench_pt_family_case_analysis_questions
+  - amalia_legalbench_pt_family_multiple_choice
+  - amalia_legalbench_pt_family_true_false
+  - amalia_legalbench_pt_family_multiple_selection_questions
+  - amalia_legalbench_pt_family_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

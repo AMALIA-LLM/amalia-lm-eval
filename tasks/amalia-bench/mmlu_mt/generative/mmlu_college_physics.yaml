@@ -1,0 +1,7 @@
+"dataset_name": "college_physics_PT-PT"
+"description": "As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  física universitária.\n\n"
+"tag": "amalia_mmlu_stem_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_college_physics_generative_mt_pt"
+"task_alias": "college_physics"

@@ -1,0 +1,18 @@
+"dataset_name": "object_counting"
+"description": "Perguntas que envolvem a enumeração de objectos e que pedem ao modelo
+  para os contar.\n\n"
+"doc_to_text": "P: {{input}}\nR: Vamos pensar passo a passo."
+"include": "_cot_zeroshot_template_yaml"
+"task": "bbh_cot_zeroshot_object_counting_mt_pt"
+filter_list:
+- name: "flexible-extract"
+  filter:
+  - function: !function utils.NumberParseRegexFilter
+    group_select: -1
+    regex_pattern: "([-0-9]+)"
+  - function: "take_first"
+- name: "strict-match"
+  filter:
+  - function: "regex"
+    regex_pattern: "((?<=A resposta é )(.*)(?=.)|(?<=a resposta é )(.*)(?=.)|(?<=A resposta: )(.*)(?=.)|(?<=A resposta final: )(.*)(?=.))"
+  - function: "take_first"

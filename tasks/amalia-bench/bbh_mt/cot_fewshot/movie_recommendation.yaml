@@ -1,0 +1,46 @@
+dataset_name: movie_recommendation
+description: 'Recomendar filmes semelhantes à lista de filmes dada.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: "Encontrar um filme semelhante a Star Wars Episódio IV - Uma Nova Esperança,
+      Indiana Jones e a Última Cruzada, Star Wars Episódio V - O Império Contra-Ataca,
+      O Grande Lebowski:\nOpções:\n(A) Tetsuo\n(B) O Homem de Ferro\n(C) A Princesa
+      Noiva\n(D) As Maratonas de Barkley A Corrida que Come os Seus Jovens\n(E) Bug"
+    target: "Vamos pensar passo a passo.\n- Star Wars Episódio IV - Uma Nova Esperança
+      (ação, aventura, fantasia; 1977)\n- Indiana Jones e a Última Cruzada (ação,
+      aventura; 1989)\n- Star Wars Episódio V - O Império Contra-Ataca (ação, aventura,
+      fantasia; 1980)\n- O Grande Lebowski (ação, drama, comédia; 1998)\nTodos esses
+      são famosos filmes clássicos americanos produzidos antes de 2000. De entre todas
+      as opções, o único filme semelhante a estes parece ser The Princess Bride (1987).
+      Portanto, a resposta é (C)."
+  - input: "Encontrar um filme semelhante a Twister, O Silêncio dos Inocentes, Independence
+      Day, Coração Valente:\nOpções:\n(A) They Shoot Horses\n(B) Don't They\n(C) Forrest
+      Gump\n(D) O Mar de Salton\n(E) Dias Extremos"
+    target: "Vamos pensar passo a passo.\n- Twister (ação, aventura, thriller; 1996)\n
+      - The Silence of the Lambs (crime, drama, thriller; 1991)\n- Independence Day
+      (ação, ficção científica, drama; 1996)\n- Braveheart (biografia, drama, épico;
+      1995)\nTodos estes são filmes famosos de Hollywood produzidos por volta da década
+      de 1990. De entre todas as opções, o único filme semelhante a estes parece ser
+      Forrest Gump (comédia, drama, romance; 1994).
+      Portanto, a resposta é (C)."
+  - input: "Encontrar um filme semelhante a Minority Report, Total Recall, Inside
+      Out, Forrest Gump:\nOpções:\n(A) Phenomena\n(B) Lilting\n(C) Catwoman\n(D) Edge
+      of Tomorrow"
+    target: "Vamos pensar passo a passo.\n- Minority Report (ação, crime, mistério;
+      2002)\n- Total Recall (ação, aventura, ficção científica; 2012)\n- Inside Out
+      (animação, família, comédia; 2015)\n- Forrest Gump (comédia, drama, romance;
+      1994)\nEntre todas as opções, o único filme semelhante a estes parece ser Edge
+      of Tomorrow (ação, aventura, crime, mistério; 2014), uma vez que também é um
+      filme de ficção científica e conta com a participação de Tom Cruise.
+      Portanto, a resposta é (D)."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_movie_recommendation_mt_pt

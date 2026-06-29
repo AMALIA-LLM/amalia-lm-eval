@@ -1,0 +1,240 @@
+
+
+# Load your dataset
+import os, re
+from datasets import load_dataset
+
+
+# Load your dataset from Hugging Face
+dataset = load_dataset("BeatrizCanaverde/LegalBench.PT")
+
+# Define the available languages and splits
+#dataset = dataset['test']
+
+# Convert Hugging Face dataset to pandas DataFrame
+#dataset = dataset.to_pandas()
+
+subset_data = dataset[category]["test"]
+
+subset = subset_data[subset_data["Type"] == type]
+
+if not subset.empty:
+    print("Subset is empty.")
+
+
+
+for category in categories_dict.keys():
+    
+    subset_data = dataset[category]["test"]
+    list_pairs_category_type = ""
+
+    for type in types:
+
+      subset = subset_data[subset_data["Type"] == type]
+      if not subset.empty:
+        list_pairs_category_type += f"\n  - amalia_legalbench_pt_{category}_{type}"
+
+      category_type_content = yaml_category_type_pair.format(category=category, type=type)
+      category_type_filename = os.path.join(task_folder, f'CT_legalbench_pt_{category}_{type}.yaml')
+      
+      with open(category_type_filename, 'w') as yaml_file:
+          yaml_file.write(category_type_content)
+
+    category_content = yaml_category_pair.format(category=category, list_pairs_category_type=list_pairs_category_type)
+    category_filename = os.path.join(task_folder, f'C_legalbench_pt_{category}.yaml')
+    
+    with open(category_filename, 'w') as yaml_file:
+        yaml_file.write(category_content)
+
+
+
+
+for group in groups_dict.keys():
+    
+    list_categories = ""
+
+    for category in groups_dict[group]:
+        list_categories += f"\n  - amalia_legalbench_pt_{category}"
+
+    group_content = yaml_group.format(group=group, list_categories=list_categories)
+    group_filename = os.path.join(task_folder, f'C_legalbench_pt_{group}.yaml')
+    
+    with open(group_filename, 'w') as yaml_file:
+        yaml_file.write(group_content)
+
+
+
+
+list_groups = "\n  - ".join([f"amalia_legalbench_pt_{group}" for group in groups_dict.keys()])
+
+total_content = yaml_total.format(list_groups=list_groups)
+total_filename = os.path.join(task_folder, f'C_legalbench_pt.yaml')
+
+with open(total_filename, 'w') as yaml_file:
+  yaml_file.write(total_content)
+
+
+#available_subset_names = list(all_subsets.keys()) # or get_dataset_config_names("BeatrizCanaverde/LegalBench.PT")
+#print(f"Available subsets: {available_subset_names}")
+
+task_folder = os.path.dirname(os.path.abspath(__file__))
+
+categories = categories_dict.keys()
+
+for category in categories:
+    
+
+
+
+#yaml for each category-type of question pair
+#yaml for each category that ggregates all question types
+#yaml for each group of categories
+#yaml for everything togethers
+
+#list_pairs_category_type
+#list_categories = "\n  - ".join([f"amalia_legalbench_pt_{category}" for category in categories_dict.values()])
+list_groups = "\n  - ".join([f"amalia_legalbench_pt_{group}" for group in groups_dict.keys()])
+
+
+
+
+
+# description: "The following are multiple choice questions (with answers) about computer science. Think step by step and then finish your answer with \"the answer is (X)\" where X is the correct letter choice.\n"
+# Seguem-se perguntas de escolha múltipla (com respostas) sobre astronomia.´
+
+# yalm template for tasks
+yaml_template_tasks = """include: _default_template_yaml
+task: amalia_mmlu_prox_{category}
+task_alias: {category}
+process_docs: !function utils.process_{category}"""
+
+
+def to_snake_case(s):
+    # Insert underscore before each uppercase letter (except the first one) and convert to lowercase
+    return re.sub(r'(?<!^)(?=[A-Z])', '_', s).lower()
+
+
+categories = dataset['category'] 
+
+unique_categories = set(categories)  # Get unique categories
+
+
+# Step 1: Create the single MMLU YAML file (listing all categories)
+list_categories = '\n  - '.join([f'amalia_mmlu_prox_{cat.replace(' ', '_')}' for cat in unique_categories])
+mmlu_content = mmlu_yalm.format(list_categories=list_categories)
+
+mmlu_filename = os.path.join(task_folder, '_mmlu_prox.yaml')
+with open(mmlu_filename, 'w') as mmlu_file:
+    mmlu_file.write(mmlu_content)
+    
+
+# Step 2: Iterate over categories to create category-level YAML files
+for category in unique_categories:
+    # Create the category-level YAML file
+    category_yaml_content = yaml_template_tasks.format(category=category.replace(' ', '_'), pt_category=categories_dict[category])
+    category_yaml_filename = os.path.join(task_folder, f'mmlu_prox_{category.replace(' ', '_')}.yaml')
+    
+    with open(to_snake_case(category_yaml_filename), 'w') as category_yaml_file:
+        category_yaml_file.write(category_yaml_content)
+    
+
+# doc_to_choice: !function utils.doc_to_choice    #["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+
+default_template_yaml = """dataset_path: BeatrizCanaverde/LegalBench.PT
+dataset_name: {category}
+test_split: test
+output_type: multiple_choice
+doc_to_text: !function utils.doc_to_text
+doc_to_choice: !function utils.doc_to_choice
+doc_to_target: answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0"""
+
+
+default_template = os.path.join(task_folder, '_default_template_yaml')
+with open(default_template, 'w') as mmlu_file:
+    mmlu_file.write(default_template_yaml)
+    
+
+
+
+
+
+
+
+generation_kwargs:
+  max_gen_toks: 50
+process_results: !function utils.process_results
+metric_list:
+  - metric: exact_match
+    aggregation: !function utils.accuracy
+    higher_is_better: true
+
+
+
+
+filter_list:
+  - filter:
+    - function: regex
+      regex_pattern: A resposta correta é:?\s*([A-Za-z])
+    - function: take_first
+    name: strict-match
+generation_kwargs:
+  until:
+    - "Question:"
+    - "Pergunta:"
+    - "</s>"
+    - "<|im_end|>"
+  do_sample: false
+  temperature: 0.0
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+metadata:
+  version: 0.0
+
+
+
+
+
+
+task_alias: environmental_case_analysis_questions
+doc_to_text: Question
+doc_to_target: Answer
+process_docs: !function utils.process_case_analysis_questions
+output_type: generate_until
+generation_kwargs:
+  until:
+    - "Question:"
+    - "Pergunta:"
+    - "</s>"
+    - "<|im_end|>"
+    - "Tu estás a resolver um exame sobre"
+  do_sample: false
+  temperature: 0.0
+repeats: 1
+filter_list:
+  - name: strict-match
+    filter:
+      - function: regex
+        regex_pattern: A resposta correta é:?\s*([A-Za-z])
+      - function: take_first
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: false
+    regexes_to_ignore:
+      - ","
+      - "\\$"
+      - "(?s).*#### "
+      - "\\.$"
+metadata:
+  version: 0.0

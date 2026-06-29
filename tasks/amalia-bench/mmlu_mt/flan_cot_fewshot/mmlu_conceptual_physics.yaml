@@ -1,0 +1,51 @@
+dataset_name: conceptual_physics_PT-PT
+description: '
+
+  Seguem-se perguntas de escolha múltipla (com respostas) sobre física concetual.'
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'As cores numa bolha de sabão resultam da luz
+
+      (A) convertida para uma frequência diferente (B) deflexão (C) interferência
+      (D) polarização'
+    target: Vamos pensar passo a passo. Numa película de bolhas de sabão, a luz reflecte
+      muitas vezes entre as duas interfaces sabão-ar, interferindo consigo própria
+      de forma construtiva ou destrutiva, dependendo da largura da película. Isto
+      resulta em diferentes cores visíveis. A resposta é (C).
+  - question: 'Em comparação com a massa de um átomo de urânio que sofre cisão, as
+      massas combinadas dos produtos após a cisão são
+
+      (A) menos (B) mais (C) o mesmo (D) zero'
+    target: Vamos pensar passo a passo. A cisão liberta energia, que provém da massa
+      de repouso do seu núcleo inicial. Assim, a massa dos produtos é menor do que
+      a massa do núcleo de urânio reagente. A resposta é (A).
+  - question: 'As coisas que são equivalentes de acordo com o princípio da equivalência
+      são
+
+      (A) o espaço e o tempo. (B) um gémeo que viaja e um gémeo que fica em casa.
+      (C) a gravidade e a aceleração. (D) massa e energia.'
+    target: "Vamos pensar passo a passo. O famoso princípio de equivalência de Einstein
+      afirma que a gravidade e a aceleração são equivalentes. A resposta é (C)."
+  - question: 'Qual destes três elementos tem mais massa por nucleão?
+
+      (A) Hidrogénio (B) Ferro (C) Urânio (D) O mesmo em cada um'
+    target: Vamos pensar passo a passo. Devido à energia de ligação nuclear, a massa
+      de um núcleo atómico é menor do que a soma das massas individuais dos protões
+      e neutrões constituintes livres; isto é conhecido como defeito de massa. O hidrogénio
+      não tem defeito de massa porque tem apenas um único núcleo, pelo que terá a
+      maior massa por núcleo. A resposta é (A).
+  - question: 'Um aeromodelo voa mais devagar quando voa contra o vento e mais depressa
+      com o vento nas suas costas. Quando lançado em ângulo reto em relação ao vento,
+      a sua velocidade em relação ao solo, em comparação com o voo em ar parado, é
+
+      (A) a mesma (B) maior (C) menor (D) maior ou menor consoante a velocidade do
+      vento'
+    target: "Vamos pensar passo a passo. A velocidade do avião na direção do vento
+      é maior do que seria na ausência de vento, e a sua direção ortogonal ao vento
+      é a mesma que seria na ausência de vento. A velocidade total, que é a soma destas
+      duas componentes em quadratura, é assim maior do que a velocidade em ar parado.
+      A resposta é (B).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_conceptual_physics_mt_pt

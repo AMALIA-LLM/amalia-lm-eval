@@ -1,0 +1,16 @@
+group: amalia_frmt_zeroshot_lexical
+group_alias: zeroshot_lexical
+task:
+  - amalia_frmt_zeroshot_lexical_tasks
+aggregate_metric_list:
+#  - metric: chrf_plus  #!function ../../metrics.chrf_plus
+#    aggregation: mean
+#    weight_by_size: true
+#  - metric: bleu
+#    aggregation: mean
+#    weight_by_size: true
+  - metric: chrf
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 0.0

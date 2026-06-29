@@ -1,0 +1,6 @@
+"dataset_name": "college_chemistry_PT-PT"
+"description": "As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  química universitária.\n\n"
+"tag": "amalia_mmlu_flan_cot_zeroshot_stem_mt_pt"
+"include": "_mmlu_flan_cot_zeroshot_template_yaml"
+"task": "amalia_mmlu_flan_cot_zeroshot_college_chemistry_mt_pt"

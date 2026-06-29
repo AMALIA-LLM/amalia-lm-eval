@@ -1,0 +1,6 @@
+"dataset_name": "high_school_government_and_politics_PT-PT"
+"description": "Seguem-se perguntas (com respostas) sobre o governo e a política no
+  ensino secundário.\n\n"
+"tag": "amalia_mmlu_continuation_social_sciences_mt_pt"
+"include": "_continuation_template_yaml"
+"task": "amalia_mmlu_continuation_high_school_government_and_politics_mt_pt"

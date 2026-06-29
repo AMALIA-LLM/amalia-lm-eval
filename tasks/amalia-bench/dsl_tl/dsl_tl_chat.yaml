@@ -1,0 +1,37 @@
+task: amalia_dsl_tl_pt_chat
+dataset_path: LCA-PORVID/dsl_tl
+output_type: generate_until
+training_split: train
+test_split: test
+# process_docs: !function utils.process_docs
+doc_to_text: "Qual é a variante de português utilizada neste texto: {{text}} 
+Responde apenas com PT-PT para a variante de português de Portugal, PT-BR para a variante de português do Brasil, e N/A se não for possível identificar a variante. 
+"
+gen_prefix: "A resposta é"
+doc_to_target: "{{'PT-BR' if label == 1 else ('PT-PT' if label == 0 else 'N/A')}}"
+# doc_to_choice: "choices"
+generation_kwargs:
+  until:
+    - "PT-PT:"
+    - "PT-BR"
+    - "N/A"
+    - "Resposta:"
+    - "</s>"
+    - "<|im_end|>"
+  do_sample: false
+  temperature: 0.0
+#metric_list:
+#  - metric: acc
+#    aggregation: mean
+#    higher_is_better: true
+#  - metric: acc_norm
+#    aggregation: mean
+#    higher_is_better: true
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: false
+metadata:
+  version: 1.0

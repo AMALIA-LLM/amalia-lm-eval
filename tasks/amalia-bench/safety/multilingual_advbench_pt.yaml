@@ -1,0 +1,7 @@
+task: multilingual_advbench_pt
+dataset_path: simonycl/multilingual_advbench
+dataset_name: pt
+dataset_kwargs: null
+test_split: train
+doc_to_text: prompt
+include: safety_common_yaml

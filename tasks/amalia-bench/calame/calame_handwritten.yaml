@@ -1,0 +1,3 @@
+"dataset_name": "handwritten"
+"include": "_default_template_yaml"
+"task": "calame_pt_handwritten"

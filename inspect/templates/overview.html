@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+  <form class="d-flex align-items-center gap-2" method="get" action="{{ url_for('overview') }}">
+    <input type="hidden" name="root" value="{{ selected_root }}">
+    <input type="hidden" name="tasks_mode" value="{{ tasks_mode }}">
+    <label class="form-label mb-0" for="mode">Run mode</label>
+    <select class="form-select" id="mode" name="mode" onchange="this.form.submit()">
+      <option value="latest" {% if mode == 'latest' %}selected{% endif %}>Latest run per task</option>
+      <option value="all" {% if mode == 'all' %}selected{% endif %}>All runs</option>
+    </select>
+  </form>
+  <form class="d-flex align-items-center gap-2" method="get" action="{{ url_for('overview') }}">
+    <label class="form-label mb-0" for="root">Result folder</label>
+    <select class="form-select" id="root" name="root" onchange="this.form.submit()">
+      {% for directory in available_roots %}
+  <option value="{{ directory }}" {% if directory == selected_root_path %}selected{% endif %}>{{ directory.name }}</option>
+      {% endfor %}
+    </select>
+    <input type="hidden" name="mode" value="{{ mode }}">
+    <input type="hidden" name="tasks_mode" value="{{ tasks_mode }}">
+  </form>
+  {% if tasks_mode == 'first' %}
+    {% set toggle_label = "Show all tasks" %}
+    {% set toggle_next = 'all' %}
+  {% else %}
+    {% set toggle_label = "Show primary tasks" %}
+    {% set toggle_next = 'first' %}
+  {% endif %}
+  <a class="btn btn-outline-primary" href="{{ url_for('overview', root=selected_root, mode=mode, tasks_mode=toggle_next) }}">{{ toggle_label }}</a>
+  <a class="btn btn-outline-success" href="{{ url_for('overview_csv', root=selected_root, mode=mode, tasks_mode=tasks_mode) }}">Download CSV</a>
+  <button type="button" class="btn btn-outline-secondary" id="toggle-cell-details">Extend cells</button>
+</div>
+<div class="table-responsive">
+  <table id="results-table" class="table table-sm table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Avg Score</th>
+        <th scope="col">Std Dev</th>
+        {% for task in tasks %}
+        <th scope="col">{{ display_names.get(task, task) }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for model, task_entries in table.items() %}
+      {% set model_display = model_display_names.get(model, model) %}
+      <tr>
+        <th scope="row">
+          <a href="{{ url_for('model_detail', model_name=model, mode=mode, root=selected_root, tasks_mode=tasks_mode) }}" title="{{ model }}">{{ model_display }}</a>
+          {% if model_display != model %}
+            <div class="text-muted small">{{ model }}</div>
+          {% endif %}
+        </th>
+        {% set avg = averages.get(model) %}
+        {% set std = stddevs.get(model) %}
+        <td>
+          {% if avg is not none %}
+            <strong>{{ '%.3f' | format(avg) }}</strong>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+        <td>
+          {% if std is not none %}
+            <strong>{{ '%.3f' | format(std) }}</strong>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+        {% for task in tasks %}
+          {% set cell = task_entries.get(task) %}
+          <td class="align-top">
+            {% if mode == 'latest' %}
+              {% if cell %}
+                {% set entry = cell %}
+                <a href="{{ url_for('task_detail', model_name=entry.model, task_name=entry.task, root=selected_root, mode=mode, tasks_mode=tasks_mode, stamp=entry.timestamp_raw) }}" class="d-inline-block text-decoration-none">
+                  <strong>{{ entry.formatted_value }}</strong>
+                  <div class="cell-details">
+                    <div class="text-muted small">{{ entry.metric_key }}</div>
+                    {% if entry.formatted_stderr %}
+                    <div class="text-muted small">{{ entry.formatted_stderr }}</div>
+                    {% endif %}
+                    <div class="text-muted small">{{ entry.formatted_timestamp }}</div>
+                  </div>
+                </a>
+              {% else %}
+                <span class="text-muted">—</span>
+              {% endif %}
+            {% else %}
+              {% if cell %}
+                <div class="d-flex flex-column gap-2">
+                  {% for entry in cell %}
+                    <a href="{{ url_for('task_detail', model_name=entry.model, task_name=entry.task, root=selected_root, mode=mode, tasks_mode=tasks_mode, stamp=entry.timestamp_raw) }}" class="text-decoration-none">
+                      <strong>{{ entry.formatted_value }}</strong>
+                      <div class="cell-details">
+                        <div class="text-muted small">{{ entry.metric_key }}</div>
+                        {% if entry.formatted_stderr %}
+                        <div class="text-muted small">{{ entry.formatted_stderr }}</div>
+                        {% endif %}
+                        <div class="text-muted small">{{ entry.formatted_timestamp }}</div>
+                      </div>
+                    </a>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <span class="text-muted">—</span>
+              {% endif %}
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tableSelector = '#results-table';
+    if (window.DataTable) {
+      new DataTable(tableSelector);
+    }
+    const toggleButton = document.getElementById('toggle-cell-details');
+    const tableElement = document.querySelector(tableSelector);
+    if (toggleButton && tableElement) {
+      toggleButton.addEventListener('click', function () {
+        const expanded = tableElement.classList.toggle('details-expanded');
+        toggleButton.textContent = expanded ? 'Collapse cells' : 'Extend cells';
+      });
+    }
+  });
+</script>
+{% endblock %}

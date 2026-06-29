@@ -1,0 +1,7 @@
+include: _default_template_yaml
+doc_to_text: !function utils.doc_to_text
+description: "Identifica a variante de português a que cada texto pertence. As opções são: 'PT-PT' para Português Europeu, 'PT-BR' para Português do Brasil.\n"
+task: amalia_dsl_tl_2_labels_zeroshot
+task_alias: 2_labels_zeroshot
+doc_to_choice: ["PT-PT", "PT-BR"]
+process_docs: !function utils.process_docs

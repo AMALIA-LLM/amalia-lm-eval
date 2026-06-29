@@ -1,0 +1,69 @@
+dataset_name: professional_accounting_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre contabilidade
+  profissional.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Um auditor rastreia os números de série do equipamento até ao livro
+      de registo de um não emissor. Qual das seguintes asserções de gestão é suportada
+      por este teste?\n(A) Avaliação e afetação (B) Integralidade (C) Direitos e obrigações
+      (D) Apresentação e divulgação"
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre contabilidade. A asserção de integralidade é testada através
+      do rastreio dos documentos comprovativos das entradas de registo. A resposta
+      é (B).
+  - question: 'Há cem anos, a sua trisavó investiu 100 dólares a um juro anual de
+      5%. Qual é o valor desse investimento atualmente?
+
+      (A) $13.000 (B) $600 (C) $15.000 (D) $28.000'
+    target: Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipedia
+      sobre contabilidade. Um investimento de $100 a um juro anual de 5% vale 100*(1,05)^100=13150
+      ao fim de 100 anos, o que equivale a cerca de $13.000. A resposta é (A).
+  - question: 'Em 1 de janeiro do ano 1, a Alpha Co. assinou um acordo de manutenção
+      anual com um fornecedor de software por $15.000 e o período de manutenção começa
+      em 1 de março do ano 1. A Alpha também incorreu em custos de $5.000 em 1 de
+      janeiro do ano 1, relacionados com pedidos de modificação de software que irão
+      aumentar a funcionalidade do software. A Alpha deprecia e amortiza os seus activos
+      informáticos e de software ao longo de cinco anos usando o método das quotas
+      constantes. Qual é o valor total da despesa que a Alpha deve reconhecer relacionada
+      ao contrato de manutenção e às modificações de software para o ano encerrado
+      em 31 de dezembro do ano 1?
+
+      (A) $5.000 (B) $13.500 (C) $16.000 (D) $20.000'
+    target: Vamos pensar passo a passo. Consultamos os artigos da Wikipedia sobre
+      contabilidade para obter ajuda. O período de manutenção começa a 1 de março,
+      pelo que apenas 10 meses de despesas devem ser reconhecidos, o que corresponde
+      a $15.000/12*10=$12.500. O custo de modificação do software é amortizado ao
+      longo de 5 anos, pelo que cada ano é de $5.000/5=$1.000. Assim, a despesa total
+      é de $12.500+$1.000=$13.500. A resposta é (B).
+  - question: 'Krete é um contribuinte solteiro com rendimentos provenientes exclusivamente
+      de salários. Até 31 de dezembro do ano 1, o empregador de Krete reteve $16.000
+      em impostos federais sobre o rendimento e Krete não efectuou pagamentos de impostos
+      estimados. A 15 de abril do ano 2, Krete apresentou atempadamente um pedido
+      de prorrogação para apresentar a sua declaração de impostos individuais e pagou
+      $300 de impostos adicionais. A dívida fiscal de Krete no ano 1 era de $16.500
+      quando ela apresentou a sua declaração atempadamente a 30 de abril do ano 2
+      e pagou o saldo restante da dívida fiscal. Que montante estaria sujeito à penalização
+      por pagamento insuficiente de impostos estimados?
+
+      (A) $0 (B) $500 (C) $1.650 (D) $16.500'
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre contabilidade. O imposto devido após a retenção na fonte é de
+      16 500$ - 16 000$ = 500$, o que é inferior a 1000$, pelo que não há penalização
+      por pagamento insuficiente de impostos estimados. A resposta é (A).
+  - question: 'A Box, uma organização não governamental sem fins lucrativos, teve
+      as seguintes transacções durante o ano: Receitas da venda de investimentos $80000
+      Compra de instalações e equipamentos $10000 Receitas de dívidas de longo prazo
+      $100000 Perda na venda de investimentos $5000 Que quantia deve ser relatada
+      como caixa líquido fornecido por actividades de financiamento na demonstração
+      dos fluxos de caixa da Box?
+
+      (A) $70.000 (B) $75.000 (C) $80.000 (D) 100000'
+    target: 'Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos
+      da Wikipédia sobre contabilidade. Entre as quatro transacções, apenas os Proveitos
+      da dívida de longo prazo pertencem à secção de actividades de financiamento
+      do fluxo de caixa, pelo que o montante comunicado deve ser de 100 000 USD. A
+      resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_professional_accounting_mt_pt

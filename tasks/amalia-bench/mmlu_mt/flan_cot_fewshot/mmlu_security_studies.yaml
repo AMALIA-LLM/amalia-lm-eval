@@ -1,0 +1,112 @@
+dataset_name: security_studies_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre estudos
+  de segurança.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Quais são os quadros de análise em que o terrorismo tem sido considerado
+      (a partir de 2020)?
+
+      (A) A concorrência entre grandes nações levou a que alguns países apoiassem
+      ativamente grupos terroristas para minar a força de Estados rivais. As redes
+      terroristas são clubes de mecenato alargados, mantidos e pagos pelos seus Estados
+      doadores, e são considerados como actores estatais, que devem ser combatidos
+      com recurso à força militar. (B) A globalização permitiu a internacionalização
+      das actividades terroristas ao abrir o seu espaço operacional, embora a coordenação
+      continue a ser gerida a partir de uma base geográfica. Este facto sugere que
+      os grupos terroristas estão estruturados a nível nacional, o que significa que
+      o terrorismo não pode ser considerado em termos de uma guerra a ser derrotada
+      militarmente sem ter implicações graves para a população autóctone. (C) O terrorismo
+      pode ser visto como um problema a ser resolvido por meios militares (guerra
+      ao terrorismo), por técnicas policiais normais (terrorismo como crime) ou como
+      um problema médico com causas e sintomas subjacentes (terrorismo como doença).
+      (D) O terrorismo é visto como um problema criminal. A criminalização do terrorismo
+      tem duas implicações importantes. Em primeiro lugar, sugere que o terrorismo
+      pode ser erradicado - os terroristas podem ser apanhados e levados a julgamento
+      através de procedimentos judiciais normais, eliminando assim a ameaça da sociedade
+      - e, em segundo lugar, sugere que são aplicáveis técnicas de prevenção criminal
+      para evitar o seu desenvolvimento.'
+    target: "Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre estudos de segurança. (A) está errada porque não é a competição
+      entre grandes nações que causa o terrorismo.\n(B) está errada porque a globalização
+      não é a causa do terrorismo.\n(C) está correta porque os EUA empreenderam a
+      guerra contra o terrorismo.\n(D) está incorrecta porque as técnicas de prevenção
+      do crime provavelmente não acabarão com o terrorismo. A resposta é (C)."
+  - question: 'Qual das seguintes é a melhor perspetiva para investigar o papel das
+      crianças-soldados?
+
+      (A) As crianças-soldados são vítimas de combate que necessitam de reeducação
+      e reabilitação. (B) As crianças e as suas mães não são sujeitos activos na guerra
+      e são melhor consideradas como sujeitos da esfera privada. (C) As crianças são,
+      na maior parte das vezes, espectadores inocentes na guerra e são mais bem utilizadas
+      como significantes da paz. (D) As crianças têm um carácter de sujeito político
+      que lhes escapa quando são consideradas como vítimas passivas da guerra.'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre estudos de segurança. A questão das crianças-soldados como tema
+      político pode não ser abordada quando estas são consideradas vítimas passivas
+      da guerra. A resposta é (D).
+  - question: 'Qual é a melhor forma de descrever a relação entre a abordagem centrada
+      no Estado e o conceito de segurança humana?
+
+      (A) Existem divisões tão amplas no quadro da segurança humana no que diz respeito
+      à natureza das ameaças e aos objectos de referência que não é possível estabelecer
+      comparações amplamente aplicáveis entre as abordagens centradas no Estado e
+      a segurança humana. (B) Ao adotar o quadro da segurança humana, as limitações
+      da abordagem realista centrada no Estado tornam-se evidentes. Enquanto a segurança
+      humana define o objeto de referência como a pessoa ou a população, as abordagens
+      centradas no Estado dão prioridade à segurança do Estado, despriorizando a procura
+      da segurança humana. (C) A abordagem da segurança centrada no Estado é uma fação
+      da segurança humana, geralmente definida no âmbito da escola geral de segurança
+      humana. Ao ser centrada no Estado, esta abordagem dá prioridade ao indivíduo
+      como objeto de referência nos estudos de segurança. (D) Tanto a abordagem da
+      segurança centrada no Estado como a abordagem centrada no ser humano excluem-se
+      mutuamente e oferecem um quadro analítico suficiente para compreender o sistema
+      de segurança internacional. Cabe, portanto, aos analistas de segurança determinar
+      qual destes conceitos substanciais é o correto e qual deve ser descartado.'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre estudos de segurança. A segurança humana centra-se numa pessoa ou numa
+      população, ao passo que as abordagens centradas no Estado se centram no Estado,
+      desvalorizando a segurança humana. A resposta é (B).
+  - question: 'Para se tornar securitizada, uma ameaça deve ser apresentada de qual
+      destas formas?
+
+      (A) Como uma ameaça existencial que exige uma ação imediata e extraordinária,
+      constituindo uma ameaça à sobrevivência do Estado ou à segurança da sociedade.
+      (B) Como exigindo uma ação imediata e extraordinária do Estado, ameaçando a
+      sobrevivência de um objeto de referência e justificando, por isso, o recurso
+      a medidas que não são normalmente utilizadas no domínio político. (C) Como uma
+      ameaça urgente à sobrevivência do objeto de referência, tão grave que legitima
+      o emprego de ações extraordinárias em resposta. (D) Como uma ameaça urgente
+      à sobrevivência do público que exige medidas extraordinárias ou de emergência.'
+    target: Vamos pensar passo a passo. Para o ajudar, remetemos para os artigos da
+      Wikipédia sobre estudos de segurança. Para ser securitizada, uma ameaça deve
+      ser uma ameaça urgente à sobrevivência do objeto de referência. A resposta é
+      (C).
+  - question: 'O que é que distingue a diplomacia coerciva da força militar?
+
+      (A) Compelência é outro termo para a diplomacia coerciva, mas abrangendo um
+      conjunto mais restrito de critérios; a compelência abrange as ameaças destinadas
+      a iniciar a ação do adversário. Uma ameaça para coagir um Estado a desistir
+      de parte do seu território contaria como diplomacia coerciva, desde que essa
+      ameaça iniciasse proactivamente uma ação antes de ser tomada uma diplomacia
+      reactiva. (B) A diplomacia coerciva consiste em ameaças de uso limitado da força
+      para induzir o incentivo do adversário a cumprir as exigências do coator. Trata-se
+      de uma estratégia de influência que tem por objetivo obter o cumprimento das
+      exigências: o uso da força para derrotar primeiro um adversário não conta. Deixa
+      um elemento de escolha ao alvo para obedecer ou continuar. (C) A força militar,
+      ou a ameaça de força militar, utiliza o medo para atingir objectivos estratégicos.
+      A diplomacia coerciva distingue-se desta abordagem, porque não utiliza o medo
+      como instrumento para coagir um adversário. (D) A diplomacia coerciva é empregue
+      para utilizar a força, mas para limitar os seus efeitos na comunidade internacional.
+      A diplomacia coerciva é uma estratégia agressiva que tem por objetivo obter
+      a conformidade através da derrota. Não deixa um elemento de escolha ao alvo,
+      sendo este forçado a obedecer ou a entrar em conflito. Procura controlar através
+      da imposição da conformidade, eliminando qualquer oportunidade de negociação
+      ou concessão.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da
+      Wikipédia sobre estudos de segurança. A diplomacia coerciva utiliza a ameaça
+      da força para induzir o adversário a cumprir as suas exigências. A resposta
+      é (B).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_security_studies_mt_pt

@@ -1,0 +1,4 @@
+include: _default_template_chat_yaml
+task: cultura_viva_pt_gastronomy_chat
+tag: cultura_viva_pt_chat_tasks
+process_docs: !function utils.process_docs_gastronomy

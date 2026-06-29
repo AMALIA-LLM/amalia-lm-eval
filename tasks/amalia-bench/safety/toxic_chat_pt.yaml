@@ -1,0 +1,8 @@
+task: toxic_chat_pt
+dataset_path: amalia-llm/toxichat-ptpt
+dataset_name: null
+dataset_kwargs: null
+test_split: train
+doc_to_text: prompt
+process_docs: !function utils.process_toxic_chat_samples
+include: safety_common_yaml

@@ -1,0 +1,33 @@
+dataset_path: amalia-llm/bigbenchhard-mt-pt
+output_type: generate_until
+test_split: train
+doc_to_target: "{{target}}"
+metric_list:
+- metric: exact_match
+  aggregation: mean
+  higher_is_better: true
+  ignore_case: true
+    # ignore_punctuation: true
+generation_kwargs:
+  max_gen_toks: 1024
+  until:
+  - "</s>"
+  - <|endoftext|>
+  - <|im_end|>
+  - <end_of_turn>
+  do_sample: false
+  temperature: 0.0
+#filter_list:
+#- name: "get-answer"
+#  filter:
+#  - function: "regex"
+#    regex_pattern: "(?<=a resposta é )(.*?)(?:[.\\s]*)$"
+#  - function: "take_first"
+filter_list:
+- name: "get-answer"
+  filter:
+  - function: !function utils.ExtractAnswerR
+  - function: "take_first"
+num_fewshot: 3
+metadata:
+  version: 3.0

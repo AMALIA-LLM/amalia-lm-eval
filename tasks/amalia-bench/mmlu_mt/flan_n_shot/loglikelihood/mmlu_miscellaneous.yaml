@@ -1,0 +1,6 @@
+"dataset_name": "miscellaneous_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre miscelânea.\n\
+  \n"
+"tag": "amalia_mmlu_flan_n_shot_loglikelihood_other_mt_pt"
+"include": "_mmlu_flan_loglikelihood_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_loglikelihood_miscellaneous_mt_pt"

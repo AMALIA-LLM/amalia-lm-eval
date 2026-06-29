@@ -1,0 +1,13 @@
+group: amalia_ptbrvid_mcq_shuffle
+task:
+  - amalia_ptbrvid_journalistic_mcq_shuffle
+  - amalia_ptbrvid_legal_mcq_shuffle
+  - amalia_ptbrvid_literature_mcq_shuffle
+  - amalia_ptbrvid_politics_mcq_shuffle
+  - amalia_ptbrvid_social_media_mcq_shuffle
+  - amalia_ptbrvid_web_mcq_shuffle
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 1

@@ -1,0 +1,9 @@
+group: amalia_legalbench_pt_eu_and_community_g_cot
+group_alias: eu_and_community_g_cot
+task: 
+  - amalia_legalbench_pt_eu_and_community_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

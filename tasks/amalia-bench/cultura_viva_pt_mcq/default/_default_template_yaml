@@ -1,0 +1,20 @@
+dataset_path: amalia-llm/cultura-viva-pt-mcq
+test_split: train
+fewshot_split: train
+fewshot_delimiter: "\n\n"
+num_fewshot: 0
+output_type: multiple_choice
+doc_to_text: "Pergunta: {{question}}\nA resposta é"
+doc_to_target: "{{choices.label.index(answerKey)}}"
+doc_to_choice: "{{choices.text}}"
+should_decontaminate: true
+doc_to_decontamination_query: "Pergunta: {{question}}\nA resposta é"
+metric_list:
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

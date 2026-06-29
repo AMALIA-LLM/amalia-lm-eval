@@ -1,0 +1,19 @@
+tag: safety
+doc_to_target: ""
+output_type: generate_until
+process_results: !function metrics.qwen_guard_score
+metric_list:
+  - metric: score
+    aggregation: mean
+    higher_is_better: false
+  - metric: explanation
+    aggregation: !function metrics.plain
+    higher_is_better: false
+generation_kwargs:
+  until:
+  - "</s>"
+  - "<|im_end|>"
+  - "<|endoftext|>"
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 1000

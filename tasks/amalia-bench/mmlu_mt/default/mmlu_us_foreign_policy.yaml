@@ -1,0 +1,7 @@
+"dataset_name": "us_foreign_policy_PT-PT"
+"description": "As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  a política externa dos EUA.\n\n"
+"tag": "amalia_mmlu_social_sciences_tasks_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_us_foreign_policy_mt_pt"
+"task_alias": "us_foreign_policy"

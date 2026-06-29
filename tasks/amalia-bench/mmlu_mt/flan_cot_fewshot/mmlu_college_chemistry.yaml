@@ -1,0 +1,52 @@
+dataset_name: college_chemistry_PT-PT
+description: As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  química universitária.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "3 Cl-(aq) + 4 CrO_4^2-(aq) + 23 H+(aq) → 3 HClO2(aq) + 4 Cr3+(aq) +
+      10 H2O(l). Na reação apresentada acima, o Cl-(aq) comporta-se como\n(A) um ácido
+      (B) uma base (C) um catalisador (D) um agente redutor"
+    target: Vamos pensar passo a passo. Uma molécula que se comporta como uma base
+      aceita um ião H+ (ou protão) de outra molécula, enquanto que uma molécula que
+      se comporta como um ácido doa um ião H+ (ou protão) a outra molécula. Nenhum
+      destes é o caso do Cl nesta reação, o que exclui as hipóteses (A) e (B). Um
+      catalisador é uma substância que apenas acelera uma reação sem que ela própria
+      sofra alterações químicas, o que não é o caso aqui. Isto exclui a hipótese (C).
+      Em vez disso, as moléculas de $Cl^{-} têm uma carga negativa, que doam na reação
+      para formar 3 HClO2. Este é o comportamento de um agente redutor, ou (D). A
+      resposta é (D).
+  - question: 'Qual das seguintes afirmações sobre os elementos lantanídeos NÃO é
+      verdadeira?
+
+      (A) O estado de oxidação mais comum para os elementos lantanídeos é +3. (B)
+      Os complexos de lantanídeos têm frequentemente números de coordenação elevados
+      (> 6). (C) Todos os elementos lantanídeos reagem com ácido aquoso para libertar
+      hidrogénio. (D) Os raios atómicos dos elementos lantanídeos aumentam ao longo
+      do período de La a Lu.'
+    target: Vamos pensar passo a passo. Os raios atómicos dos elementos lantanídeos
+      diminuem, de facto, ao longo do período de La a Lu. As opções (A), (B) e (C)
+      são todas verdadeiras. Isto significa que apenas a opção (D) NÃO é verdadeira.
+      A resposta é (D).
+  - question: 'Qual das seguintes alternativas lista os hidretos dos elementos do
+      grupo-14 por ordem de estabilidade térmica, do menor para o maior?
+
+      (A) PbH4 < SnH4 < GeH4 < SiH4 < CH4 (B) PbH4 < SnH4 < CH4 < GeH4 < SiH4 (C)
+      CH4 < SiH4 < GeH4 < SnH4 < PbH4 (D) CH4 < PbH4 < GeH4 < SnH4 < SiH4'
+    target: Vamos pensar passo a passo. A estabilidade térmica dos hidretos do grupo
+      14 diminui à medida que nos deslocamos do topo do grupo 14 para a base. A ordem
+      dos elementos do grupo, de cima para baixo, é C, Si, Ge, Sn, Pb. Portanto, por
+      ordem crescente de estabilidade térmica, temos PbH4, SnH4, GeH4, SiH4 e CH4,
+      ou seja, a resposta (A). A resposta é (A).
+  - question: "Prever o número de linhas no espetro EPR de uma solução de radical
+      metilo marcada com 13C (13CH3-), assumindo que as linhas não se sobrepõem.\n
+      (A) 4 B) 3 C) 6 D) 24 E) 8"
+    target: "Vamos pensar passo a passo. O espetro de ressonância paramagnética eletrónica
+      será dividido por duas formas de interação. A primeira é a interação hiperfina
+      com o 13C (spin nuclear $I =\nrac{1}{2}$) que dividirá o espetro em 2 linhas.
+      Esta será ainda dividida em 4 linhas pela interação com três núcleos equivalentes
+      de 1H. O número total de linhas é, portanto, $2 \\cdot 4 = 8$. A resposta é
+      (E).\n\n"
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_college_chemistry_mt_pt

@@ -1,0 +1,128 @@
+dataset_name: professional_law_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre direito
+  profissional.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Um filho devia 5.000 dólares a um credor. O pai do filho contactou
+      o credor e disse-lhe que queria pagar a dívida do filho. O pai assinou um documento
+      em que se comprometia a pagar a dívida do filho à razão de 500 dólares por mês
+      durante 10 meses. O credor não se comprometeu, por escrito ou oralmente, a não
+      processar o filho para cobrar a dívida de 5 000 dólares, e o pai não fez qualquer
+      pedido oral ou escrito nesse sentido. Durante os cinco meses seguintes, o pai
+      efectuou e o credor aceitou os pagamentos mensais de 500 dólares, tal como acordado.
+      Durante esse período, o credor absteve-se, de facto, de intentar qualquer ação
+      judicial contra o filho. Contudo, o pai informou então o credor de que não efectuaria
+      mais pagamentos da dívida. Qual dos seguintes é o argumento mais convincente
+      de que o pai é responsável perante o credor nos termos do seu acordo?
+
+      (A) A promessa do pai e a confiança do credor na mesma, se provada, deram origem
+      a uma ação válida do credor contra o pai com base na doutrina do impedimento
+      promissório. (B) Uma vez que era previsível que a promessa do pai induziria
+      o credor a abster-se de intentar qualquer ação contra o filho, essa abstenção
+      constituía, por uma questão de direito, uma contrapartida negociada da promessa
+      do pai. (C) Os cinco pagamentos do pai ao credor, num total de $2.500, manifestaram
+      uma intenção séria da parte do pai de se vincular contratualmente, e tal manifestação
+      é geralmente reconhecida como um substituto efetivo da contraprestação. (D)
+      Ao assumir a obrigação de dívida anterior que o filho tinha para com o credor,
+      o pai tornou-se um fiador cuja promessa ao credor era executória, uma vez que
+      foi feita por escrito e apoiada por uma contrapartida adequada.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito. A doutrina do impedimento promissório impede uma pessoa de voltar
+      atrás numa promessa feita no âmbito do direito dos contratos, pelo que a opção
+      (A) deve ser o argumento mais persuasivo. A resposta é (A).
+  - question: 'Um Estado promulgou recentemente uma lei que proíbe a eliminação de
+      quaisquer resíduos nucleares no seu território. Esta lei não contraria nem entra
+      em conflito com qualquer lei federal. Um homem gere uma empresa no Estado que
+      se dedica à eliminação de resíduos nucleares. Após a aprovação da lei estadual,
+      o homem, ainda não ciente da nova lei, celebrou contratos com muitas empresas
+      de fora do estado para eliminar os seus resíduos nucleares no estado. No entanto,
+      devido a esta nova lei, o homem não poderá executar esses contratos. Suponhamos
+      que o homem tem legitimidade para contestar esta lei estatal. Qual das seguintes
+      opções apresenta os seus fundamentos constitucionais mais fortes para contestar
+      a lei estatal que proíbe a eliminação de resíduos nucleares no Estado?
+
+      (A) A cláusula do comércio. (B) A cláusula de proteção igual da Décima Quarta
+      Emenda. (C) A cláusula dos privilégios e imunidades do Artigo IV, Secção 2.
+      (D) A cláusula contratual.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito. A cláusula do comércio estabelece que o Congresso tem o poder
+      de regular o comércio com as nações estrangeiras, entre os vários Estados e
+      com as tribos indígenas. A lei afecta o comércio entre Estados, o que a põe
+      em causa. Por conseguinte, o argumento mais forte do homem deve ser a cláusula
+      do comércio. A resposta é (A).
+  - question: 'Em 1 de outubro de 1980, um promotor, proprietário de várias centenas
+      de hectares num condado rural, elaborou um plano geral de desenvolvimento para
+      a área. O plano, devidamente registado, impunha limitações e restrições elaboradas
+      sobre o terreno no plano, que deveria ser desenvolvido como um distrito residencial.
+      As restrições eram extensivas a todas as pessoas que adquirissem qualquer um
+      dos lotes e aos seus herdeiros, cessionários e arrendatários. Foi ainda estabelecido
+      que todos os proprietários subsequentes seriam devidamente notificados das restrições.
+      Entre as restrições do plano geral figuravam as seguintes:(22) É criado um direito
+      de franquia numa faixa de terreno com 10 pés de largura ao longo das traseiras
+      de cada lote para uso das empresas de serviços públicos com direito de entrada
+      e saída. (23) Nenhuma casa ou estrutura de qualquer tipo poderá ser construída
+      na faixa de terra acima mencionada que atravessa os referidos blocos. Em 2000,
+      um reformado comprou um dos lotes, construiu uma casa e ergueu uma vedação nas
+      traseiras da sua propriedade dentro da área restrita. Em 2004, um professor
+      comprou um lote adjacente à propriedade do reformado e construiu uma nova casa.
+      Dois anos mais tarde, um bibliotecário comprou o lote contíguo à propriedade
+      do professor. As três escrituras destas propriedades contêm referências ao livro
+      de escrituras onde o plano geral foi registado. Em 2008, o bibliotecário iniciou
+      a construção de uma vedação de sete pés com postes e carris ao longo da linha
+      que divide o seu lote com o do professor e ao longo do centro da área sujeita
+      ao direito de franquia. Embora o professor se tenha oposto à sua construção,
+      a vedação foi concluída. Se o professor pedir uma injunção obrigatória para
+      obrigar à remoção da vedação do bibliotecário, o tribunal irá muito provavelmente
+
+      (A) conceder a providência, porque a vedação violava a restrição de servidão.
+      (B) concederá a providência, porque a invasão da vedação violou a restrição
+      do plano original. (C) negar a isenção, porque o professor não conseguiu impor
+      a restrição contra o aposentado. (D) negar a isenção, porque a cerca não seria
+      interpretada como "uma estrutura" nos termos da restrição.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito. As restrições no plano original dizem que nenhuma casa ou estrutura
+      de qualquer tipo pode ser construída na faixa de terreno acima mencionada que
+      atravessa os referidos blocos. Por conseguinte, é muito provável que o tribunal
+      conceda uma indemnização porque a vedação violou a restrição do plano original.
+      A resposta é (B).
+  - question: 'O juiz tomou conhecimento judicial de alguns factos no início do julgamento.
+      Qual dos seguintes não é um tipo de facto adequado para notificação judicial?
+
+      (A) Factos indiscutíveis. (B) Factos que foram afirmados por organizações políticas
+      individuais. (C) Factos reconhecidos como verdadeiros pelo conhecimento comum.
+      (D) Factos susceptíveis de verificação científica.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre direito. Entre as opções, os factos que foram afirmados por organizações
+      políticas individuais não são um tipo de facto adequado para notificação judicial.
+      A resposta é (B).
+  - question: 'A legislatura de um estado promulgou recentemente uma lei que torna
+      uma contraordenação amaldiçoar ou injuriar ou usar linguagem obscena ou opróbria
+      contra ou em referência a um agente da polícia no exercício das suas funções.
+      Um estudante de uma universidade estatal organizou uma manifestação no campus
+      para protestar contra a guerra. A manifestação contou com a presença de um grupo
+      de 50 estudantes que gritaram mensagens contra a guerra aos carros que passavam.
+      Para mostrar o seu desprezo pelos Estados Unidos, o estudante coseu a bandeira
+      americana na parte de trás das suas calças de ganga. Quando um agente da polícia
+      viu a bandeira cosida nas calças de ganga do estudante, aproximou-se e disse-lhe
+      que a tirasse ou seria preso. O estudante ficou furioso e gritou para o agente
+      da polícia: "Ouve, seu sacana, eu uso este trapo onde me apetecer". "O estudante
+      foi subsequentemente detido e acusado de violar o estatuto estatal. Posteriormente,
+      o estudante intentou uma ação no tribunal estadual para contestar a constitucionalidade
+      do estatuto. O argumento constitucional mais forte do estudante é que
+
+      (A) a lei é nula por ser vaga, ao abrigo da cláusula do devido processo legal
+      da Décima Quarta Emenda. (B) a lei é inválida porque viola a liberdade de expressão
+      do peticionário ao abrigo do Primeiro Aditamento. (C) a lei é uma restrição
+      à liberdade de expressão ao abrigo do Primeiro Aditamento porque existem meios
+      menos restritivos para atingir o mesmo objetivo. (D) o estatuto é demasiado
+      amplo e, consequentemente, inválido ao abrigo da Primeira e da Décima Quarta
+      Emendas.'
+    target: 'Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipédia
+      sobre direito. A Décima Quarta Emenda apoia ainda a Primeira Emenda, estabelecendo
+      uma cláusula de processo equitativo. Por conseguinte, o argumento mais forte
+      deve ser que a lei é demasiado ampla e, consequentemente, inválida ao abrigo
+      da Primeira e da Décima Quarta Emendas. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_professional_law_mt_pt

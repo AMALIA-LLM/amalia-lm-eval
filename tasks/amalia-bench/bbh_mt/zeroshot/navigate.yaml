@@ -1,0 +1,16 @@
+"dataset_name": "navigate"
+"description": "Dada uma série de instruções de navegação, determinar se uma pessoa
+  acabaria por regressar ao ponto de partida.\n\n"
+"doc_to_text": "P: {{input}}\nR:"
+"include": "_zeroshot_template_yaml"
+"task": "bbh_zeroshot_navigate_mt_pt"
+filter_list:
+- name: "strict-match"
+  filter:
+  - function: "take_first"
+- name: "flexible-extract"
+  filter:
+  - function: "regex"
+    group_select: 0
+    regex_pattern: "\\b(Sim|Não|sim|não)\\b"
+  - function: "take_first"

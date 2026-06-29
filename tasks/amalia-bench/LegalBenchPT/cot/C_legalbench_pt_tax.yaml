@@ -1,0 +1,13 @@
+group: amalia_legalbench_pt_tax_cot
+group_alias: tax_cot
+task: 
+  - amalia_legalbench_pt_tax_multiple_selection_questions_cot
+  - amalia_legalbench_pt_tax_multiple_choice_cot
+  - amalia_legalbench_pt_tax_true_false_cot
+  - amalia_legalbench_pt_tax_cloze_tasks_cot
+  - amalia_legalbench_pt_tax_matching_questions_cot
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

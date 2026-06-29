@@ -1,0 +1,159 @@
+dataset_name: high_school_us_history_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre História
+  dos EUA no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Esta pergunta refere-se à seguinte informação.\nNão venho para fazer
+      reivindicações pessoais, nem para procurar benefícios individuais; apareço como
+      o advogado daqueles que não podem defender a sua própria causa; venho como o
+      amigo daqueles que estão abandonados, oprimidos e desolados. Na Providência
+      de Deus, eu sou a voz do maníaco cujos gritos lancinantes das masmorras sombrias
+      das vossas prisões não penetram nos vossos Salões de Legislação. Eu sou a Esperança
+      dos pobres seres enlouquecidos que definham nas celas, nos estábulos, nas gaiolas
+      e nos quartos vazios das vossas casas de pobres. Eu sou a Revelação de centenas
+      de criaturas que se lamentam e sofrem, escondidas nas vossas habitações privadas,
+      e em currais e cabanas - isoladas, afastadas de todas as influências curativas,
+      de todos os cuidados que restauram a mente.... Se as suas histórias melancólicas
+      pudessem ser divulgadas diante de vós, como reveladas ao meu espírito aflito
+      durante os últimos três meses, quão prontamente, quão seriamente procuraríeis
+      os meios mais aprovados de alívio; quão triviais, quão insignificantes, em comparação,
+      pareceriam os sacrifícios que vos são pedidos para fazer; como alguns centavos
+      e dólares, recolhidos de cada cidadão, diminuiriam de valor como uma posse,
+      em comparação com os benefícios certos e o vasto bem a ser assegurado para os
+      loucos sofredores.... pela consagração e aplicação de um fundo suficiente para
+      a construção de um hospital adequado....\n -Dorothea Dix, Memorial Solicitando
+      um Hospital Estatal para a Proteção e Cura dos Insanos,\nApresentado à Assembleia
+      Geral da Carolina do Norte, novembro de 1848\nDorothea Dix pode ser comparada
+      a quem?\n(A) Abigail Adams (B) Clara Barton (C) Shirley Temple (D) Hillary Clinton"
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a história dos Estados Unidos. Tanto Dorothea Dix como Clara Barton são
+      enfermeiras americanas. A resposta é (B).
+  - question: "Esta pergunta refere-se à seguinte informação.\n\"Uma vez que a nossa
+      conduta recente em Conestoga Manor e Lancaster deu origem a muita especulação
+      e a uma grande diversidade de sentimentos neste e nos governos vizinhos; alguns
+      defendendo-a e outros condenando-a; alguns aliviando caridosamente o crime e
+      outros pintando-o maliciosamente com as cores mais odiosas e detestáveis, achamos
+      que é nosso dever apresentar ao público todo o assunto tal como nos pareceu
+      e ainda parece. . . .\n\"Se estas coisas não forem suficientes para provar um
+      apego injustificável dos Quakers aos índios selvagens, uma resolução fixa de
+      fazer amizade com eles e uma insensibilidade total às aflições humanas, consideremos
+      alguns factos mais recentes. Quando, no verão passado, verificámos que não era
+      provável que recebêssemos qualquer assistência do Governo, alguns voluntários
+      saíram às nossas próprias custas, determinados a expulsar os nossos inimigos
+      das nossas fronteiras; e quando nos aproximámos da grande ilha, soubemos que
+      um número dos seus guerreiros tinha ido contra as nossas fronteiras. Depois
+      disto, regressámos, alcançámo-los e lutámos com eles em Munfey Hill, onde perdemos
+      alguns dos nossos homens e matámos alguns dos seus guerreiros, salvando assim
+      as nossas fronteiras desta história numa outra expedição. Mas assim que destruímos
+      as suas provisões na grande ilha e arruinámos o seu comércio com a boa gente
+      de Bethlehem, estes mesmos índios, que eram justamente suspeitos de terem assassinado
+      os nossos amigos no condado de Northampton, foram, por influência de alguns
+      Quakers, colocados sob a proteção do Governo para os proteger dos ressentimentos
+      dos amigos e parentes dos assassinados e para os apoiar durante o inverno.\"\
+      \n- \"Apology of the Paxton Boys\" (panfleto), 1764 (Nota: \"apologia\" neste
+      contexto deve ser lida como uma explicação, não como uma admissão de culpa ou
+      arrependimento.\nOs sentimentos expressos na explicação acima reflectem qual
+      das tensões existentes durante o período colonial da história americana?\n (A)
+      As tensões entre as políticas britânicas e as aspirações dos colonos norte-americanos.
+      (B) Tensões entre os índios americanos aliados dos franceses e os aliados dos
+      britânicos. (C) Tensões entre os afro-americanos libertados e os plantadores
+      brancos. (D) Tensões entre os colonos do interior e as elites da América colonial."
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre a nossa história. Após a Guerra Franco-Indígena, os colonos escoceses-irlandeses
+      atacaram os índios americanos. Após os ataques aos Conestoga, cerca de 250 Paxton
+      Boys apresentaram as suas queixas à legislatura da Pensilvânia. Tal como mencionado
+      na informação, os Paxton Boys citaram o ressentimento das elites locais. A resposta
+      é (D).
+  - question: "Esta pergunta refere-se à seguinte informação.\nOs nossos dirigentes
+      falam em travar a agressão do Norte, mas esta era uma luta entre grupos de vietnamitas
+      até à nossa intervenção. Parece que estamos empenhados em salvar os vietnamitas
+      de Ho Chi Minh, mesmo que para isso tenhamos de os matar e demolir o seu país.
+      Quando os nativos observam as aldeias bombardeadas, as mulheres e as crianças
+      queimadas pelo napalm, as culturas de arroz destruídas e as cidades invadidas
+      pelo nosso pessoal militar, estão sem dúvida a dizer em segredo aos guerrilheiros
+      vietcongues e às forças americanas: \"Uma praga para ambas as vossas casas\"\
+      . ... Parar os bombardeamentos, a norte e a sul, acabar com as ofensivas de
+      busca e destruição e limitar a nossa ação militar a operações de manutenção
+      no terreno. O bombardeamento do norte não conseguiu travar ou controlar seriamente
+      o fluxo de tropas para o sul e pode, de facto, ter levado Hanói a um esforço
+      de guerra muito maior.\n-Senador George McGovern, \"The Lessons of Vietnam\"\
+      , 25 de abril de 1967\nQual das seguintes opiniões da década de 1960 reflecte
+      mais diretamente a perspetiva do discurso de George McGovern?\n(A) Os americanos
+      devem maximizar a sua vantagem tecnológica no Vietname. (B) Os bombardeamentos
+      americanos no Vietname conduzem, passo a passo, ao progresso da guerra. (C)
+      Os bombardeamentos americanos no Vietname são um fracasso. (D) Os Estados Unidos
+      não devem ceder ao derrotismo em relação à guerra no Vietname."
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a história dos EUA. "Stop the bombing" e "Bombing the north has failed
+      to halt or seriously check the flow of troops to the south" indicam que a perspetiva
+      do discurso de George McGovern é que os bombardeamentos americanos no Vietname
+      são um fracasso. A resposta é (C).
+  - question: "Esta pergunta refere-se à seguinte informação.\n\"No novo Código de
+      Leis que suponho que será necessário elaborar, desejo que se lembrem das Senhoras
+      e sejam mais generosos e favoráveis para com elas do que os vossos antepassados.
+      Não ponham um poder tão ilimitado nas mãos dos maridos. Lembrai-vos de que todos
+      os homens seriam tiranos se pudessem. Se não for prestada especial atenção e
+      cuidado às senhoras, estamos decididos a fomentar uma rebelião e não nos vamos
+      deixar vincular por quaisquer leis em que não tenhamos voz ou representação.\"\
+      \n Abigail Adams, numa carta a John Adams, 1776\n\"A legislação especial para
+      as mulheres colocou-nos numa posição muito anómala. As mulheres investidas dos
+      direitos de cidadãs numa secção - eleitoras, juradas, titulares de cargos -
+      atravessando uma linha imaginária, são súbditas na secção seguinte. Nalguns
+      Estados, uma mulher casada pode ter propriedades e fazer negócios em seu próprio
+      nome; noutros, os seus rendimentos pertencem ao marido. Nalguns Estados, a mulher
+      pode testemunhar contra o marido, processar e ser processada em tribunal; noutros,
+      não tem direito a reparação em caso de danos pessoais, patrimoniais ou de carácter.
+      Em caso de divórcio devido a adultério do marido, a mulher inocente não tem
+      direito a filhos ou bens, exceto por decreto especial do tribunal. No entanto,
+      em nenhum Estado da União a mulher tem direito à sua própria pessoa ou a qualquer
+      parte dos rendimentos comuns da parceria durante a vida do marido. Nalguns Estados,
+      as mulheres podem entrar nas escolas de direito e exercer a profissão nos tribunais;
+      noutros, são proibidas. Nalgumas universidades, as raparigas gozam de vantagens
+      educativas iguais às dos rapazes, enquanto muitas das instituições mais orgulhosas
+      do país lhes negam a admissão, embora os filhos da China, do Japão e de África
+      sejam aí bem-vindos. Mas os privilégios já concedidos nos vários Estados não
+      são de modo algum seguros.\"\nSusan B. Anthony, \"Declaração dos Direitos das
+      Mulheres\", 4 de julho de 1876\nOs sentimentos expressos no segundo excerto
+      de Susan B. Anthony são provavelmente de apoio\n(A) a Emenda da Igualdade de
+      Direitos (B) o sufrágio universal (C) os direitos dos Estados (D) a proibição"
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre a história dos EUA. A informação acima menciona que as mulheres se encontram
+      numa posição anómala em termos de legislação. Os rendimentos das mulheres não
+      lhes pertencem, ou não podem testemunhar contra os seus maridos. Susan acredita
+      que as mulheres devem ter direitos legais iguais aos dos homens. A resposta
+      é (B).
+  - question: 'Esta pergunta refere-se à seguinte informação.
+
+      "A sociedade, em qualquer estado, é uma bênção, mas o governo, mesmo no seu
+      melhor estado, é apenas um mal necessário; no seu pior estado, um mal intolerável;
+      porque quando sofremos, ou estamos expostos às mesmas misérias por um governo,
+      o que poderíamos esperar num país sem governo, a nossa calamidade é aumentada
+      ao refletir que fornecemos os meios pelos quais sofremos. O governo, como o
+      vestuário, é a insígnia da inocência perdida; os palácios dos reis são construídos
+      sobre as ruínas das entranhas do paraíso. Pois se os impulsos da consciência
+      fossem claros, uniformes e irresistivelmente obedecidos, o homem não precisaria
+      de nenhum outro legislador; mas não sendo esse o caso, ele acha necessário abrir
+      mão de uma parte de sua propriedade para fornecer meios para a proteção do resto;
+      e isso ele é induzido a fazer pela mesma prudência que em todos os outros casos
+      o aconselha a escolher o menor de dois males. Portanto, sendo a segurança o
+      verdadeiro desígnio e fim do governo, é incontestável que qualquer forma que
+      nos pareça mais suscetível de a garantir, com o menor custo e o maior benefício,
+      é preferível a todas as outras."
+
+      Thomas Paine, Common Sense, 1776
+
+      Quais das seguintes "misérias" acima referidas foram mais condenadas pelos Anti-Federalistas
+      da era pós-Revolucionária?
+
+      (A) Resposta organizada à Rebelião de Bacon (B) Resposta federal à Rebelião
+      de Shays (C) Resposta federal à Rebelião do Whiskey (D) Resposta federal à Rebelião
+      de Pontiac'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a história dos EUA. Os anti-federalistas não acreditam no poder centralizado
+      do governo e suspeitam da resposta militar de Washington à Rebelião do Whiskey.
+      A Rebelião de Bacon e a Rebelião de Pontiac ocorreram antes da Revolução e podem
+      ser excluídas. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_us_history_mt_pt

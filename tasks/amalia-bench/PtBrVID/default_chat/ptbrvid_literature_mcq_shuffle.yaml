@@ -1,0 +1,3 @@
+"dataset_name": "literature"
+"include": "_default_template.yaml"
+"task": "amalia_ptbrvid_literature_mcq_shuffle_chat"

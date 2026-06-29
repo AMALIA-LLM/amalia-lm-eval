@@ -1,0 +1,82 @@
+dataset_name: high_school_statistics_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre estatística
+  no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Um novo smartwatch é fabricado numa parte de uma fábrica e depois é
+      preparado para expedição noutra parte independente da fábrica. O peso do smartwatch
+      tem uma média de 62 gramas e um desvio padrão de 1,0 gramas. O peso da embalagem
+      (caixa, manual do utilizador, plástico de bolhas, etc.) tem uma média de 456
+      gramas e um desvio padrão de 6 gramas. Em conjunto, a distribuição do peso do
+      smartwatch e da sua embalagem teria a seguinte média e desvio padrão:
+
+      (A) Média de 518 gramas; desvio padrão de 7,0 gramas (B) Média de 518 gramas;
+      desvio padrão de 3,5 gramas (C) Média de 518 gramas; desvio padrão de 6,1 gramas
+      (D) Média de 394 gramas; desvio padrão de 6,1 gramas'
+    target: Vamos pensar passo a passo. Uma vez que o peso do relógio e o peso da
+      embalagem são variáveis aleatórias independentes, a média e a variância da sua
+      soma são iguais à soma das suas médias e variâncias individuais. Assim, a média
+      é 62 + 456 = 518 gramas e as variâncias são 1,0^2 + 6,0^2 = 37, o que leva a
+      um desvio padrão de 6,1 gramas. A resposta é (C).
+  - question: 'Depois de ter sido emitido um aviso de geada, o proprietário de um
+      grande laranjal pediu aos seus trabalhadores que pulverizassem todas as suas
+      árvores com água. A água deveria congelar e formar uma camada protetora de gelo
+      à volta da flor da laranjeira. No entanto, o proprietário suspeitava que algumas
+      árvores tinham sofrido danos consideráveis devido à geada. Para estimar a proporção
+      de árvores que sofreram mais de 50% de danos devido à geada, ele retirou uma
+      amostra aleatória de 100 árvores do seu pomar. Qual é a variável de resposta
+      nesta experiência?
+
+      (A) A proporção de árvores que sofreram mais de 50% de danos devido à geada.
+      (B) O número de árvores afectadas pela geada. (C) O número de árvores amostradas
+      do bosque. (D) Para cada árvore amostrada, se ela sofreu mais de 50% de danos
+      ou no máximo 50% de danos.'
+    target: Vamos pensar passo a passo. Nesta experiência, a variável de resposta
+      é o que é medido. Para cada árvore, o que é medido é se ela sofreu ou não mais
+      de 50% de danos devido à geada. A resposta é (D).
+  - question: 'Suponha que X e Y são variáveis aleatórias com E(X) = 37, var(X) =
+      5, E(Y) = 62, e var(Y) = 12. Qual é o valor esperado e a variância da variável
+      aleatória X + Y?
+
+      (A) E(X + Y) = 99, var(X + Y) = 8,5 (B) E(X + Y) = 99, var(X + Y) = 13 (C) E(X
+      + Y) = 99, var(X + Y) = 17 (D) Não há informação suficiente para responder a
+      esta questão.'
+    target: Vamos pensar passo a passo. Enquanto as médias de somas de variáveis aleatórias
+      se adicionam (independentemente de as variáveis serem independentes), para determinar
+      a variância de uma soma de variáveis aleatórias, precisamos de conhecer não
+      só as suas variâncias individuais, mas também a covariância das duas variáveis,
+      que não é dada neste problema. A resposta é (D).
+  - question: 'Qual dos seguintes conjuntos tem o menor desvio padrão? Qual deles
+      tem o maior?
+
+      I: {1,2,3}
+
+      II: {-10,10}
+
+      III: {100}
+
+      (A) I, II (B) II, III (C) III, I (D) III, II'
+    target: Vamos pensar passo a passo. A variância da distribuição I é o desvio esperado
+      ao quadrado da sua média (que é 2), pelo que a variância é 2/3 . A variância
+      da distribuição II é 10^2 (porque ambos os elementos estão a 10 de distância
+      da média de zero). A variância da distribuição III é 0, uma vez que tem uma
+      única entrada. Assim, a distribuição III tem o menor desvio padrão e a distribuição
+      II tem o maior. A resposta é (D).
+  - question: 'Qual das seguintes é uma afirmação correta sobre a correlação?
+
+      (A) Se o declive da reta de regressão for exatamente 1, então a correlação é
+      exatamente 1. (B) Se a correlação for 0, então o declive da reta de regressão
+      é indefinido. (C) Mudar qual variável é chamada de x e qual é chamada de y muda
+      o sinal da correlação. (D) A correlação r é igual ao declive da reta de regressão
+      quando as pontuações z da variável y são representadas num gráfico em relação
+      às pontuações z da variável x.'
+    target: 'Vamos pensar passo a passo. A afirmação A é falsa porque o declive da
+      reta de regressão ser exatamente 1 pode ocorrer mesmo quando as duas variáveis
+      não estão perfeitamente correlacionadas. A afirmação B é falsa porque as rectas
+      de regressão de variáveis não correlacionadas podem ter um declive zero. A afirmação
+      C é falsa porque a correlação é simétrica nas duas variáveis aleatórias. A resposta
+      é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_statistics_mt_pt

@@ -1,0 +1,14 @@
+group: amalia_legalbench_pt_securities
+group_alias: securities
+task: 
+  - amalia_legalbench_pt_securities_matching_questions
+  - amalia_legalbench_pt_securities_case_analysis_questions
+  - amalia_legalbench_pt_securities_multiple_choice
+  - amalia_legalbench_pt_securities_true_false
+  - amalia_legalbench_pt_securities_multiple_selection_questions
+  - amalia_legalbench_pt_securities_cloze_tasks
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

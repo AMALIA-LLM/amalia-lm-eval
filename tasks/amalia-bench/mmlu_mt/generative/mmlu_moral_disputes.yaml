@@ -1,0 +1,7 @@
+"dataset_name": "moral_disputes_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre disputas
+  morais.\n\n"
+"tag": "amalia_mmlu_humanities_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_moral_disputes_generative_mt_pt"
+"task_alias": "moral_disputes"

@@ -1,0 +1,6 @@
+"dataset_name": "business_ethics_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre ética
+  empresarial.\n\n"
+"tag": "amalia_mmlu_flan_n_shot_loglikelihood_other_mt_pt"
+"include": "_mmlu_flan_loglikelihood_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_loglikelihood_business_ethics_mt_pt"

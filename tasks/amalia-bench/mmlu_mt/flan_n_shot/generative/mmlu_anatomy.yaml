@@ -1,0 +1,6 @@
+"dataset_name": "anatomy_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre anatomia.\n\
+  \n"
+"tag": "amalia_mmlu_flan_n_shot_generative_stem_mt_pt"
+"include": "_mmlu_flan_generative_template_yaml"
+"task": "amalia_mmlu_flan_n_shot_generative_anatomy_mt_pt"

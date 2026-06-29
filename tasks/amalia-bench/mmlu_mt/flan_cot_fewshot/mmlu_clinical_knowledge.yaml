@@ -1,0 +1,53 @@
+dataset_name: clinical_knowledge_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre conhecimentos
+  clínicos.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Glicólise é o nome dado à via que envolve a conversão de:
+
+      (A) glicogénio em glicose-1-fosfato. (B) glicogénio ou glicose em frutose. (C)
+      glicogénio ou glicose em piruvato ou lactato. (D) glicogénio ou glicose em piruvato
+      ou acetil CoA.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre conhecimentos clínicos. Glicólise é o nome dado à via que envolve a conversão
+      de glicogénio ou glicose em piruvato ou lactato. A resposta é (C).
+  - question: 'Qual é a diferença entre um cateter masculino e um cateter feminino?
+
+      (A) Os cateteres masculinos e femininos são de cores diferentes. (B) Os cateteres
+      masculinos são mais compridos do que os femininos. (C) Os cateteres masculinos
+      são maiores do que os femininos. (D) Os cateteres femininos são mais compridos
+      do que os cateteres masculinos.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre conhecimentos clínicos. A diferença entre um cateter masculino e um feminino
+      é que os cateteres masculinos tendem a ser mais compridos do que os femininos.
+      A resposta é (B).
+  - question: 'Quantas tentativas devem ser feitas para canular um doente antes de
+      passar a tarefa a um colega sénior, de acordo com os conhecimentos médicos de
+      2020?
+
+      (A) 4 B) 3 C) 2 D) 1'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre conhecimentos clínicos. De acordo com o protocolo médico de 2020, deve
+      fazer duas tentativas para canular um doente antes de passar a tarefa a um profissional
+      mais experiente. A resposta é (C).
+  - question: 'Na avaliação da função da mão, qual das seguintes afirmações é verdadeira?
+
+      (A) A abdução do polegar é fornecida pela raiz espinal T2 (B) A oposição do
+      polegar pelo oponente policis é fornecida pela raiz espinal T1 (C) A adução
+      do dedo é fornecida pelo nervo mediano (D) A abdução do dedo é mediada pelo
+      interósseo palmar'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre conhecimentos clínicos. De todas as opções, só é verdade que a oposição
+      do polegar pelo oponente do polegar é fornecida pela raiz espinal T1. A resposta
+      é (B).
+  - question: 'A energia para todas as formas de contração muscular é fornecida por:
+
+      (A) ATP. (B) ADP. (C) fosfocreatina. (D) fosforilação oxidativa.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre conhecimentos clínicos. A energia para a contração muscular
+      é fornecida pelo ATP (adenosina trifosfato), que é a força motriz da célula.
+      A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_clinical_knowledge_mt_pt

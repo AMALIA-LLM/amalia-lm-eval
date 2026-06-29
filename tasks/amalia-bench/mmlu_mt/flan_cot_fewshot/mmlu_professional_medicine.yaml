@@ -1,0 +1,83 @@
+dataset_name: professional_medicine_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre medicina
+  profissional.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: "Um homem de 22 anos, maratonista, apresenta-se no consultório com queixas
+      de dores nas costelas do lado direito quando corre longas distâncias. O exame
+      físico revela achados cardíacos e pulmonares normais e uma disfunção da expiração
+      nas costelas 4-5 do lado direito. Qual dos seguintes músculos ou grupos musculares
+      será mais útil para corrigir esta disfunção utilizando um método direto?\n(A)
+      escaleno anterior (B) latissimus dorsi (C) pectoralis minor (D) quadratus lumborum"
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre medicina. Entre as opções, apenas o músculo peitoral menor tem origem
+      nas superfícies externas da 3ª à 5ª costelas. A resposta é (C).
+  - question: "Um homem de 36 anos apresenta-se no consultório com um historial de
+      dor lombar com 3 semanas. Nega qualquer traumatismo recente, mas afirma que
+      entra e sai do seu camião várias vezes por dia no seu trabalho. O exame do doente
+      em decúbito ventral revela um sulco sacral profundo à esquerda, um ângulo lateral
+      inferior posterior à direita e uma junção lombossacra que se move livremente
+      à compressão. O diagnóstico mais provável é\n(A) torção sacral esquerda sobre
+      esquerda (B) torção sacral esquerda sobre direita (C) flexão sacral unilateral
+      direita (D) torção sacral direita sobre direita"
+    target: Vamos pensar passo a passo. Para ajuda, consultamos os artigos da Wikipédia
+      sobre medicina. O sulco profundo à esquerda, um ILA posterior à direita, com
+      um teste de mola negativo, sugere uma torção sacral direita-à-direita. Todas
+      as outras opções têm um sulco profundo à direita. A resposta é (D).
+  - question: "Um homem de 44 anos vem ao consultório devido a um historial de 3 dias
+      de dor de garganta, tosse não produtiva, corrimento nasal e cefaleia frontal.
+      Diz que a dor de cabeça é pior de manhã e que o ibuprofeno lhe dá algum alívio.
+      Não tem tido falta de ar. Os antecedentes médicos não são dignos de registo.
+      Não toma outros medicamentos para além do ibuprofeno para as dores. Os sinais
+      vitais são: temperatura 37,4°C, pulso 88/min, respiração 18/min e pressão arterial
+      120/84 mm Hg. O exame das narinas mostra membranas mucosas eritematosas. O exame
+      da garganta mostra eritema e hiperplasia linfoide folicular na orofaringe posterior.
+      Não há adenopatia cervical palpável. Os pulmões estão limpos à auscultação.
+      Qual das seguintes é a causa mais provável dos sintomas deste doente?\n (A)
+      Rinite alérgica (B) Vírus Epstein-Barr (C) Pneumonia por Mycoplasma (D) Rinovírus"
+    target: Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos da
+      Wikipédia sobre medicina. Os sintomas, especialmente a dor de cabeça, sugerem
+      que a causa mais provável é o rinovírus. O vírus Epstein-Barr provoca inchaço
+      dos gânglios linfáticos, mas não há adenopatia cervical palpável. Os pulmões
+      estão limpos à auscultação, o que sugere que não se trata de pneumonia por Mycoplasma.
+      A resposta é (D).
+  - question: 'Uma mulher de 32 anos, previamente saudável, vem ao médico 8 meses
+      depois de o seu marido ter morrido num acidente de viação. Desde essa altura,
+      tem tido uma diminuição do apetite e dificuldade em adormecer. Afirma que está
+      muitas vezes triste e que chora frequentemente. Tem verificado cinco vezes a
+      fechadura da porta antes de sair de casa e tem de contar exatamente cinco pedaços
+      de papel higiénico antes de o utilizar. Diz que sempre foi perfeccionista, mas
+      que estes impulsos e rituais são novos. A farmacoterapia deve ser direcionada
+      para qual dos seguintes neurotransmissores?
+
+      (A) Dopamina (B) Glutamato (C) Norepinefrina (D) Serotonina'
+    target: Vamos pensar passo a passo. Consultamos os artigos da Wikipédia sobre
+      medicina para obter ajuda. O doente sente-se triste e, entre as opções, apenas
+      a dopamina e a serotonina podem ajudar a aumentar as emoções positivas. A serotonina
+      também afecta a digestão e o metabolismo, o que pode ajudar o doente a diminuir
+      o apetite e a ter dificuldade em dormir. A resposta é (D).
+  - question: "Um homem de 42 anos vem ao consultório para uma avaliação pré-operatória
+      antes de se submeter a uma adrenalectomia programada para daqui a 2 semanas.
+      Há um mês, foi atendido no serviço de urgência por dores no flanco direito na
+      sequência de uma colisão com um veículo motorizado. Nessa altura, a tensão arterial
+      era de 160/100 mm Hg e a TAC do abdómen mostrou uma massa adrenal esquerda de
+      10 cm. Os resultados dos estudos laboratoriais, incluindo hemograma completo,
+      concentrações séricas de electrólitos e testes de função hepática, estavam dentro
+      dos intervalos de referência. O doente era saudável e nunca lhe tinha sido dito
+      que tinha a tensão arterial elevada. Não toma quaisquer medicamentos. Uma consulta
+      de acompanhamento no consultório há 2 semanas revelou concentrações elevadas
+      de normetanefrina e metanefrina urinárias e de aldosterona plasmática. O doente
+      foi encaminhado para um cirurgião, que recomendou a adrenalectomia. Hoje, os
+      sinais vitais são: temperatura 36,6°C, pulso 100/min, respiração 14/min e pressão
+      arterial 170/95 mm Hg. O exame físico não revela achados significativos. A preparação
+      pré-operatória inicial deve incluir tratamento com qual das seguintes substâncias?\n
+      (A) Labetalol (B) Uma dose de carga de cloreto de potássio (C) Nifedipina (D)
+      Fenoxibenzamina"
+    target: 'Vamos pensar passo a passo. Para obter ajuda, consultamos os artigos
+      da Wikipédia sobre medicina. Os sintomas e a massa adrenal sugerem feocromocitoma,
+      e a tensão arterial indica hipertensão. A fenoxibenzamina é utilizada para tratar
+      a hipertensão causada pelo feocromocitoma. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_other_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_professional_medicine_mt_pt

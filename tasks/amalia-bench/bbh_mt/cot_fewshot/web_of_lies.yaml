@@ -1,0 +1,57 @@
+dataset_name: web_of_lies
+description: 'Avaliar uma função booleana aleatória expressa como um problema de palavras.
+
+
+  '
+doc_to_text: 'P: {{input}}
+
+  R: Vamos pensar passo a passo.
+
+  '
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: 'Pergunta: Fidel diz a verdade. Jerry diz que Fidel diz a verdade. Vina
+      diz que Jerry diz a verdade. Millicent diz que Vina mente. Raimundo diz que
+      Millicent mente. O Raymond diz a verdade?'
+    target: "Vamos pensar passo a passo.\n(1) Fidel diz a verdade. Portanto, sabemos
+      que Fidel diz a verdade.\n(2) O Jerry diz que o Fidel diz a verdade. Como sabemos
+      de (1) que Fidel diz a verdade, se o Jerry diz que Fidel diz a verdade, então
+      Jerry diz a verdade.\n(3) Vina diz que Jerry diz a verdade. Como sabemos de
+      (2) que Jerry diz a verdade, se Vina diz que Jerry diz a verdade, então Vine
+      diz a verdade.\n(4) Millicent diz que Vina mente. Como sabemos de (3) que Vina
+      diz a verdade, se Millicent diz que Vina mente, então Millicent mente.\n(5)
+      O Raimundo diz que a Millicent mente. Como sabemos de (4) que a Millicent mente,
+      se o Raimundo diz que a Millicent mente, então o Raimundo diz a verdade.\nAgora,
+      a pergunta é: O Raymond diz a verdade? Sabemos por (5) que o Raimundo diz a
+      verdade. Portanto, a resposta é Sim."
+  - input: 'Pergunta: Kristian mente. A Millie diz que o Kristian mente. Maybelle
+      diz que Millie diz a verdade. Fidel diz que Maybelle mente. Leda diz que Fidel
+      mente. Leda diz a verdade?'
+    target: "Vamos pensar passo a passo.\n(1) O Cristiano mente. Portanto, sabemos
+      que o Cristiano mente.\n(2) A Millie diz que o Cristiano mente. Como sabemos
+      em (1) que o Cristiano mente, se a Mílina diz que o Cristiano mente, então a
+      Mílina diz a verdade.\n(3) A Maybelle diz que a Millie diz a verdade. Como sabemos
+      de (2) que a Millie diz a verdade, se a Maybelle diz que a Millie diz a verdade,
+      então a Maybelle diz a verdade.\n(4) O Fidel diz que a Maybelle está a mentir.
+      Como sabemos de (3) que a Maybelle diz a verdade, se o Fidel diz que a Maybelle
+      mente, então o Fidel mente.\n(5) A Leda diz que o Fidel mente. Como sabemos
+      de (4) que Fidel mente, se Leda diz que Fidel mente, então Leda diz a verdade.\n
+      Agora, a pergunta é: A Leda diz a verdade? Sabemos por (5) que a Leda diz a
+      verdade. Portanto, a resposta é Sim."
+  - input: 'Pergunta: Kristian diz a verdade. Michaela diz que Kristian está a mentir.
+      Raimundo diz que Michaela diz a verdade. Osvaldo diz que Raymond diz a verdade.
+      Jamey diz que Osvaldo diz a verdade. Será que Jamey diz a verdade?'
+    target: "Vamos pensar passo a passo.\n(1) O Cristiano diz a verdade. Portanto,
+      sabemos que o Cristiano diz a verdade.\n(2) A Michaela diz que o Cristiano está
+      a mentir. Como sabemos em (1) que o Cristiano diz a verdade, se a Michaela diz
+      que o Cristiano mente, então a Michaela mente.\n(3) O Raimundo diz que a Michaela
+      diz a verdade. Como sabemos de (2) que Michaela mente, se Raimundo diz que Michaela
+      diz a verdade, então Raimundo mente.\n(4) O Osvaldo diz que o Raimundo diz a
+      verdade. Como sabemos de (3) que o Raimundo mente, se o Osvaldo diz que o Raimundo
+      diz a verdade, então o Osvaldo mente.\n(5) Jamey diz que Osvaldo diz a verdade.
+      Como sabemos de (4) que Osvaldo mente, se Jamey diz que Osvaldo diz a verdade,
+      então Jamey mente.\nAgora, a pergunta é: A Jamey diz a verdade? Sabemos por
+      (5) que Jamey mente. Portanto, a resposta é Não."
+include: _cot_fewshot_template_yaml
+task: bbh_cot_fewshot_web_of_lies_mt_pt

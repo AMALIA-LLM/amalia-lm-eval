@@ -1,0 +1,3 @@
+"dataset_name": "morphology"
+"include": "_default_template_yaml"
+"task": "alba_morphology_two_options_mcq"

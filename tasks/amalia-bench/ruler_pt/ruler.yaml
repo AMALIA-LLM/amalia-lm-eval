@@ -1,0 +1,30 @@
+group: ruler_pt
+task:
+  - niah_single_1_pt
+  - niah_single_2_pt
+  - niah_single_3_pt
+  - niah_multikey_1_pt
+  - niah_multikey_2_pt
+  - niah_multikey_3_pt
+  - niah_multiquery_pt
+  - niah_multivalue_pt
+  - ruler_vt_pt
+  - ruler_cwe_pt
+  - ruler_fwe_pt
+  - ruler_qa_squad_pt
+  - ruler_qa_hotpot_pt
+aggregate_metric_list:
+  - metric: "4096"
+    weight_by_size: False
+  - metric: "8192"
+    weight_by_size: False
+  - metric: "16384"
+    weight_by_size: False
+  - metric: "32768"
+    weight_by_size: False
+  - metric: "65536"
+    weight_by_size: False
+  - metric: "131072"
+    weight_by_size: False
+metadata:
+  version: 1.0

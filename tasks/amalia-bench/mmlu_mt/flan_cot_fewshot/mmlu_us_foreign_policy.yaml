@@ -1,0 +1,60 @@
+dataset_name: us_foreign_policy_PT-PT
+description: As perguntas seguintes são de escolha múltipla (com respostas) sobre
+  a política externa dos EUA.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Como é que Donald Trump atacou a globalização na campanha de 2016?
+
+      (A) A globalização tinha tornado homens como ele demasiado ricos (B) A globalização
+      só beneficiava certos estados americanos, como Nova Iorque (C) As elites liberais
+      tinham encorajado a globalização, enquanto os "americanos comuns" perdiam empregos
+      por causa dela (D) A globalização encorajava guerras comerciais prejudiciais'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a política externa dos EUA. Trump atacou a globalização porque acreditava
+      que os americanos comuns perdiam empregos devido a ela e, por isso, queria culpar
+      os liberais que a tinham encorajado. A resposta é (C).
+  - question: 'Como é que o NSC-68 alterou a estratégia dos EUA?
+
+      (A) Globalizou a contenção. (B) Militarizou a contenção. (C) Apelou ao desenvolvimento
+      da bomba de hidrogénio. (D) Todas as anteriores'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a política externa dos EUA. O NSC-68 delineou uma variedade de linhas
+      de ação, incluindo a globalização da contenção, a militarização do contágio
+      e o desenvolvimento da bomba de hidrogénio. A resposta é (D).
+  - question: 'Em que é que o Realismo Defensivo e o Realismo Ofensivo diferem na
+      sua explicação do comportamento dos Estados?
+
+      (A) Os realistas defensivos dão maior ênfase ao papel das instituições internacionais
+      (B) Os realistas defensivos dão menos ênfase aos factores geográficos (C) Os
+      realistas ofensivos dão mais prioridade ao interesse nacional do que os realistas
+      defensivos. (D) Os realistas defensivos acreditam que os Estados são maximizadores
+      da segurança, enquanto os realistas ofensivos acreditam que os Estados são maximizadores
+      do poder'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a política externa dos EUA. Enquanto o realismo defensivo defende que
+      os Estados são maximizadores de segurança, os realistas ofensivos pensam nos
+      Estados como maximizadores de poder. A resposta é (D).
+  - question: 'O domínio das decisões políticas que dizem respeito principalmente
+      às relações entre os Estados Unidos e o resto do mundo é conhecido como
+
+      (A) política de terrorismo. (B) política económica. (C) política externa. (D)
+      política internacional.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a política externa dos EUA. O tema das decisões políticas relacionadas
+      com as relações entre os EUA e o resto do mundo é conhecido como política externa.
+      A resposta é (C).
+  - question: 'Como é que a crise financeira de 2008 afectou a reputação internacional
+      dos Estados Unidos?
+
+      (A) Prejudicou o apoio ao modelo de economia política e de capitalismo dos EUA
+      (B) Criou uma ira contra os Estados Unidos por terem exagerado a crise (C) Aumentou
+      o apoio à liderança global dos EUA sob a direção do Presidente Obama (D) Reduziu
+      a utilização global do dólar americano'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre a política externa dos EUA. A crise financeira de 2008 prejudicou a reputação
+      internacional do modelo americano de economia política e capitalismo. A resposta
+      é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_us_foreign_policy_mt_pt

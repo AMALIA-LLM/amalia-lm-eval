@@ -1,0 +1,7 @@
+"dataset_name": "econometrics_PT-PT"
+"description": "Seguem-se perguntas de escolha múltipla (com respostas) sobre econometria.\n\
+  \n"
+"tag": "amalia_mmlu_social_sciences_generative_mt_pt"
+"include": "_default_template_yaml"
+"task": "amalia_mmlu_econometrics_generative_mt_pt"
+"task_alias": "econometrics"

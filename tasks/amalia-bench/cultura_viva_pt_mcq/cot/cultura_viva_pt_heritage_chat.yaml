@@ -1,0 +1,4 @@
+include: _default_template_chat_yaml
+task: cultura_viva_pt_heritage_chat_cot
+tag: cultura_viva_pt_tasks_cot
+process_docs: !function utils.process_docs_heritage

@@ -1,0 +1,65 @@
+dataset_name: logical_fallacies_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre falácias
+  lógicas.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Quando um argumentador causa confusão durante a refutação devido a
+      uma falta real ou fingida de capacidade para se envolver na refutação, esse
+      argumentador pode ter cometido a falácia de
+
+      (A) mau espírito desportivo (B) apelo à compaixão (C) argumento contra a pessoa
+      (D) ignorância da refutação'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre falácias lógicas. A ignorância da refutação, uma das falácias lógicas
+      da lista original de Aristóteles no seu Organon, é quando alguém causa confusão
+      num argumento através da incapacidade real ou fingida de se envolver na refutação,
+      a fim de ganhar o argumento. A resposta é (D).
+  - question: 'A falácia da questão complexa consiste em
+
+      (A) argumentar que algo é inferior só porque não faz algo que nunca foi planeado
+      para fazer. (B) incluir mais do que uma afirmação na proposição e tratar a prova
+      de uma afirmação como prova de todas as afirmações. (C) tirar uma conclusão
+      antes de examinar as evidências, e considerar apenas as evidências que apoiam
+      essa conclusão. (D) fazer uma pergunta que inclua uma suposição não comprovada
+      ou mais de uma pergunta, tornando assim sem sentido uma resposta direta de sim
+      ou não.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre falácias lógicas. A falácia da pergunta complexa é quando alguém torna
+      sem sentido uma resposta simples de sim ou não a uma pergunta, ao incluir uma
+      suposição não comprovada ou muitas perguntas. Esta última é também conhecida
+      como a falácia das muitas perguntas. A resposta é (D).
+  - question: 'Argumentar que o que é verdadeiro para as partes deve ser verdadeiro
+      para o todo é a falácia da...
+
+      (A) Divisão (B) Composição (C) Apelo à pessoa (D) Apelo à ignorância'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre falácias lógicas. A falácia da composição ocorre quando alguém argumenta
+      que o que é verdadeiro para as partes deve ser verdadeiro para o todo. A resposta
+      é (B).
+  - question: 'Qual das seguintes afirmações é verdadeira para um silogismo categórico
+      válido?
+
+      (A) A premissa menor deve negar o antecedente (B) A premissa maior deve afirmar
+      o consequente (C) O termo médio deve ser usado em pelo menos uma premissa num
+      sentido universal ou não qualificado (D) Todas as anteriores'
+    target: 'Vamos pensar passo a passo. Para obter ajuda, consulte os artigos da
+      Wikipedia sobre falácias lógicas. Um silogismo categórico válido tem de satisfazer
+      várias condições: (1) o silogismo tem de ter exatamente três termos; (2) cada
+      termo do silogismo tem de ser usado exatamente duas vezes; (3) um termo só pode
+      ser usado uma vez em qualquer premissa; e (4) o termo intermédio tem de ser
+      usado em pelo menos uma premissa num sentido universal ou não qualificado, etc.
+      Apenas (C) é verdadeira. A resposta é (C).'
+  - question: 'Se alguém atacar o carácter de um opositor, em vez de responder aos
+      argumentos desse opositor, a primeira pessoa terá provavelmente cometido qual
+      das seguintes falácias?
+
+      (A) tu quoque (B) riso de cavalo (C) argumento contra a pessoa (D) ignoratio
+      elenchi'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre falácias lógicas. A falácia do argumento contra a pessoa ocorre quando
+      alguém ataca irrelevantemente o carácter de um argumentador oposto, em vez de
+      abordar os argumentos desse oponente. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_logical_fallacies_mt_pt

@@ -1,0 +1,69 @@
+dataset_name: high_school_psychology_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre psicologia
+  no ensino secundário.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'A Pascale está interessada nas estratégias de processamento que as
+      crianças utilizam para aprender novas informações. A Pascale seria melhor classificada
+      como que tipo de psicóloga?
+
+      (A) sociocultural (B) clínico (C) cognitivo (D) behaviorista'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre psicologia. O psicólogo sociocultural centra-se no efeito dos factores
+      sociais sobre as pessoas. O psicólogo clínico centra-se nas pessoas com problemas
+      mentais. O psicólogo cognitivo centra-se na forma como as pessoas pensam e aprendem,
+      incluindo as estratégias de processamento. O psicólogo behaviorista centra-se
+      mais no efeito do ambiente e da experiência sobre as pessoas. A resposta é (C).
+  - question: 'De acordo com o modelo de Caplan de consulta de casos centrada no consultado,
+      o consultor está principalmente interessado em
+
+      (A) identificar as causas e as soluções dos problemas apresentados pelo cliente
+      (B) identificar e eliminar as causas das dificuldades do consultado em lidar
+      com um problema (C) estabelecer uma hierarquia de autoridade para permitir uma
+      tomada de decisão eficaz (D) apresentar um curso de ação único, bem definido
+      e inequívoco para o consultor superar os défices de competências'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre psicologia. Caplan define dois tipos de consulta. A consulta centrada
+      no cliente tem como objetivo resolver os problemas do cliente, enquanto a consulta
+      centrada no consultor tem como objetivo identificar a razão da dificuldade do
+      cliente em resolver os problemas. A resposta é (B).
+  - question: 'De acordo com o Individuals with Disabilities Education Improvement
+      Act (Lei de Melhoria da Educação de Indivíduos com Deficiências), qual das seguintes
+      acções deve ser tomada por uma agência educativa antes de alterar a colocação
+      educativa de um aluno com deficiência?
+
+      (A) Dar à criança um período experimental no novo ambiente (B) Notificar os
+      pais por escrito (C) Obter a aprovação da direção da escola (D) Obter o consentimento
+      dos pais'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre psicologia. Quando é tomada a decisão de alterar a colocação escolar de
+      um aluno com deficiência, a entidade educativa deve notificar os pais por escrito
+      nessa data. A resposta é (B).
+  - question: 'Enquanto nada no mar, Ivan assusta-se com uma sombra escura na água,
+      mesmo antes de ter a oportunidade de identificar o que é a sombra. As ligações
+      sinápticas que ocorrem durante este incidente de susto são melhor descritas
+      por qual das seguintes opções?
+
+      (A) As mensagens são enviadas do tálamo diretamente para a amígdala. (B) As
+      mensagens são enviadas do tálamo para as vias "o quê" e "onde". (C) As mensagens
+      são enviadas do sistema nervoso parassimpático para o córtex cerebral. (D) As
+      mensagens são enviadas dos lobos frontais para a glândula pituitária.'
+    target: Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre psicologia. O nosso sistema neuronal tem um mecanismo que pode responder
+      a um sinal emocional imediato antes de ir para o centro do pensamento. No caso
+      do Ivan, as mensagens viajam diretamente do tálamo para a amígdala. A resposta
+      é (A).
+  - question: 'Ani acredita que as suas atitudes e comportamentos desempenham um papel
+      central no que lhe acontece. Esta crença é suscetível de ser associada a
+
+      (A) um superego forte. (B) baixa autoestima. (C) baixa auto-eficácia. (D) um
+      locus de controlo interno.'
+    target: 'Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da
+      Wikipédia sobre psicologia. As pessoas com um locus de controlo externo acreditam
+      que o destino e a sorte desempenham um papel importante nas suas vidas, enquanto
+      as pessoas com um locus de controlo interno acreditam que controlam as suas
+      vidas. A resposta é (D).'
+tag: amalia_mmlu_flan_cot_fewshot_social_sciences_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_high_school_psychology_mt_pt

@@ -1,0 +1,9 @@
+group: amalia_legalbench_pt_public_private
+group_alias: public_private
+task: 
+  - amalia_legalbench_pt_competition
+aggregate_metric_list:
+  - metric: legal_metric
+    weight_by_size: true
+metadata:
+  version: 0.0

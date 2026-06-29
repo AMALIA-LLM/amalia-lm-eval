@@ -1,0 +1,51 @@
+dataset_name: computer_security_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre segurança
+  informática.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'O SHA-1 tem um resumo de mensagem de
+
+      (A) 160 bits (B) 512 bits (C) 628 bits (D) 820 bits'
+    target: Vamos pensar passo a passo. Uma vez que a SHA-1 é uma função de hash que
+      pega numa pergunta e produz um valor de hash de 160 bits (20 bytes), o seu resumo
+      de mensagem é de 160 bits. A resposta é (A).
+  - question: "_____________ pode modificar os dados no seu sistema - de modo a que
+      o seu sistema não funcione corretamente ou que já não possa aceder a dados específicos,
+      ou pode mesmo pedir um resgate para lhe dar acesso.\n(A) IM - Trojans (B) Backdoor
+      Trojans (C) Trojan-Downloader (D) Ransom Trojan"
+    target: Vamos pensar passo a passo. O sistema está a pedir trojans, que são para
+      resgate, o que significa trojan de resgate. A resposta é (D).
+  - question: 'O que é a pirataria informática ética?
+
+      (A) "Hackear" a ética para justificar um comportamento egoísta não intencional
+      (B) Hackear sistemas (por exemplo, durante testes de penetração) para expor
+      vulnerabilidades para que possam ser corrigidas, em vez de exploradas (C) Hackear
+      sistemas geridos por pessoas cuja ética não concorda (D) Um termo de gíria para
+      o desenvolvimento rápido de software, por exemplo, como parte de hackathons'
+    target: Vamos pensar passo a passo. O hacking ético é um processo de deteção de
+      vulnerabilidades numa aplicação, sistema ou infraestrutura de uma organização
+      que um atacante pode utilizar para explorar um indivíduo ou uma organização.
+      Utilizam este processo para evitar ciberataques e violações de segurança, penetrando
+      legalmente nos sistemas e procurando pontos fracos. A resposta é (B).
+  - question: 'O ____________ é tudo aquilo que o motor de busca não consegue pesquisar.
+
+      (A) Web assombrada (B) World Wide Web (C) Web de superfície (D) Deep Web'
+    target: "Vamos pensar passo a passo. O motor de busca pesquisa na Surface Web,
+      que é a parte da World Wide Web que é visível, pelo que (B,C) estão erradas.
+      A Haunted Web não corresponde a um conceito de Internet. A Deep Web é a parte
+      da World Wide Web que não está indexada. A resposta é (D)."
+  - question: 'A exploração do bug Heartbleed permite
+
+      (A) a substituição de chaves criptográficas na memória (B) um tipo de injeção
+      de código (C) uma leitura fora dos limites de um buffer (D) um ataque de cadeia
+      de formato'
+    target: 'Vamos pensar passo a passo. O Heartbleed Bug é uma vulnerabilidade grave
+      na popular biblioteca de software criptográfico OpenSSL. O Heartbleed resultou
+      de uma validação incorrecta da pergunta (devido a uma verificação de limites
+      em falta) na implementação da extensão TLS heartbeat. A vulnerabilidade foi
+      classificada como uma leitura excessiva de buffer, uma situação em que mais
+      dados podem ser lidos do que deveria ser permitido. A resposta é (C).'
+tag: amalia_mmlu_flan_cot_fewshot_stem_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_computer_security_mt_pt

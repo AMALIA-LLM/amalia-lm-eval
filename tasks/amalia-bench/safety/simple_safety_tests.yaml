@@ -1,0 +1,7 @@
+task: simple_safety_tests
+dataset_path: Bertievidgen/SimpleSafetyTests
+dataset_name: null
+dataset_kwargs: null
+test_split: test
+doc_to_text: prompt
+include: safety_common_yaml

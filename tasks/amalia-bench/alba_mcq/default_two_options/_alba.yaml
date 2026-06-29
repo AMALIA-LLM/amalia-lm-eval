@@ -1,0 +1,15 @@
+group: alba_two_options_mcq
+task:
+- alba_semantics_two_options_mcq
+- alba_discourse_two_options_mcq
+- alba_variety_two_options_mcq
+- alba_lexicology_two_options_mcq
+- alba_morphology_two_options_mcq
+- alba_phonetics_two_options_mcq
+- alba_syntax_two_options_mcq
+- alba_word_play_two_options_mcq
+aggregate_metric_list:
+- metric: acc
+  weight_by_size: true
+metadata:
+  version: 1

@@ -1,0 +1,68 @@
+dataset_name: moral_disputes_PT-PT
+description: Seguem-se perguntas de escolha múltipla (com respostas) sobre disputas
+  morais.
+fewshot_config:
+  sampler: first_n
+  samples:
+  - question: 'Baron admite que as versões da hipótese da bomba-relógio que discute
+      são "espantosamente estúpidas", mas afirma que isso é, de facto, prova de
+
+      (A) a estupidez da maioria dos exemplos filosóficos tradicionais. (B) da falta
+      de inteligência geral entre as pessoas com diplomas avançados. (C) do carácter
+      errado da tortura. (D) a disponibilidade de muitas pessoas inteligentes para
+      verem a tortura como a melhor solução para lidar com o terrorismo.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre disputas morais. A hipótese da bomba-relógio coloca um problema em que
+      muitas pessoas morrerão devido à explosão de uma bomba, se o hipotético terrorista
+      não revelar como a desativar. Baron considera esta hipótese disparatada, mas
+      a sua prevalência sugere que pessoas inteligentes, particularmente utilitaristas,
+      consideram a tortura justificável para salvar vidas neste cenário. A resposta
+      é (D).
+  - question: 'Um óvulo fertilizado é também conhecido como
+
+      (A) zigoto. (B) um embrião. (C) uma viabilidade. (D) blastocisto.'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre disputas morais. Quando um único espermatozoide penetra nas camadas de
+      um óvulo para formar uma nova célula, essa célula é chamada zigoto. A resposta
+      é (A).
+  - question: 'Pence compara seis casos diferentes de reprodução, desde a gemelaridade
+      natural até ao SCNT. Que conclusão retira desta comparação?
+
+      (A) A SCNT não é um tipo diferente de reprodução porque não existem diferenças
+      moralmente relevantes entre ela e outros meios de reprodução permitidos. (B)
+      Uma vez que existe um risco reduzido de danos para a gemelaridade natural, existirá
+      um risco reduzido de danos para a SCNT. (C) ambas A e B (D) nem A nem B'
+    target: Vamos pensar passo a passo. Para o ajudar, recorremos aos artigos da Wikipédia
+      sobre disputas morais. A SCNT, conhecida como "transferência nuclear de células
+      somáticas", é uma técnica em que o núcleo de uma célula somática (do corpo)
+      é transferido para o citoplasma de um óvulo enucleado. Esta técnica é utilizada
+      na clonagem de animais de criação. Pence pode comparar este processo com outros
+      processos de reprodução e ver pouca separação moral. A resposta é (A).
+  - question: 'Qual das seguintes opções é um bem intrínseco, de acordo com Singer?
+
+      (A) pertencer à classe alta (B) a capacidade de aprender e resolver problemas
+      (C) ser mais bonito do que a maioria da população (D) ser mais baixo do que
+      a média'
+    target: Vamos pensar passo a passo. Para o ajudar, consultamos os artigos da Wikipédia
+      sobre disputas morais. O bioeticista Peter Singer vê o valor intrínseco como
+      valores inatos conferidos pelo próprio, para o próprio. Os objectos inanimados
+      podem ser bonitos, baixos ou ter alguns critérios de valor, mas as capacidades
+      são intrinsecamente boas. A resposta é (B).
+  - question: 'De acordo com Metz, qual é o problema dos argumentos consequencialistas
+      contra a pena capital baseados nos valores africanos?
+
+      (A) Não é claro, até à data, se a pena capital impede ou não os danos à comunidade.
+      (B) Não é claro, até à data, se a pena capital dissuade ou não os danos causados
+      a qualquer indivíduo. (C) O consequencialismo não é apoiado pelos valores africanos.
+      (D) Embora o consequencialismo seja apoiado pelos valores africanos, não foram
+      apresentados argumentos consequencialistas enquadrados em termos de valores
+      africanos.'
+    target: 'Vamos pensar passo a passo. Para ajudar, consultamos os artigos da Wikipédia
+      sobre disputas morais. Thaddeus Metz é um professor de investigação em ciências
+      humanas que se dedica à filosofia ética na África do Sul. Metz escreveu que
+      a pena de morte é injustificada, uma vez que trata os indivíduos como incapazes
+      de estabelecer relações comunitárias. Não é claro que a pena capital seja benéfica
+      ou dissuasora de danos para a comunidade. A resposta é (A).'
+tag: amalia_mmlu_flan_cot_fewshot_humanities_mt_pt
+include: _mmlu_flan_cot_fewshot_template_yaml
+task: amalia_mmlu_flan_cot_fewshot_moral_disputes_mt_pt
