@@ -65,12 +65,26 @@ cp .env_copy .env
 
 After having activated the environment, you will have access to the `amalia` command. To evaluate a single task, run:
 ```bash
-amalia --tasks "amalia_arc_challenge_chat_mt_pt" --model_name_or_path google/gemma-3-12b-it --model_output_dir "./outputs" --slurm_config <slurm_config>
+amalia --tasks "amalia_arc_challenge_chat_mt_pt" --model_name_or_path amalia-llm/AMALIA-9B-0626-DPO --model_output_dir "./outputs" --slurm_config <slurm_config>
 ```
 
 Note:
 - To reproduce our runs, check the helper scripts in `infra/eval_scripts` - Additional Information [here](infra/eval_scripts/README.md).
 - You will have to create or adapt a **SLURM config class** to run eval on your infrastructure. Go to `configs/slurm.py` and add/adapt a class there.
+
+### Using lm-eval-harness Directly
+
+You can also use the original `lm-eval` command directly by specifying the tasks' folder:
+
+```bash
+lm_eval --model hf \
+    --model_args pretrained=amalia-llm/AMALIA-9B-0626-DPO \
+    --tasks amalia_arc_challenge_chat_mt_pt \
+    --include_path tasks/amalia-bench \
+    --output_path ./outputs
+```
+
+The `--include_path` flag points to the directory containing the AMALIA-Bench task definitions.
 
 ### Quick Visualization Script
 
