@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./images/amalia_icon_with_text_background.png" alt="AMALIA" width="300"/>
+<img src="https://github.com/AMALIA-LLM/amalia-llm.github.io/blob/main/source/_static/logo/logo-color-black.png?raw=true" alt="AMALIA" width="300"/>
 
 <br/>
 
