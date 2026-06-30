@@ -1,7 +1,10 @@
 <div align="center">
 
-<img src="https://github.com/AMALIA-LLM/amalia-llm.github.io/blob/main/source/_static/logo/logo-color-black.png?raw=true" alt="AMALIA" width="300"/>
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/AMALIA-LLM/amalia-llm.github.io/blob/main/source/_static/logo/logo-color-white.png?raw=true" width="300">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/AMALIA-LLM/amalia-llm.github.io/blob/main/source/_static/logo/logo-color-black.png?raw=true" width="300">
+  <img src="https://github.com/AMALIA-LLM/amalia-llm.github.io/blob/main/source/_static/logo/logo-color-black.png?raw=true" alt="AMALIA" width="300"/>
+</picture>
 <br/>
 
 **A Fully Open Large Language Model for European Portuguese**
@@ -10,7 +13,7 @@
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-amalia--llm-yellow)](https://huggingface.co/amalia-llm)
 [![Paper](https://img.shields.io/badge/Paper-Technical%20Report-red?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2603.26511)
  
-</div>
+</div> 
 
 
 ---
