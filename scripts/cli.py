@@ -16,7 +16,6 @@ import jinja2
 import tyro
 
 from configs.models import HARNESS_MODEL_CONFIGS
-from configs.slurm import SLURM_CONFIGS
 from tasks.configs import HARNESS_TASK_CONFIGS, TASK_GROUPS
 
 # Configure logger
@@ -149,6 +148,10 @@ def _resolve_tasks(config: EvalConfig) -> Sequence[str]:
 def _apply_slurm_defaults(config: EvalConfig) -> None:
     if not config.slurm_config:
         return
+
+    # Imported lazily so the local backend does not depend on SLURM config,
+    # which reads HF_CACHE_REMOTE at import time.
+    from configs.slurm import SLURM_CONFIGS
 
     if config.slurm_config not in SLURM_CONFIGS:
         raise ValueError(
