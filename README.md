@@ -68,6 +68,21 @@ After having activated the environment, you will have access to the `amalia` com
 amalia --tasks "amalia_arc_challenge_chat_mt_pt" --model_name_or_path amalia-llm/AMALIA-9B-0626-DPO --model_output_dir "./outputs" --slurm_config <slurm_config>
 ```
 
+### Running locally (no SLURM)
+
+To run through the `amalia` CLI without submitting an sbatch job, activate your
+environment first and use the local backend:
+
+```bash
+amalia --model_name_or_path amalia-llm/AMALIA-9B-0626-DPO \
+    --tasks calame \
+    --backend local \
+    --model_output_dir ./outputs
+```
+
+Local mode runs `lm_eval` in the current shell environment. It does not activate
+conda or use any SLURM settings.
+
 Note:
 - To reproduce our runs, check the helper scripts in `infra/eval_scripts` - Additional Information [here](infra/eval_scripts/README.md).
 - You will have to create or adapt a **SLURM config class** to run eval on your infrastructure. Go to `configs/slurm.py` and add/adapt a class there.
