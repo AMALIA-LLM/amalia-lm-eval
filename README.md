@@ -114,6 +114,17 @@ Our runner scripts generates results divided into model-specific folders. If you
 amalia inspect --root <root-dir>
 ```
 
+Export a shareable leaderboard:
+
+```bash
+amalia inspect --root <results-dir> --export-html ./site
+# open ./site/index.html, or publish to GitHub Pages / an HF Space
+```
+
+The export captures the default (latest-run) view; the interactive run-mode and
+task-mode toggles are only available in the live server. Absolute local paths are
+scrubbed from the exported HTML so the site is safe to publish.
+
 ## Citation
 
 If you use this code for your research, please consider citing:
