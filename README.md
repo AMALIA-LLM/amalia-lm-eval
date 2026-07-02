@@ -75,7 +75,7 @@ environment first and use the local backend:
 
 ```bash
 amalia --model_name_or_path amalia-llm/AMALIA-9B-0626-DPO \
-    --tasks calame \
+    --tasks calame_pt \
     --backend local \
     --model_output_dir ./outputs
 ```

@@ -305,13 +305,14 @@ def _apply_local_hf_env(config: EvalConfig, task: str) -> None:
         os.environ["HF_ALLOW_CODE_EVAL"] = "1"
 
 
-def _run_local(config: EvalConfig, task: str, template_args: dict) -> None:
+def _run_local(config: EvalConfig, task: str, template_args: dict) -> bool:
+    """Run one task locally. Returns True on success (or user skip)."""
     if (
         not config.y
         and input(f"Run local evaluation for task '{task}'? [y/N]: ").lower() != "y"
     ):
         print(f"Skipped local evaluation for task: {task}")
-        return
+        return True
 
     _apply_local_hf_env(config, task)
     logger.info(f"Running local evaluation for task '{task}'")
@@ -324,6 +325,8 @@ def _run_local(config: EvalConfig, task: str, template_args: dict) -> None:
             f"Local evaluation failed for task '{task}' "
             f"with exit code {result.returncode}"
         )
+        return False
+    return True
 
 
 def _render_and_submit(config: EvalConfig) -> None:
@@ -337,6 +340,8 @@ def _render_and_submit(config: EvalConfig) -> None:
 
     selected_tasks = _resolve_tasks(config)
     logger.info(f"Selected tasks: {selected_tasks}!")
+
+    local_failures: list[str] = []
 
     if config.backend == "slurm":
         templates_dir = os.path.dirname(config.templates_file)
@@ -427,7 +432,8 @@ def _render_and_submit(config: EvalConfig) -> None:
         )
 
         if config.backend == "local":
-            _run_local(config, task, template_args)
+            if not _run_local(config, task, template_args):
+                local_failures.append(task)
             continue
 
         # Extract short model name from path (e.g., "Meta-Llama-3.1-8B" from full path)
@@ -463,6 +469,10 @@ def _render_and_submit(config: EvalConfig) -> None:
                 print(result.stdout)
         else:
             print(f"Skipped submission for task: {task}")
+
+    if local_failures:
+        print(f"Local evaluation failed for tasks: {', '.join(local_failures)}")
+        sys.exit(1)
 
 
 def launch_inspect(argv: Sequence[str]) -> None:
