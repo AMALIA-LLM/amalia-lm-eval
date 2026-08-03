@@ -72,6 +72,16 @@ Note:
 - To reproduce our runs, check the helper scripts in `infra/eval_scripts` - Additional Information [here](infra/eval_scripts/README.md).
 - You will have to create or adapt a **SLURM config class** to run eval on your infrastructure. Go to `configs/slurm.py` and add/adapt a class there.
 
+#### Loading models that require custom code (`trust_remote_code`)
+
+By default, `trust_remote_code` is **disabled**. Some models ship custom modeling code on the Hugging Face Hub that must be executed on load — these will fail to load unless you explicitly opt in:
+
+```bash
+amalia "..." --harness-args.trust-remote-code True
+```
+
+> ⚠️ Enabling this executes arbitrary code from the model repository on load. Only enable it for repositories you trust.
+
 ### Using lm-eval-harness Directly
 
 You can also use the original `lm-eval` command directly by specifying the tasks' folder:

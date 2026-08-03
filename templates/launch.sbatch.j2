@@ -156,8 +156,7 @@ lm_eval \
     --output_path "$MODEL_OUTPUT_DIR" \
     --seed 42 \
     --hf_hub_log_args "$hf_logging_args" \
-    --trust_remote_code \
-    "${task_kwargs_args[@]}" 
+    "${task_kwargs_args[@]}"
 
 
 echo "Evaluation completed"

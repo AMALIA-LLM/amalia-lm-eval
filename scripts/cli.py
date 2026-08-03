@@ -289,6 +289,14 @@ def _render_and_submit(config: EvalConfig) -> None:
             logger.warning(f"Detected incompatible model {config.model_name_or_path} with VLLM version switching to HF")
             template_args["harness_args"]["model"] = "hf"
 
+        # use trust_remote_code flag
+        trust_remote_code = bool(template_args["harness_args"].get("trust_remote_code", False))
+        if trust_remote_code:
+            logger.warning(
+                "trust_remote_code is ENABLED: custom code from "
+                f"'{config.model_name_or_path}' will execute on model load."
+            )
+
         # check if is hf or vllm and use a different set of model args
         if template_args["harness_args"]["model"] == "vllm":
             model_args = {
@@ -298,7 +306,7 @@ def _render_and_submit(config: EvalConfig) -> None:
                 "dtype": "bfloat16",  # all models using the same dtype (e.g. gemma is fp32 by default)
                 "think_end_token": config.think_end_token,  # to parse thinking steps
                 "enable_thinking": config.enable_thinking,  # whether to enable thinking or not
-                "trust_remote_code": "True",  # whether to trust remote code when
+                "trust_remote_code": str(trust_remote_code),  # gated by operator flag
             }
             if is_using_lora:
                 model_args["enable_lora"] = "True"  # whether to enable lora or not
@@ -310,7 +318,7 @@ def _render_and_submit(config: EvalConfig) -> None:
                 "dtype": "bfloat16",
                 "think_end_token": config.think_end_token,
                 "enable_thinking": config.enable_thinking,
-                "trust_remote_code": "True",
+                "trust_remote_code": str(trust_remote_code),  # gated by operator flag
             }
             if is_using_lora:
                 model_args["peft"] = template_args["lora_local_path"]
