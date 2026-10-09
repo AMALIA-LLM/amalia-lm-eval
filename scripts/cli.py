@@ -158,6 +158,17 @@ def _apply_slurm_defaults(config: EvalConfig) -> None:
     selected_config = SLURM_CONFIGS[config.slurm_config]
     logging.info(f"Selected config: {selected_config}")
 
+    missing = [
+        key
+        for key in ("hf_home", "hf_hub_cache", "hf_assets_cache", "hf_datasets_cache")
+        if hasattr(selected_config, key) and getattr(selected_config, key) is None
+    ]
+    if missing:
+        raise ValueError(
+            f"SLURM profile '{config.slurm_config}' needs HF_CACHE_REMOTE to be set "
+            f"(in the environment or in .env); unresolved: {', '.join(missing)}"
+        )
+
     for key, value in asdict(selected_config).items():
         setattr(config, key, value)
 
