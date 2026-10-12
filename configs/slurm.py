@@ -9,6 +9,16 @@ import dotenv
 dotenv.load_dotenv()
 
 
+def _remote_hf_cache(subdir: str) -> str | None:
+    """Path under $HF_CACHE_REMOTE, or None when it is not configured.
+
+    Evaluated at import time, so it must not raise: otherwise every CLI
+    invocation (including ``amalia --help``) fails when HF_CACHE_REMOTE is unset.
+    """
+    base = os.getenv("HF_CACHE_REMOTE")
+    return os.path.join(base, subdir) if base else None
+
+
 @dataclass(frozen=True)
 class SardineConfig:
     """Container for default SLURM-related launch parameters."""
@@ -49,10 +59,10 @@ class MarenostrumConfig:
     templates_file: str = (
         "./templates/launch.sbatch.j2"
     )
-    hf_home: str = os.path.join(os.getenv("HF_CACHE_REMOTE"), "huggingface")
-    hf_hub_cache: str =  os.path.join(os.getenv("HF_CACHE_REMOTE"), "huggingface/hub")
-    hf_assets_cache: str = os.path.join(os.getenv("HF_CACHE_REMOTE"), "huggingface/assets")
-    hf_datasets_cache: str = os.path.join(os.getenv("HF_CACHE_REMOTE"), "huggingface/datasets")
+    hf_home: str | None = _remote_hf_cache("huggingface")
+    hf_hub_cache: str | None = _remote_hf_cache("huggingface/hub")
+    hf_assets_cache: str | None = _remote_hf_cache("huggingface/assets")
+    hf_datasets_cache: str | None = _remote_hf_cache("huggingface/datasets")
     hf_hub_offline: bool = True
 
 
