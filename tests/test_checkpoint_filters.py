@@ -1,3 +1,4 @@
+import importlib
 import json
 import sys
 import tempfile
@@ -5,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from create_result_tables import extract_results
+extract_results = importlib.import_module("create_result_tables").extract_results
 
 
 class CheckpointFilterTests(unittest.TestCase):
