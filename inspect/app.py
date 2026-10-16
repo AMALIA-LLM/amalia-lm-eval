@@ -7,16 +7,25 @@ import csv
 import io
 import json
 import math
+import posixpath
 import re
+import shutil
 from dataclasses import dataclass
 from datetime import datetime
+from html import escape as html_escape
+from html import unescape as html_unescape
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from urllib.parse import parse_qs, quote, unquote, urlencode, urlsplit
 
 from flask import Flask, Response, abort, g, redirect, render_template, request, url_for
 
 TIMESTAMP_PATTERN = re.compile(
     r"results_(?P<stamp>\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}(?:\.\d+)?)"
+)
+HTML_LINK_ATTR_PATTERN = re.compile(
+    r"(?P<attr>\b(?:href|src|action)\s*=\s*)(?P<quote>['\"])(?P<url>.*?)(?P=quote)",
+    re.IGNORECASE,
 )
 
 DEFAULT_TASK_DISPLAY_NAMES: Dict[str, str] = {
@@ -31,6 +40,7 @@ DEFAULT_TASK_DISPLAY_NAMES: Dict[str, str] = {
 
 DISPLAY_NAME_FILENAME = ".amalia_inspect_display_names.json"
 VISIBILITY_FILENAME = ".amalia_inspect_visibility.json"
+EXPORT_MARKER = ".amalia_inspect_export"
 
 
 class DisplayNameStore:
@@ -269,6 +279,13 @@ class MetricEntry:
     @property
     def display_task_name(self) -> str:
         return get_task_display_name(self.task)
+
+
+@dataclass
+class StaticExportRoute:
+    route_path: str
+    relative_output: Path
+    query: Optional[Dict[str, str]] = None
 
 
 class ResultStore:
@@ -956,6 +973,304 @@ def create_app(default_root: Path) -> Flask:
     return app
 
 
+# Top-level entries the static export generates. Re-export removes only these
+# (never the whole output directory), preserving VCS metadata and user files.
+_GENERATED_EXPORT_ENTRIES: Tuple[str, ...] = (
+    "index.html",
+    "overview.html",
+    "models.html",
+    "benchmarks.html",
+    "display-names.html",
+    "overview",
+    "model",
+    "static",
+    EXPORT_MARKER,
+)
+
+
+def _safe_path_segment(value: str) -> str:
+    encoded = quote(value, safe="")
+    if encoded in {"", ".", ".."}:
+        return "_"
+    return encoded
+
+
+def _model_static_path(model: str) -> Path:
+    return Path("model") / f"{_safe_path_segment(model)}.html"
+
+
+def _task_static_path(model: str, task: str) -> Path:
+    return (
+        Path("model")
+        / _safe_path_segment(model)
+        / "task"
+        / f"{_safe_path_segment(task)}.html"
+    )
+
+
+def _task_stamp_static_path(model: str, task: str, stamp: str) -> Path:
+    return (
+        Path("model")
+        / _safe_path_segment(model)
+        / "task"
+        / _safe_path_segment(task)
+        / f"{_safe_path_segment(stamp)}.html"
+    )
+
+
+def _route_path_for_model(model: str) -> str:
+    return f"/model/{quote(model, safe='')}"
+
+
+def _route_path_for_task(model: str, task: str) -> str:
+    return f"{_route_path_for_model(model)}/task/{quote(task, safe='')}"
+
+
+def _export_routes(
+    store: ResultStore, visibility: VisibilityStore, root: Path
+) -> List[StaticExportRoute]:
+    routes = [
+        StaticExportRoute("/overview", Path("index.html")),
+        StaticExportRoute("/overview", Path("overview.html")),
+        StaticExportRoute("/overview/export.csv", Path("overview") / "export.csv"),
+        StaticExportRoute("/models", Path("models.html")),
+        StaticExportRoute("/benchmarks", Path("benchmarks.html")),
+        StaticExportRoute("/display-names", Path("display-names.html")),
+    ]
+    # Skip models/tasks the user hid with the visibility controls; the overview
+    # and CSV already exclude them, so a published site must not expose their
+    # detail pages either.
+    hidden_models = visibility.hidden_models(root)
+    hidden_tasks = visibility.hidden_tasks(root)
+    for model in sorted(store.results.keys()):
+        if model in hidden_models:
+            continue
+        routes.append(
+            StaticExportRoute(_route_path_for_model(model), _model_static_path(model))
+        )
+        for task in sorted(store.results[model].keys()):
+            if task in hidden_tasks:
+                continue
+            routes.append(
+                StaticExportRoute(
+                    _route_path_for_task(model, task),
+                    _task_static_path(model, task),
+                )
+            )
+            for run in store.results[model][task]:
+                routes.append(
+                    StaticExportRoute(
+                        _route_path_for_task(model, task),
+                        _task_stamp_static_path(model, task, run.timestamp_raw),
+                        {"stamp": run.timestamp_raw},
+                    )
+                )
+    return routes
+
+
+def _export_request_path(
+    route_path: str, root: Path, extra_query: Optional[Dict[str, str]] = None
+) -> str:
+    query_values = {
+        "root": str(root),
+        "mode": "latest",
+        "tasks_mode": "first",
+    }
+    if extra_query:
+        query_values.update(extra_query)
+    query = urlencode(query_values)
+    return f"{route_path}?{query}"
+
+
+def _static_path_for_url(url: str) -> Optional[Path]:
+    if not url or url.startswith(("#", "mailto:", "javascript:")):
+        return None
+
+    parsed = urlsplit(html_unescape(url))
+    if parsed.scheme or parsed.netloc:
+        return None
+
+    path = parsed.path or "/"
+    if path == "/":
+        return Path("index.html")
+    if path == "/overview":
+        return Path("overview.html")
+    if path == "/overview/export.csv":
+        return Path("overview") / "export.csv"
+    if path == "/models":
+        return Path("models.html")
+    if path == "/benchmarks":
+        return Path("benchmarks.html")
+    if path == "/display-names":
+        return Path("display-names.html")
+    if path.startswith("/static/"):
+        asset = unquote(path.removeprefix("/static/"))
+        parts = [part for part in asset.split("/") if part]
+        if not parts or any(part in {".", ".."} for part in parts):
+            return None
+        return Path("static", *parts)
+
+    parts = path.strip("/").split("/")
+    if len(parts) == 2 and parts[0] == "model":
+        return _model_static_path(unquote(parts[1]))
+    if len(parts) == 4 and parts[0] == "model" and parts[2] == "task":
+        query = parse_qs(parsed.query)
+        stamp_values = query.get("stamp")
+        model = unquote(parts[1])
+        task = unquote(parts[3])
+        if stamp_values:
+            return _task_stamp_static_path(model, task, stamp_values[0])
+        return _task_static_path(model, task)
+
+    return None
+
+
+def _relative_static_url(target: Path, current_output: Path) -> str:
+    start = current_output.parent.as_posix()
+    if start == ".":
+        start = "."
+    return posixpath.relpath(target.as_posix(), start)
+
+
+def _markupsafe_escape(value: str) -> str:
+    # Mirror how Jinja/MarkupSoup escapes text, which differs from Python's
+    # html.escape for quotes ("&#39;"/"&#34;" vs "&#x27;"/"&quot;").
+    return (
+        value.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace("'", "&#39;")
+        .replace('"', "&#34;")
+    )
+
+
+def _scrub_export_html(html: str, roots: Sequence[Tuple[str, str]]) -> str:
+    # Neutralize absolute local paths that the templates render: the results
+    # root and paths under it (result/samples files), the launch directory (the
+    # overview renders sibling result dirs as <option value="/abs/path">), and
+    # the home directory. Replace the raw string plus its escaped forms, since a
+    # path such as /mnt/R&D or one containing quotes is rendered as HTML
+    # entities (and Jinja and html.escape disagree on which entities to emit).
+    scrubbed = html
+    for raw, token in roots:
+        if not raw:
+            continue
+        for variant in {raw, html_escape(raw), _markupsafe_escape(raw)}:
+            scrubbed = scrubbed.replace(variant, token)
+    return scrubbed
+
+
+def _rewrite_html_links(
+    html: str, current_output: Path, scrub_roots: Sequence[Tuple[str, str]]
+) -> str:
+    def replace(match: re.Match[str]) -> str:
+        target = _static_path_for_url(match.group("url"))
+        if target is None:
+            return match.group(0)
+        quote_char = match.group("quote")
+        # Percent-encode the relative link so a browser decodes it back to the
+        # exact on-disk filename. Export filenames are themselves percent-encoded
+        # (see _safe_path_segment), so a raw href like "model%20a.html" would be
+        # decoded to "model a.html" and 404. Encoding the "%" (safe="/") yields
+        # "model%2520a.html", which decodes to the real "model%20a.html".
+        relative = quote(_relative_static_url(target, current_output), safe="/")
+        return f"{match.group('attr')}{quote_char}{relative}{quote_char}"
+
+    rewritten = HTML_LINK_ATTR_PATTERN.sub(replace, html)
+    return _scrub_export_html(rewritten, scrub_roots)
+
+
+def _write_export_response(
+    response: Response,
+    out_path: Path,
+    relative_output: Path,
+    scrub_roots: Sequence[Tuple[str, str]],
+) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    if response.mimetype == "text/html":
+        html = response.get_data(as_text=True)
+        out_path.write_text(
+            _rewrite_html_links(html, relative_output, scrub_roots),
+            encoding="utf-8",
+        )
+        return
+    out_path.write_bytes(response.get_data())
+
+
+def export_static(root: Path, out_dir: Path) -> Path:
+    base_dir = Path.cwd()
+    resolved_root = (root if root.is_absolute() else base_dir / root).resolve()
+    out_dir = out_dir.resolve()
+
+    # Remove pages for models or tasks that were removed or renamed since a
+    # previous export, without touching anything this tool did not generate.
+    # We delete only the known generated entries (never the whole tree), so a
+    # published directory keeps its VCS metadata and user files such as .git and
+    # CNAME. On the first export into a non-empty directory that this tool did
+    # not create (no marker), refuse so a user's own files are not overwritten.
+    if out_dir.exists():
+        marker = out_dir / EXPORT_MARKER
+        if any(out_dir.iterdir()) and not marker.exists():
+            raise RuntimeError(
+                f"Refusing to export into non-empty directory {out_dir} that is "
+                f"not a previous amalia export (no {EXPORT_MARKER} marker). Choose "
+                "an empty or new directory."
+            )
+        for name in _GENERATED_EXPORT_ENTRIES:
+            entry = out_dir / name
+            if entry.is_dir():
+                shutil.rmtree(entry)
+            elif entry.exists():
+                entry.unlink()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / EXPORT_MARKER).write_text(
+        "AMALIA inspect static export directory.\n", encoding="utf-8"
+    )
+
+    app = create_app(resolved_root)
+    store = ResultStore(resolved_root, base_dir=base_dir)
+    routes = _export_routes(store, get_visibility_store(), resolved_root)
+
+    # Paths the templates may render as absolute strings: the results root and
+    # anything under it, the launch directory (sibling result dirs shown in the
+    # overview root selector), and the home directory. Longest paths first so a
+    # nested path is replaced before its parent prefix.
+    scrub_roots = sorted(
+        (
+            (str(resolved_root), "[results]"),
+            (str(base_dir), "[cwd]"),
+            (str(Path.home()), "~"),
+        ),
+        key=lambda pair: len(pair[0]),
+        reverse=True,
+    )
+
+    with app.test_client() as client:
+        for route in routes:
+            response = client.get(
+                _export_request_path(route.route_path, resolved_root, route.query)
+            )
+            if response.status_code != 200:
+                raise RuntimeError(
+                    f"Could not export {route.route_path}: HTTP {response.status_code}"
+                )
+            _write_export_response(
+                response,
+                out_dir / route.relative_output,
+                route.relative_output,
+                scrub_roots,
+            )
+
+    static_folder = Path(app.static_folder) if app.static_folder else None
+    if static_folder and static_folder.exists():
+        shutil.copytree(static_folder, out_dir / "static", dirs_exist_ok=True)
+
+    index_path = out_dir / "index.html"
+    print(f"Exported AMALIA Inspect static site to {out_dir}")
+    print(f"Open {index_path}")
+    return index_path
+
+
 def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Launch the AMALIA inspection UI.")
     parser.add_argument(
@@ -963,6 +1278,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         type=Path,
         default=Path.cwd(),
         help="Result directory containing per-model folders.",
+    )
+    parser.add_argument(
+        "--export-html",
+        type=Path,
+        metavar="DIR",
+        help="Export the inspection UI as a static HTML site instead of serving it.",
     )
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=5000)
@@ -973,6 +1294,9 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
 
 def main(argv: Optional[Sequence[str]] = None) -> None:
     args = parse_args(argv)
+    if args.export_html:
+        export_static(args.root, args.export_html)
+        return
     app = create_app(args.root)
     app.run(host=args.host, port=args.port, debug=args.debug)
 
