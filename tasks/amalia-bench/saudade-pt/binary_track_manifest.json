@@ -1,0 +1,169 @@
+[
+  {
+    "source_line": 131,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "António José de Melo Breyner Teles da Silva exerceu o cargo de Ministro e Secretário de Estado dos Negócios Estrangeiros ou acompanhou o príncipe D. Augusto Carlos desde Munique até Lisboa primeiro?",
+      "expected_answers": [
+        "Exercício do cargo de Ministro e Secretário de Estado dos Negócios Estrangeiros"
+      ],
+      "facts_pair": [
+        "Acompanhamento do príncipe D. Augusto Carlos desde Munique até Lisboa",
+        "Exercício do cargo de Ministro e Secretário de Estado dos Negócios Estrangeiros"
+      ]
+    }
+  },
+  {
+    "source_line": 3216,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "No Canal Q, o canal iniciou atividade com grelha temática focada em humor, talk shows, magazines e debates em língua portuguesa ou Nuno Artur Silva deixou a direção-geral do Canal Q após nomeação para administrador da RTP primeiro?",
+      "expected_answers": [
+        "Canal Q inicia atividade com grelha temática focada em humor, talk shows, magazines e debates em língua portuguesa"
+      ],
+      "facts_pair": [
+        "Nuno Artur Silva deixa a direção-geral do Canal Q após nomeação para administrador da RTP",
+        "Canal Q inicia atividade com grelha temática focada em humor, talk shows, magazines e debates em língua portuguesa"
+      ]
+    }
+  },
+  {
+    "source_line": 3316,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "No Buéréré, aconteceu primeiro Ana Malhoa apresentar o programa Buéréré ou o lançamento do disco Buéréré?",
+      "expected_answers": [
+        "Ana Malhoa apresenta o programa Buéréré"
+      ],
+      "facts_pair": [
+        "Ana Malhoa apresenta o programa Buéréré",
+        "Lançamento do disco Buéréré"
+      ]
+    }
+  },
+  {
+    "source_line": 3317,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "No Buéréré, aconteceu primeiro o Buéréré passar a bloco infantil sem apresentadoras ou o fim da emissão do Buéréré?",
+      "expected_answers": [
+        "Buéréré passa a bloco infantil sem apresentadoras"
+      ],
+      "facts_pair": [
+        "Fim da emissão do Buéréré",
+        "Buéréré passa a bloco infantil sem apresentadoras"
+      ]
+    }
+  },
+  {
+    "source_line": 3534,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "Na Taça da Liga de Futsal, Joel Rocha atua como treinador do SL Benfica ou o Sporting CP vence a Taça da Liga pela quinta vez — qual dos dois acontecimentos ocorreu primeiro?",
+      "expected_answers": [
+        "Joel Rocha atua como treinador do SL Benfica na Taça da Liga"
+      ],
+      "facts_pair": [
+        "Joel Rocha atua como treinador do SL Benfica na Taça da Liga",
+        "Sporting CP vence a Taça da Liga pela quinta vez"
+      ]
+    }
+  },
+  {
+    "source_line": 3840,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "Na história da Revolução Iraniana, o estabelecimento do regime autoritário de Pahlavi com aliança aos Estados Unidos precedeu ou foi concomitante ao período de crescimento econômico impulsionado pelo petróleo e aço?",
+      "expected_answers": [
+        "Pahlavi governa o Irã como monarca autoritário com forte aliança aos Estados Unidos e ao Bloco Ocidental."
+      ],
+      "facts_pair": [
+        "Pahlavi governa o Irã como monarca autoritário com forte aliança aos Estados Unidos e ao Bloco Ocidental.",
+        "Economia iraniana cresce devido ao aumento do preço do petróleo e exportação de aço, mas com alta inflação e desigualdade."
+      ]
+    }
+  },
+  {
+    "source_line": 4972,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "Na história de Noel Rosa, entre o nascimento de Noel Rosa no Rio de Janeiro e o suicídio do pai de Noel Rosa, Manuel de Medeiros Rosa, qual evento ocorreu primeiro?",
+      "expected_answers": [
+        "Nascimento de Noel Rosa no Rio de Janeiro."
+      ],
+      "facts_pair": [
+        "Nascimento de Noel Rosa no Rio de Janeiro.",
+        "Suicídio do pai de Noel Rosa, Manuel de Medeiros Rosa."
+      ]
+    }
+  },
+  {
+    "source_line": 5375,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "António Campos realizou o filme 'Um tesouro' e também esteve envolvido na produção da série sobre as obras de construção da sede da Fundação Calouste Gulbenkian. Qual desses dois projetos ocorreu primeiro?",
+      "expected_answers": [
+        "Realização do filme 'Um tesouro'."
+      ],
+      "facts_pair": [
+        "Realização do filme 'Um tesouro'.",
+        "Produção da série 'Obras de construção da sede, do mu...' (incompleto, mas referente a obras da Fundação Calouste Gulbenkian)."
+      ]
+    }
+  },
+  {
+    "source_line": 6220,
+    "reason": "No prompt prefix under the original preparation rules",
+    "action": "exclude",
+    "record": {
+      "question": "No Sporting Clube da Covilhã, a participação na final da Taça de Portugal ou a vitória no Campeonato Nacional da II Divisão ocorreu primeiro?",
+      "expected_answers": [
+        "Final da Taça de Portugal"
+      ],
+      "facts_pair": [
+        "Vitória no Campeonato Nacional da II Divisão",
+        "Final da Taça de Portugal"
+      ]
+    }
+  },
+  {
+    "source_line": 3479,
+    "reason": "Known reference spelling discrepancy",
+    "action": "answer",
+    "answer_index": 1,
+    "record": {
+      "question": "No programa 'Cante se Puder', qual ocorreu primeiro: a reprise do programa 'Cante se Puder' no bloco 'Quem Não Viu, Vai Ver', exibido às quartas-feiras às 18h30, ou o lançamento da versão peruana 'Canta si puedes' na América Televisão, apresentada por Raúl Romero?",
+      "expected_answers": [
+        "Lançamento da versão peruana 'Canta si puedes' na América Televisão, apresentada por Raúl Romero."
+      ],
+      "facts_pair": [
+        "Reprise do programa 'Cante se Puder' no bloco 'Quem Não Viu, Vai Ver', exibido às quartas-feiras às 18h30.",
+        "Lançamento da versão peruana 'Canta si puedes' na América Televisión, apresentada por Raúl Romero."
+      ]
+    }
+  },
+  {
+    "source_line": 5299,
+    "reason": "Known reference spelling discrepancy",
+    "action": "answer",
+    "answer_index": 0,
+    "record": {
+      "question": "Qual dos seguintes eventos ocorreu primeiro na vida de Inês de Medeiros: a participação nos filmes 'Os Cornos de Cronos' e 'O Sangue' ou ter sido mandatária da campanha presidencial de Jorge Sampaio?",
+      "expected_answers": [
+        "Participação nos filmes 'Os Cornos de Cornos' e 'O Sangue'"
+      ],
+      "facts_pair": [
+        "Participação nos filmes 'Os Cornos de Cronos' e 'O Sangue'",
+        "Foi mandatária da campanha presidencial de Jorge Sampaio"
+      ]
+    }
+  }
+]

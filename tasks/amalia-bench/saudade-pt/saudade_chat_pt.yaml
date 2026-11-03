@@ -1,5 +1,9 @@
 task: saudade_chat_pt
 dataset_path: amalia-llm/saudade-pt
+dataset_name: pt_binary
+dataset_kwargs:
+  revision: ef67be3c1400acb9526627ad8c2a825c77ffbf37
+process_docs: !function utils.process_docs
 test_split: test
 output_type: generate_until
 doc_to_text: 'Dada a seguinte pergunta e duas respostas candidatas (A e B), escolha a resposta correta.\nPergunta: {{prompt}}:\nA. {{facts_pair[0]}}\nB. {{facts_pair[1]}}?\nA sua resposta deve terminar com "A melhor resposta é [letra_da_resposta]" onde [letra_da_resposta] é A ou B.'
@@ -23,4 +27,4 @@ filter_list:
       - function: remove_whitespace
       - function: take_first
 metadata:
-  version: 1.0
+  version: 1.1

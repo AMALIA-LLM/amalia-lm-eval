@@ -40,9 +40,82 @@ The benchmark covers diverse categories of Portuguese events and entities:
 
 All tasks follow a binary choice format where models must determine which of two events occurred first.
 
+### Dataset preparation
+
+The three tasks load the `pt_binary` configuration at dataset revision
+`ef67be3c1400acb9526627ad8c2a825c77ffbf37`. The `process_docs` hook prepares the
+raw annotations during normal harness loading. No offline preparation is required.
+
+The pinned file contains 7,444 records. Preparation retains the same 7,435 records,
+in the same order, with the same prompts and labels as `process_temp_reasoning.py`.
+The hook logs each canonical exclusion and reference correction, then reports:
+
+```text
+SAUDADE prepared 7435 of 7444 records; excluded 9 canonical prefix failures
+```
+
+The nine exclusions fail the original script's question-prefix extraction rules;
+they do have answer labels. They remain excluded to preserve the canonical subset.
+The two spelling discrepancies are resolved by explicit reference mappings rather
+than fuzzy matching. The harness can invoke preparation repeatedly, so the same
+accounting lines can appear more than once in a run. `binary_track_manifest.json`
+records the exact question,
+reference and options for each decision. `source_line` is one-based in the pinned
+JSONL file; decisions match content, so reordering does not change the labels.
+
+| Source line | Entity | Preparation decision |
+|---:|---|---|
+| 131 | António José de Melo Breyner Teles da Silva | Exclude: no prefix |
+| 3216 | Canal Q | Exclude: no prefix |
+| 3316 | Buéréré | Exclude: no prefix |
+| 3317 | Buéréré | Exclude: no prefix |
+| 3479 | Cante se Puder | Map the known reference spelling discrepancy to option B |
+| 3534 | Taça da Liga de Futsal | Exclude: no prefix |
+| 3840 | Revolução Iraniana | Exclude: no prefix |
+| 4972 | Noel Rosa | Exclude: no prefix |
+| 5299 | Inês de Medeiros | Map the known reference spelling discrepancy to option A |
+| 5375 | António Campos | Exclude: no prefix |
+| 6220 | Sporting Clube da Covilhã | Exclude: no prefix |
+
+Unknown prefix failures, unmatched or ambiguous reference answers, and conflicting
+prepared fields raise an error before inference. Already-prepared input is validated
+against the raw annotations. Repeated preparation preserves the records and labels.
+
+### Run the tasks
+
+From the repository root, with the project dependencies installed, run:
+
+```bash
+python -m lm_eval --model hf --model_args pretrained=<model> \
+  --include_path tasks/amalia-bench \
+  --tasks saudade_pt,saudade_chat_pt,saudade_chat_cot_pt \
+  --log_samples --output_path outputs/saudade
+```
+
+For a CPU pipeline smoke test, use the command below. This tests loading, requests,
+inference and scoring; the two-item results are not benchmark estimates.
+
+```bash
+python -m lm_eval --model hf \
+  --model_args pretrained=sshleifer/tiny-gpt2,revision=5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be,dtype=float32 \
+  --include_path tasks/amalia-bench \
+  --tasks saudade_pt,saudade_chat_pt,saudade_chat_cot_pt \
+  --device cpu --batch_size 2 --limit 2 \
+  --gen_kwargs max_gen_toks=8,do_sample=False \
+  --log_samples --output_path outputs/saudade-smoke
+```
+
+Run the regression suite without downloading a model or dataset:
+
+```bash
+python -m unittest discover -s tests
+```
+
 ### Dataset Structure
 
-Each example contains:
+Raw Portuguese examples contain `question`, `entity`, `facts_pair`,
+`expected_answers` and `category`. Preparation adds `prompt` and `answer_index`.
+Each prepared example contains:
 - `question`: Full question text in Portuguese asking which event occurred first
 - `prompt`: Question stem (format: "Qual dos dois eventos relacionados com {entity} ocorreu primeiro:")
 - `entity`: The entity (person, organization, event) that both facts relate to

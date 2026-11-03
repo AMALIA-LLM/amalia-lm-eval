@@ -1,5 +1,9 @@
 task: saudade_pt
 dataset_path: amalia-llm/saudade-pt
+dataset_name: pt_binary
+dataset_kwargs:
+  revision: ef67be3c1400acb9526627ad8c2a825c77ffbf37
+process_docs: !function utils.process_docs
 test_split: test
 output_type: multiple_choice
 doc_to_text: "Pergunta: {{prompt}} {{facts_pair[0]}} ou {{facts_pair[1]}}?\nA resposta é"
@@ -15,4 +19,4 @@ metric_list:
     aggregation: mean
     higher_is_better: true
 metadata:
-  version: 1.0
+  version: 1.1
