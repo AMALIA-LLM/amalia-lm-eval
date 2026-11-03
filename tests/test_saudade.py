@@ -18,6 +18,12 @@ class SaudadeTaskTest(unittest.TestCase):
         ]:
             with self.subTest(task=filename):
                 config = load_yaml_config(str(TASKS / filename))
+                self.assertEqual(config["dataset_path"], "amalia-llm/saudade-pt")
+                self.assertEqual(config["dataset_name"], "pt_binary")
+                self.assertEqual(
+                    config["dataset_kwargs"]["revision"],
+                    "ef67be3c1400acb9526627ad8c2a825c77ffbf37",
+                )
                 config.update(
                     dataset_path="json",
                     dataset_name=None,
