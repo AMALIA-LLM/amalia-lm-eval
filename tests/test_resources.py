@@ -84,8 +84,9 @@ class DistributionTests(unittest.TestCase):
                 shutil.copytree(path, source / name, ignore=shutil.ignore_patterns('__pycache__', '.env', '.env.*'))
             else:
                 shutil.copy2(path, source / name)
-        if (REPO / "MANIFEST.in").is_file():
-            shutil.copy2(REPO / "MANIFEST.in", source / "MANIFEST.in")
+        for filename in ["MANIFEST.in", "build_hooks.py"]:
+            if (REPO / filename).is_file():
+                shutil.copy2(REPO / filename, source / filename)
         for relative in ['vibe_check/extra.yaml', 'alba/processed_alba/extra.json',
                          'alba/alba_original/extra.json']:
             local = source / 'tasks/amalia-bench' / relative
@@ -139,6 +140,47 @@ class DistributionTests(unittest.TestCase):
             with self.subTest(artifact=label):
                 self.assertEqual(private & members, set())
                 self.assertIn('tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json', members)
+
+    def test_direct_rebuild_refuses_stale_dotenv_payload(self):
+        for location in ['library', 'staging', 'both']:
+            with self.subTest(location=location):
+                source = self.root / ('dirty-' + location)
+                shutil.copytree(self.sdist_source, source)
+                source_env = source / 'tasks/amalia-bench/humaneval_pt/.env'
+                source_env.write_text('SOURCE_MARKER=harmless\n')
+                staging = source / 'wheel-staging'
+                private = []
+                if location in {'library', 'both'}:
+                    private.append(source / 'build/lib/tasks/amalia-bench/humaneval_pt/.env')
+                if location in {'staging', 'both'}:
+                    private.append(staging / 'tasks/amalia-bench/humaneval_pt/.env.local')
+                for path in private:
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text('STALE_MARKER=harmless\n')
+                output = self.root / ('dirty-wheels-' + location)
+                output.mkdir()
+                code = ('from setuptools.build_meta import build_wheel; '
+                        f'build_wheel({str(output)!r}, config_settings={{"--build-option": '
+                        f'["--bdist-dir", {str(staging)!r}]}})')
+                result = subprocess.run(
+                    [sys.executable, '-c', code], cwd=source,
+                    env=dict(os.environ, PYTHONPATH=str(source)),
+                    capture_output=True, text=True, timeout=120,
+                )
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('Refusing wheel containing dotenv config', result.stdout + result.stderr)
+                self.assertEqual(list(output.glob('*.whl')), [])
+                for path in private:
+                    self.assertEqual(path.read_text(), 'STALE_MARKER=harmless\n')
+                self.assertEqual(source_env.read_text(), 'SOURCE_MARKER=harmless\n')
+                shutil.rmtree(source / 'build')
+                shutil.rmtree(staging)
+                run_python(code, source, source)
+                with zipfile.ZipFile(next(output.glob('*.whl'))) as bundle:
+                    names = bundle.namelist()
+                    self.assertIn('tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json', names)
+                    self.assertEqual([name for name in names if Path(name).name == '.env'
+                                      or Path(name).name.startswith('.env.')], [])
 
     def test_installed_console_loads_caller_dotenv(self):
         prefix = self.root / 'console-env'
