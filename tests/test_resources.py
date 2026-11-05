@@ -81,7 +81,7 @@ class DistributionTests(unittest.TestCase):
                      'pyproject.toml', 'README.md', 'LICENSE.md']:
             path = REPO / name
             if path.is_dir():
-                shutil.copytree(path, source / name, ignore=shutil.ignore_patterns('__pycache__'))
+                shutil.copytree(path, source / name, ignore=shutil.ignore_patterns('__pycache__', '.env', '.env.*'))
             else:
                 shutil.copy2(path, source / name)
         if (REPO / "MANIFEST.in").is_file():
@@ -194,7 +194,8 @@ class DistributionTests(unittest.TestCase):
                       'tasks/amalia-bench/alba/processed_alba/',
                       'tasks/amalia-bench/alba/alba_original/')
         assets = {p.relative_to(REPO).as_posix() for p in (REPO / 'tasks/amalia-bench').rglob('*')
-                  if p.is_file() and p.suffix != '.pyc' and '__pycache__' not in p.parts}
+                  if p.is_file() and p.suffix != '.pyc' and '__pycache__' not in p.parts
+                  and p.name != '.env' and not p.name.startswith('.env.')}
         assets = {path for path in assets if path not in excluded and not path.startswith(local_dirs)}
         self.assertEqual(sorted(assets - self.members), [])
         self.assertNotIn("tasks/amalia-bench/obsolete.yaml", self.members)

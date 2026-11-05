@@ -49,6 +49,9 @@ Optionally, the script asks you to pack the environment for transfer to another 
 The `amalia` command finds bundled tasks and its launch template independently of your working directory. Custom `--templates-file` and `--harness-args.include-path` values remain relative to your working directory. The bundled template is in `configs/templates/launch.sbatch.j2` if you need to copy it for customization.
 
 ### Setting up `.env` (required for run scripts)
+
+The `amalia` CLI loads the nearest `.env` in your current directory or its parents before constructing SLURM presets. Exported environment variables take precedence. Dotenv files are excluded from source distributions and wheels; configure them separately on the destination machine.
+
 The helper run scripts (for example in [eval_scripts](infra/eval_scripts)) expect a project-level `.env` file at the repository root. A sample file named `.env_copy` is included to make setup easy.
 
 1. Copy the sample file and rename it to `.env` at the project root:

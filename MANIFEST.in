@@ -4,4 +4,4 @@ prune tasks/amalia-bench/alba/processed_alba
 prune tasks/amalia-bench/alba/alba_original
 exclude tasks/amalia-bench/LegalBenchPT/original/trash.txt
 exclude tasks/amalia-bench/mmlu_mt/translation_cache.json
-global-exclude *.py[cod]
+global-exclude *.py[cod] .env .env.*

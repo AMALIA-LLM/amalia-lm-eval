@@ -5,8 +5,7 @@ from typing import Any
 import os
 import dotenv
 
-# load the env variables from a .env file
-dotenv.load_dotenv()
+dotenv.load_dotenv(dotenv.find_dotenv(usecwd=True))
 
 
 def _remote_hf_cache(subdir: str) -> str | None:
