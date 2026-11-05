@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import logging
 import os
+import shlex
 import subprocess
 import sys
 from copy import deepcopy
@@ -16,6 +17,7 @@ import jinja2
 import tyro
 
 from configs.models import HARNESS_MODEL_CONFIGS
+from configs.resources import BENCHMARK_PATH, LAUNCH_TEMPLATE
 from configs.slurm import SLURM_CONFIGS
 from tasks.configs import HARNESS_TASK_CONFIGS, TASK_GROUPS
 
@@ -56,7 +58,7 @@ class HarnessArgs:
     cache_requests: bool = False
     local_base_dir: str | None = None
     # path to amalia-bench tasks
-    include_path: str = "./tasks/amalia-bench"
+    include_path: str = BENCHMARK_PATH
     limit: int | None = None
     gen_kwargs: str | None = None
     batch_size: str = "auto"
@@ -104,7 +106,7 @@ class EvalConfig:
     harness_args: HarnessArgs = HarnessArgs()
 
     # Template / environment configuration
-    templates_file: str = "./templates/launch.sbatch.j2"
+    templates_file: str = LAUNCH_TEMPLATE
     hf_home: str | None = None
     hf_hub_cache: str | None = None
     hf_assets_cache: str | None = None
@@ -257,6 +259,7 @@ def _render_and_submit(config: EvalConfig) -> None:
         loader=jinja2.FileSystemLoader(templates_dir),
         undefined=jinja2.StrictUndefined,
     )
+    jinja_env.filters["shellquote"] = shlex.quote
     template = jinja_env.get_template(template_name)
 
     output_dir = os.path.abspath(config.model_output_dir)

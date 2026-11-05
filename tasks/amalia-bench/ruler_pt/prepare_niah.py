@@ -60,7 +60,7 @@ WORDS = sorted(list(set(words)))
 import pandas as pd
 from pathlib import Path
 
-vocab_path = Path("tasks/amalia-bench/ruler_pt/dataset/Portuguese.csv")
+vocab_path = Path(__file__).resolve().parent / "dataset" / "Portuguese.csv"
 df = pd.read_csv(vocab_path, dtype={"words": str, "pos": str}, header=0)
 df = df.dropna(subset=["words"])
 # remove words that contain numbers
@@ -378,7 +378,8 @@ def get_haystack(
         # essay = " ".join(essay)
 
         # replaced the essays by "Livro do Desassossego" by Fernando Pessoa, which is used by oneruler
-        essay = Path("tasks/amalia-bench/ruler_pt/dataset/the_book_of_disquietude_pt.txt").read_text(encoding="utf-8")
+        essay_path = Path(__file__).resolve().parent / "dataset" / "the_book_of_disquietude_pt.txt"
+        essay = essay_path.read_text(encoding="utf-8")
 
         haystack = re.sub(r"\s+", " ", essay).split(" ")
     elif type_haystack == "repeat":

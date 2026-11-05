@@ -17,6 +17,7 @@ import itertools  # noqa: I001
 import json
 import random
 from functools import cache
+from pathlib import Path
 
 import datasets
 import requests
@@ -52,7 +53,7 @@ def read_squad(
     except Exception as e:
         print(f"Error downloading SQuAD dataset from {url}: {e}. Using local version.")
         # TODO just to get it to work when there is no internet connection
-        with open("tasks/amalia-bench/ruler_en/dataset/dev-v2.0.json", "r") as f:
+        with (Path(__file__).resolve().parent / "dataset" / "dev-v2.0.json").open() as f:
             data = json.load(f)
 
     total_docs = [p["context"] for d in data["data"] for p in d["paragraphs"]]
@@ -91,7 +92,7 @@ def read_hotpotqa(
     except Exception as e:
         print(f"Error downloading HotpotQA dataset from {url}: {e}. Using local version.")
         # TODO just to get it to work when there is no internet connection
-        with open("tasks/amalia-bench/ruler_en/dataset/hotpot_dev_distractor_v1.json", "r") as f:
+        with (Path(__file__).resolve().parent / "dataset" / "hotpot_dev_distractor_v1.json").open() as f:
             data = json.load(f)
 
     total_docs = [f"{t}\n{''.join(p)}" for d in data for t, p in d["context"]]

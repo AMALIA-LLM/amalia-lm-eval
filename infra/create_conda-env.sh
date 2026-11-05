@@ -4,6 +4,7 @@ set +x
 set -eo pipefail
 
 ENV_NAME="${ENV_NAME:-amalia-eval}"
+OUTPUT_FILE="${ENV_NAME}.tar.gz"
 
 # check if CONDA_HOME is set
 if [ -z "$CONDA_HOME" ]
@@ -45,7 +46,7 @@ export LD_LIBRARY_PATH=${CONDA_ENVS}/${ENV_NAME}/lib:$LD_LIBRARY_PATH
 export CUDA_HOME=${CONDA_ENVS}/${ENV_NAME}
 
 echo "Installing dependencies..."
-pip install -e .
+pip install -e "$DIR/.."
 
 echo ""
 echo "Environment creation completed successfully!"
@@ -60,7 +61,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing conda-pack..."
     conda install conda-pack -c conda-forge -y
 
-    OUTPUT_FILE="${ENV_NAME}.tar.gz"
+    pip install build
+    SDIST_DIR=$(mktemp -d)
+    trap 'rm -rf "$SDIST_DIR"' EXIT
+    python -m build --sdist --outdir "$SDIST_DIR" "$DIR/.."
+    pip install --no-deps --force-reinstall "$SDIST_DIR"/*.tar.gz
+    rm -rf "$SDIST_DIR"
+    trap - EXIT
+    echo "AMALIA is now a regular installation; local checkout edits no longer apply."
 
     # Pack the environment
     echo "Packing environment (this may take a few minutes)..."
@@ -93,6 +101,11 @@ else
     echo "If you want to pack it later for HPC deployment, you can run:"
     echo "conda activate ${ENV_NAME}"
     echo "conda install conda-pack -c conda-forge"
+    echo "pip install build"
+    echo 'SDIST_DIR=$(mktemp -d)'
+    echo "python -m build --sdist --outdir \"\$SDIST_DIR\" \"$DIR/..\""
+    echo 'pip install --no-deps --force-reinstall "$SDIST_DIR"/*.tar.gz'
+    echo 'rm -rf "$SDIST_DIR"'
     echo "conda pack -n ${ENV_NAME} -o ${OUTPUT_FILE}"
     echo "================================================"
 fi

@@ -139,6 +139,9 @@ class DistributionTests(unittest.TestCase):
 
     def test_direct_wheel_excludes_local_development_files(self):
         self.assertIn('tasks/amalia-bench/saudade-pt/utils.py', self.direct_members)
+        direct = {name for name in self.direct_members if '.dist-info/' not in name}
+        via_sdist = {name for name in self.members if '.dist-info/' not in name}
+        self.assertEqual(direct, via_sdist)
         for relative in ['vibe_check', 'alba/processed_alba', 'alba/alba_original']:
             prefix = 'tasks/amalia-bench/' + relative + '/'
             self.assertEqual([name for name in self.direct_members if name.startswith(prefix)], [])
