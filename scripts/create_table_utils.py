@@ -96,7 +96,7 @@ def create_tables(file_name: str, outfile: str = "results_by_model_ordered.csv",
         if df_pt_exams.empty:
             print("No PT-E tasks found in the dataframe.")
         else:
-            output_file_pt_exams = os.path.join(os.path.dirname(file_name), output_file.replace(".csv", "_pt_exams.csv"))
+            output_file_pt_exams = os.path.splitext(output_file)[0] + "_pt_exams.csv"
             df_pt_exams.to_csv(output_file_pt_exams)
 
         # and another for pt-exams-cot
@@ -105,7 +105,7 @@ def create_tables(file_name: str, outfile: str = "results_by_model_ordered.csv",
         if df_pt_exams_cot.empty:
             print("No PT-E (CoT) tasks found in the dataframe.")
         else:
-            output_file_pt_exams_cot = os.path.join(os.path.dirname(file_name), output_file.replace(".csv", "_pt_exams_cot.csv"))
+            output_file_pt_exams_cot = os.path.splitext(output_file)[0] + "_pt_exams_cot.csv"
             df_pt_exams_cot.to_csv(output_file_pt_exams_cot)
 
     if extra_tables:
@@ -118,7 +118,7 @@ def create_tables(file_name: str, outfile: str = "results_by_model_ordered.csv",
         if df_alba.empty:
             print("No ALBA tasks found in the dataframe.")
         else:
-            output_file_alba = os.path.join(os.path.dirname(file_name), output_file.replace(".csv", "_alba.csv"))
+            output_file_alba = os.path.splitext(output_file)[0] + "_alba.csv"
             df_alba.to_csv(output_file_alba)
 
     if extra_tables:
