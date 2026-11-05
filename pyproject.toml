@@ -55,6 +55,7 @@ include = ["configs*", "tasks*", "scripts*", "inspect*"]
 
 [tool.setuptools.package-data]
 "inspect" = ["templates/*.html", "static/*"]
+"tasks.amalia-bench.saudade-pt" = ["binary_track_manifest.json"]
 
 [tool.ruff]
 line-length = 88

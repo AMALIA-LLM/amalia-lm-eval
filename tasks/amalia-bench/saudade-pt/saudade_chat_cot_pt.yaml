@@ -1,5 +1,9 @@
 task: saudade_chat_cot_pt
 dataset_path: amalia-llm/saudade-pt
+dataset_name: pt_binary
+dataset_kwargs:
+  revision: ef67be3c1400acb9526627ad8c2a825c77ffbf37
+process_docs: !function utils.process_docs
 test_split: test
 output_type: generate_until
 doc_to_text: 'Pergunta: {{prompt}}:\nOpções:\n(A) {{facts_pair[0]}}\n(B) {{facts_pair[1]}}?\n\nEscolha a opção correta para a pergunta acima. Apresente o seu raciocínio antes de responder. No final, apresente a sua resposta no formato \\boxed{X}, onde X é a letra da opção correta (A ou B).'
@@ -23,4 +27,4 @@ filter_list:
   - function: !function utils.ExtractAnswerR
   - function: "take_first"
 metadata:
-  version: 1.0
+  version: 1.1
