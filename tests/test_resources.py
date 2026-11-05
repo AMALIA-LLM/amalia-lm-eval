@@ -4,9 +4,11 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import sysconfig
 import tarfile
 import tempfile
 import unittest
+import venv
 import zipfile
 
 REPO = Path(__file__).resolve().parents[1]
@@ -90,6 +92,11 @@ class DistributionTests(unittest.TestCase):
             local.parent.mkdir(parents=True, exist_ok=True)
             local.write_text('task: local_only\n')
             (local.parent / 'private_helper.py').write_text('local_only = True\n')
+        task = source / 'tasks/amalia-bench/humaneval_pt'
+        for filename in ['.env', '.env.local']:
+            (task / filename).write_text('AUDIT_MARKER=not-a-real-secret\n')
+        offline = source / 'tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json'
+        offline.write_text('{}\n')
         direct_dir = cls.root / 'direct-wheel'
         direct_dir.mkdir()
         run_python(
@@ -109,6 +116,8 @@ class DistributionTests(unittest.TestCase):
         )
         archive, = archive_dir.glob('*.tar.gz')
         with tarfile.open(archive) as bundle:
+            cls.sdist_members = {member.name.split('/', 1)[1] for member in bundle.getmembers()
+                                 if member.isfile() and '/' in member.name}
             bundle.extractall(archive_dir, filter='data')
         unpacked, = (p for p in archive_dir.iterdir() if p.is_dir())
         cls.sdist_source = unpacked
@@ -117,10 +126,66 @@ class DistributionTests(unittest.TestCase):
             f'build_wheel({str(archive_dir)!r})', unpacked, unpacked,
         )
         wheel, = archive_dir.glob('*.whl')
+        cls.wheel = wheel
         cls.installed = cls.root / 'installed'
         with zipfile.ZipFile(wheel) as bundle:
             cls.members = set(bundle.namelist())
             bundle.extractall(cls.installed)
+
+    def test_distributions_exclude_dotenv_but_keep_offline_data(self):
+        private = {'tasks/amalia-bench/humaneval_pt/' + name for name in ['.env', '.env.local']}
+        for label, members in [('direct wheel', self.direct_members),
+                               ('sdist wheel', self.members), ('sdist', self.sdist_members)]:
+            with self.subTest(artifact=label):
+                self.assertEqual(private & members, set())
+                self.assertIn('tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json', members)
+
+    def test_installed_console_loads_caller_dotenv(self):
+        prefix = self.root / 'console-env'
+        venv.EnvBuilder(with_pip=True, symlinks=True).create(prefix)
+        packages = Path(sysconfig.get_path('purelib', vars={'base': str(prefix), 'platbase': str(prefix)}))
+        (packages / 'test_dependencies.pth').write_text(sysconfig.get_path('purelib') + '\n')
+        env = {key: value for key, value in os.environ.items()
+               if key not in {'HF_CACHE_REMOTE', 'ACTIVATE_ENV', 'PYTHONPATH', 'PYTHON_DOTENV_DISABLED'}}
+        env.update(PIP_CONFIG_FILE=os.devnull, PIP_DISABLE_PIP_VERSION_CHECK='1')
+        install = subprocess.run(
+            [str(prefix / 'bin/python'), '-m', 'pip', 'install', '--no-index', '--no-deps', str(self.wheel)],
+            env=env, capture_output=True, text=True, timeout=120,
+        )
+        self.assertEqual(install.returncode, 0, install.stdout + install.stderr)
+        caller = self.root / 'caller'
+        nested = caller / 'nested'
+        nested.mkdir(parents=True)
+        (caller / '.env').write_text('HF_CACHE_REMOTE=/scratch/file-cache\nACTIVATE_ENV=file-env\n')
+        command = [str(prefix / 'bin/amalia'), '--model-name-or-path', 'example/model',
+                   '--tasks', 'amalia_arc_challenge_chat_mt_pt', '--slurm-config', 'marenostrum']
+        for label, cwd, overrides, cache, activation in [
+            ('file', caller, {}, '/scratch/file-cache', 'file-env'),
+            ('ancestor', nested, {}, '/scratch/file-cache', 'file-env'),
+            ('exported', caller, {'HF_CACHE_REMOTE': '/scratch/exported-cache', 'ACTIVATE_ENV': 'exported-env'},
+             '/scratch/exported-cache', 'exported-env'),
+        ]:
+            with self.subTest(case=label):
+                output = self.root / ('console-' + label)
+                result = subprocess.run(
+                    command + ['--model-output-dir', str(output)], cwd=cwd, env=env | overrides,
+                    input='n\n', capture_output=True, text=True, timeout=60,
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                script, = output.glob('*.j2_*')
+                rendered = script.read_text()
+                self.assertIn('export HF_HOME="' + cache + '/huggingface"', rendered)
+                self.assertIn('ACT_ENV="' + activation + '"', rendered)
+                self.assertIn('Skipped submission', result.stdout)
+        empty = self.root / 'no-configuration'
+        empty.mkdir()
+        (empty / '.env').write_text('')
+        result = subprocess.run(
+            command + ['--model-output-dir', str(self.root / 'console-missing')], cwd=empty, env=env,
+            input='n\n', capture_output=True, text=True, timeout=60,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('needs HF_CACHE_REMOTE', result.stderr)
 
     def test_runtime_assets_survive_sdist_and_wheel(self):
         excluded = {'tasks/amalia-bench/LegalBenchPT/original/trash.txt',
