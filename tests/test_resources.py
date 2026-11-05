@@ -81,7 +81,7 @@ class DistributionTests(unittest.TestCase):
                      'pyproject.toml', 'README.md', 'LICENSE.md']:
             path = REPO / name
             if path.is_dir():
-                shutil.copytree(path, source / name, ignore=shutil.ignore_patterns('__pycache__', '.env', '.env.*'))
+                shutil.copytree(path, source / name, ignore=shutil.ignore_patterns('__pycache__', '.env*', '*.env'))
             else:
                 shutil.copy2(path, source / name)
         for filename in ["MANIFEST.in", "build_hooks.py"]:
@@ -94,7 +94,7 @@ class DistributionTests(unittest.TestCase):
             local.write_text('task: local_only\n')
             (local.parent / 'private_helper.py').write_text('local_only = True\n')
         task = source / 'tasks/amalia-bench/humaneval_pt'
-        for filename in ['.env', '.env.local']:
+        for filename in ['.env', '.env.local', '.env_copy', '.env-prod', '.envrc', 'local.env']:
             (task / filename).write_text('AUDIT_MARKER=not-a-real-secret\n')
         offline = source / 'tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json'
         offline.write_text('{}\n')
@@ -134,7 +134,7 @@ class DistributionTests(unittest.TestCase):
             bundle.extractall(cls.installed)
 
     def test_distributions_exclude_dotenv_but_keep_offline_data(self):
-        private = {'tasks/amalia-bench/humaneval_pt/' + name for name in ['.env', '.env.local']}
+        private = {'tasks/amalia-bench/humaneval_pt/' + name for name in ['.env', '.env.local', '.env_copy', '.env-prod', '.envrc', 'local.env']}
         for label, members in [('direct wheel', self.direct_members),
                                ('sdist wheel', self.members), ('sdist', self.sdist_members)]:
             with self.subTest(artifact=label):
@@ -142,7 +142,7 @@ class DistributionTests(unittest.TestCase):
                 self.assertIn('tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json', members)
 
     def test_direct_rebuild_refuses_stale_dotenv_payload(self):
-        for location in ['library', 'staging', 'both']:
+        for location in ['library', 'staging', 'both', 'suffix-staging']:
             with self.subTest(location=location):
                 source = self.root / ('dirty-' + location)
                 shutil.copytree(self.sdist_source, source)
@@ -152,8 +152,9 @@ class DistributionTests(unittest.TestCase):
                 private = []
                 if location in {'library', 'both'}:
                     private.append(source / 'build/lib/tasks/amalia-bench/humaneval_pt/.env')
-                if location in {'staging', 'both'}:
-                    private.append(staging / 'tasks/amalia-bench/humaneval_pt/.env.local')
+                if location in {'staging', 'both', 'suffix-staging'}:
+                    filename = 'local.env' if location == 'suffix-staging' else '.env.local'
+                    private.append(staging / 'tasks/amalia-bench/humaneval_pt' / filename)
                 for path in private:
                     path.parent.mkdir(parents=True, exist_ok=True)
                     path.write_text('STALE_MARKER=harmless\n')
@@ -179,8 +180,30 @@ class DistributionTests(unittest.TestCase):
                 with zipfile.ZipFile(next(output.glob('*.whl'))) as bundle:
                     names = bundle.namelist()
                     self.assertIn('tasks/amalia-bench/ruler_pt/dataset/offline_fixture.json', names)
-                    self.assertEqual([name for name in names if Path(name).name == '.env'
-                                      or Path(name).name.startswith('.env.')], [])
+                    self.assertEqual([name for name in names if Path(name).name.startswith('.env') or Path(name).name.endswith('.env')], [])
+
+    def test_editable_build_ignores_unused_wheel_staging(self):
+        source = self.root / 'editable-source'
+        shutil.copytree(self.sdist_source, source)
+        output = self.root / 'editable-wheel'
+        output.mkdir()
+        code = f"""
+from pathlib import Path
+from setuptools import Distribution
+from setuptools.build_meta import build_editable
+command = Distribution().get_command_obj('bdist_wheel')
+command.ensure_finalized()
+private = Path(command.bdist_dir) / 'tasks/amalia-bench/humaneval_pt/.env'
+private.parent.mkdir(parents=True, exist_ok=True)
+private.write_text('EDITABLE_MARKER=harmless\\n')
+build_editable({str(output)!r})
+assert private.read_text() == 'EDITABLE_MARKER=harmless\\n'
+"""
+        run_python(code, source, source)
+        with zipfile.ZipFile(next(output.glob('*.whl'))) as bundle:
+            self.assertTrue(any(name.endswith('.pth') for name in bundle.namelist()))
+            self.assertEqual([name for name in bundle.namelist()
+                              if Path(name).name.startswith('.env') or Path(name).name.endswith('.env')], [])
 
     def test_installed_console_loads_caller_dotenv(self):
         prefix = self.root / 'console-env'
@@ -195,6 +218,7 @@ class DistributionTests(unittest.TestCase):
             env=env, capture_output=True, text=True, timeout=120,
         )
         self.assertEqual(install.returncode, 0, install.stdout + install.stderr)
+        (prefix / '.env').write_text('HF_CACHE_REMOTE=/scratch/install-cache\nACTIVATE_ENV=install-env\n')
         caller = self.root / 'caller'
         nested = caller / 'nested'
         nested.mkdir(parents=True)
@@ -204,6 +228,8 @@ class DistributionTests(unittest.TestCase):
         for label, cwd, overrides, cache, activation in [
             ('file', caller, {}, '/scratch/file-cache', 'file-env'),
             ('ancestor', nested, {}, '/scratch/file-cache', 'file-env'),
+            ('mixed', caller, {'HF_CACHE_REMOTE': '/scratch/exported-cache'},
+             '/scratch/exported-cache', 'file-env'),
             ('exported', caller, {'HF_CACHE_REMOTE': '/scratch/exported-cache', 'ACTIVATE_ENV': 'exported-env'},
              '/scratch/exported-cache', 'exported-env'),
         ]:
@@ -237,7 +263,7 @@ class DistributionTests(unittest.TestCase):
                       'tasks/amalia-bench/alba/alba_original/')
         assets = {p.relative_to(REPO).as_posix() for p in (REPO / 'tasks/amalia-bench').rglob('*')
                   if p.is_file() and p.suffix != '.pyc' and '__pycache__' not in p.parts
-                  and p.name != '.env' and not p.name.startswith('.env.')}
+                  and not p.name.startswith('.env') and not p.name.endswith('.env')}
         assets = {path for path in assets if path not in excluded and not path.startswith(local_dirs)}
         self.assertEqual(sorted(assets - self.members), [])
         self.assertNotIn("tasks/amalia-bench/obsolete.yaml", self.members)

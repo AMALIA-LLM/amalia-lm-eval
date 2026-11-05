@@ -50,7 +50,7 @@ The `amalia` command finds bundled tasks and its launch template independently o
 
 ### Setting up `.env` (required for run scripts)
 
-The `amalia` CLI loads the nearest `.env` in your current directory or its parents before constructing SLURM presets. Exported environment variables take precedence. Dotenv files are excluded from source distributions and wheels; configure them separately on the destination machine.
+The `amalia` CLI loads the nearest `.env` in your current directory or its parents before constructing SLURM presets. Exported environment variables take precedence. Dotenv files are excluded from source distributions and wheels; configure them separately on the destination machine. If a wheel build detects dotenv files in stale build output, it refuses to produce the wheel. Clean those build outputs before retrying.
 
 The helper run scripts (for example in [eval_scripts](infra/eval_scripts)) expect a project-level `.env` file at the repository root. A sample file named `.env_copy` is included to make setup easy.
 
