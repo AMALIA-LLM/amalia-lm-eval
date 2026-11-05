@@ -444,38 +444,38 @@ def extract_results(folder_paths: List[str], only_most_recent: bool, ignore_subc
         if "pretty_model_name" in results_df.columns:
             results_df = results_df[~results_df["pretty_model_name"].isin(exclude_models)]
 
-        # Filter checkpoints based on parameters
-        if checkpoints is not None or min_checkpoint is not None or max_checkpoint is not None:
-            filtered_rows = []
+    # Filter checkpoints based on parameters
+    if checkpoints is not None or min_checkpoint is not None or max_checkpoint is not None:
+        filtered_rows = []
 
-            # Parse checkpoints parameter if provided
-            selected_checkpoints = None
-            if checkpoints is not None:
-                selected_checkpoints = set(int(x.strip()) for x in checkpoints.split(','))
+        # Parse checkpoints parameter if provided
+        selected_checkpoints = None
+        if checkpoints is not None:
+            selected_checkpoints = set(int(x.strip()) for x in checkpoints.split(','))
 
-            for row in sorted_checkpoint_rows:
-                match = re.search(r'checkpoint-(\d+)', row)
-                if match:
-                    ckpt_num = int(match.group(1))
-                    # Include checkpoint if it matches the criteria
-                    if selected_checkpoints is not None:
-                        # Use specific checkpoints list
-                        if ckpt_num in selected_checkpoints:
-                            filtered_rows.append(row)
-                    else:
-                        # Use minimum and/or maximum checkpoint threshold
-                        include = True
-                        if min_checkpoint is not None and ckpt_num < min_checkpoint:
-                            include = False
-                        if max_checkpoint is not None and ckpt_num > max_checkpoint:
-                            include = False
-                        if include:
-                            filtered_rows.append(row)
+        for row in sorted_checkpoint_rows:
+            match = re.search(r'checkpoint-(\d+)', row)
+            if match:
+                ckpt_num = int(match.group(1))
+                # Include checkpoint if it matches the criteria
+                if selected_checkpoints is not None:
+                    # Use specific checkpoints list
+                    if ckpt_num in selected_checkpoints:
+                        filtered_rows.append(row)
                 else:
-                    # Keep columns that don't have checkpoint numbers
-                    filtered_rows.append(row)
+                    # Use minimum and/or maximum checkpoint threshold
+                    include = True
+                    if min_checkpoint is not None and ckpt_num < min_checkpoint:
+                        include = False
+                    if max_checkpoint is not None and ckpt_num > max_checkpoint:
+                        include = False
+                    if include:
+                        filtered_rows.append(row)
+            else:
+                # Keep columns that don't have checkpoint numbers
+                filtered_rows.append(row)
 
-            results_df = results_df[results_df["model_name"].isin(filtered_rows)]
+        results_df = results_df[results_df["model_name"].isin(filtered_rows)]
 
     return results_df
 
