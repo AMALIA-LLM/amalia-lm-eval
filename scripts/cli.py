@@ -8,7 +8,7 @@ import os
 import subprocess
 import sys
 from copy import deepcopy
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Sequence
 
@@ -16,7 +16,6 @@ import jinja2
 import tyro
 
 from configs.models import HARNESS_MODEL_CONFIGS
-from configs.slurm import SLURM_CONFIGS
 from tasks.configs import HARNESS_TASK_CONFIGS, TASK_GROUPS
 
 # Configure logger
@@ -85,6 +84,7 @@ class EvalConfig:
     tasks: list[str] | None = None
     task_group: str | None = None
     slurm_config: str | None = None
+    backend: str = "slurm"  # execution backend: "slurm" or "local"
 
     # SLURM / cluster configuration
     job_name: str | None = "amalia-eval"
@@ -148,6 +148,10 @@ def _resolve_tasks(config: EvalConfig) -> Sequence[str]:
 def _apply_slurm_defaults(config: EvalConfig) -> None:
     if not config.slurm_config:
         return
+
+    # Imported lazily so the local backend does not depend on SLURM config,
+    # which reads HF_CACHE_REMOTE at import time.
+    from configs.slurm import SLURM_CONFIGS
 
     if config.slurm_config not in SLURM_CONFIGS:
         raise ValueError(
@@ -245,19 +249,122 @@ def _build_harness_args(task: str, config: EvalConfig) -> dict:
     return harness_cfg
 
 
+def _flatten_lm_eval_args(harness_args: dict) -> list[str]:
+    """Flatten harness kwargs like the sbatch template's Bash array."""
+    argv: list[str] = []
+    for key, value in harness_args.items():
+        if value is True:
+            argv.append(f"--{key}")
+        elif value is not False and value is not None:
+            argv.extend([f"--{key}", str(value)])
+    return argv
+
+
+def _build_hf_logging_args() -> str:
+    return ",".join(
+        [
+            "hub_results_org=amalia-llm",
+            "details_repo_name=/test-results-private",
+            "results_repo_name=/test-results-private",
+            "push_results_to_hub=True",
+            "push_samples_to_hub=True",
+            "public_repo=False",
+        ]
+    )
+
+
+def _build_lm_eval_argv(
+    task: str,
+    template_args: dict,
+    config: EvalConfig,
+) -> list[str]:
+    """Build the local lm_eval invocation for one resolved task."""
+    argv = [
+        "lm_eval",
+        "--tasks",
+        task,
+        "--output_path",
+        config.model_output_dir,
+        "--seed",
+        "42",
+    ]
+
+    if template_args.get("log_results_hf"):
+        argv.extend(["--hf_hub_log_args", _build_hf_logging_args()])
+
+    argv.append("--trust_remote_code")
+    argv.extend(_flatten_lm_eval_args(template_args.get("harness_args", {})))
+    return argv
+
+
+def _is_code_task(task: str) -> bool:
+    task_name = task.lower()
+    return any(marker in task_name for marker in ("humaneval", "mbpp", "code"))
+
+
+def _apply_local_hf_env(config: EvalConfig, task: str) -> None:
+    env_vars = {
+        "HF_HOME": config.hf_home,
+        "HF_HUB_CACHE": config.hf_hub_cache,
+        "HF_ASSETS_CACHE": config.hf_assets_cache,
+        "HF_DATASETS_CACHE": config.hf_datasets_cache,
+        "HF_HUB_OFFLINE": config.hf_hub_offline,
+        "HF_DATASETS_OFFLINE": config.hf_hub_offline,
+    }
+    for key, value in env_vars.items():
+        if value is not None:
+            os.environ[key] = str(value)
+
+    if _is_code_task(task):
+        os.environ["HF_ALLOW_CODE_EVAL"] = "1"
+
+
+def _run_local(config: EvalConfig, task: str, template_args: dict) -> bool:
+    """Run one task locally. Returns True on success (or user skip)."""
+    if (
+        not config.y
+        and input(f"Run local evaluation for task '{task}'? [y/N]: ").lower() != "y"
+    ):
+        print(f"Skipped local evaluation for task: {task}")
+        return True
+
+    _apply_local_hf_env(config, task)
+    logger.info(f"Running local evaluation for task '{task}'")
+    result = subprocess.run(
+        _build_lm_eval_argv(task, template_args, config),
+        check=False,
+    )
+    if result.returncode != 0:
+        print(
+            f"Local evaluation failed for task '{task}' "
+            f"with exit code {result.returncode}"
+        )
+        return False
+    return True
+
+
 def _render_and_submit(config: EvalConfig) -> None:
-    _apply_slurm_defaults(config)
+    if config.backend not in {"slurm", "local"}:
+        raise ValueError(
+            "Unknown backend, use 'slurm' or 'local': " f"{config.backend}"
+        )
+
+    if config.backend == "slurm":
+        _apply_slurm_defaults(config)
 
     selected_tasks = _resolve_tasks(config)
     logger.info(f"Selected tasks: {selected_tasks}!")
 
-    templates_dir = os.path.dirname(config.templates_file)
-    template_name = os.path.basename(config.templates_file)
-    jinja_env = jinja2.Environment(
-        loader=jinja2.FileSystemLoader(templates_dir),
-        undefined=jinja2.StrictUndefined,
-    )
-    template = jinja_env.get_template(template_name)
+    local_failures: list[str] = []
+
+    if config.backend == "slurm":
+        templates_dir = os.path.dirname(config.templates_file)
+        template_name = os.path.basename(config.templates_file)
+        jinja_env = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(templates_dir),
+            undefined=jinja2.StrictUndefined,
+        )
+        template = jinja_env.get_template(template_name)
 
     output_dir = os.path.abspath(config.model_output_dir)
     os.makedirs(output_dir, exist_ok=True)
@@ -346,6 +453,11 @@ def _render_and_submit(config: EvalConfig) -> None:
             template_args["harness_args"]["model_args"]
         )
 
+        if config.backend == "local":
+            if not _run_local(config, task, template_args):
+                local_failures.append(task)
+            continue
+
         # Extract short model name from path (e.g., "Meta-Llama-3.1-8B" from full path)
         model_basename = os.path.basename(config.model_name_or_path.rstrip("/"))
         short_model_name = model_basename.replace("_", "-")[:30]
@@ -379,6 +491,10 @@ def _render_and_submit(config: EvalConfig) -> None:
                 print(result.stdout)
         else:
             print(f"Skipped submission for task: {task}")
+
+    if local_failures:
+        print(f"Local evaluation failed for tasks: {', '.join(local_failures)}")
+        sys.exit(1)
 
 
 def launch_inspect(argv: Sequence[str]) -> None:
