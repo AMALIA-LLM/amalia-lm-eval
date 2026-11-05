@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=70.1.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -52,10 +52,18 @@ amalia-inspect = "scripts.cli:inspect_main"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["configs*", "tasks*", "scripts*", "inspect*"]
+exclude = [
+    "tasks.amalia-bench.vibe_check", "tasks.amalia-bench.vibe_check.*",
+    "tasks.amalia-bench.alba.processed_alba", "tasks.amalia-bench.alba.processed_alba.*",
+    "tasks.amalia-bench.alba.alba_original", "tasks.amalia-bench.alba.alba_original.*",
+]
+
+[tool.setuptools.cmdclass]
+bdist_wheel = "build_hooks.WheelWithoutDotenv"
 
 [tool.setuptools.package-data]
+"configs" = ["templates/*.j2"]
 "inspect" = ["templates/*.html", "static/*"]
-"tasks.amalia-bench.saudade-pt" = ["binary_track_manifest.json"]
 
 [tool.ruff]
 line-length = 88

@@ -41,11 +41,17 @@ Run this bash script to create a functioning environment (we use conda and CUDA 
 CONDA_HOME=<path_to_conda> ENV_NAME=py312_amalia ./infra/create_conda-env.sh
 ```
 
-Optionally, the script will ask you to pack your environment so that it can be transfered across machines. The package will contain:
+Optionally, the script asks you to pack the environment for transfer to another machine. Before packing, it replaces the editable AMALIA installation with a regular installation that includes benchmark definitions and launcher resources. Prepare any local RULER QA files in the checkout before packing so they are included. The package contains:
+
 - python 3.12
 - cudnn, cuda-nvcc, and cuda-toolkit for CUDA 12.4
 
+The `amalia` command finds bundled tasks and its launch template independently of your working directory. Custom `--templates-file` and `--harness-args.include-path` values remain relative to your working directory. The bundled template is in `configs/templates/launch.sbatch.j2` if you need to copy it for customization.
+
 ### Setting up `.env` (required for run scripts)
+
+The `amalia` CLI loads the nearest `.env` in your current directory or its parents before constructing SLURM presets. Exported environment variables take precedence. Dotenv files are excluded from source distributions and wheels; configure them separately on the destination machine. If a wheel build detects dotenv files in stale build output, it refuses to produce the wheel. Clean those build outputs before retrying.
+
 The helper run scripts (for example in [eval_scripts](infra/eval_scripts)) expect a project-level `.env` file at the repository root. A sample file named `.env_copy` is included to make setup easy.
 
 1. Copy the sample file and rename it to `.env` at the project root:
@@ -90,11 +96,11 @@ You can also use the original `lm-eval` command directly by specifying the tasks
 lm_eval --model hf \
     --model_args pretrained=amalia-llm/AMALIA-9B-0626-DPO \
     --tasks amalia_arc_challenge_chat_mt_pt \
-    --include_path tasks/amalia-bench \
+    --include_path "$(python -c 'from configs.resources import BENCHMARK_PATH; print(BENCHMARK_PATH)')" \
     --output_path ./outputs
 ```
 
-The `--include_path` flag points to the directory containing the AMALIA-Bench task definitions.
+This resolves the task definitions from the installed package. To use your own task definitions, pass their directory to `--include_path`.
 
 ### Quick Visualization Script
 

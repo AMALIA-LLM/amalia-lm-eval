@@ -1,0 +1,8 @@
+include build_hooks.py
+graft tasks/amalia-bench
+prune tasks/amalia-bench/vibe_check
+prune tasks/amalia-bench/alba/processed_alba
+prune tasks/amalia-bench/alba/alba_original
+exclude tasks/amalia-bench/LegalBenchPT/original/trash.txt
+exclude tasks/amalia-bench/mmlu_mt/translation_cache.json
+global-exclude *.py[cod] .env* *.env

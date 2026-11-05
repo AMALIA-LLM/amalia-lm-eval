@@ -112,7 +112,7 @@ task_kwargs_args=()
 {% if value is sameas true %}
 task_kwargs_args+=("--{{ key }}")
 {% elif value is not sameas false and value is not none %}
-task_kwargs_args+=("--{{ key }}" '{{ value }}')
+task_kwargs_args+=("--{{ key }}" {{ value | string | shellquote }})
 {% endif %}
 {% endfor %}
 {% else %}

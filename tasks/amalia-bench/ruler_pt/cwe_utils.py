@@ -45,8 +45,7 @@ import pandas as pd
 from pathlib import Path
 
 # Load Portuguese words from CSV
-# this path might need to be updated
-vocab_path = Path("tasks/amalia-bench/ruler_pt/dataset/Portuguese.csv")
+vocab_path = Path(__file__).resolve().parent / "dataset" / "Portuguese.csv"
 
 # the csv has two columns: "words" and "pos", where "pos" is the part of speech (noun, adjective, verb, etc.)
 # e.g. muito is the word and "adverb, adjective" is the pos

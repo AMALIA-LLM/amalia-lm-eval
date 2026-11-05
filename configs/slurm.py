@@ -5,8 +5,7 @@ from typing import Any
 import os
 import dotenv
 
-# load the env variables from a .env file
-dotenv.load_dotenv()
+dotenv.load_dotenv(dotenv.find_dotenv(usecwd=True))
 
 
 def _remote_hf_cache(subdir: str) -> str | None:
@@ -29,7 +28,6 @@ class SardineConfig:
     time: str = "04:00:00"
     qos: str = "gpu-short"
     job_name: str | None = None
-    templates_file: str = "./templates/launch.sbatch.j2"
     hf_hub_offline: bool = False
     conda_home: str = "/mnt/data-poseidon/giuseppe/miniconda3"
 
@@ -56,9 +54,6 @@ class MarenostrumConfig:
     activate_env: str = (
         os.getenv("ACTIVATE_ENV", "py312_amalia")
     )
-    templates_file: str = (
-        "./templates/launch.sbatch.j2"
-    )
     hf_home: str | None = _remote_hf_cache("huggingface")
     hf_hub_cache: str | None = _remote_hf_cache("huggingface/hub")
     hf_assets_cache: str | None = _remote_hf_cache("huggingface/assets")
@@ -78,7 +73,6 @@ class NovaConfig:
     time: str = "12:00:00"
     job_name: str | None = None
     activate_env: str = os.getenv("ACTIVATE_ENV", "py312_amalia")
-    templates_file: str = "./templates/launch.sbatch.j2"
 
     hf_home: str = "/data/huggingface_cache"
     hf_hub_cache: str = "/data/huggingface_cache/hub"

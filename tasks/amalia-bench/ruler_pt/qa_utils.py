@@ -17,6 +17,7 @@ import itertools  # noqa: I001
 import json
 import random
 from functools import cache
+from pathlib import Path
 
 import datasets
 import requests
@@ -173,7 +174,8 @@ def read_hotpotqa(
 @cache
 def read_hotpotqa() -> tuple[list[dict], list[str]]:
 
-    with open("tasks/amalia-bench/ruler_pt/dataset/pt_hotpotqa_distractor_validation_transformed.json", "r") as f:
+    path = Path(__file__).resolve().parent / "dataset" / "pt_hotpotqa_distractor_validation_transformed.json"
+    with path.open() as f:
         data = json.load(f)
 
     total_docs = [f"{t}\n{''.join(p)}" for d in data for t, p in d["context"]]
