@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # Only the lightweight dependencies the tests and `amalia --help` need;
+      # torch, vllm and lm_eval are intentionally not installed.
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pandas matplotlib "seaborn==0.13.2" "numpy==2.2.6" \
+            "tyro==0.9.35" "Jinja2==3.1.6" "python-dotenv==1.1.1" "pyyaml==6.0.3"
+          python -m pip install --no-deps .
+
+      - name: Run tests
+        env:
+          MPLBACKEND: Agg
+        run: python -m pytest -q tests
+
+      - name: Smoke test CLI
+        working-directory: ${{ runner.temp }}
+        run: amalia --help

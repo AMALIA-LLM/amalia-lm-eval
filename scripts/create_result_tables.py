@@ -202,7 +202,7 @@ def add_tags_to_datasets(task_name: str) -> List[str]:
         if sub_name in task_name.lower():
             tags.extend(task_sub_names[sub_name])
 
-    tags = list(set(tags))  # remove duplicates
+    tags = list(dict.fromkeys(tags))  # remove duplicates, keep first-seen order
 
     if not tags:
         tags.append(Tags.OTHER)
@@ -535,6 +535,20 @@ def simplify_results_df(df: pd.DataFrame, avoid_subcategories: bool) -> pd.DataF
     return simple_df
 
 
+def parse_checkpoints(value: str) -> str:
+    """
+    argparse type for --checkpoints: accepts e.g. "100, 300," and returns "100,300"
+    """
+    items = [item.strip() for item in value.split(",") if item.strip()]
+    try:
+        numbers = [int(item) for item in items]
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"expected comma-separated checkpoint numbers, got '{value}'")
+    if not numbers:
+        raise argparse.ArgumentTypeError(f"expected at least one checkpoint number, got '{value}'")
+    return ",".join(str(number) for number in numbers)
+
+
 def main():
     """
     Main function to execute the script.
@@ -552,7 +566,7 @@ def main():
     parser.add_argument("--exclude_models", type=str, nargs="*", default=None, help="If passed exclude these models from the final results.")
     parser.add_argument("--min_checkpoint", type=int, default=None,
                         help="Minimum checkpoint number to include (e.g., 500 to include only checkpoint-500 and above)")
-    parser.add_argument("--checkpoints", type=str, default=None,
+    parser.add_argument("--checkpoints", type=parse_checkpoints, default=None,
                         help="Comma-separated list of checkpoint numbers to include (e.g., '100,300,500')")
     parser.add_argument("--max_checkpoint", type=int, default=None,
                         help="Maximum checkpoint number to include (e.g., 500 to include only up to checkpoint-500)")
